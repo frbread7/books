@@ -1,0 +1,364 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://frbread7.github.io/books/schemas/book.schema.json",
+  "title": "My Library book manifest",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "id",
+    "slug",
+    "title",
+    "subtitle",
+    "description",
+    "category",
+    "tags",
+    "status",
+    "repositoryUrl",
+    "productionUrl",
+    "languages",
+    "version",
+    "lastUpdated",
+    "chapterCount",
+    "chapters",
+    "experiments",
+    "prerequisites",
+    "relatedBooks",
+    "attribution",
+    "cover",
+    "theme"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "title": {
+      "$ref": "#/$defs/localized"
+    },
+    "subtitle": {
+      "$ref": "#/$defs/localized"
+    },
+    "description": {
+      "$ref": "#/$defs/localized"
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "in-progress",
+        "published",
+        "archived"
+      ]
+    },
+    "repositoryUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "productionUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "languageUrls": {
+      "type": "object",
+      "minProperties": 1,
+      "properties": {
+        "en": {
+          "type": "string",
+          "format": "uri"
+        },
+        "ko": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "additionalProperties": false
+    },
+    "languages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": [
+          "en",
+          "ko"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date"
+    },
+    "chapterCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "chapters": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/chapter"
+      }
+    },
+    "experiments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/experiment"
+      }
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "relatedBooks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "attribution": {
+      "type": "object",
+      "required": [
+        "license",
+        "repositoryUrl",
+        "notes"
+      ],
+      "properties": {
+        "license": {
+          "type": "string"
+        },
+        "repositoryUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "cover": {
+      "type": "string",
+      "pattern": "^assets/"
+    },
+    "theme": {
+      "type": "object",
+      "required": [
+        "accent",
+        "accentSoft",
+        "motif"
+      ],
+      "properties": {
+        "accent": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "accentSoft": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "motif": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "publicationEvidence": {
+      "type": "object",
+      "required": [
+        "releaseUrl",
+        "releasePublishedAt",
+        "contentReview",
+        "siteVerification",
+        "chapterVerification"
+      ],
+      "properties": {
+        "releaseUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "releasePublishedAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "contentReview": {
+          "type": "string"
+        },
+        "siteVerification": {
+          "type": "string"
+        },
+        "chapterVerification": {
+          "type": "string"
+        },
+        "experimentVerification": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "localized": {
+      "type": "object",
+      "required": [
+        "en",
+        "ko"
+      ],
+      "properties": {
+        "en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ko": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "chapter": {
+      "type": "object",
+      "required": [
+        "id",
+        "number",
+        "title",
+        "urls",
+        "topics"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "$ref": "#/$defs/localized"
+        },
+        "urls": {
+          "type": "object",
+          "minProperties": 1,
+          "properties": {
+            "en": {
+              "type": "string",
+              "format": "uri"
+            },
+            "ko": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "additionalProperties": false
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "experiment": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "chapterId",
+        "url",
+        "kind"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "$ref": "#/$defs/localized"
+        },
+        "chapterId": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "kind": {
+          "$ref": "#/$defs/localized"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "published"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "publicationEvidence"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "published"
+          },
+          "experiments": {
+            "minItems": 1
+          }
+        },
+        "required": [
+          "status",
+          "experiments"
+        ]
+      },
+      "then": {
+        "properties": {
+          "publicationEvidence": {
+            "required": [
+              "experimentVerification"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "categories": [
+    {
+      "id": "semiconductor",
+      "name": {
+        "en": "Semiconductor Engineering",
+        "ko": "반도체 공학"
+      },
+      "description": {
+        "en": "From device physics and fabrication to yield, test, reliability, and product-specific engineering.",
+        "ko": "소자 물리와 제조 공정부터 수율, 시험, 신뢰성 및 제품별 공학까지 다룹니다."
+      },
+      "color": "#315d6d",
+      "map": [
+        {
+          "id": "foundations",
+          "label": {
+            "en": "Physics & devices",
+            "ko": "물리·소자"
+          },
+          "topics": [
+            "semiconductor physics",
+            "devices"
+          ],
+          "connections": [
+            {
+              "bookId": "pmicbook",
+              "chapterId": "devices"
+            }
+          ]
+        },
+        {
+          "id": "design",
+          "label": {
+            "en": "Circuits & design",
+            "ko": "회로·설계"
+          },
+          "topics": [
+            "circuits",
+            "specifications"
+          ],
+          "connections": [
+            {
+              "bookId": "pmicbook",
+              "chapterId": "fundamentals"
+            },
+            {
+              "bookId": "pmicbook",
+              "chapterId": "references-ldo"
+            },
+            {
+              "bookId": "pmicbook",
+              "chapterId": "switching"
+            }
+          ]
+        },
+        {
+          "id": "fabrication",
+          "label": {
+            "en": "Fabrication & integration",
+            "ko": "제조·통합"
+          },
+          "topics": [
+            "fab processes",
+            "BCD integration"
+          ],
+          "connections": [
+            {
+              "bookId": "pmicbook",
+              "chapterId": "bcd"
+            },
+            {
+              "bookId": "pmicbook",
+              "chapterId": "wafer"
+            },
+            {
+              "bookId": "pmicbook",
+              "chapterId": "oxidation"
+            },
+            {
+              "bookId": "pmicbook",
+              "chapterId": "litho"
+            },
+            {
+              "bookId": "pmicbook",
+              "chapterId": "etch"
+            },
+            {
+              "bookId": "pmicbook",
+              "chapterId": "deposition"
+            },
+            {
+              "bookId": "pmicbook",
+              "chapterId": "implant"
+            },
+            {
+              "bookId": "pmicbook",
+              "chapterId": "anneal"
+            },
+            {
+              "bookId": "pmicbook",
+              "chapterId": "cmp"
+            },
+            {
+              "bookId": "pmicbook",
+              "chapterId": "integration"
+            }
+          ]
+        },
+        {
+          "id": "implementation",
+          "label": {
+            "en": "Layout & thermal",
+            "ko": "레이아웃·열"
+          },
+          "topics": [
+            "layout",
+            "parasitics",
+            "thermal"
+          ],
+          "connections": [
+            {
+              "bookId": "pmicbook",
+              "chapterId": "metal"
+            },
+            {
+              "bookId": "pmicbook",
+              "chapterId": "layout"
+            }
+          ]
+        },
+        {
+          "id": "test-yield",
+          "label": {
+            "en": "Metrology, test & yield",
+            "ko": "계측·시험·수율"
+          },
+          "topics": [
+            "WAT",
+            "EDS",
+            "inline metrology",
+            "yield"
+          ],
+          "connections": [
+            {
+              "bookId": "pmicbook",
+              "chapterId": "metrology"
+            }
+          ]
+        },
+        {
+          "id": "reliability",
+          "label": {
+            "en": "Reliability & failure analysis",
+            "ko": "신뢰성·고장 분석"
+          },
+          "topics": [
+            "reliability",
+            "failure analysis"
+          ],
+          "connections": [
+            {
+              "bookId": "pmicbook",
+              "chapterId": "reliability"
+            },
+            {
+              "bookId": "pmicbook",
+              "chapterId": "failure-analysis"
+            }
+          ]
+        },
+        {
+          "id": "products",
+          "label": {
+            "en": "Products & applications",
+            "ko": "제품·응용"
+          },
+          "topics": [
+            "PMIC",
+            "power devices",
+            "memory",
+            "sensors"
+          ],
+          "connections": [
+            {
+              "bookId": "pmicbook",
+              "chapterId": "overview"
+            },
+            {
+              "bookId": "pmicbook",
+              "chapterId": "advanced"
+            },
+            {
+              "bookId": "pmicbook",
+              "chapterId": "lab"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "name": {
+        "en": "Electronics",
+        "ko": "전자"
+      },
+      "description": {
+        "en": "Future area for circuit, hardware, and system textbooks.",
+        "ko": "회로, 하드웨어 및 시스템 교재를 추가할 미래 분야입니다."
+      },
+      "color": "#8a633d",
+      "map": []
+    },
+    {
+      "id": "computing",
+      "name": {
+        "en": "Computing",
+        "ko": "컴퓨팅"
+      },
+      "description": {
+        "en": "Future area for computing and software textbooks.",
+        "ko": "컴퓨팅 및 소프트웨어 교재를 추가할 미래 분야입니다."
+      },
+      "color": "#665d8c",
+      "map": []
+    },
+    {
+      "id": "ai",
+      "name": {
+        "en": "Artificial Intelligence",
+        "ko": "인공지능"
+      },
+      "description": {
+        "en": "Future area for practical and technical AI textbooks.",
+        "ko": "실용 및 기술 AI 교재를 추가할 미래 분야입니다."
+      },
+      "color": "#5b775f",
+      "map": []
+    },
+    {
+      "id": "practical-knowledge",
+      "name": {
+        "en": "Practical Knowledge",
+        "ko": "실용 지식"
+      },
+      "description": {
+        "en": "A flexible home for future books beyond engineering.",
+        "ko": "공학 외의 미래 교재를 담을 유연한 분야입니다."
+      },
+      "color": "#8a5868",
+      "map": []
+    }
+  ]
+}

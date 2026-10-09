@@ -1,0 +1,466 @@
+{
+  "schemaVersion": 1,
+  "books": [
+    {
+      "id": "devicephysicsbook",
+      "title": {
+        "en": "DevicePhysicsBook",
+        "ko": "DevicePhysicsBook"
+      },
+      "subtitle": {
+        "en": "Semiconductor physics and devices",
+        "ko": "반도체 물리와 소자"
+      },
+      "status": "planned",
+      "priority": 1,
+      "audience": {
+        "en": "Engineering students and practitioners who need device foundations across process nodes and product families.",
+        "ko": "공정 세대와 제품군을 아우르는 소자 기초가 필요한 공학 학습자와 실무자."
+      },
+      "questions": {
+        "en": [
+          "How do bands and carrier statistics set material behavior?",
+          "How do transport, junctions, and fields shape device operation?",
+          "What changes across MOSFET, BJT, and optoelectronic devices?"
+        ],
+        "ko": [
+          "밴드와 캐리어 통계는 재료 특성을 어떻게 결정할까?",
+          "수송, 접합, 전계는 소자 동작을 어떻게 좌우할까?",
+          "MOSFET, BJT, 광소자 사이에는 어떤 차이가 있을까?"
+        ]
+      },
+      "chapterGroups": {
+        "en": [
+          "Crystal structure and band diagrams",
+          "Carrier statistics and transport",
+          "PN and Schottky junctions",
+          "MOS capacitors and MOSFETs",
+          "BJT and optoelectronic devices",
+          "Scaling and device limits"
+        ],
+        "ko": [
+          "결정 구조와 밴드 다이어그램",
+          "캐리어 통계와 수송",
+          "PN·쇼트키 접합",
+          "MOS 커패시터와 MOSFET",
+          "BJT와 광소자",
+          "스케일링과 소자 한계"
+        ]
+      },
+      "prerequisites": {
+        "en": [
+          "Basic algebra and introductory circuit concepts; no published prerequisite book is required."
+        ],
+        "ko": [
+          "기초 대수와 입문 회로 개념을 권장하며 특정 교재를 필수로 요구하지 않습니다."
+        ]
+      },
+      "relationships": {
+        "en": "Provides foundations used by PMICBook's device chapters and planned fabrication, inline-metrology, and power-device books. Keep PMIC-specific BCD choices in PMICBook.",
+        "ko": "PMICBook의 소자 장과 계획 중인 제조·인라인 계측·전력 소자 교재의 기초를 제공합니다. PMIC 전용 BCD 선택은 PMICBook에 둡니다."
+      },
+      "simulatorIdeas": {
+        "en": [
+          "Band and carrier-occupancy explorer",
+          "Doping-to-junction-width comparison",
+          "MOS capacitor band-bending explorer"
+        ],
+        "ko": [
+          "밴드와 캐리어 점유 탐색기",
+          "도핑에 따른 접합 폭 비교",
+          "MOS 커패시터 밴드 굽힘 탐색기"
+        ]
+      },
+      "differentiation": {
+        "en": "General device physics and cross-device principles; PMICBook retains application-specific BCD and power-management context.",
+        "ko": "범용 소자 물리와 소자 간 원리를 다루며 PMICBook은 응용별 BCD와 전력관리 맥락을 유지합니다."
+      }
+    },
+    {
+      "id": "fabprocessbook",
+      "title": {
+        "en": "FabProcessBook",
+        "ko": "FabProcessBook"
+      },
+      "subtitle": {
+        "en": "Semiconductor fabrication fundamentals",
+        "ko": "반도체 제조 공정 기초"
+      },
+      "status": "planned",
+      "priority": 2,
+      "audience": {
+        "en": "New fab engineers, process-integration learners, and device engineers who need a process-module map.",
+        "ko": "팹 신입 엔지니어, 공정 통합 학습자, 공정 모듈 지도가 필요한 소자 엔지니어."
+      },
+      "questions": {
+        "en": [
+          "How do lithography, etch, deposition, implant, anneal, and CMP interact?",
+          "Which process choices create geometry, materials, and defect tradeoffs?",
+          "How does integration order constrain the final device?"
+        ],
+        "ko": [
+          "리소그래피, 식각, 증착, 주입, 어닐, CMP는 어떻게 연결될까?",
+          "공정 선택은 형상, 재료, 결함의 절충을 어떻게 만들까?",
+          "공정 통합 순서는 최종 소자를 어떻게 제한할까?"
+        ]
+      },
+      "chapterGroups": {
+        "en": [
+          "Wafer and film foundations",
+          "Lithography and pattern transfer",
+          "Etch and deposition",
+          "Doping and thermal processing",
+          "Planarization and integration",
+          "Process control and limits"
+        ],
+        "ko": [
+          "웨이퍼와 박막 기초",
+          "리소그래피와 패턴 전사",
+          "식각과 증착",
+          "도핑과 열 공정",
+          "평탄화와 통합",
+          "공정 제어와 한계"
+        ]
+      },
+      "prerequisites": {
+        "en": [
+          "DevicePhysicsBook is recommended; PMICBook chapters 5–9 are a useful application-oriented primer."
+        ],
+        "ko": [
+          "DevicePhysicsBook을 권장하며 PMICBook 5–9장은 응용 중심 입문 자료입니다."
+        ]
+      },
+      "relationships": {
+        "en": "Teach process modules and integration principles broadly. Link PMICBook for its BCD-specific examples rather than repeating its product flow.",
+        "ko": "공정 모듈과 통합 원리를 폭넓게 다룹니다. 제품별 BCD 흐름은 반복하지 않고 PMICBook 예시로 연결합니다."
+      },
+      "simulatorIdeas": {
+        "en": [
+          "Process-stack sequencing explorer",
+          "Etch profile and selectivity comparison",
+          "Thermal-budget accumulation map"
+        ],
+        "ko": [
+          "공정 스택 순서 탐색기",
+          "식각 프로파일과 선택비 비교",
+          "열 예산 누적 지도"
+        ]
+      },
+      "differentiation": {
+        "en": "Foundational unit processes across semiconductor technologies, not a foundry recipe or a PMICBook rewrite.",
+        "ko": "여러 반도체 기술의 단위 공정 기초를 다루며 파운드리 레시피나 PMICBook의 재작성본이 아닙니다."
+      }
+    },
+    {
+      "id": "inlinemetrologybook",
+      "title": {
+        "en": "InlineMetrologyBook",
+        "ko": "InlineMetrologyBook"
+      },
+      "subtitle": {
+        "en": "Inline monitoring, measurement, WAT, and EDS",
+        "ko": "인라인 모니터링·계측·WAT·EDS"
+      },
+      "status": "planned",
+      "priority": 3,
+      "audience": {
+        "en": "Process-control, metrology, yield, and product engineers connecting measurements to decisions.",
+        "ko": "계측 결과를 판단으로 연결하는 공정 제어·계측·수율·제품 엔지니어."
+      },
+      "questions": {
+        "en": [
+          "What does each inline measurement actually observe?",
+          "How do sampling, calibration, and control limits affect conclusions?",
+          "How do WAT and EDS results connect to process and product behavior?"
+        ],
+        "ko": [
+          "각 인라인 계측은 실제로 무엇을 관찰할까?",
+          "샘플링, 보정, 관리 한계는 결론에 어떤 영향을 줄까?",
+          "WAT와 EDS 결과는 공정 및 제품 동작과 어떻게 연결될까?"
+        ]
+      },
+      "chapterGroups": {
+        "en": [
+          "Measurement systems and uncertainty",
+          "Film, dimension, and defect metrology",
+          "Sampling and SPC",
+          "WAT structures and electrical parameters",
+          "EDS bins and signatures",
+          "Monitor-to-action workflows"
+        ],
+        "ko": [
+          "측정 시스템과 불확도",
+          "막·치수·결함 계측",
+          "샘플링과 SPC",
+          "WAT 구조와 전기 파라미터",
+          "EDS 빈과 시그니처",
+          "모니터에서 조치까지"
+        ]
+      },
+      "prerequisites": {
+        "en": [
+          "FabProcessBook or introductory process knowledge; basic statistics."
+        ],
+        "ko": [
+          "FabProcessBook 또는 입문 공정 지식과 기초 통계를 권장합니다."
+        ]
+      },
+      "relationships": {
+        "en": "Expand measurement and monitoring beyond PMICBook's production-test overview; connect to YieldDefectBook for downstream analysis.",
+        "ko": "PMICBook의 양산 시험 개요를 넘어 계측과 모니터링을 확장하고 후속 분석은 YieldDefectBook과 연결합니다."
+      },
+      "simulatorIdeas": {
+        "en": [
+          "Gauge repeatability and reproducibility explorer",
+          "Control-chart sampling sensitivity",
+          "WAT-to-EDS bin correlation board"
+        ],
+        "ko": [
+          "계측 반복성과 재현성 탐색기",
+          "관리도 샘플링 민감도",
+          "WAT-EDS 빈 상관 보드"
+        ]
+      },
+      "differentiation": {
+        "en": "Measurement systems, monitor design, and data interpretation; it does not duplicate PMIC circuit characterization lessons.",
+        "ko": "측정 시스템, 모니터 설계, 데이터 해석에 집중하며 PMIC 회로 특성 평가 장을 반복하지 않습니다."
+      }
+    },
+    {
+      "id": "yielddefectbook",
+      "title": {
+        "en": "YieldDefectBook",
+        "ko": "YieldDefectBook"
+      },
+      "subtitle": {
+        "en": "Yield engineering, defects, and statistical analysis",
+        "ko": "수율 공학·결함·통계 분석"
+      },
+      "status": "planned",
+      "priority": 4,
+      "audience": {
+        "en": "Yield, process, product, and failure-analysis engineers who need evidence-led defect reasoning.",
+        "ko": "근거 중심의 결함 분석이 필요한 수율·공정·제품·고장 분석 엔지니어."
+      },
+      "questions": {
+        "en": [
+          "How do defect populations and process variation affect yield?",
+          "How can wafer maps distinguish random, clustered, and systematic patterns?",
+          "How should evidence be ranked before assigning root cause?"
+        ],
+        "ko": [
+          "결함 분포와 공정 변동은 수율에 어떤 영향을 줄까?",
+          "웨이퍼 맵에서 무작위·군집·체계 패턴을 어떻게 구분할까?",
+          "근본 원인을 지정하기 전에 증거를 어떻게 평가할까?"
+        ]
+      },
+      "chapterGroups": {
+        "en": [
+          "Yield definitions and baselines",
+          "Defect density and critical area",
+          "Wafer-map signatures",
+          "Sampling and statistical tests",
+          "Commonality and excursion analysis",
+          "Corrective-action evidence"
+        ],
+        "ko": [
+          "수율 정의와 기준선",
+          "결함 밀도와 임계 면적",
+          "웨이퍼 맵 시그니처",
+          "샘플링과 통계 검정",
+          "공통성 및 이상 분석",
+          "시정 조치 근거"
+        ]
+      },
+      "prerequisites": {
+        "en": [
+          "Basic probability and semiconductor process context; InlineMetrologyBook is recommended."
+        ],
+        "ko": [
+          "기초 확률과 반도체 공정 맥락을 권장하며 InlineMetrologyBook을 선행 학습 자료로 권합니다."
+        ]
+      },
+      "relationships": {
+        "en": "Focus on fab/product yield and defect statistics; leave physical failure-analysis methods to FailureAnalysisBook.",
+        "ko": "팹·제품 수율과 결함 통계에 집중하고 물리적 고장 분석 방법은 FailureAnalysisBook에 둡니다."
+      },
+      "simulatorIdeas": {
+        "en": [
+          "Defect-cluster wafer-map classifier",
+          "Yield model assumption comparison",
+          "Excursion commonality timeline"
+        ],
+        "ko": [
+          "결함 군집 웨이퍼 맵 분류기",
+          "수율 모델 가정 비교",
+          "이상 공통성 타임라인"
+        ]
+      },
+      "differentiation": {
+        "en": "Statistical yield and defect reasoning, not a replacement for metrology or physical failure analysis.",
+        "ko": "통계적 수율·결함 추론을 다루며 계측이나 물리적 고장 분석을 대체하지 않습니다."
+      }
+    },
+    {
+      "id": "failureanalysisbook",
+      "title": {
+        "en": "FailureAnalysisBook",
+        "ko": "FailureAnalysisBook"
+      },
+      "subtitle": {
+        "en": "Electrical and physical failure analysis",
+        "ko": "전기·물리 고장 분석"
+      },
+      "status": "planned",
+      "priority": 5,
+      "audience": {
+        "en": "Product, test, reliability, and laboratory engineers planning evidence-driven FA workflows.",
+        "ko": "증거 중심 FA 흐름을 설계하는 제품·시험·신뢰성·분석실 엔지니어."
+      },
+      "questions": {
+        "en": [
+          "How do electrical symptoms narrow candidate mechanisms?",
+          "Which localization and physical-analysis method can test each hypothesis?",
+          "How do sample preparation and method limits affect evidence?"
+        ],
+        "ko": [
+          "전기 증상은 가능한 메커니즘을 어떻게 좁힐까?",
+          "각 가설을 검증할 위치 분석 및 물리 분석 방법은 무엇일까?",
+          "시료 준비와 분석 한계는 증거에 어떤 영향을 줄까?"
+        ]
+      },
+      "chapterGroups": {
+        "en": [
+          "Failure signatures and containment",
+          "Electrical localization",
+          "Emission and thermal methods",
+          "OBIRCH and laser stimulation",
+          "Cross-section and deprocessing",
+          "SEM, TEM, EDS, and evidence reports"
+        ],
+        "ko": [
+          "고장 시그니처와 격리",
+          "전기적 위치 분석",
+          "발광·열 분석법",
+          "OBIRCH와 레이저 자극",
+          "단면 분석과 디프로세싱",
+          "SEM·TEM·EDS와 증거 보고서"
+        ]
+      },
+      "prerequisites": {
+        "en": [
+          "Device and test fundamentals; ReliabilityBook and InlineMetrologyBook are useful context."
+        ],
+        "ko": [
+          "소자와 시험 기초를 권장하며 신뢰성·인라인 계측 교재가 도움이 됩니다."
+        ]
+      },
+      "relationships": {
+        "en": "Deepen PMICBook's introduction to failure analysis with general methods, artifacts, and decision limits; link shared PMIC examples instead of rewriting them.",
+        "ko": "PMICBook의 고장 분석 입문을 범용 방법, 아티팩트, 판단 한계로 확장하고 PMIC 예시는 다시 쓰지 않고 연결합니다."
+      },
+      "simulatorIdeas": {
+        "en": [
+          "Symptom-to-method decision tree",
+          "Evidence confidence ledger",
+          "Localization-method resolution tradeoff"
+        ],
+        "ko": [
+          "증상-분석법 의사결정 트리",
+          "증거 신뢰도 원장",
+          "위치 분석법 해상도 절충 탐색기"
+        ]
+      },
+      "differentiation": {
+        "en": "Method selection and evidence interpretation; it does not claim proprietary recipes or replace laboratory qualification.",
+        "ko": "분석법 선택과 증거 해석에 집중하며 독점 레시피를 주장하거나 분석실 검증을 대체하지 않습니다."
+      }
+    },
+    {
+      "id": "powerdevicebook",
+      "title": {
+        "en": "PowerDeviceBook",
+        "ko": "PowerDeviceBook"
+      },
+      "subtitle": {
+        "en": "Power devices, technology, and integration",
+        "ko": "전력 소자·기술·통합"
+      },
+      "status": "planned",
+      "priority": 6,
+      "audience": {
+        "en": "Power-device, process, and application engineers comparing device structures and technology choices.",
+        "ko": "소자 구조와 기술 선택을 비교하는 전력 소자·공정·응용 엔지니어."
+      },
+      "questions": {
+        "en": [
+          "How do silicon, SiC, and GaN device structures trade voltage, resistance, and switching behavior?",
+          "How do termination, field shaping, and packaging affect usable ratings?",
+          "Which comparisons are technology-level and which require product-specific data?"
+        ],
+        "ko": [
+          "실리콘, SiC, GaN 소자는 전압·저항·스위칭 특성에서 어떻게 절충할까?",
+          "종단, 전계 제어, 패키징은 사용 가능한 정격에 어떤 영향을 줄까?",
+          "기술 수준 비교와 제품별 데이터가 필요한 비교를 어떻게 구분할까?"
+        ]
+      },
+      "chapterGroups": {
+        "en": [
+          "Power-device requirements",
+          "Silicon MOSFET and IGBT structures",
+          "LDMOS and superjunction concepts",
+          "SiC and GaN devices",
+          "Termination and packaging",
+          "Characterization and reliability boundaries"
+        ],
+        "ko": [
+          "전력 소자 요구사항",
+          "실리콘 MOSFET·IGBT 구조",
+          "LDMOS·초접합 개념",
+          "SiC·GaN 소자",
+          "종단과 패키징",
+          "특성 평가와 신뢰성 한계"
+        ]
+      },
+      "prerequisites": {
+        "en": [
+          "DevicePhysicsBook and basic power-electronics concepts; PMICBook chapters 5–7 introduce its BCD-focused scope."
+        ],
+        "ko": [
+          "DevicePhysicsBook과 기초 전력전자 개념을 권장하며 PMICBook 5–7장에서 BCD 중심 범위를 소개합니다."
+        ]
+      },
+      "relationships": {
+        "en": "Extend beyond PMICBook's integrated BCD and LDMOS context into discrete and module-level power-device technologies; cross-link shared device physics.",
+        "ko": "PMICBook의 집적 BCD·LDMOS 맥락을 넘어 개별 소자와 모듈 수준 전력 기술을 다루고 공통 소자 물리는 서로 연결합니다."
+      },
+      "simulatorIdeas": {
+        "en": [
+          "Specific on-resistance versus blocking-voltage comparison",
+          "Switching-loss boundary explorer",
+          "Device-technology selection matrix"
+        ],
+        "ko": [
+          "항복 전압에 따른 비저항 비교",
+          "스위칭 손실 경계 탐색기",
+          "소자 기술 선택 매트릭스"
+        ]
+      },
+      "differentiation": {
+        "en": "Power-semiconductor technology and structures, not PMIC circuit architecture or a foundry-qualified design tool.",
+        "ko": "전력 반도체 기술과 구조를 다루며 PMIC 회로 아키텍처나 파운드리 검증 설계 도구가 아닙니다."
+      }
+    }
+  ],
+  "productSpecific": {
+    "title": {
+      "en": "Product-specific textbooks",
+      "ko": "제품별 교재"
+    },
+    "description": {
+      "en": "A flexible editorial space for future memory, sensor, display, analog, packaging, and other product-focused books when a clear audience and distinct learning need are established.",
+      "ko": "명확한 독자와 학습 필요가 확인되면 메모리, 센서, 디스플레이, 아날로그, 패키징 등 제품 중심 교재를 추가할 유연한 편집 영역입니다."
+    },
+    "status": "editorial-space"
+  }
+}

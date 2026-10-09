@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "paths": [
+    {
+      "id": "pmic-systems-to-silicon",
+      "title": {
+        "en": "From power rails to silicon",
+        "ko": "전원 레일부터 실리콘까지"
+      },
+      "audience": {
+        "en": "Readers beginning with PMIC system needs and wanting one connected path into BCD implementation.",
+        "ko": "PMIC 시스템 요구부터 BCD 구현까지 하나의 흐름으로 학습하려는 독자."
+      },
+      "outcome": {
+        "en": "Explain how system specifications connect to circuits, devices, BCD integration, and test.",
+        "ko": "시스템 사양이 회로, 소자, BCD 통합, 시험과 어떻게 연결되는지 설명합니다."
+      },
+      "steps": [
+        {
+          "bookId": "pmicbook",
+          "chapterId": "overview",
+          "why": {
+            "en": "Start with rails, domains, loads, and sequencing.",
+            "ko": "전원 레일, 도메인, 부하, 시퀀싱부터 시작합니다."
+          }
+        },
+        {
+          "bookId": "pmicbook",
+          "chapterId": "fundamentals",
+          "why": {
+            "en": "Translate system needs into regulation and efficiency measures.",
+            "ko": "시스템 요구를 레귤레이션과 효율 지표로 연결합니다."
+          }
+        },
+        {
+          "bookId": "pmicbook",
+          "chapterId": "devices",
+          "why": {
+            "en": "Review the semiconductor behavior behind PMIC devices.",
+            "ko": "PMIC 소자에 쓰이는 반도체 동작을 살펴봅니다."
+          }
+        },
+        {
+          "bookId": "pmicbook",
+          "chapterId": "bcd",
+          "why": {
+            "en": "See why bipolar, CMOS, and high-voltage devices share a platform.",
+            "ko": "바이폴라, CMOS, 고전압 소자가 한 플랫폼에 통합되는 이유를 살펴봅니다."
+          }
+        },
+        {
+          "bookId": "pmicbook",
+          "chapterId": "integration",
+          "why": {
+            "en": "Connect process modules to a carefully bounded integration example.",
+            "ko": "공정 모듈을 한계가 명시된 통합 예시와 연결합니다."
+          }
+        },
+        {
+          "bookId": "pmicbook",
+          "chapterId": "metrology",
+          "why": {
+            "en": "Finish by connecting the design to characterization and production test.",
+            "ko": "특성 평가와 양산 시험으로 학습을 마무리합니다."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pmic-process-and-reliability",
+      "title": {
+        "en": "Process choices, reliability, and failure evidence",
+        "ko": "공정 선택·신뢰성·고장 증거"
+      },
+      "audience": {
+        "en": "Readers who know basic devices and want to connect BCD process choices to measurement and failure analysis.",
+        "ko": "소자 기초를 알고 BCD 공정 선택을 계측 및 고장 분석과 연결하려는 독자."
+      },
+      "outcome": {
+        "en": "Trace selected fabrication and layout concepts through characterization, reliability, and failure analysis.",
+        "ko": "제조와 레이아웃 개념을 특성 평가, 신뢰성, 고장 분석까지 연결합니다."
+      },
+      "steps": [
+        {
+          "bookId": "pmicbook",
+          "chapterId": "implant",
+          "why": {
+            "en": "Study doping profiles and mask interactions in the BCD context.",
+            "ko": "BCD 맥락에서 도핑 프로파일과 마스크 영향을 살펴봅니다."
+          }
+        },
+        {
+          "bookId": "pmicbook",
+          "chapterId": "layout",
+          "why": {
+            "en": "Connect physical implementation to parasitics and thermal behavior.",
+            "ko": "물리 구현을 기생 성분과 열 특성에 연결합니다."
+          }
+        },
+        {
+          "bookId": "pmicbook",
+          "chapterId": "metrology",
+          "why": {
+            "en": "Establish what the production measurements can show.",
+            "ko": "양산 측정으로 확인할 수 있는 내용을 파악합니다."
+          }
+        },
+        {
+          "bookId": "pmicbook",
+          "chapterId": "reliability",
+          "why": {
+            "en": "Relate operating stress to reliability mechanisms.",
+            "ko": "동작 스트레스를 신뢰성 메커니즘과 연결합니다."
+          }
+        },
+        {
+          "bookId": "pmicbook",
+          "chapterId": "failure-analysis",
+          "why": {
+            "en": "Connect electrical symptoms to physical evidence and methods.",
+            "ko": "전기적 증상을 물리적 증거와 분석 방법에 연결합니다."
+          }
+        }
+      ]
+    }
+  ]
+}

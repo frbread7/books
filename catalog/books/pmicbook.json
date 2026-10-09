@@ -1,0 +1,542 @@
+{
+  "schemaVersion": 1,
+  "id": "pmicbook",
+  "slug": "pmicbook",
+  "title": {
+    "en": "PMICBook",
+    "ko": "PMICBook"
+  },
+  "subtitle": {
+    "en": "Power Management IC Technology",
+    "ko": "전력관리 IC 기술"
+  },
+  "description": {
+    "en": "An interactive engineering textbook that connects PMIC systems and specifications to circuits, semiconductor devices, BCD technology, fabrication and integration, layout, characterization, reliability, and failure analysis.",
+    "ko": "PMIC 시스템과 회로를 반도체 소자, BCD 기술, 제조 공정, 레이아웃, 시험 및 신뢰성과 연결하는 인터랙티브 공학 교재입니다."
+  },
+  "category": "semiconductor",
+  "tags": [
+    "power management",
+    "PMIC",
+    "BCD",
+    "power devices",
+    "fabrication",
+    "characterization",
+    "reliability",
+    "failure analysis"
+  ],
+  "status": "published",
+  "repositoryUrl": "https://github.com/frbread7/pmicbook",
+  "productionUrl": "https://frbread7.github.io/pmicbook/",
+  "languages": [
+    "en",
+    "ko"
+  ],
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-06",
+  "chapterCount": 25,
+  "chapters": [
+    {
+      "id": "overview",
+      "number": 1,
+      "title": {
+        "en": "PMIC Systems and Power Domains",
+        "ko": "PMIC 시스템과 전원 도메인"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/overview.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/overview.html"
+      },
+      "topics": [
+        "systems",
+        "power rails"
+      ]
+    },
+    {
+      "id": "fundamentals",
+      "number": 2,
+      "title": {
+        "en": "PMIC Specifications and Fundamentals",
+        "ko": "PMIC 사양과 기초"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/fundamentals.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/fundamentals.html"
+      },
+      "topics": [
+        "specifications",
+        "efficiency",
+        "transients"
+      ]
+    },
+    {
+      "id": "references-ldo",
+      "number": 3,
+      "title": {
+        "en": "References, Bias, and LDOs",
+        "ko": "기준전압, 바이어스 및 LDO"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/references-ldo.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/references-ldo.html"
+      },
+      "topics": [
+        "references",
+        "LDO",
+        "feedback"
+      ]
+    },
+    {
+      "id": "switching",
+      "number": 4,
+      "title": {
+        "en": "Switching and Power-Path Circuits",
+        "ko": "스위칭 및 전원 경로 회로"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/switching.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/switching.html"
+      },
+      "topics": [
+        "buck",
+        "boost",
+        "power path"
+      ]
+    },
+    {
+      "id": "devices",
+      "number": 5,
+      "title": {
+        "en": "Semiconductor Devices for PMICs",
+        "ko": "PMIC용 반도체 소자"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/devices.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/devices.html"
+      },
+      "topics": [
+        "semiconductor devices",
+        "MOSFET",
+        "BJT"
+      ]
+    },
+    {
+      "id": "bcd",
+      "number": 6,
+      "title": {
+        "en": "BCD Technology Architecture",
+        "ko": "BCD 기술 아키텍처"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/bcd.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/bcd.html"
+      },
+      "topics": [
+        "BCD",
+        "isolation",
+        "integration"
+      ]
+    },
+    {
+      "id": "hv-devices",
+      "number": 7,
+      "title": {
+        "en": "High-Voltage MOS and LDMOS",
+        "ko": "고전압 MOS 및 LDMOS"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/hv-devices.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/hv-devices.html"
+      },
+      "topics": [
+        "LDMOS",
+        "drift region",
+        "breakdown"
+      ]
+    },
+    {
+      "id": "passives",
+      "number": 8,
+      "title": {
+        "en": "Integrated Passive Devices",
+        "ko": "집적 수동소자"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/passives.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/passives.html"
+      },
+      "topics": [
+        "resistors",
+        "capacitors",
+        "parasitics"
+      ]
+    },
+    {
+      "id": "wafer",
+      "number": 9,
+      "title": {
+        "en": "Starting Substrate, Wells, and Isolation",
+        "ko": "기판, 웰 및 절연"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/wafer.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/wafer.html"
+      },
+      "topics": [
+        "substrate",
+        "wells",
+        "isolation"
+      ]
+    },
+    {
+      "id": "oxidation",
+      "number": 10,
+      "title": {
+        "en": "Gate Dielectrics and Field Structures",
+        "ko": "게이트 절연막 및 전계 구조"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/oxidation.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/oxidation.html"
+      },
+      "topics": [
+        "dielectrics",
+        "field plates",
+        "thermal budget"
+      ]
+    },
+    {
+      "id": "litho",
+      "number": 11,
+      "title": {
+        "en": "Lithography and Resist Patterning",
+        "ko": "리소그래피와 포토레지스트 패터닝"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/litho.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/litho.html"
+      },
+      "topics": [
+        "lithography",
+        "resist",
+        "patterning"
+      ]
+    },
+    {
+      "id": "etch",
+      "number": 12,
+      "title": {
+        "en": "Etch, Isolation, and Contacts",
+        "ko": "식각, 절연 및 콘택트"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/etch.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/etch.html"
+      },
+      "topics": [
+        "etch",
+        "contacts",
+        "selectivity"
+      ]
+    },
+    {
+      "id": "deposition",
+      "number": 13,
+      "title": {
+        "en": "Deposition and Epitaxy",
+        "ko": "박막 증착과 에피택시"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/deposition.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/deposition.html"
+      },
+      "topics": [
+        "CVD",
+        "ALD",
+        "epitaxy"
+      ]
+    },
+    {
+      "id": "implant",
+      "number": 14,
+      "title": {
+        "en": "Doping and Well/Drift Implants",
+        "ko": "웰·드리프트 도핑과 이온 주입"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/implant.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/implant.html"
+      },
+      "topics": [
+        "implant",
+        "doping",
+        "junctions"
+      ]
+    },
+    {
+      "id": "anneal",
+      "number": 15,
+      "title": {
+        "en": "Anneal and Thermal Budget",
+        "ko": "어닐링과 열 예산"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/anneal.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/anneal.html"
+      },
+      "topics": [
+        "anneal",
+        "diffusion",
+        "activation"
+      ]
+    },
+    {
+      "id": "cmp",
+      "number": 16,
+      "title": {
+        "en": "Planarization and CMP",
+        "ko": "평탄화와 CMP"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/cmp.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/cmp.html"
+      },
+      "topics": [
+        "CMP",
+        "planarization",
+        "topography"
+      ]
+    },
+    {
+      "id": "metal",
+      "number": 17,
+      "title": {
+        "en": "Contacts, BEOL, and Thick Top Metal",
+        "ko": "콘택트, BEOL 및 두꺼운 최상층 금속"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/metal.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/metal.html"
+      },
+      "topics": [
+        "BEOL",
+        "IR drop",
+        "electromigration"
+      ]
+    },
+    {
+      "id": "integration",
+      "number": 18,
+      "title": {
+        "en": "BCD Process Integration Flow",
+        "ko": "BCD 공정 통합 흐름"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/integration.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/integration.html"
+      },
+      "topics": [
+        "process integration",
+        "BCD",
+        "CMOS"
+      ]
+    },
+    {
+      "id": "layout",
+      "number": 19,
+      "title": {
+        "en": "Layout, Parasitics, Thermal, and Noise",
+        "ko": "레이아웃, 기생 성분, 열 및 노이즈"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/layout.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/layout.html"
+      },
+      "topics": [
+        "layout",
+        "parasitics",
+        "thermal"
+      ]
+    },
+    {
+      "id": "metrology",
+      "number": 20,
+      "title": {
+        "en": "Characterization and Production Test",
+        "ko": "특성 평가 및 양산 테스트"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/metrology.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/metrology.html"
+      },
+      "topics": [
+        "characterization",
+        "WAT",
+        "EDS"
+      ]
+    },
+    {
+      "id": "reliability",
+      "number": 21,
+      "title": {
+        "en": "Reliability",
+        "ko": "신뢰성"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/reliability.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/reliability.html"
+      },
+      "topics": [
+        "reliability",
+        "ESD",
+        "latch-up"
+      ]
+    },
+    {
+      "id": "failure-analysis",
+      "number": 22,
+      "title": {
+        "en": "Failure Analysis",
+        "ko": "고장 분석"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/failure-analysis.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/failure-analysis.html"
+      },
+      "topics": [
+        "failure analysis",
+        "localization",
+        "physical evidence"
+      ]
+    },
+    {
+      "id": "advanced",
+      "number": 23,
+      "title": {
+        "en": "Smart Power and Emerging Context",
+        "ko": "스마트 파워와 첨단 기술 동향"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/advanced.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/advanced.html"
+      },
+      "topics": [
+        "smart power",
+        "automotive",
+        "packaging"
+      ]
+    },
+    {
+      "id": "lab",
+      "number": 24,
+      "title": {
+        "en": "BCD Process Lab",
+        "ko": "BCD 공정 실험실"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/lab.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/lab.html"
+      },
+      "topics": [
+        "process sequence",
+        "cross-section",
+        "BCD"
+      ]
+    },
+    {
+      "id": "glossary",
+      "number": 25,
+      "title": {
+        "en": "Glossary and Final Knowledge Checks",
+        "ko": "용어집 및 종합 지식 점검"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/pmicbook/chapters/glossary.html",
+        "ko": "https://frbread7.github.io/pmicbook/ko/chapters/glossary.html"
+      },
+      "topics": [
+        "glossary",
+        "review"
+      ]
+    }
+  ],
+  "experiments": [
+    {
+      "id": "pmicbook/fundamentals/pm-fund-sim",
+      "title": {
+        "en": "Where does the input power go?",
+        "ko": "입력 전력은 어디로 흐를까요?"
+      },
+      "chapterId": "fundamentals",
+      "url": "https://frbread7.github.io/pmicbook/chapters/fundamentals.html#pm-fund-sim",
+      "kind": {
+        "en": "Power estimator",
+        "ko": "전력 추정기"
+      }
+    },
+    {
+      "id": "pmicbook/implant/sim-prof",
+      "title": {
+        "en": "Projected range and straggle",
+        "ko": "투영 범위와 스트래글"
+      },
+      "chapterId": "implant",
+      "url": "https://frbread7.github.io/pmicbook/chapters/implant.html#sim-prof",
+      "kind": {
+        "en": "Implant profile model",
+        "ko": "이온 주입 프로파일 모델"
+      }
+    },
+    {
+      "id": "pmicbook/wafer/sim-seg",
+      "title": {
+        "en": "Wafer segment explorer",
+        "ko": "웨이퍼 구역 탐색기"
+      },
+      "chapterId": "wafer",
+      "url": "https://frbread7.github.io/pmicbook/chapters/wafer.html#sim-seg",
+      "kind": {
+        "en": "Interactive process model",
+        "ko": "인터랙티브 공정 모델"
+      }
+    },
+    {
+      "id": "pmicbook/integration/sim-cmos",
+      "title": {
+        "en": "CMOS integration stepper",
+        "ko": "CMOS 통합 공정 단계기"
+      },
+      "chapterId": "integration",
+      "url": "https://frbread7.github.io/pmicbook/chapters/integration.html#sim-cmos",
+      "kind": {
+        "en": "Process stepper",
+        "ko": "공정 단계 탐색기"
+      }
+    }
+  ],
+  "prerequisites": [],
+  "relatedBooks": [],
+  "attribution": {
+    "license": "CC-BY-4.0",
+    "repositoryUrl": "https://github.com/frbread7/pmicbook",
+    "notes": "PMICBook is a derivative of ProcessBook. Its repository identifies PMICBook educational contributions and adapted upstream content under CC BY 4.0 and executable code under MIT; see the PMICBook LICENSE.md and docs/UPSTREAM_ATTRIBUTION.md. The My Library catalog links to the textbook and does not copy its chapter content."
+  },
+  "cover": "assets/covers/pmicbook.svg",
+  "theme": {
+    "accent": "#bd4f2c",
+    "accentSoft": "#f1d5c7",
+    "motif": "power-path"
+  },
+  "publicationEvidence": {
+    "releaseUrl": "https://github.com/frbread7/pmicbook/releases/tag/v1.0.0",
+    "releasePublishedAt": "2026-10-06",
+    "contentReview": "Recorded in the v1.0.0 release documentation; see docs/PRODUCTION_QA.md in the book repository.",
+    "siteVerification": "Pages is configured from main at the repository root; representative English and Korean production pages returned HTTP 200 on 2026-10-09.",
+    "chapterVerification": "All 25 paired chapter routes are listed in the stable v1.0.0 chapter registry.",
+    "experimentVerification": "Four experiment anchors were confirmed in the stable v1.0.0 source and their chapter routes returned HTTP 200 on 2026-10-09."
+  },
+  "languageUrls": {
+    "en": "https://frbread7.github.io/pmicbook/",
+    "ko": "https://frbread7.github.io/pmicbook/ko/"
+  }
+}

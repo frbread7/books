@@ -1,0 +1,32 @@
+name: Library feedback
+description: Suggest a correction or improvement to My Library.
+title: "[Feedback]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Issues are public. Do not include private, confidential, or personal information."
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Feedback area
+      options:
+        - Catalog or book link
+        - Accessibility or usability
+        - Translation
+        - Technical issue
+        - Suggestion
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What should be improved?
+      description: Include the page or book title when relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce (for a technical issue)
+    validations:
+      required: false

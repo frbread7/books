@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640" role="img" aria-labelledby="t d">
+  <title id="t">PMICBook cover</title><desc id="d">A copper and navy illustration of a power-management integrated circuit and connected rails.</desc>
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#18334a"/><stop offset="1" stop-color="#0d1723"/></linearGradient><linearGradient id="metal"><stop stop-color="#f1b185"/><stop offset="1" stop-color="#b54f2d"/></linearGradient></defs>
+  <rect width="480" height="640" rx="14" fill="url(#bg)"/><path d="M32 0v640M43 0v640" stroke="#fff" stroke-opacity=".08" stroke-width="3"/>
+  <g fill="none" stroke="url(#metal)" stroke-width="5" opacity=".9"><path d="M245 130v77m0 0h87v58m-87-58h-88v58m88-58v102m0 0h113v68m-113-68H130v68m115-68v113m0 0h73v63m-73-63h-76v63"/><circle cx="245" cy="207" r="12" fill="#f1b185"/><circle cx="332" cy="265" r="8" fill="#f1b185"/><circle cx="157" cy="265" r="8" fill="#f1b185"/><circle cx="358" cy="367" r="8" fill="#f1b185"/><circle cx="130" cy="367" r="8" fill="#f1b185"/></g>
+  <rect x="168" y="285" width="154" height="130" rx="9" fill="#f0e8da" stroke="#d87a4f" stroke-width="5"/><path d="M188 303h115M188 318h71" stroke="#18334a" stroke-width="5"/><text x="245" y="369" text-anchor="middle" fill="#18334a" font-family="Arial,sans-serif" font-size="35" font-weight="700">PMIC</text>
+  <text x="70" y="495" fill="#f1b185" font-family="Arial,sans-serif" font-size="15" letter-spacing="4">INTERACTIVE ENGINEERING TEXTBOOK</text><text x="68" y="548" fill="#fff8ef" font-family="Georgia,serif" font-size="38" font-weight="700">PMICBook</text><text x="70" y="579" fill="#d5e1e6" font-family="Arial,sans-serif" font-size="16">Power Management IC Technology</text>
+</svg>
