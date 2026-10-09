@@ -479,8 +479,9 @@
           "checkedUrl": "https://frbread7.github.io/pmicbook/chapters/fundamentals.html#pm-fund-sim",
           "httpStatus": 200,
           "fragmentFound": true,
-          "contentSha256": "f15dd4d3c4e0743f223e61ecc07dac301a11977232868f5fbbd5fa93621a2b54",
-          "sourceRevision": "559b8fa884d49a35d5183b5836997655dcc0b1b7",
+          "contentSha256": "22f0b5c42df0efe7cdc7024397e4c28575cf6a6cd8cf91c484c6e820826e4806",
+          "sourceRevision": "a5290ff0ed0c785c6fc5bc0d7fa966b252710883",
+          "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
           "evidence": "Live HTTPS response; HTTP 200; fragment #pm-fund-sim present in HTML; SHA-256 recorded."
         }
       },
@@ -501,8 +502,9 @@
           "checkedUrl": "https://frbread7.github.io/pmicbook/chapters/implant.html#sim-prof",
           "httpStatus": 200,
           "fragmentFound": true,
-          "contentSha256": "3a07a4f853fbdc38193d8dcca8e31ea78b715a81423d29a497273270d09bd7e6",
-          "sourceRevision": "559b8fa884d49a35d5183b5836997655dcc0b1b7",
+          "contentSha256": "defe032a740da0ff8325d4da599e6d16f39cb7a5a3ba6af223c8e269e71bcf1a",
+          "sourceRevision": "a5290ff0ed0c785c6fc5bc0d7fa966b252710883",
+          "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
           "evidence": "Live HTTPS response; HTTP 200; fragment #sim-prof present in HTML; SHA-256 recorded."
         }
       },
@@ -523,8 +525,9 @@
           "checkedUrl": "https://frbread7.github.io/pmicbook/chapters/wafer.html#sim-seg",
           "httpStatus": 200,
           "fragmentFound": true,
-          "contentSha256": "7def76150e8745ccb9568cf55355f88c5d41c9d0f076472158dc5f721d207743",
-          "sourceRevision": "559b8fa884d49a35d5183b5836997655dcc0b1b7",
+          "contentSha256": "ef2250c5fd2d4bdf496a0f3fc913607b610f12f1438a9f95f931b7414a7932d5",
+          "sourceRevision": "a5290ff0ed0c785c6fc5bc0d7fa966b252710883",
+          "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
           "evidence": "Live HTTPS response; HTTP 200; fragment #sim-seg present in HTML; SHA-256 recorded."
         }
       },
@@ -545,8 +548,9 @@
           "checkedUrl": "https://frbread7.github.io/pmicbook/chapters/integration.html#sim-cmos",
           "httpStatus": 200,
           "fragmentFound": true,
-          "contentSha256": "7343d0806578b0eed2b49191400ecba18e080063c2f1c6572785f143a87f9b8a",
-          "sourceRevision": "559b8fa884d49a35d5183b5836997655dcc0b1b7",
+          "contentSha256": "b97be8cba29245039a90064970267397ae20e910eb8f7c285ba5ca3a149e5d5f",
+          "sourceRevision": "a5290ff0ed0c785c6fc5bc0d7fa966b252710883",
+          "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
           "evidence": "Live HTTPS response; HTTP 200; fragment #sim-cmos present in HTML; SHA-256 recorded."
         }
       }
@@ -568,9 +572,10 @@
       "releaseUrl": "https://github.com/frbread7/pmicbook/releases/tag/v1.0.0",
       "releasePublishedAt": "2026-10-06",
       "contentReview": "Recorded in the v1.0.0 release documentation; see docs/PRODUCTION_QA.md in the book repository.",
-      "siteVerification": "Pages is configured from main at the repository root; representative English and Korean production pages returned HTTP 200 on 2026-10-09.",
-      "chapterVerification": "All 25 paired chapter routes are listed in the stable v1.0.0 chapter registry.",
-      "experimentVerification": "Four experiment anchors were confirmed in the stable v1.0.0 source and their chapter routes returned HTTP 200 on 2026-10-09."
+      "siteVerification": "GitHub Pages reports a successful deployment of main commit a5290ff0ed0c785c6fc5bc0d7fa966b252710883; representative English and Korean production pages returned HTTP 200 on 2026-10-09.",
+      "chapterVerification": "The formal v1.0.0 release contains 25 paired chapter entries; the production deployment revision is recorded separately.",
+      "experimentVerification": "All four live experiment links returned HTTP 200 and contained their declared fragments on 2026-10-09; response hashes and the deployed source revision are recorded per experiment.",
+      "productionRevision": "a5290ff0ed0c785c6fc5bc0d7fa966b252710883"
     },
     "languageUrls": {
       "en": "https://frbread7.github.io/pmicbook/",

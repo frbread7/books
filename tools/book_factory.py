@@ -170,8 +170,8 @@ def validate_manifest(book):
             fail(f"experiment {item['id']} URL must remain under the production path")
         verification = item.get("verification")
         if verification is not None:
-            if not isinstance(verification, dict) or not all(isinstance(verification.get(key), str) and verification[key].strip() for key in ("checkedAt", "checkedUrl", "contentSha256", "sourceRevision", "evidence")):
-                fail(f"experiment {item['id']} verification requires checkedAt, checkedUrl, contentSha256, sourceRevision, and evidence")
+            if not isinstance(verification, dict) or not all(isinstance(verification.get(key), str) and verification[key].strip() for key in ("checkedAt", "checkedUrl", "contentSha256", "sourceRevision", "sourceRevisionAttestation", "evidence")):
+                fail(f"experiment {item['id']} verification requires checkedAt, checkedUrl, contentSha256, sourceRevision, sourceRevisionAttestation, and evidence")
             try:
                 date.fromisoformat(verification["checkedAt"])
             except (ValueError, TypeError):
@@ -199,8 +199,10 @@ def validate_manifest(book):
             fail(f"theme.{key} must be a six-digit hex color")
     if book["status"] == "published":
         evidence = book.get("publicationEvidence")
-        if not isinstance(evidence, dict) or not evidence.get("releaseUrl") or not evidence.get("siteVerification") or not evidence.get("chapterVerification"):
-            fail("published status requires releaseUrl, siteVerification, and chapterVerification evidence")
+        if not isinstance(evidence, dict) or not evidence.get("releaseUrl") or not evidence.get("siteVerification") or not evidence.get("chapterVerification") or not evidence.get("productionRevision"):
+            fail("published status requires releaseUrl, productionRevision, siteVerification, and chapterVerification evidence")
+        if not isinstance(evidence["productionRevision"], str) or not re.fullmatch(r"[0-9a-f]{40}", evidence["productionRevision"]):
+            fail("publicationEvidence.productionRevision must be a full 40-character lowercase Git commit SHA")
         check_url(evidence["releaseUrl"], "publicationEvidence.releaseUrl")
         try:
             date.fromisoformat(evidence["releasePublishedAt"])
@@ -208,6 +210,9 @@ def validate_manifest(book):
             fail("publicationEvidence.releasePublishedAt must be an ISO date")
         if book["experiments"] and not evidence.get("experimentVerification"):
             fail("published manifests with experiments require experimentVerification evidence")
+        for item in book["experiments"]:
+            if item["verification"]["sourceRevision"] != evidence["productionRevision"]:
+                fail(f"experiment {item['id']} evidence sourceRevision must match publicationEvidence.productionRevision")
     return book
 
 

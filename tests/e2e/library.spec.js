@@ -58,6 +58,9 @@ test("search and filters work and keep unstarted roadmap ideas out of the catalo
 
 test("subjects, paths and experiment discovery use published content only", async ({ page }) => {
   await page.goto("categories.html?id=semiconductor");
+  const categoryCanonical = "http://127.0.0.1:4173/books/categories.html?id=semiconductor";
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", categoryCanonical);
+  await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", categoryCanonical);
   await expect(page.locator(".knowledge-map .map-node")).toHaveCount(catalogCategories.find(category => category.id === "semiconductor").map.length);
   const plannedMemory = page.locator(".map-node").filter({ hasText: "Memory products (planned)" });
   await expect(plannedMemory).toContainText("Planned");
@@ -127,23 +130,65 @@ test("language and theme controls change state and persist", async ({ page }) =>
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
 });
 
+test("search placeholder and published badge meet text contrast in both themes", async ({ page }) => {
+  await page.goto("library.html");
+  for (const theme of ["light", "dark"]) {
+    await page.evaluate(value => {
+      if (value === "dark") document.documentElement.dataset.theme = "dark";
+      else document.documentElement.removeAttribute("data-theme");
+    }, theme);
+    const contrast = await page.evaluate(() => {
+      const rgb = value => value.match(/[\d.]+/g).slice(0, 3).map(Number).map(channel => {
+        channel /= 255;
+        return channel <= .04045 ? channel / 12.92 : ((channel + .055) / 1.055) ** 2.4;
+      });
+      const ratio = (foreground, background) => {
+        const luminance = value => {
+          const [r, g, b] = rgb(value);
+          return .2126 * r + .7152 * g + .0722 * b;
+        };
+        const values = [luminance(foreground), luminance(background)].sort((a, b) => b - a);
+        return (values[0] + .05) / (values[1] + .05);
+      };
+      const input = document.querySelector("#book-search");
+      const badge = document.querySelector(".badge-published");
+      return {
+        placeholder: ratio(getComputedStyle(input, "::placeholder").color, getComputedStyle(input).backgroundColor),
+        badge: ratio(getComputedStyle(badge).color, getComputedStyle(badge).backgroundColor)
+      };
+    });
+    expect(contrast.placeholder, `${theme} placeholder`).toBeGreaterThanOrEqual(4.5);
+    expect(contrast.badge, `${theme} published badge`).toBeGreaterThanOrEqual(4.5);
+  }
+});
+
 test("nested unknown routes keep their shell, scripts, styles, and navigation at the project base", async ({ page }) => {
   const failedRequests = [];
+  const failedSubresources = [];
   page.on("requestfailed", request => failedRequests.push(request.url()));
-  await page.goto("unknown/path");
+  page.on("response", response => {
+    if (response.status() >= 400 && !response.request().isNavigationRequest()) failedSubresources.push(response.url());
+  });
+  const response = await page.goto("unknown/path");
+  expect(response.status()).toBe(404);
   await expect(page.locator("h1")).toHaveText("This shelf is empty");
   await expect(page.locator("base")).toHaveAttribute("href", "/books/");
   await expect(page.locator(".brand")).toHaveAttribute("href", "http://127.0.0.1:4173/books/");
   const resources = await page.evaluate(() => [...document.styleSheets].map(sheet => sheet.href).filter(Boolean));
   expect(resources).toContain("http://127.0.0.1:4173/books/css/style.css");
   expect(failedRequests).toEqual([]);
+  expect(failedSubresources).toEqual([]);
 });
 
 test("all primary views fit the viewport without horizontal overflow", async ({ page }) => {
   const errors = [];
+  let expectedNotFoundResponse = false;
   page.on("pageerror", error => errors.push(error.message));
-  page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
+  page.on("console", message => {
+    if (message.type() === "error" && !(expectedNotFoundResponse && /status of 404/i.test(message.text()))) errors.push(message.text());
+  });
   for (const route of ["./", "library.html", "categories.html", "roadmap.html", "paths.html", "experiments.html", "book.html?slug=pmicbook", "feedback.html", "unknown/path"]) {
+    expectedNotFoundResponse = route === "unknown/path";
     await page.goto(route);
     await expect(page.locator("h1").first()).toBeVisible();
     const dimensions = await page.evaluate(() => ({ viewport: document.documentElement.clientWidth, content: document.documentElement.scrollWidth }));

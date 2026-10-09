@@ -8,7 +8,9 @@ The canonical v1 shape is schemas/book.schema.json; semantic checks live in tool
 
 Install the small validator with python3 -m pip install -r requirements.txt. JSON Schema catches structural and format errors; Python checks enforce cross-record IDs, category/chapter links, production-host boundaries, and generated-index integrity.
 
-Chapter URLs must use the book's production host. Experiments require an existing chapter ID and an HTTPS URL with a fragment. Every experiment in a published book must also carry successful live-check evidence: exact checked URL, ISO date, HTTP 200, fragment present, response SHA-256, immutable source revision, and a short evidence note. The cover must be stored under site/assets/ in this portal. Related/prerequisite IDs must refer to registered books; empty lists are valid, and a book cannot list itself. Roadmap proposals belong in catalog/roadmap.json, not catalog/books/.
+Chapter URLs must use the book's production host. Experiments require an existing chapter ID and an HTTPS URL with a fragment. Every experiment in a published book must also carry successful live-check evidence: exact checked URL, ISO date, HTTP 200, fragment present, response SHA-256, full 40-character deployment commit SHA, a caller-attestation note, and a short evidence note. The checker validates SHA format but does not confirm repository membership; obtain and record the SHA from the successful Pages deployment metadata. The cover must be stored under site/assets/ in this portal. Related/prerequisite IDs must refer to registered books; empty lists are valid, and a book cannot list itself. Roadmap proposals belong in catalog/roadmap.json, not catalog/books/.
+
+`version` and `publicationEvidence.releaseUrl` identify the formal book release. `publicationEvidence.productionRevision` separately identifies the source commit behind the currently deployed Pages site, so it can advance without creating or implying a new stable textbook release.
 
 ## Commands
 
@@ -28,10 +30,10 @@ For actual live experiment checks, use the bounded HTTPS verifier. It restricts 
 
 ~~~sh
 python3 tools/verify_experiments.py catalog/books/<id>.json \
-  --source-revision v1.0.0 --write-back
+  --source-revision <full-pages-deployment-commit-sha> --write-back
 ~~~
 
-This command makes network requests and writes only after all links pass. Ordinary `npm test` remains deterministic and offline; it validates the recorded evidence structurally but does not repeat the live check.
+This command makes network requests and writes only after all links pass. Pass the 40-character SHA from the book repository's successful Pages deployment record, not merely the stable release tag. Ordinary `npm test` remains deterministic and offline; it validates the recorded evidence structurally but does not repeat the live check.
 
 Register a new manifest without replacing an existing record:
 
@@ -51,7 +53,7 @@ Only the selected manifest and generated site/data/*.json indexes are changed. T
 
 ## PMICBook example
 
-PMICBook is registered in catalog/books/pmicbook.json. It identifies release v1.0.0, its stable title/chapter index, English/Korean entry points, and four live-checked experiment anchors. To verify the committed indexes without changing them:
+PMICBook is registered in catalog/books/pmicbook.json. Its formal version and release URL remain v1.0.0; the current successful Pages deployment is source commit `a5290ff0ed0c785c6fc5bc0d7fa966b252710883`. These fields describe different facts. The record includes its stable title/chapter index, English/Korean entry points, and four live-checked experiment anchors. To verify the committed indexes without changing them:
 
 ~~~sh
 python3 tools/book_factory.py validate

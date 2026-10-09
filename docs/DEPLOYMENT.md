@@ -19,6 +19,10 @@ Official references:
 
 No custom domain or CNAME is configured. GitHub Actions must be the Pages source rather than a branch-folder build.
 
+## Local validation prerequisites
+
+Install Python 3.12+, Node.js 20+, and npm. Install the Python `jsonschema` dependency with `python3 -m pip install -r requirements.txt`, install JavaScript dependencies with `npm ci`, and install Playwright Chromium with `npx playwright install chromium`. On Linux hosts missing browser libraries, use `npx playwright install --with-deps chromium`. See [Testing](TESTING.md) for commands and coverage details.
+
 ## Release checks
 
 1. Run npm ci && npm test.

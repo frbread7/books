@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Serve the flat Pages artifact under its real /books/ project prefix."""
+from io import BytesIO
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -22,6 +23,18 @@ class Handler(SimpleHTTPRequestHandler):
             if index.is_file():
                 return str(index)
         return candidate if Path(candidate).is_file() else str(SITE / "404.html")
+
+    def send_head(self):
+        url_path = urlsplit(self.path).path
+        translated = Path(self.translate_path(url_path))
+        if translated == SITE / "404.html" and url_path != "/books/404.html":
+            body = (SITE / "404.html").read_bytes()
+            self.send_response(404)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            return BytesIO(body)
+        return super().send_head()
 
     def log_message(self, fmt, *args):
         if " 404 " in fmt:

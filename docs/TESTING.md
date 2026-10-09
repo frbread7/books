@@ -26,6 +26,6 @@ The suite captures homepage and book-detail screenshots for each viewport. Trace
 
 ## Scope
 
-These portal checks validate metadata and outbound links; they do not rerun PMICBook's complete textbook suite. PMICBook is external and remains unmodified. Experiment verification is separate from ordinary tests: `tools/verify_experiments.py` performs a bounded live HTTPS request, checks the HTTP status and fragment in the returned HTML, and records evidence. `npm test` checks those stored records structurally and remains offline/deterministic. A production smoke test should repeat link and asset checks after deployment.
+These portal checks validate metadata and outbound URL structure; they do not rerun PMICBook's complete textbook suite. PMICBook is external and remains unmodified. Only simulator/experiment links receive automated live reachability checks: `tools/verify_experiments.py` performs a bounded HTTPS request, checks HTTP status and the fragment in returned HTML, and records evidence. Repository, language-entry, chapter, and other outbound links are not automatically live-checked; manually smoke-test them after deployment. `npm test` checks recorded experiment evidence structurally and remains offline/deterministic.
 
 Automated accessibility basics check semantic landmarks, keyboard focus visibility for the skip link, labels, presence of `alt` attributes (including empty decorative alternatives), and named links. These checks do not establish WCAG conformance and are not a substitute for a dedicated assistive-technology audit.

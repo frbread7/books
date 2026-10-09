@@ -46,6 +46,11 @@ class BookFactoryTests(unittest.TestCase):
         with self.assertRaisesRegex(book_factory.ManifestError, "verification"):
             book_factory.validate_manifest(self.book)
 
+    def test_published_production_revision_must_match_experiment_evidence(self):
+        self.book["publicationEvidence"]["productionRevision"] = "b" * 40
+        with self.assertRaisesRegex(book_factory.ManifestError, "sourceRevision must match publicationEvidence.productionRevision"):
+            book_factory.validate_manifest(self.book)
+
     def test_a_book_cannot_list_itself_as_a_prerequisite(self):
         self.book["prerequisites"] = ["pmicbook"]
         with self.assertRaisesRegex(book_factory.ManifestError, "cannot list itself in prerequisites"):
@@ -150,7 +155,7 @@ class BookFactoryTests(unittest.TestCase):
             "chapters": [{"id": "intro", "number": 1, "title": {"en": "Introduction", "ko": "소개"}, "urls": {"en": "https://example.test/fixturebook/chapters/intro.html"}, "topics": ["fixture"]}],
             "experiments": [], "prerequisites": [], "relatedBooks": [], "status": "published",
             "attribution": {"license": "CC BY 4.0", "repositoryUrl": "https://github.com/example/fixturebook", "notes": "Synthetic test-only record."},
-            "publicationEvidence": {"releaseUrl": "https://github.com/example/fixturebook/releases/tag/v1.0.0", "releasePublishedAt": "2026-01-01", "contentReview": "Fixture", "siteVerification": "Fixture", "chapterVerification": "Fixture"}
+            "publicationEvidence": {"releaseUrl": "https://github.com/example/fixturebook/releases/tag/v1.0.0", "releasePublishedAt": "2026-01-01", "productionRevision": "a" * 40, "contentReview": "Fixture", "siteVerification": "Fixture", "chapterVerification": "Fixture"}
         })
         with tempfile.TemporaryDirectory() as directory:
             data = Path(directory) / "data"

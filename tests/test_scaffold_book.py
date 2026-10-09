@@ -26,6 +26,19 @@ class ScaffoldBookTests(unittest.TestCase):
                 self.assertEqual(scaffold_book.main(), 1)
             self.assertFalse(output.exists())
 
+    def test_generated_workflow_url_rejects_github_expression_syntax(self):
+        injected_urls = [
+            "https://example.test/book/${{ github.event.issue.title }}",
+            "https://example.test/book/$REPOSITORY",
+            "https://example.test/book/{template}",
+        ]
+        for injected in injected_urls:
+            with self.subTest(url=injected), tempfile.TemporaryDirectory() as directory:
+                output = Path(directory) / "samplebook"
+                with patch.object(sys, "argv", self.arguments(output, injected)):
+                    self.assertEqual(scaffold_book.main(), 1)
+                self.assertFalse(output.exists())
+
     def test_production_url_is_emitted_as_quoted_yaml_scalar(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "samplebook"

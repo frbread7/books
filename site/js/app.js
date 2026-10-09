@@ -66,7 +66,9 @@
   function categoriesPage(books, categories) {
     const selectedId = new URLSearchParams(location.search).get("id");
     const selected = categories.find(c => c.id === selectedId);
-    setMeta(selected ? localized(selected.name) : t("navSubjects"), t("categoriesIntro"));
+    const canonical = new URL(siteUrl("categories.html"));
+    if (selected) canonical.searchParams.set("id", selected.id);
+    setMeta(selected ? localized(selected.name) : t("navSubjects"), t("categoriesIntro"), canonical.href);
     const cards = categories.map(cat => {
       const count = books.filter(b => b.category === cat.id && b.status === "published").length;
       const link = count ? `library.html?category=${encodeURIComponent(cat.id)}` : `roadmap.html`;

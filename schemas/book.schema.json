@@ -192,6 +192,7 @@
       "required": [
         "releaseUrl",
         "releasePublishedAt",
+        "productionRevision",
         "contentReview",
         "siteVerification",
         "chapterVerification"
@@ -204,6 +205,10 @@
         "releasePublishedAt": {
           "type": "string",
           "format": "date"
+        },
+        "productionRevision": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
         },
         "contentReview": {
           "type": "string"
@@ -321,6 +326,7 @@
             "fragmentFound",
             "contentSha256",
             "sourceRevision",
+            "sourceRevisionAttestation",
             "evidence"
           ],
           "properties": {
@@ -329,7 +335,8 @@
             "httpStatus": { "const": 200 },
             "fragmentFound": { "const": true },
             "contentSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
-            "sourceRevision": { "type": "string", "pattern": "^(?:v[0-9][0-9A-Za-z.+-]*|[0-9a-fA-F]{7,64})$" },
+            "sourceRevision": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+            "sourceRevisionAttestation": { "type": "string", "minLength": 1 },
             "evidence": { "type": "string", "minLength": 1 }
           },
           "additionalProperties": false
