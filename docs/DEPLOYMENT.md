@@ -35,4 +35,4 @@ Install Python 3.12+, Node.js 20+, and npm. Install the Python `jsonschema` depe
 
 ## Feedback
 
-The Feedback view opens the repository's public GitHub issue form. No administrative token or external service is configured. Issue titles, descriptions, attachments, and GitHub usernames are public; the issue template tells users not to submit confidential material.
+The Feedback view opens the repository's public GitHub issue form. No administrative token is configured; feedback uses GitHub's public issue service. Issue titles, descriptions, attachments, and GitHub usernames are public; the issue template tells users not to submit confidential material.

@@ -479,7 +479,7 @@
         "httpStatus": 200,
         "fragmentFound": true,
         "contentSha256": "22f0b5c42df0efe7cdc7024397e4c28575cf6a6cd8cf91c484c6e820826e4806",
-        "sourceRevision": "a5290ff0ed0c785c6fc5bc0d7fa966b252710883",
+        "sourceRevision": "da37b183c559d35fcb7f6471c86c513b104a7020",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
         "evidence": "Live HTTPS response; HTTP 200; fragment #pm-fund-sim present in HTML; SHA-256 recorded."
       }
@@ -502,7 +502,7 @@
         "httpStatus": 200,
         "fragmentFound": true,
         "contentSha256": "defe032a740da0ff8325d4da599e6d16f39cb7a5a3ba6af223c8e269e71bcf1a",
-        "sourceRevision": "a5290ff0ed0c785c6fc5bc0d7fa966b252710883",
+        "sourceRevision": "da37b183c559d35fcb7f6471c86c513b104a7020",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
         "evidence": "Live HTTPS response; HTTP 200; fragment #sim-prof present in HTML; SHA-256 recorded."
       }
@@ -525,7 +525,7 @@
         "httpStatus": 200,
         "fragmentFound": true,
         "contentSha256": "ef2250c5fd2d4bdf496a0f3fc913607b610f12f1438a9f95f931b7414a7932d5",
-        "sourceRevision": "a5290ff0ed0c785c6fc5bc0d7fa966b252710883",
+        "sourceRevision": "da37b183c559d35fcb7f6471c86c513b104a7020",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
         "evidence": "Live HTTPS response; HTTP 200; fragment #sim-seg present in HTML; SHA-256 recorded."
       }
@@ -548,7 +548,7 @@
         "httpStatus": 200,
         "fragmentFound": true,
         "contentSha256": "b97be8cba29245039a90064970267397ae20e910eb8f7c285ba5ca3a149e5d5f",
-        "sourceRevision": "a5290ff0ed0c785c6fc5bc0d7fa966b252710883",
+        "sourceRevision": "da37b183c559d35fcb7f6471c86c513b104a7020",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
         "evidence": "Live HTTPS response; HTTP 200; fragment #sim-cmos present in HTML; SHA-256 recorded."
       }
@@ -571,10 +571,10 @@
     "releaseUrl": "https://github.com/frbread7/pmicbook/releases/tag/v1.0.0",
     "releasePublishedAt": "2026-10-06",
     "contentReview": "Recorded in the v1.0.0 release documentation; see docs/PRODUCTION_QA.md in the book repository.",
-    "siteVerification": "GitHub Pages reports a successful deployment of main commit a5290ff0ed0c785c6fc5bc0d7fa966b252710883; representative English and Korean production pages returned HTTP 200 on 2026-10-09.",
+    "siteVerification": "GitHub Pages reports a successful deployment of main commit da37b183c559d35fcb7f6471c86c513b104a7020 (deployment run 37942176575); representative English and Korean production pages returned HTTP 200 on 2026-10-09.",
     "chapterVerification": "The formal v1.0.0 release contains 25 paired chapter entries; the production deployment revision is recorded separately.",
     "experimentVerification": "All four live experiment links returned HTTP 200 and contained their declared fragments on 2026-10-09; response hashes and the deployed source revision are recorded per experiment.",
-    "productionRevision": "a5290ff0ed0c785c6fc5bc0d7fa966b252710883"
+    "productionRevision": "da37b183c559d35fcb7f6471c86c513b104a7020"
   },
   "languageUrls": {
     "en": "https://frbread7.github.io/pmicbook/",

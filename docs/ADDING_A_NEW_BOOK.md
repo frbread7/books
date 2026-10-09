@@ -63,15 +63,21 @@ python3 tools/book_factory.py validate
 npm test
 ~~~
 
-After the book site is live and the release is reviewed, read the SHA of its current successful Pages deployment. This example uses GitHub CLI to read deployment metadata for the new repository:
+After the book site is live and the release is reviewed, read the SHA only after checking that the latest Pages deployment completed successfully. This example fails closed if there is no deployment record or its latest status is not success:
 
 ~~~sh
-production_sha=$(gh api repos/frbread7/devicephysicsbook/deployments --jq 'map(select(.environment == "github-pages")) | first.sha')
+set -eu
+deployment_id=$(gh api repos/frbread7/devicephysicsbook/deployments --jq '[.[] | select(.environment == "github-pages")][0].id // empty')
+test -n "$deployment_id"
+deployment_state=$(gh api "repos/frbread7/devicephysicsbook/deployments/$deployment_id/statuses" --jq '.[0].state // empty')
+test "$deployment_state" = success
+production_sha=$(gh api "repos/frbread7/devicephysicsbook/deployments/$deployment_id" --jq '.sha // empty')
+test -n "$production_sha"
 python3 tools/verify_experiments.py ../devicephysicsbook/library-manifest.json \
   --source-revision "$production_sha" --write-back
 ~~~
 
-The verifier is the normal Book Factory step that makes network requests. It checks each experiment page against the declared host/path and writes evidence only if all checks pass. Edit `library-manifest.json` to set `status` to `published` and add the actual formal release URL/version, publication date, `productionRevision` using `$production_sha`, content review, site verification, and chapter verification. The release URL records the formal tagged release; `productionRevision` records the currently deployed site source. Then update the existing portal record:
+The verifier is the normal Book Factory step that makes network requests. It checks each experiment page against the declared host/path, pins each validated public destination while preserving configured proxy and CA behavior, enforces an 8-second total response deadline and a 1 MB cap, and writes evidence only if all checks pass. Edit `library-manifest.json` to set `status` to `published` and add the actual formal release URL/version, publication date, `productionRevision` using `$production_sha`, content review, site verification, and chapter verification. The release URL records the formal tagged release; `productionRevision` records the currently deployed site source. Then update the existing portal record:
 
 ~~~sh
 python3 tools/book_factory.py update ../devicephysicsbook/library-manifest.json

@@ -9,7 +9,7 @@ My Library is a personal, carefully curated entry point to independently publish
 - PMICBook as the sole published title, represented by verified release metadata, language entry points, chapter index, and experiments.
 - An interactive bookshelf, searchable catalog, subject map, editorial roadmap, verified learning paths, and experiment explorer.
 - Independently deployed books connected through normalized manifests.
-- No paid service, database, private credential, or external feedback backend.
+- No paid service, database, or private credential is required; feedback uses the repository's public GitHub Issues form.
 
 ## Editorial principle
 

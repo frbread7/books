@@ -181,15 +181,25 @@ test("nested unknown routes keep their shell, scripts, styles, and navigation at
 });
 
 test("all primary views fit the viewport without horizontal overflow", async ({ page }) => {
+  const consoleErrors = [];
   const errors = [];
-  let expectedNotFoundResponse = false;
   page.on("pageerror", error => errors.push(error.message));
   page.on("console", message => {
-    if (message.type() === "error" && !(expectedNotFoundResponse && /status of 404/i.test(message.text()))) errors.push(message.text());
+    if (message.type() === "error") consoleErrors.push(message.text());
+  });
+  page.on("response", response => {
+    if (response.status() >= 400 && !response.request().isNavigationRequest()) errors.push(`${response.url()} returned HTTP ${response.status()}`);
   });
   for (const route of ["./", "library.html", "categories.html", "roadmap.html", "paths.html", "experiments.html", "book.html?slug=pmicbook", "feedback.html", "unknown/path"]) {
-    expectedNotFoundResponse = route === "unknown/path";
-    await page.goto(route);
+    const consoleStart = consoleErrors.length;
+    const response = await page.goto(route);
+    if (route === "unknown/path") {
+      expect(response.status()).toBe(404);
+      expect(response.request().isNavigationRequest()).toBe(true);
+      const knownDocument404 = "Failed to load resource: the server responded with a status of 404 (Not Found)";
+      const knownErrorIndex = consoleErrors.findIndex((message, index) => index >= consoleStart && message === knownDocument404);
+      if (knownErrorIndex >= 0) consoleErrors.splice(knownErrorIndex, 1);
+    }
     await expect(page.locator("h1").first()).toBeVisible();
     const dimensions = await page.evaluate(() => ({ viewport: document.documentElement.clientWidth, content: document.documentElement.scrollWidth }));
     expect(dimensions.content, route + " overflowed at " + dimensions.viewport + "px").toBeLessThanOrEqual(dimensions.viewport + 1);
@@ -201,5 +211,5 @@ test("all primary views fit the viewport without horizontal overflow", async ({ 
     }).length);
     expect(unnamedControls, route + " has unnamed controls").toBe(0);
   }
-  expect(errors).toEqual([]);
+  expect([...errors, ...consoleErrors]).toEqual([]);
 });

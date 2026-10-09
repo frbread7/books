@@ -5,18 +5,20 @@ from __future__ import annotations
 import argparse
 from datetime import date
 from html.parser import HTMLParser
+import functools
+import http.client
 import hashlib
 import ipaddress
 import json
-import posixpath
 import re
 import socket
 import stat
 import sys
 import tempfile
+import time
 from pathlib import Path
-from urllib.parse import unquote, urlparse
-from urllib.request import HTTPRedirectHandler, Request, build_opener
+from urllib.parse import urlparse
+from urllib.request import HTTPRedirectHandler, HTTPSHandler, Request, build_opener
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import book_factory
@@ -45,46 +47,129 @@ def public_https_url(value, production_url):
     root = urlparse(production_url)
     if url.scheme != "https" or not url.hostname or url.username or url.password:
         raise ValueError(f"URL must use HTTPS without credentials: {value}")
-    if url.hostname.lower() != (root.hostname or "").lower() or url.port not in (None, 443):
-        raise ValueError(f"URL host must match the declared production host: {value}")
-    if not path_is_within_production(url.path, root.path):
-        raise ValueError(f"URL path must remain under the declared production path: {value}")
-    host = url.hostname.strip("[]")
     try:
-        addresses = [ipaddress.ip_address(host)]
-    except ValueError:
-        addresses = [ipaddress.ip_address(item[4][0]) for item in socket.getaddrinfo(host, 443, type=socket.SOCK_STREAM)]
-    if not addresses or any(not address.is_global for address in addresses):
-        raise ValueError(f"URL host must resolve only to public IP addresses: {host}")
+        port = url.port
+    except ValueError as exc:
+        raise ValueError(f"URL has an invalid port: {value}") from exc
+    if url.hostname.lower() != (root.hostname or "").lower() or port not in (None, 443):
+        raise ValueError(f"URL host must match the declared production host: {value}")
+    if not book_factory.path_is_within_production(url.path, root.path):
+        raise ValueError(f"URL path must remain under the declared production path: {value}")
     return url
 
 
-def normalized_url_path(path):
-    if re.search(r"%(?![0-9a-fA-F]{2})", path):
-        return None
-    decoded = path
-    for _ in range(8):
-        next_value = unquote(decoded)
-        if next_value == decoded:
+def public_addresses(host):
+    """Resolve once per request and reject the whole result if any address is non-public."""
+    try:
+        addresses = [ipaddress.ip_address(host)]
+    except ValueError:
+        try:
+            addresses = [ipaddress.ip_address(item[4][0]) for item in socket.getaddrinfo(host, 443, type=socket.SOCK_STREAM)]
+        except (OSError, ValueError) as exc:
+            raise ValueError(f"URL host could not be resolved safely: {host}") from exc
+    if not addresses or any(not address.is_global for address in addresses):
+        raise ValueError(f"URL host must resolve only to public IP addresses: {host}")
+    return [str(address) for address in dict.fromkeys(addresses)]
+
+
+class PinnedHTTPSConnection(http.client.HTTPSConnection):
+    """Connect to a validated IP while preserving the original TLS hostname."""
+
+    def __init__(self, host, *, original_hostname, pinned_address, **kwargs):
+        self._original_hostname = original_hostname
+        self._pinned_address = pinned_address
+        super().__init__(host, **kwargs)
+
+    def connect(self):
+        if self._tunnel_host:
+            # HTTPConnection connects to the configured proxy and CONNECTs to the
+            # numeric pinned IP set on the request by PinnedHTTPSHandler.
+            http.client.HTTPConnection.connect(self)
+        else:
+            self.sock = socket.create_connection(
+                (self._pinned_address, self.port),
+                timeout=self.timeout,
+                source_address=self.source_address,
+            )
+        self.sock = self._context.wrap_socket(self.sock, server_hostname=self._original_hostname)
+
+    def getresponse(self):
+        # urllib always sends Connection: close. Let HTTPResponse's makefile own
+        # the socket until the bounded body is read instead of closing it in
+        # HTTPConnection.getresponse before our deadline loop can set timeouts.
+        self._handoff_to_response = True
+        try:
+            response = super().getresponse()
+            response._library_socket = getattr(self, "_response_socket", None) or self.sock
+            return response
+        finally:
+            self._handoff_to_response = False
+
+    def close(self):
+        if getattr(self, "_handoff_to_response", False):
+            self._response_socket = self.sock
+            self.sock = None
+            return
+        super().close()
+
+
+class PinnedHTTPSHandler(HTTPSHandler):
+    def https_open(self, req):
+        target = urlparse(req.full_url)
+        original_hostname = target.hostname
+        if not original_hostname:
+            raise ValueError("HTTPS request has no hostname")
+        deadline = getattr(req, "_library_deadline", None)
+        if deadline is not None:
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                raise TimeoutError("experiment verification exceeded its 8-second deadline")
+            req.timeout = min(req.timeout or TIMEOUT, remaining)
+        address = public_addresses(original_hostname)[0]
+        if deadline is not None:
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                raise TimeoutError("experiment verification exceeded its 8-second deadline")
+            req.timeout = min(req.timeout or TIMEOUT, remaining)
+        # ProxyHandler still decides whether to use the configured proxy and
+        # still connects to it normally. Only the CONNECT destination is pinned.
+        if getattr(req, "_tunnel_host", None):
+            req._tunnel_host = address
+        req.add_unredirected_header("Host", original_hostname)
+        connection = functools.partial(
+            PinnedHTTPSConnection,
+            original_hostname=original_hostname,
+            pinned_address=address,
+        )
+        return self.do_open(connection, req, context=self._context)
+
+
+def response_socket(response):
+    """Return the socket explicitly handed off by PinnedHTTPSConnection."""
+    return getattr(response, "_library_socket", None)
+
+
+def read_bounded_body(response, deadline):
+    body = bytearray()
+    sock = response_socket(response)
+    if sock is None:
+        raise ValueError("cannot enforce the response deadline because urllib exposed no response socket")
+    while len(body) <= MAX_BYTES:
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            raise TimeoutError("experiment response exceeded its 8-second overall deadline")
+        sock.settimeout(remaining)
+        size = min(64 * 1024, MAX_BYTES + 1 - len(body))
+        try:
+            chunk = response.read1(size)
+        except (TimeoutError, socket.timeout) as exc:
+            raise TimeoutError("experiment response exceeded its 8-second overall deadline") from exc
+        if not chunk:
             break
-        decoded = next_value
-    else:
-        return None
-    if any(ord(char) < 0x20 or ord(char) == 0x7f for char in decoded) or "\\" in decoded:
-        return None
-    if any(segment in {".", ".."} for segment in decoded.split("/")):
-        return None
-    normalized = posixpath.normpath(decoded)
-    return normalized if normalized.startswith("/") else None
-
-
-def path_is_within_production(target_path, production_path):
-    target = normalized_url_path(target_path)
-    root = normalized_url_path(production_path or "/")
-    if target is None or root is None:
-        return False
-    root_prefix = root.rstrip("/") + "/"
-    return target == root.rstrip("/") or target.startswith(root_prefix)
+        body.extend(chunk)
+    if len(body) > MAX_BYTES:
+        raise ValueError(f"experiment response exceeded {MAX_BYTES} bytes")
+    return bytes(body)
 
 
 def checked_source_revision(value):
@@ -102,7 +187,10 @@ class SafeRedirects(HTTPRedirectHandler):
 
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         public_https_url(newurl, self.production_url)
-        return super().redirect_request(req, fp, code, msg, headers, newurl)
+        redirected = super().redirect_request(req, fp, code, msg, headers, newurl)
+        if redirected is not None and hasattr(req, "_library_deadline"):
+            redirected._library_deadline = req._library_deadline
+        return redirected
 
 
 def check_one(item, production_url, source_revision, opener=None):
@@ -111,15 +199,20 @@ def check_one(item, production_url, source_revision, opener=None):
     if not target.fragment:
         raise ValueError(f"experiment {item['id']} has no fragment")
     if opener is None:
-        opener = build_opener(SafeRedirects(production_url))
+        opener = build_opener(SafeRedirects(production_url), PinnedHTTPSHandler())
     request = Request(item["url"], headers={"User-Agent": "MyLibrary-ExperimentVerifier/1.0", "Accept": "text/html"})
+    deadline = time.monotonic() + TIMEOUT
+    request._library_deadline = deadline
     with opener.open(request, timeout=TIMEOUT) as response:
-        status = response.getcode()
-        if status != 200:
-            raise ValueError(f"experiment {item['id']} returned HTTP {status}")
-        body = response.read(MAX_BYTES + 1)
-        if len(body) > MAX_BYTES:
-            raise ValueError(f"experiment {item['id']} response exceeded {MAX_BYTES} bytes")
+        try:
+            status = response.getcode()
+            if status != 200:
+                raise ValueError(f"experiment {item['id']} returned HTTP {status}")
+            body = read_bounded_body(response, deadline)
+        finally:
+            response_sock = response_socket(response)
+            if response_sock is not None:
+                response_sock.close()
     parser = FragmentParser()
     parser.feed(body.decode("utf-8", errors="replace"))
     fragment_found = target.fragment in parser.names

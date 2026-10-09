@@ -21,7 +21,7 @@ The browser never treats roadmap entries as book records. Published totals deriv
 
 ## Boundaries
 
-Each textbook remains independently authored, reviewed, released, licensed, and deployed. The portal stores descriptive metadata and outbound URLs, not chapter content. Published experiments carry evidence from a separate bounded live verifier that checks HTTPS status and the target fragment; the normal test suite validates that evidence offline. Learning-path steps resolve through a published book and an existing chapter, never a future-roadmap slug.
+Each textbook remains independently authored, reviewed, released, licensed, and deployed. The portal stores descriptive metadata and outbound URLs, not chapter content. Published experiments carry evidence from a separate bounded live verifier that pins validated public addresses, honors configured proxy and CA behavior, and checks HTTPS status and the target fragment; the normal test suite validates that evidence offline. Learning-path steps resolve through a published book and an existing chapter, never a future-roadmap slug.
 
 ## Runtime and dependencies
 

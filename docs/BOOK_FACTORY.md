@@ -26,7 +26,7 @@ When catalog manifests, categories, roadmap, or learning paths change, explicitl
 python3 tools/book_factory.py generate
 ~~~
 
-For actual live experiment checks, use the bounded HTTPS verifier. It restricts requests and redirects to the manifest's declared public production host/path, uses an 8-second timeout and a 1 MB body limit, requires HTTP 200 and the fragment in returned HTML, and records a response hash:
+For actual live experiment checks, use the bounded HTTPS verifier. It restricts requests and redirects to the manifest's declared public production host/path, pins each validated public destination IP (including proxy CONNECT destinations), preserves configured proxy and HTTPS CA behavior, enforces an 8-second overall response deadline and a 1 MB body limit, requires HTTP 200 and the fragment in returned HTML, and records a response hash:
 
 ~~~sh
 python3 tools/verify_experiments.py catalog/books/<id>.json \
@@ -51,9 +51,26 @@ The command validates first, rejects duplicate IDs/slugs, requires explicit upda
 
 Only the selected manifest and generated site/data/*.json indexes are changed. The command does not create a repository, deploy a book, mark a roadmap item complete, or publish a site.
 
+## Read a successful Pages deployment revision
+
+Use the latest `github-pages` deployment record and verify its newest status before attesting its source SHA. This command exits without printing a revision if no deployment exists or the latest status is not `success`:
+
+~~~sh
+set -eu
+deployment_id=$(gh api repos/OWNER/REPOSITORY/deployments --jq '[.[] | select(.environment == "github-pages")][0].id // empty')
+test -n "$deployment_id"
+deployment_state=$(gh api "repos/OWNER/REPOSITORY/deployments/$deployment_id/statuses" --jq '.[0].state // empty')
+test "$deployment_state" = success
+production_sha=$(gh api "repos/OWNER/REPOSITORY/deployments/$deployment_id" --jq '.sha // empty')
+test -n "$production_sha"
+printf '%s\n' "$production_sha"
+~~~
+
+Replace `OWNER/REPOSITORY` with the book repository. The verifier checks the full SHA format; obtaining it from the checked successful deployment is the caller's provenance attestation.
+
 ## PMICBook example
 
-PMICBook is registered in catalog/books/pmicbook.json. Its formal version and release URL remain v1.0.0; the current successful Pages deployment is source commit `a5290ff0ed0c785c6fc5bc0d7fa966b252710883`. These fields describe different facts. The record includes its stable title/chapter index, English/Korean entry points, and four live-checked experiment anchors. To verify the committed indexes without changing them:
+PMICBook is registered in catalog/books/pmicbook.json. Its formal version and release URL remain v1.0.0; the latest successful Pages deployment is source commit `da37b183c559d35fcb7f6471c86c513b104a7020` (run `37942176575`). These fields describe different facts. The record includes its stable title/chapter index, English/Korean entry points, and four live-checked experiment anchors. To verify the committed indexes without changing them:
 
 ~~~sh
 python3 tools/book_factory.py validate

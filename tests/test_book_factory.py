@@ -56,6 +56,33 @@ class BookFactoryTests(unittest.TestCase):
         with self.assertRaisesRegex(book_factory.ManifestError, "cannot list itself in prerequisites"):
             book_factory.validate_manifest(self.book)
 
+    def test_production_path_boundary_rejects_decoded_traversal_and_sibling_prefixes(self):
+        for path in (
+            "/pmicbook/../admin",
+            "/pmicbook/%2e%2e/admin",
+            "/pmicbook/%252e%252e/admin",
+            "/pmicbook/%5c..%5cadmin",
+            "/pmicbook2/chapters/intro.html",
+        ):
+            with self.subTest(path=path):
+                self.assertFalse(book_factory.path_is_within_production(path, "/pmicbook/"))
+        self.assertTrue(book_factory.path_is_within_production("/pmicbook/chapters/intro.html", "/pmicbook/"))
+
+    def test_manifest_chapter_experiment_and_checked_url_paths_cannot_escape(self):
+        self.book["chapters"][0]["urls"]["en"] = "https://frbread7.github.io/pmicbook2/admin"
+        with self.assertRaisesRegex(book_factory.ManifestError, "chapter .* production path"):
+            book_factory.validate_manifest(self.book)
+
+        self.book = json.loads(MANIFEST.read_text(encoding="utf-8"))
+        self.book["experiments"][0]["url"] = "https://frbread7.github.io/pmicbook2/experiment.html#run"
+        with self.assertRaisesRegex(book_factory.ManifestError, "experiment .* production path"):
+            book_factory.validate_manifest(self.book)
+
+        self.book = json.loads(MANIFEST.read_text(encoding="utf-8"))
+        self.book["experiments"][0]["verification"]["checkedUrl"] = "https://frbread7.github.io/pmicbook2/experiment.html#run"
+        with self.assertRaisesRegex(book_factory.ManifestError, "verification.checkedUrl must remain under the production host and path"):
+            book_factory.validate_manifest(self.book)
+
     def test_duplicate_manifest_ids_and_slugs_are_rejected(self):
         with tempfile.TemporaryDirectory() as directory:
             manifests = Path(directory)

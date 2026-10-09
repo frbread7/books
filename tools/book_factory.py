@@ -4,12 +4,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import posixpath
 import re
 import sys
 import tempfile
 from datetime import date
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import unquote, urlparse
 
 from jsonschema import Draft202012Validator, FormatChecker
 
@@ -49,6 +50,37 @@ def check_url(value, field):
     parsed = urlparse(value)
     if parsed.scheme != "https" or not parsed.netloc or parsed.username or parsed.password:
         fail(f"{field} must be an https URL without embedded credentials: {value!r}")
+    if normalized_url_path(parsed.path) is None:
+        fail(f"{field} must not contain encoded traversal, backslashes, or control characters")
+
+
+def normalized_url_path(path):
+    """Decode URL paths before checking boundaries; reject ambiguous traversal."""
+    if re.search(r"%(?![0-9a-fA-F]{2})", path):
+        return None
+    decoded = path
+    for _ in range(8):
+        next_value = unquote(decoded)
+        if next_value == decoded:
+            break
+        decoded = next_value
+    else:
+        return None
+    if any(ord(char) < 0x20 or ord(char) == 0x7f for char in decoded) or "\\" in decoded:
+        return None
+    if any(segment in {".", ".."} for segment in decoded.split("/")):
+        return None
+    normalized = posixpath.normpath(decoded)
+    return normalized if normalized.startswith("/") else None
+
+
+def path_is_within_production(target_path, production_path):
+    target = normalized_url_path(target_path)
+    root = normalized_url_path(production_path or "/")
+    if target is None or root is None:
+        return False
+    root_prefix = root.rstrip("/") + "/"
+    return target == root.rstrip("/") or target.startswith(root_prefix)
 
 
 def localized(obj, field):
@@ -113,6 +145,8 @@ def validate_manifest(book):
             check_url(url, f"languageUrls.{lang}")
             if urlparse(url).netloc != urlparse(book["productionUrl"]).netloc:
                 fail(f"languageUrls.{lang} must use the production host")
+            if not path_is_within_production(urlparse(url).path, urlparse(book["productionUrl"]).path):
+                fail(f"languageUrls.{lang} must remain under the production path")
     try:
         date.fromisoformat(book["lastUpdated"])
     except (ValueError, TypeError):
@@ -144,8 +178,7 @@ def validate_manifest(book):
             check_url(url, f"chapter {chapter['id']} {lang} URL")
             if urlparse(url).netloc != urlparse(book["productionUrl"]).netloc:
                 fail(f"chapter {chapter['id']} URL must use the book production host")
-            production_path = urlparse(book["productionUrl"]).path.rstrip("/") + "/"
-            if not urlparse(url).path.startswith(production_path):
+            if not path_is_within_production(urlparse(url).path, urlparse(book["productionUrl"]).path):
                 fail(f"chapter {chapter['id']} URL must remain under the production path")
         if not isinstance(chapter["topics"], list) or any(not isinstance(t, str) for t in chapter["topics"]):
             fail(f"chapter {chapter['id']} topics must be a string list")
@@ -165,8 +198,7 @@ def validate_manifest(book):
         check_url(item["url"], f"experiment {item['id']} URL")
         if urlparse(item["url"]).netloc != urlparse(book["productionUrl"]).netloc or not urlparse(item["url"]).fragment:
             fail(f"experiment {item['id']} must use the book host and include an anchor")
-        production_path = urlparse(book["productionUrl"]).path.rstrip("/") + "/"
-        if not urlparse(item["url"]).path.startswith(production_path):
+        if not path_is_within_production(urlparse(item["url"]).path, urlparse(book["productionUrl"]).path):
             fail(f"experiment {item['id']} URL must remain under the production path")
         verification = item.get("verification")
         if verification is not None:
@@ -177,6 +209,8 @@ def validate_manifest(book):
             except (ValueError, TypeError):
                 fail(f"experiment {item['id']} verification.checkedAt must be an ISO date")
             check_url(verification["checkedUrl"], f"experiment {item['id']} verification.checkedUrl")
+            if urlparse(verification["checkedUrl"]).netloc != urlparse(book["productionUrl"]).netloc or not path_is_within_production(urlparse(verification["checkedUrl"]).path, urlparse(book["productionUrl"]).path):
+                fail(f"experiment {item['id']} verification.checkedUrl must remain under the production host and path")
             if verification["checkedUrl"] != item["url"] or verification.get("httpStatus") != 200 or verification.get("fragmentFound") is not True:
                 fail(f"experiment {item['id']} verification must record a successful check of its exact URL and fragment")
     for field in ("prerequisites", "relatedBooks", "tags"):
