@@ -36,6 +36,8 @@ Open http://127.0.0.1:4173/books/.
 
 Each textbook stays in its own repository and deploys independently. Start with docs/BOOK_FACTORY.md, then follow docs/ADDING_A_NEW_BOOK.md. A manifest alone never marks a book as published: its live site, content review, and release evidence must pass and be recorded.
 
+Contributions to the portal follow [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Project map
 
 - site/ — deployable static Pages artifact; flat HTML routes share one data-driven app.
