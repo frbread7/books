@@ -13,7 +13,7 @@
     },
     "description": {
       "en": "An interactive engineering textbook that connects PMIC systems and specifications to circuits, semiconductor devices, BCD technology, fabrication and integration, layout, characterization, reliability, and failure analysis.",
-      "ko": "PMIC 시스템과 회로를 반도체 소자, BCD 기술, 제조 공정, 레이아웃, 시험 및 신뢰성과 연결하는 인터랙티브 공학 교재입니다."
+      "ko": "전력 관리 시스템과 사양에서 시작해 PMIC 회로 아키텍처, 반도체 소자와 BCD 기술, 제조 및 공정 통합, 레이아웃과 기생 효과, 열 특성, 특성 평가와 시험, 신뢰성 및 고장 분석까지 연결하는 인터랙티브 공학 교재입니다."
     },
     "category": "semiconductor",
     "tags": [
@@ -473,6 +473,15 @@
         "kind": {
           "en": "Power estimator",
           "ko": "전력 추정기"
+        },
+        "verification": {
+          "checkedAt": "2026-10-09",
+          "checkedUrl": "https://frbread7.github.io/pmicbook/chapters/fundamentals.html#pm-fund-sim",
+          "httpStatus": 200,
+          "fragmentFound": true,
+          "contentSha256": "f15dd4d3c4e0743f223e61ecc07dac301a11977232868f5fbbd5fa93621a2b54",
+          "sourceRevision": "559b8fa884d49a35d5183b5836997655dcc0b1b7",
+          "evidence": "Live HTTPS response; HTTP 200; fragment #pm-fund-sim present in HTML; SHA-256 recorded."
         }
       },
       {
@@ -486,6 +495,15 @@
         "kind": {
           "en": "Implant profile model",
           "ko": "이온 주입 프로파일 모델"
+        },
+        "verification": {
+          "checkedAt": "2026-10-09",
+          "checkedUrl": "https://frbread7.github.io/pmicbook/chapters/implant.html#sim-prof",
+          "httpStatus": 200,
+          "fragmentFound": true,
+          "contentSha256": "3a07a4f853fbdc38193d8dcca8e31ea78b715a81423d29a497273270d09bd7e6",
+          "sourceRevision": "559b8fa884d49a35d5183b5836997655dcc0b1b7",
+          "evidence": "Live HTTPS response; HTTP 200; fragment #sim-prof present in HTML; SHA-256 recorded."
         }
       },
       {
@@ -499,6 +517,15 @@
         "kind": {
           "en": "Interactive process model",
           "ko": "인터랙티브 공정 모델"
+        },
+        "verification": {
+          "checkedAt": "2026-10-09",
+          "checkedUrl": "https://frbread7.github.io/pmicbook/chapters/wafer.html#sim-seg",
+          "httpStatus": 200,
+          "fragmentFound": true,
+          "contentSha256": "7def76150e8745ccb9568cf55355f88c5d41c9d0f076472158dc5f721d207743",
+          "sourceRevision": "559b8fa884d49a35d5183b5836997655dcc0b1b7",
+          "evidence": "Live HTTPS response; HTTP 200; fragment #sim-seg present in HTML; SHA-256 recorded."
         }
       },
       {
@@ -512,6 +539,15 @@
         "kind": {
           "en": "Process stepper",
           "ko": "공정 단계 탐색기"
+        },
+        "verification": {
+          "checkedAt": "2026-10-09",
+          "checkedUrl": "https://frbread7.github.io/pmicbook/chapters/integration.html#sim-cmos",
+          "httpStatus": 200,
+          "fragmentFound": true,
+          "contentSha256": "7343d0806578b0eed2b49191400ecba18e080063c2f1c6572785f143a87f9b8a",
+          "sourceRevision": "559b8fa884d49a35d5183b5836997655dcc0b1b7",
+          "evidence": "Live HTTPS response; HTTP 200; fragment #sim-cmos present in HTML; SHA-256 recorded."
         }
       }
     ],

@@ -177,9 +177,7 @@
           },
           "topics": [
             "PMIC",
-            "power devices",
-            "memory",
-            "sensors"
+            "power management"
           ],
           "connections": [
             {
@@ -195,6 +193,24 @@
               "chapterId": "lab"
             }
           ]
+        },
+        {
+          "id": "memory-editorial",
+          "label": {
+            "en": "Memory products (planned)",
+            "ko": "메모리 제품 (계획)"
+          },
+          "topics": ["memory"],
+          "connections": []
+        },
+        {
+          "id": "sensors-editorial",
+          "label": {
+            "en": "Sensors (planned)",
+            "ko": "센서 (계획)"
+          },
+          "topics": ["sensors"],
+          "connections": []
         }
       ]
     },

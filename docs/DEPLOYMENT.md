@@ -31,4 +31,4 @@ No custom domain or CNAME is configured. GitHub Actions must be the Pages source
 
 ## Feedback
 
-The Feedback view opens the repository's public GitHub issue form. No administrative token or external service is configured. Issues are public; the issue template asks users not to submit confidential material.
+The Feedback view opens the repository's public GitHub issue form. No administrative token or external service is configured. Issue titles, descriptions, attachments, and GitHub usernames are public; the issue template tells users not to submit confidential material.

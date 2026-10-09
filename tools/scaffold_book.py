@@ -13,9 +13,13 @@ SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 
 def checked_url(value, field):
+    if not isinstance(value, str) or any(ord(char) < 0x20 or ord(char) == 0x7f for char in value):
+        raise ValueError(f"{field} must not contain control characters or newlines")
     parsed = urlparse(value)
     if parsed.scheme != "https" or not parsed.netloc or parsed.username or parsed.password:
         raise ValueError(f"{field} must be an HTTPS URL without embedded credentials")
+    if not parsed.hostname or parsed.port not in (None, 443):
+        raise ValueError(f"{field} must use a standard HTTPS host")
 
 
 def cover_svg(book_id, title):
@@ -136,7 +140,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: {args.production_url}
+      url: {json.dumps(args.production_url, ensure_ascii=True)}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

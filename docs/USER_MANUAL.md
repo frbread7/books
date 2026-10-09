@@ -10,11 +10,11 @@ Search title, subtitle, description, chapter titles, topics, and tags. Narrow re
 
 ## Follow subject and learning links
 
-Subjects show which knowledge areas have a published textbook connection. Select Semiconductor Engineering for its knowledge map. A map item links only to existing PMICBook material. Learning paths sequence reviewed chapters; outbound links open the independent textbook.
+Subjects show which knowledge areas have a published textbook connection. Select Semiconductor Engineering for its knowledge map. Map items link only to content in published books. Learning paths sequence reviewed chapters; outbound links open the independent textbook.
 
 ## Experiments
 
-Experiments lists four verified PMICBook anchors. Select Open experiment to jump to the corresponding interactive chapter section.
+Experiments lists anchors verified against published book sites. PMICBook currently contributes four. Select Open experiment to jump to the corresponding interactive chapter section.
 
 ## Language and appearance
 
@@ -22,4 +22,4 @@ The language button switches between English and Korean and remembers the choice
 
 ## Feedback and book status
 
-Feedback opens a public GitHub issue form. Do not include private information. Roadmap entries are proposals, not available textbooks. A published title links to its repository and production site.
+Feedback opens a public GitHub issue form. Issue titles, descriptions, attachments, and your GitHub username are public; do not include private or confidential information. Roadmap entries are proposals, not available textbooks. A published title links to its repository and production site.

@@ -4,7 +4,8 @@
   "private": true,
   "description": "Validation and browser checks for My Library.",
   "scripts": {
-    "validate": "python3 -m unittest discover -s tests -p 'test_*.py' -v && python3 tools/book_factory.py validate",
+    "validate": "python3 -m unittest discover -s tests -p 'test_*.py' -v && python3 tools/book_factory.py check-indexes",
+    "indexes:generate": "python3 tools/book_factory.py generate",
     "test:e2e": "playwright test",
     "test": "npm run validate && npm run test:e2e"
   },

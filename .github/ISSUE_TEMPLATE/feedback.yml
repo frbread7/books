@@ -4,7 +4,7 @@ title: "[Feedback]: "
 body:
   - type: markdown
     attributes:
-      value: "Issues are public. Do not include private, confidential, or personal information."
+      value: "GitHub Issues are public, including your username, title, description, and attachments. Do not include private, confidential, or personal information."
   - type: dropdown
     id: topic
     attributes:

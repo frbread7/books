@@ -15,11 +15,14 @@ Requirements: Python 3.12+, Node.js 20+, npm.
 ~~~sh
 python3 -m pip install -r requirements.txt
 npm ci
+npx playwright install chromium
 npm run validate
 npm run test:e2e
 ~~~
 
-The browser tests exercise the actual GitHub Pages project prefix (/books/) at mobile, tablet, and desktop sizes. They use Playwright and Chromium. The local preview server starts automatically by Playwright.
+The browser tests exercise the actual GitHub Pages project prefix (/books/) at mobile, tablet, and desktop sizes. They use Playwright and Chromium. On Linux systems missing browser libraries, run `npx playwright install --with-deps chromium`. The local preview server starts automatically by Playwright.
+
+`npm run validate` is read-only and fails if committed generated indexes do not match the catalog. After editing catalog inputs, run `python3 tools/book_factory.py generate` before validation.
 
 To preview directly:
 
@@ -39,7 +42,8 @@ Each textbook stays in its own repository and deploys independently. Start with 
 - catalog/books/ — one validated record per book explicitly registered with the portal.
 - catalog/ — subject maps, learning paths, and the editorial roadmap.
 - schemas/book.schema.json — manifest schema.
-- tools/book_factory.py — validation and safe register/update command.
+- tools/book_factory.py — read-only validation, index generation, and safe register/update command.
+- tools/verify_experiments.py — bounded live HTTPS checks for published experiment links and fragments.
 - book-starter/ and tools/scaffold_book.py — independent textbook starter.
 - tests/ — data/static checks and project-prefix Playwright journeys.
 

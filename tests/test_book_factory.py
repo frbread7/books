@@ -36,9 +36,19 @@ class BookFactoryTests(unittest.TestCase):
         with self.assertRaisesRegex(book_factory.ManifestError, "schema validation.*publicationEvidence"):
             book_factory.validate_manifest(self.book)
 
-    def test_experiment_requires_a_verified_anchor(self):
+    def test_experiment_requires_a_fragment_anchor(self):
         self.book["experiments"][0]["url"] = self.book["productionUrl"]
-        with self.assertRaisesRegex(book_factory.ManifestError, "verified anchor"):
+        with self.assertRaisesRegex(book_factory.ManifestError, "include an anchor"):
+            book_factory.validate_manifest(self.book)
+
+    def test_published_experiments_require_live_fragment_evidence(self):
+        self.book["experiments"][0].pop("verification")
+        with self.assertRaisesRegex(book_factory.ManifestError, "verification"):
+            book_factory.validate_manifest(self.book)
+
+    def test_a_book_cannot_list_itself_as_a_prerequisite(self):
+        self.book["prerequisites"] = ["pmicbook"]
+        with self.assertRaisesRegex(book_factory.ManifestError, "cannot list itself in prerequisites"):
             book_factory.validate_manifest(self.book)
 
     def test_duplicate_manifest_ids_and_slugs_are_rejected(self):
@@ -115,6 +125,43 @@ class BookFactoryTests(unittest.TestCase):
         broken["categories"]["categories"][0]["map"][0].pop("connections")
         with self.assertRaisesRegex(book_factory.ManifestError, "connections must be a list"):
             book_factory.validate_discovery_indexes(books, broken)
+
+    def test_check_indexes_detects_catalog_drift_without_mutating_generated_data(self):
+        with tempfile.TemporaryDirectory() as directory:
+            data = Path(directory) / "data"
+            with patch.object(book_factory, "DATA", data), patch.object(book_factory, "all_books", return_value=[deepcopy(self.book)]):
+                book_factory.generate()
+                before = (data / "books.json").read_bytes()
+                changed = deepcopy(self.book)
+                changed["description"]["en"] += " Changed in canonical input."
+                with patch.object(book_factory, "all_books", return_value=[changed]):
+                    with self.assertRaisesRegex(book_factory.ManifestError, "stale or missing generated indexes.*books.json"):
+                        book_factory.check_indexes()
+                self.assertEqual((data / "books.json").read_bytes(), before)
+
+    def test_second_published_book_propagates_to_generated_catalog_aggregates(self):
+        second = deepcopy(self.book)
+        second.update({
+            "id": "fixturebook", "slug": "fixturebook", "title": {"en": "FixtureBook", "ko": "FixtureBook"},
+            "subtitle": {"en": "A second-book test fixture", "ko": "두 번째 책 테스트 픽스처"},
+            "description": {"en": "A synthetic record used only to verify catalog expansion.", "ko": "카탈로그 확장 검증에만 사용하는 테스트용 가상 레코드입니다."},
+            "repositoryUrl": "https://github.com/example/fixturebook", "productionUrl": "https://example.test/fixturebook/",
+            "languages": ["en"], "languageUrls": {"en": "https://example.test/fixturebook/"}, "chapterCount": 1,
+            "chapters": [{"id": "intro", "number": 1, "title": {"en": "Introduction", "ko": "소개"}, "urls": {"en": "https://example.test/fixturebook/chapters/intro.html"}, "topics": ["fixture"]}],
+            "experiments": [], "prerequisites": [], "relatedBooks": [], "status": "published",
+            "attribution": {"license": "CC BY 4.0", "repositoryUrl": "https://github.com/example/fixturebook", "notes": "Synthetic test-only record."},
+            "publicationEvidence": {"releaseUrl": "https://github.com/example/fixturebook/releases/tag/v1.0.0", "releasePublishedAt": "2026-01-01", "contentReview": "Fixture", "siteVerification": "Fixture", "chapterVerification": "Fixture"}
+        })
+        with tempfile.TemporaryDirectory() as directory:
+            data = Path(directory) / "data"
+            with patch.object(book_factory, "DATA", data), patch.object(book_factory, "all_books", return_value=[self.book, second]):
+                book_factory.generate()
+            indexed = json.loads((data / "books.json").read_text(encoding="utf-8"))
+        published = [book for book in indexed if book["status"] == "published"]
+        self.assertEqual({book["id"] for book in published}, {"pmicbook", "fixturebook"})
+        self.assertEqual(sum(book["chapterCount"] for book in published), 26)
+        self.assertEqual(sum(len(book["experiments"]) for book in published), 4)
+        self.assertEqual(next(book for book in published if book["id"] == "pmicbook")["chapterCount"], 25)
 
 
 if __name__ == "__main__":

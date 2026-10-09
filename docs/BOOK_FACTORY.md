@@ -8,15 +8,30 @@ The canonical v1 shape is schemas/book.schema.json; semantic checks live in tool
 
 Install the small validator with python3 -m pip install -r requirements.txt. JSON Schema catches structural and format errors; Python checks enforce cross-record IDs, category/chapter links, production-host boundaries, and generated-index integrity.
 
-Chapter URLs must use the book's production host. Experiments require an existing chapter ID and an HTTPS URL with an anchor. The cover must be stored under site/assets/ in this portal. Related/prerequisite IDs must refer to registered books; empty lists are valid. Roadmap proposals belong in catalog/roadmap.json, not catalog/books/.
+Chapter URLs must use the book's production host. Experiments require an existing chapter ID and an HTTPS URL with a fragment. Every experiment in a published book must also carry successful live-check evidence: exact checked URL, ISO date, HTTP 200, fragment present, response SHA-256, immutable source revision, and a short evidence note. The cover must be stored under site/assets/ in this portal. Related/prerequisite IDs must refer to registered books; empty lists are valid, and a book cannot list itself. Roadmap proposals belong in catalog/roadmap.json, not catalog/books/.
 
 ## Commands
 
-Validate all manifests and regenerate derived browser indexes:
+Validate all manifests and confirm generated browser indexes exactly match canonical inputs. This command performs no writes:
 
 ~~~sh
 python3 tools/book_factory.py validate
 ~~~
+
+When catalog manifests, categories, roadmap, or learning paths change, explicitly regenerate the browser indexes before committing:
+
+~~~sh
+python3 tools/book_factory.py generate
+~~~
+
+For actual live experiment checks, use the bounded HTTPS verifier. It restricts requests and redirects to the manifest's declared public production host/path, uses an 8-second timeout and a 1 MB body limit, requires HTTP 200 and the fragment in returned HTML, and records a response hash:
+
+~~~sh
+python3 tools/verify_experiments.py catalog/books/<id>.json \
+  --source-revision v1.0.0 --write-back
+~~~
+
+This command makes network requests and writes only after all links pass. Ordinary `npm test` remains deterministic and offline; it validates the recorded evidence structurally but does not repeat the live check.
 
 Register a new manifest without replacing an existing record:
 
@@ -36,7 +51,7 @@ Only the selected manifest and generated site/data/*.json indexes are changed. T
 
 ## PMICBook example
 
-PMICBook is registered in catalog/books/pmicbook.json. It identifies release v1.0.0, its stable title/chapter index, English/Korean entry points, and four checked experiment anchors. To regenerate indexes:
+PMICBook is registered in catalog/books/pmicbook.json. It identifies release v1.0.0, its stable title/chapter index, English/Korean entry points, and four live-checked experiment anchors. To verify the committed indexes without changing them:
 
 ~~~sh
 python3 tools/book_factory.py validate
@@ -46,7 +61,7 @@ The textbook repository stays separate and is not changed by this workflow.
 
 ## Future-book workflow
 
-1. Scaffold an independent textbook with python3 tools/scaffold_book.py.
+1. Scaffold an independent textbook with python3 tools/scaffold_book.py. When work starts, remove its matching ID from catalog/roadmap.json; an editorial idea and registered book cannot share an ID.
 2. Author, test, review, version, and deploy it in its own GitHub repository.
 3. Confirm production routes and anchors and record release/review evidence.
 4. Copy its completed manifest to catalog/books/<id>.json and cover artwork to the referenced site/assets/ path.

@@ -164,16 +164,27 @@ def validate_manifest(book):
             fail(f"experiment {item['id']} references unknown chapter {item['chapterId']}")
         check_url(item["url"], f"experiment {item['id']} URL")
         if urlparse(item["url"]).netloc != urlparse(book["productionUrl"]).netloc or not urlparse(item["url"]).fragment:
-            fail(f"experiment {item['id']} must use the book host and include a verified anchor")
+            fail(f"experiment {item['id']} must use the book host and include an anchor")
         production_path = urlparse(book["productionUrl"]).path.rstrip("/") + "/"
         if not urlparse(item["url"]).path.startswith(production_path):
             fail(f"experiment {item['id']} URL must remain under the production path")
+        verification = item.get("verification")
+        if verification is not None:
+            if not isinstance(verification, dict) or not all(isinstance(verification.get(key), str) and verification[key].strip() for key in ("checkedAt", "checkedUrl", "contentSha256", "sourceRevision", "evidence")):
+                fail(f"experiment {item['id']} verification requires checkedAt, checkedUrl, contentSha256, sourceRevision, and evidence")
+            try:
+                date.fromisoformat(verification["checkedAt"])
+            except (ValueError, TypeError):
+                fail(f"experiment {item['id']} verification.checkedAt must be an ISO date")
+            check_url(verification["checkedUrl"], f"experiment {item['id']} verification.checkedUrl")
+            if verification["checkedUrl"] != item["url"] or verification.get("httpStatus") != 200 or verification.get("fragmentFound") is not True:
+                fail(f"experiment {item['id']} verification must record a successful check of its exact URL and fragment")
     for field in ("prerequisites", "relatedBooks", "tags"):
         if not isinstance(book[field], list) or any(not isinstance(v, str) for v in book[field]):
             fail(f"{field} must be a string list")
-    for rel in book["relatedBooks"]:
-        if rel == book["id"]:
-            fail("a book cannot relate to itself")
+    for field in ("relatedBooks", "prerequisites"):
+        if book["id"] in book[field]:
+            fail(f"a book cannot list itself in {field}")
     if not isinstance(book["cover"], str) or not book["cover"].startswith("assets/"):
         fail("cover must be a site-relative path under assets/")
     if not (ROOT / "site" / book["cover"]).is_file():
@@ -315,15 +326,41 @@ def atomic_json(path: Path, data):
     temp.replace(path)
 
 
-def generate():
+def derived_indexes():
     books = all_books()
     indexes = {source: read_json(ROOT / "catalog" / f"{source}.json") for source in ("categories", "roadmap", "learning-paths")}
     validate_discovery_indexes(books, indexes)
+    return {"books": books, **indexes}
+
+
+def index_content(data):
+    return json.dumps(data, ensure_ascii=False, indent=2) + "\n"
+
+
+def check_indexes():
+    expected = derived_indexes()
+    stale = []
+    for name, content in expected.items():
+        path = DATA / f"{name}.json"
+        if not path.is_file() or path.read_text(encoding="utf-8") != index_content(content):
+            stale.append(display_path(path))
+    unexpected = sorted(display_path(path) for path in DATA.glob("*.json") if path.stem not in expected)
+    if stale or unexpected:
+        pieces = []
+        if stale:
+            pieces.append("stale or missing generated indexes: " + ", ".join(stale))
+        if unexpected:
+            pieces.append("unexpected generated data files: " + ", ".join(unexpected))
+        fail("; ".join(pieces) + "; run python3 tools/book_factory.py generate")
+    print(f"Validated {len(expected['books'])} book manifest(s): {sum(b['status'] == 'published' for b in expected['books'])} published; generated indexes are current.")
+
+
+def generate():
+    expected = derived_indexes()
     DATA.mkdir(parents=True, exist_ok=True)
-    atomic_json(DATA / "books.json", books)
-    for source, index in indexes.items():
-        atomic_json(DATA / f"{source}.json", index)
-    print(f"Validated {len(books)} book manifest(s): {sum(b['status'] == 'published' for b in books)} published; wrote site/data indexes.")
+    for name, data in expected.items():
+        atomic_json(DATA / f"{name}.json", data)
+    print(f"Generated validated indexes for {len(expected['books'])} book manifest(s): {sum(b['status'] == 'published' for b in expected['books'])} published.")
 
 
 def register(source: Path, update: bool):
@@ -362,14 +399,17 @@ def register(source: Path, update: bool):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
-    validate = sub.add_parser("validate", help="validate every manifest and regenerate derived indexes")
+    sub.add_parser("validate", help="validate manifests and confirm checked-in indexes are current without writing")
+    sub.add_parser("check-indexes", help="validate manifests and compare derived indexes without writing")
+    sub.add_parser("generate", help="validate manifests and write derived indexes")
     add = sub.add_parser("register", help="register a new validated manifest")
     add.add_argument("manifest", type=Path)
     update = sub.add_parser("update", help="replace one existing manifest by its stable id")
     update.add_argument("manifest", type=Path)
     args = parser.parse_args()
     try:
-        if args.command == "validate": generate()
+        if args.command in {"validate", "check-indexes"}: check_indexes()
+        elif args.command == "generate": generate()
         else: register(args.manifest.resolve(), args.command == "update")
     except (ManifestError, OSError, json.JSONDecodeError) as exc:
         print(f"book_factory: error: {exc}", file=sys.stderr)

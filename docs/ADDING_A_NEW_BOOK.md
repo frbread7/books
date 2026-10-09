@@ -4,10 +4,10 @@ This keeps the textbook independently deployable and ensures the bookshelf links
 
 ## 1. Scaffold an independent repository
 
-Run this from a directory beside your existing projects:
+Run this from the directory that contains the `books/` checkout:
 
 ~~~sh
-python3 /path/to/books/tools/scaffold_book.py \
+python3 ./books/tools/scaffold_book.py \
   --id devicephysicsbook \
   --title-en DevicePhysicsBook \
   --title-ko DevicePhysicsBook \
@@ -25,7 +25,7 @@ The starter creates a bilingual metadata skeleton, a static landing page, an ori
 
 ## 2. Write and independently validate
 
-Author substantive chapters, references, original diagrams, tests, and interactive models in the new repository. Keep its license and source acknowledgements. Set up its own Pages workflow and verify both language entry points and all chapter/experiment URLs. List an experiment only when its interface and anchor exist. Publish a release after content review; repository creation alone is not publication.
+Author substantive chapters, references, original diagrams, tests, and interactive models in the new repository. Keep its license and source acknowledgements. Set up its own Pages workflow and verify both language entry points and all chapter URLs. List an experiment only when its interface and anchor exist. Publish a release after content review; repository creation alone is not publication.
 
 ## 3. Prepare the My Library record
 
@@ -33,41 +33,55 @@ Edit the starter library-manifest.json. Supply actual available languages, versi
 
 - Use stable lowercase hyphenated ID and slug values.
 - Set status to published only after the live site and content pass review.
-- Add a release URL and factual site/chapter/experiment verification evidence for a published book.
+- Add a release URL and factual site/chapter verification evidence for a published book.
+- Verify each experiment against the live deployed HTML with the verifier below. This records the checked URL, date, HTTP status, fragment result, response hash, and immutable source revision.
 - Choose a cover path under site/assets/ in My Library and place original artwork there.
 - Keep prerequisites and relatedBooks empty when no existing published title applies.
 - Advertise only real deployed language editions; catalog display text can be bilingual.
 - Use HTTPS URLs on the actual production host.
+- Do not assign the book a prerequisite ID that points back to itself.
 
 ## 4. Register in the portal
 
-If the checkouts are siblings, copy the manifest and cover into My Library:
+Register the starter as `in-progress` first. A title cannot be both a roadmap proposal and a registered book, so remove its matching ID from `books/catalog/roadmap.json` as soon as work starts; `devicephysicsbook` is already listed there. Keep its technical scope in the portal roadmap only while it remains unstarted. From the parent directory containing both sibling checkouts, copy the generated cover into the portal. Its actual scaffold path is `assets/covers/devicephysicsbook.svg`:
 
 ~~~sh
-cp ./library-manifest.json ../books/catalog/books/devicephysicsbook.json
-mkdir -p ../books/site/assets/covers
-cp ./cover.svg ../books/site/assets/covers/devicephysicsbook.svg
+cd ..
+mkdir -p ./books/site/assets/covers
+cp ./devicephysicsbook/assets/covers/devicephysicsbook.svg ./books/site/assets/covers/devicephysicsbook.svg
+python3 ./books/tools/book_factory.py register ./devicephysicsbook/library-manifest.json
+cd ./books
+npm ci
+npx playwright install chromium
+npm test
 ~~~
 
-Set the manifest cover value to assets/covers/devicephysicsbook.svg. Then validate and regenerate:
+The starter manifest already uses `assets/covers/devicephysicsbook.svg`. The register command validates it and regenerates the portal indexes. `validate` is read-only and checks that those generated files still match the canonical catalog.
 
 ~~~sh
-cd ../books
 python3 tools/book_factory.py validate
 npm test
 ~~~
 
-You can register directly from the sibling starter instead:
+After the book site is live and the release is reviewed, check its experiment links against that release. This is the only normal Book Factory step that makes network requests; it is deliberately separate from offline `npm test`:
 
 ~~~sh
-python3 tools/book_factory.py register ../devicephysicsbook/library-manifest.json
+python3 tools/verify_experiments.py ../devicephysicsbook/library-manifest.json \
+  --source-revision v1.0.0 --write-back
 ~~~
 
-Review site/data/books.json, the card, category map, and learning paths. Add a map connection to catalog/categories.json only after the book is registered. Learning-path steps must use chapter IDs present in registered books.
+Edit `library-manifest.json` to set `status` to `published` and add the actual release URL, publication date, content review, site verification, and chapter verification. Then update the existing portal record:
+
+~~~sh
+python3 tools/book_factory.py update ../devicephysicsbook/library-manifest.json
+npm test
+~~~
+
+Review `site/data/books.json`, the card, category map, and learning paths. Add a map connection to `catalog/categories.json` only after the book is registered. Learning-path steps must use chapter IDs present in registered books.
 
 ## 5. Deploy and update
 
-Commit the manifest, cover, and generated indexes together. Pull requests run validation and browser checks; a main-branch merge deploys the static site. Verify the live portal and book links after deployment.
+Commit the canonical manifest, cover, catalog edits, and generated indexes together. Pull requests run read-only index-integrity validation and browser checks; a main-branch merge deploys the static site. Verify the live portal and book links after deployment.
 
 To update later while retaining the same stable ID:
 

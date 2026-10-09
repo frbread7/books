@@ -311,6 +311,28 @@
         },
         "kind": {
           "$ref": "#/$defs/localized"
+        },
+        "verification": {
+          "type": "object",
+          "required": [
+            "checkedAt",
+            "checkedUrl",
+            "httpStatus",
+            "fragmentFound",
+            "contentSha256",
+            "sourceRevision",
+            "evidence"
+          ],
+          "properties": {
+            "checkedAt": { "type": "string", "format": "date" },
+            "checkedUrl": { "type": "string", "format": "uri" },
+            "httpStatus": { "const": 200 },
+            "fragmentFound": { "const": true },
+            "contentSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+            "sourceRevision": { "type": "string", "pattern": "^(?:v[0-9][0-9A-Za-z.+-]*|[0-9a-fA-F]{7,64})$" },
+            "evidence": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
@@ -356,6 +378,22 @@
             "required": [
               "experimentVerification"
             ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": { "const": "published" },
+          "experiments": { "minItems": 1 }
+        },
+        "required": ["status", "experiments"]
+      },
+      "then": {
+        "properties": {
+          "experiments": {
+            "items": { "required": ["verification"] }
           }
         }
       }

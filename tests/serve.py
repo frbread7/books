@@ -16,7 +16,12 @@ class Handler(SimpleHTTPRequestHandler):
         if not url_path.startswith("/books/"):
             return str(SITE / "404.html")
         relative = url_path[len("/books/"):]
-        return super().translate_path("/" + relative)
+        candidate = super().translate_path("/" + relative)
+        if Path(candidate).is_dir():
+            index = Path(candidate) / "index.html"
+            if index.is_file():
+                return str(index)
+        return candidate if Path(candidate).is_file() else str(SITE / "404.html")
 
     def log_message(self, fmt, *args):
         if " 404 " in fmt:

@@ -28,10 +28,11 @@ class StaticSiteContractTests(unittest.TestCase):
 
     def test_base_path_is_centralized_and_not_root_relative(self):
         paths = (SITE / "js" / "paths.js").read_text(encoding="utf-8")
-        self.assertIn('new URL("./", window.location.href)', paths)
+        self.assertIn('new URL("./", document.baseURI)', paths)
         self.assertIn("siteUrl", paths)
         for file in [*SITE.glob("*.html"), *SITE.glob("js/*.js"), *SITE.glob("css/*.css")]:
             content = file.read_text(encoding="utf-8")
+            content = content.replace('<base href="/books/">', "")
             self.assertNotRegex(content, r'(?:href|src)="/(?!/)', f"root-relative link in {file}")
             self.assertNotIn("books.euiyun.com", content)
             self.assertNotIn("cloudflare", content.lower())
@@ -39,15 +40,38 @@ class StaticSiteContractTests(unittest.TestCase):
     def test_catalog_count_roadmap_separation_and_verified_experiments(self):
         books = json.loads((SITE / "data" / "books.json").read_text(encoding="utf-8"))
         roadmap = json.loads((SITE / "data" / "roadmap.json").read_text(encoding="utf-8"))
-        self.assertEqual([b["id"] for b in books if b["status"] == "published"], ["pmicbook"])
-        self.assertEqual(len(books[0]["chapters"]), 25)
-        self.assertEqual(len(books[0]["experiments"]), 4)
-        self.assertEqual(books[0]["languageUrls"]["ko"], "https://frbread7.github.io/pmicbook/ko/")
+        pmicbook = next(book for book in books if book["id"] == "pmicbook")
+        self.assertEqual(pmicbook["status"], "published")
+        self.assertEqual(pmicbook["chapterCount"], 25)
+        self.assertEqual(len(pmicbook["chapters"]), 25)
+        self.assertEqual(len(pmicbook["experiments"]), 4)
+        self.assertEqual(pmicbook["languageUrls"]["ko"], "https://frbread7.github.io/pmicbook/ko/")
         self.assertTrue(all(b["status"] == "planned" for b in roadmap["books"]))
-        self.assertEqual(len({x["id"] for x in books[0]["experiments"]}), 4)
-        for item in books[0]["experiments"]:
+        self.assertEqual(len({x["id"] for x in pmicbook["experiments"]}), 4)
+        for item in pmicbook["experiments"]:
             self.assertTrue(item["url"].startswith("https://frbread7.github.io/pmicbook/"))
             self.assertIn("#", item["url"])
+            self.assertEqual(item["verification"]["checkedUrl"], item["url"])
+            self.assertEqual(item["verification"]["httpStatus"], 200)
+            self.assertIs(item["verification"]["fragmentFound"], True)
+        self.assertEqual(sum(b["chapterCount"] for b in books if b["status"] == "published"), sum(len(b["chapters"]) for b in books if b["status"] == "published"))
+
+    def test_light_theme_muted_and_copper_tokens_meet_normal_text_contrast(self):
+        css = (SITE / "css" / "style.css").read_text(encoding="utf-8")
+        root = css.split("}", 1)[0]
+        tokens = {name: value for name, value in re.findall(r"--(muted|copper):(#(?:[0-9a-fA-F]{6}))", root)}
+        surfaces = ["#f4f3ef", "#fffefa", "#edf2ed", "#d9e5df", "#d9e4dc", "#e7e9e3", "#e8eae4", "#e7ece7", "#e8edf7", "#e9c8ad", "#e9e4d9", "#ecebea", "#edf0ed", "#f5eee0", "#f7f4ed", "#fff2e9"]
+
+        def luminance(value):
+            channels = [int(value[index:index + 2], 16) / 255 for index in (1, 3, 5)]
+            linear = [channel / 12.92 if channel <= 0.04045 else ((channel + 0.055) / 1.055) ** 2.4 for channel in channels]
+            return .2126 * linear[0] + .7152 * linear[1] + .0722 * linear[2]
+
+        for token in ("muted", "copper"):
+            foreground = luminance(tokens[token])
+            for background in surfaces:
+                ratio = (max(foreground, luminance(background)) + .05) / (min(foreground, luminance(background)) + .05)
+                self.assertGreaterEqual(ratio, 4.5, f"--{token} has {ratio:.2f}:1 contrast on {background}")
 
     def test_category_maps_and_learning_paths_reference_real_chapters(self):
         books = json.loads((SITE / "data" / "books.json").read_text(encoding="utf-8"))

@@ -158,8 +158,8 @@
         "ko": "InlineMetrologyBook"
       },
       "subtitle": {
-        "en": "Inline monitoring, measurement, WAT, and EDS",
-        "ko": "인라인 모니터링·계측·WAT·EDS"
+        "en": "Inline monitoring, measurement, WAT, and EDS (electrical die sort)",
+        "ko": "인라인 모니터링·계측·WAT·EDS(전기적 다이 선별)"
       },
       "status": "planned",
       "priority": 3,
@@ -185,7 +185,7 @@
           "Film, dimension, and defect metrology",
           "Sampling and SPC",
           "WAT structures and electrical parameters",
-          "EDS bins and signatures",
+          "EDS (electrical die sort) bins and signatures",
           "Monitor-to-action workflows"
         ],
         "ko": [
@@ -193,7 +193,7 @@
           "막·치수·결함 계측",
           "샘플링과 SPC",
           "WAT 구조와 전기 파라미터",
-          "EDS 빈과 시그니처",
+          "EDS(전기적 다이 선별) 빈과 시그니처",
           "모니터에서 조치까지"
         ]
       },
@@ -336,7 +336,7 @@
           "Emission and thermal methods",
           "OBIRCH and laser stimulation",
           "Cross-section and deprocessing",
-          "SEM, TEM, EDS, and evidence reports"
+          "SEM, TEM, energy-dispersive X-ray spectroscopy (EDS/EDX), and evidence reports"
         ],
         "ko": [
           "고장 시그니처와 격리",
@@ -344,15 +344,15 @@
           "발광·열 분석법",
           "OBIRCH와 레이저 자극",
           "단면 분석과 디프로세싱",
-          "SEM·TEM·EDS와 증거 보고서"
+          "SEM·TEM·에너지 분산형 X선 분광법(EDS/EDX)과 증거 보고서"
         ]
       },
       "prerequisites": {
         "en": [
-          "Device and test fundamentals; ReliabilityBook and InlineMetrologyBook are useful context."
+          "Device and test fundamentals; PMICBook chapters 21–22 introduce product-level reliability and failure analysis."
         ],
         "ko": [
-          "소자와 시험 기초를 권장하며 신뢰성·인라인 계측 교재가 도움이 됩니다."
+          "소자와 시험 기초를 권장하며 PMICBook 21–22장에서 제품 수준의 신뢰성과 고장 분석을 소개합니다."
         ]
       },
       "relationships": {

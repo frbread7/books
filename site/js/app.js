@@ -9,15 +9,20 @@
   const setPreference = (key, value) => { try { localStorage.setItem(key, value); } catch { /* Preferences remain usable for this page view. */ } };
   const local = path => esc(siteUrl(path));
   const statusText = status => ({ published: t("statusPublished"), planned: t("statusPlanned"), "in-progress": t("statusProgress"), archived: t("statusArchived") })[status] || status;
-  const setMeta = (title, description) => {
+  const setMeta = (title, description, canonicalUrl = location.href.split("?")[0].split("#")[0]) => {
     document.title = `${title} — My Library`;
     const desc = document.querySelector('meta[name="description"]'); if (desc) desc.content = description;
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.append(canonical); }
-    canonical.href = location.href.split("?")[0];
+    canonical.href = canonicalUrl;
     let og = document.querySelector('meta[property="og:url"]');
     if (!og) { og = document.createElement("meta"); og.setAttribute("property", "og:url"); document.head.append(og); }
     og.content = canonical.href;
+    for (const [property, content] of [["og:title", document.title], ["og:description", description]]) {
+      let meta = document.querySelector(`meta[property="${property}"]`);
+      if (!meta) { meta = document.createElement("meta"); meta.setAttribute("property", property); document.head.append(meta); }
+      meta.content = content;
+    }
   };
   const nav = [
     ["home", "", "navHome"], ["library", "library.html", "navLibrary"], ["categories", "categories.html", "navSubjects"],
@@ -100,13 +105,17 @@
   }
   function bookPage(books, categories) {
     const slug = new URLSearchParams(location.search).get("slug");
-    const book = books.find(b => b.slug === slug && b.status === "published");
+    const book = books.find(b => b.slug === slug);
     if (!book) {
       setMeta(t("bookNotFound"), t("bookNotFound"));
       return `<section class="not-found"><p class="eyebrow">404 · ${esc(t("navLibrary"))}</p><h1>${esc(t("bookNotFound"))}</h1><p>${esc(t("emptyBody"))}</p><a class="button button-primary" href="${local("library.html")}">${esc(t("returnLibrary"))}</a></section>`;
     }
     const title = localized(book.title);
-    setMeta(title, localized(book.description));
+    setMeta(title, localized(book.description), new URL(siteUrl(`book.html?slug=${encodeURIComponent(book.slug)}`)).href);
+    if (book.status !== "published") {
+      const message = t("bookUnavailable").replace("{status}", statusText(book.status));
+      return `<section class="not-found"><p class="eyebrow">${esc(t("navLibrary"))} · ${badge(book.status)}</p><h1>${esc(title)}</h1><p class="detail-subtitle">${esc(localized(book.subtitle))}</p><p>${esc(localized(book.description))}</p><p class="unavailable-note">${esc(message)}</p><a class="button button-primary" href="${local("library.html")}">${esc(t("returnLibrary"))}</a></section>`;
+    }
     const chapterList = book.chapters.map(chapter => `<li><span class="chapter-number">${String(chapter.number).padStart(2, "0")}</span><div><a href="${esc(safeHref(chapter.urls[language] || chapter.urls.en || chapter.urls.ko || Object.values(chapter.urls)[0]))}" target="_blank" rel="noopener noreferrer">${esc(localized(chapter.title))} <span aria-hidden="true">↗</span></a><div class="chapter-topics">${chapter.topics.map(x => `<span>${esc(x)}</span>`).join("")}</div></div></li>`).join("");
     const experimentList = book.experiments.map(item => `<a class="mini-experiment" href="${esc(safeHref(item.url))}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">⌁</span><span><strong>${esc(localized(item.title))}</strong><small>${esc(localized(item.kind))}</small></span><span aria-hidden="true">↗</span></a>`).join("");
     return `<section class="book-detail-hero" style="--accent:${esc(book.theme.accent)};--accent-soft:${esc(book.theme.accentSoft)}"><div class="detail-cover-wrap">${cover(book, "detail-cover")}</div><div class="detail-copy"><p class="eyebrow">${esc(categoryName(categories, book.category))} · ${esc(t("featured"))}</p>${badge(book.status)}<h1>${esc(title)}</h1><p class="detail-subtitle">${esc(localized(book.subtitle))}</p><p class="detail-description">${esc(localized(book.description))}</p><div class="detail-actions"><a class="button button-primary" href="${esc(safeHref(book.productionUrl))}" target="_blank" rel="noopener noreferrer">${esc(t("readBook"))}<span aria-hidden="true">↗</span></a>${book.languageUrls?.ko ? `<a class="button button-quiet" href="${esc(safeHref(book.languageUrls.ko))}" target="_blank" rel="noopener noreferrer">${esc(t("koreanEdition"))} ↗</a>` : ""}<a class="button button-quiet" href="${esc(safeHref(book.repositoryUrl))}" target="_blank" rel="noopener noreferrer">${esc(t("repository"))} ↗</a></div><dl class="book-facts"><div><dt>${esc(t("version"))}</dt><dd>${esc(book.version)}</dd></div><div><dt>${esc(t("updated"))}</dt><dd><time datetime="${esc(book.lastUpdated)}">${esc(book.lastUpdated)}</time></dd></div><div><dt>${esc(t("languages"))}</dt><dd>${book.languages.map(l => esc(t(l === "en" ? "languageEnglish" : "languageKorean"))).join(" · ")}</dd></div><div><dt>${esc(t("chapter"))}</dt><dd>${book.chapterCount}</dd></div></dl></div></section><section class="detail-section"><div class="detail-section-heading"><p class="eyebrow">${esc(t("topics"))}</p><h2>${esc(t("contents"))}</h2></div><p class="coverage-copy">${esc(book.tags.join(" · "))}</p><div class="tag-row tag-row-large">${book.tags.map(tag => `<span class="tag">${esc(tag)}</span>`).join("")}</div><h3 class="subsection-title">${esc(t("chapterIndex"))} <span>${book.chapterCount}</span></h3><ol class="chapter-list">${chapterList}</ol></section><aside class="detail-side-grid"><section class="detail-panel"><p class="eyebrow">${esc(t("experimentsHeading"))}</p><h2>${esc(t("experimentsCount"))}</h2>${experimentList || `<p>${esc(t("experimentEmpty"))}</p>`}</section><section class="detail-panel"><p class="eyebrow">${esc(t("prerequisites"))}</p><h2>${esc(book.prerequisites.length ? t("prerequisites") : t("prerequisitesNone"))}</h2><p>${book.prerequisites.length ? bookReferenceLinks(book.prerequisites, books) : esc(t("noPrereqs"))}</p><p><strong>${esc(t("relatedBooksLabel"))}:</strong> ${bookReferenceLinks(book.relatedBooks, books) || "—"}</p><p><strong>${esc(t("subject"))}:</strong> ${esc(categoryName(categories, book.category))}</p></section></aside>`;
