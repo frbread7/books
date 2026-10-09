@@ -10,7 +10,7 @@
   const local = path => esc(siteUrl(path));
   const statusText = status => ({ published: t("statusPublished"), planned: t("statusPlanned"), "in-progress": t("statusProgress"), archived: t("statusArchived") })[status] || status;
   const setMeta = (title, description, canonicalUrl = location.href.split("?")[0].split("#")[0]) => {
-    document.title = `${title} — My Library`;
+    document.title = title === "My Library" ? "My Library — Interactive Engineering & Knowledge Books" : `${title} — My Library`;
     const desc = document.querySelector('meta[name="description"]'); if (desc) desc.content = description;
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.append(canonical); }

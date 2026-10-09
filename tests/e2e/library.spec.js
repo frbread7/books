@@ -15,6 +15,8 @@ test("home, featured textbook, chapter links and structure work at the /books/ b
   page.on("pageerror", error => errors.push(error.message));
   await page.goto("./");
   await expect(page.locator("h1")).toContainText("Ideas worth exploring");
+  await expect(page).toHaveTitle("My Library — Interactive Engineering & Knowledge Books");
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", "My Library — Interactive Engineering & Knowledge Books");
   await expect(page.locator(".hero-stats strong").nth(0)).toHaveText(String(publishedBooks.length).padStart(2, "0"));
   await expect(page.locator(".hero-stats strong").nth(1)).toHaveText(String(catalogRoadmap.books.length).padStart(2, "0"));
   await expect(page.locator(".hero-stats strong").nth(2)).toHaveText(String(publishedExperimentCount).padStart(2, "0"));

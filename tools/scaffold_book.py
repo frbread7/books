@@ -145,9 +145,9 @@ jobs:
     environment:
       name: github-pages
       url: {json.dumps(args.production_url, ensure_ascii=True)}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:

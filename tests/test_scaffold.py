@@ -21,7 +21,11 @@ class ScaffoldTests(unittest.TestCase):
             manifest = json.loads((output / "library-manifest.json").read_text(encoding="utf-8"))
             self.assertEqual(manifest["status"], "in-progress")
             self.assertEqual(manifest["chapterCount"], 0)
-            self.assertTrue((output / ".github/workflows/pages.yml").is_file())
+            workflow = (output / ".github/workflows/pages.yml").read_text(encoding="utf-8")
+            self.assertIn("runs-on: ubuntu-24.04", workflow)
+            self.assertIn("actions/checkout@v7", workflow)
+            self.assertNotIn("ubuntu-latest", workflow)
+            self.assertNotIn("actions/checkout@v4", workflow)
             self.assertIn("No book is registered", result.stdout)
 
     def test_scaffold_refuses_to_overwrite_existing_files(self):

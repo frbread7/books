@@ -8,7 +8,7 @@ The production artifact is the contents of site/, served at https://frbread7.git
 
 After the repository exists, configure Settings → Pages → Build and deployment → Source: GitHub Actions. The workflow is .github/workflows/pages.yml. It validates and runs browser journeys on pull requests, then deploys after pushes to main and manual runs on main. Only site/ is uploaded.
 
-The workflow uses actions/configure-pages@v5, actions/upload-pages-artifact@v4, and actions/deploy-pages@v4 with contents: read, pages: write, and id-token: write. Deployment uses the github-pages environment.
+The workflow runs on Ubuntu 24.04 and uses actions/checkout@v7, actions/setup-node@v7 with Node 24, actions/setup-python@v7, actions/configure-pages@v5, actions/upload-pages-artifact@v4, and actions/deploy-pages@v4. It grants contents: read for validation and adds pages: write and id-token: write only to deployment. Deployment uses the github-pages environment. The book scaffold emits the same pinned runner and checkout action.
 
 Official references:
 
