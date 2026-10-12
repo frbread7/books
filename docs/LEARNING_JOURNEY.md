@@ -16,6 +16,8 @@ The English and Korean labels/descriptions are both required. References disting
 
 Preschool entries linked to CuriosityBook describe planned story-led concepts, including shared picture-book reading, animal counting/patterns, optional English side notes, weather exploration, and a proposed King Sejong story. They are editorial illustrations only; neither a story manuscript nor its interactions are implemented or published. See the [CuriosityBook pilot specification](CURIOSITYBOOK_SPEC.md).
 
+The separate Kids & Family / Little Explorers collection uses a few existing preschool concept IDs as story starting points, then follows only their explicit `revisits` links when a reader selects a later stage. Its three bilingual HeavyVehicleBook drafts and the other family interests remain in `catalog/kids-family.json`, outside the book catalog and roadmap. This additive collection does not alter the Learning Journey's 66 IDs, concepts, or source documents; see the [portal specification](KIDS_FAMILY_PORTAL_SPEC.md).
+
 ## Material states
 
 The UI derives three honest states from those separate data sources:

@@ -9,7 +9,7 @@ SITE = ROOT / "site"
 
 class StaticSiteContractTests(unittest.TestCase):
     def test_flat_routes_exist_and_load_shared_shell(self):
-        expected = {"index.html", "library.html", "categories.html", "roadmap.html", "learning-journey.html", "paths.html", "experiments.html", "book.html", "feedback.html", "404.html"}
+        expected = {"index.html", "library.html", "categories.html", "roadmap.html", "learning-journey.html", "kids-family.html", "paths.html", "experiments.html", "book.html", "feedback.html", "404.html"}
         self.assertTrue(expected.issubset({p.name for p in SITE.glob("*.html")}))
         for route in expected:
             html = (SITE / route).read_text(encoding="utf-8")

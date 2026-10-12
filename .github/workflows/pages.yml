@@ -70,7 +70,9 @@ jobs:
               "book.html?slug=watbook",
               "book.html?slug=processintegrationbook",
               "learning-journey.html",
+              "kids-family.html",
               "data/learning-journey.json",
+              "data/kids-family.json",
               "data/roadmap.json",
               "css/style.css",
               "js/app.js",
@@ -130,6 +132,16 @@ jobs:
                       else:
                           if (len(journey.get("stages", [])), len(journey.get("strands", [])), len(journey.get("concepts", []))) != (6, 11, 66):
                               last_errors.append(f"{url}: expected 6 stages, 11 strands, and 66 concepts")
+                  elif url.endswith("data/kids-family.json"):
+                      try:
+                          family = json.loads(body)
+                      except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+                          last_errors.append(f"{url}: invalid JSON: {exc}")
+                      else:
+                          proposal_ids = {item.get("id") for item in family.get("proposals", [])}
+                          expected = {"heavyvehiclebook", "carbook", "dinosaurbook", "animalbook", "robotbook"}
+                          if family.get("pilot", {}).get("publicationStatus") != "unpublished" or len(family.get("stories", [])) != 3 or proposal_ids != expected:
+                              last_errors.append(f"{url}: expected three unpublished family story drafts and five separate scoped proposals")
                   elif url.endswith("data/roadmap.json"):
                       try:
                           roadmap = json.loads(body)

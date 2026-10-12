@@ -4,6 +4,7 @@ const catalogCategories = require("../../site/data/categories.json").categories;
 const catalogRoadmap = require("../../site/data/roadmap.json");
 const catalogPaths = require("../../site/data/learning-paths.json").paths;
 const catalogJourney = require("../../site/data/learning-journey.json");
+const catalogKidsFamily = require("../../site/data/kids-family.json");
 const publishedBooks = catalogBooks.filter(book => book.status === "published");
 const publishedExperimentCount = publishedBooks.reduce((count, book) => count + book.experiments.length, 0);
 const bcdMatches = catalogBooks.filter(book => [
@@ -240,6 +241,112 @@ test("CuriosityBook picture-book ideas stay planned and enrich the Learning Jour
   await expect(page.locator(".journey-material-planned")).toContainText("CuriosityBook");
 });
 
+test("Little Explorers filters interests, follows mapped stages, and reads the unpublished bilingual drafts", async ({ page }) => {
+  await page.goto("kids-family.html");
+  await expect(page.locator("h1")).toHaveText("Choose a story world to explore together");
+  await expect(page.locator(".family-pilot-banner")).toContainText("Editorial pilot · unpublished drafts");
+  await expect(page.locator(".family-theme-card")).toHaveCount(3);
+  await expect(page.locator(".family-stage")).toHaveCount(6);
+  await expect(page.locator(".family-stage.is-selected")).toContainText("Preschool");
+  await expect(page.locator(".family-concept")).toHaveCount(3);
+  const interestIds = await page.locator("[data-interest-select]").evaluateAll(buttons => buttons.map(button => button.dataset.interestSelect).filter(Boolean));
+  expect(interestIds).toEqual(catalogKidsFamily.interests.map(item => item.id));
+  await expect(page.locator(".family-proposal-card")).toHaveCount(5);
+  expect(await page.locator(".family-proposal-card h3").allTextContents()).toEqual(["HeavyVehicleBook", "CarBook", "DinosaurBook", "AnimalBook", "RobotBook"]);
+  await expect(page.locator(".family-proposal-card").first()).toContainText("Not published");
+
+  await page.locator('[data-interest-select="dinosaurs-prehistory"]').click();
+  await expect(page.locator(".family-theme-card")).toHaveCount(0);
+  await expect(page.locator(".family-empty-interest")).toContainText("There is no complete story for this interest yet.");
+  await expect(page.locator("[data-story-open]")).toHaveCount(0);
+  await page.locator(".family-proposal-card").first().getByRole("link", { name: "Explore the three pilot stories" }).click();
+  await expect(page.locator(".family-theme-card")).toHaveCount(3);
+
+  await page.locator('[data-theme-select="shapes-in-garden"]').click();
+  await expect(page.locator("#family-selected-title")).toHaveText("Shapes in the garden");
+  await page.locator('[data-family-stage-select="middle-school"]').click();
+  await expect(page.locator(".family-concept")).toHaveCount(3);
+  const mathContinuation = page.locator(".family-concept").filter({ hasText: "math-middle-school-algebraic-relationships" });
+  await expect(mathContinuation).toBeVisible();
+  const computingConcept = catalogJourney.concepts.find(item => item.id === "computing-middle-school-programming-and-models");
+  const computingContinuation = page.locator(".family-concept").filter({ hasText: computingConcept.id });
+  await expect(computingContinuation).toHaveAttribute("href", /learning-journey\.html\?stage=middle-school&strand=technology-computing$/);
+  await computingContinuation.click();
+  await expect(page).toHaveURL(/learning-journey\.html\?stage=middle-school&strand=technology-computing$/);
+  await expect(page.locator(".journey-concept > h3")).toHaveText(computingConcept.title.en);
+
+  for (const story of catalogKidsFamily.stories) {
+    const theme = catalogKidsFamily.themes.find(item => item.storyId === story.id);
+    await page.goto(`kids-family.html?theme=${theme.id}&stage=preschool`);
+    await expect(page.locator(".family-story-card h3")).toHaveText(story.title.en);
+    await page.locator("[data-story-open]").click();
+    await expect(page.locator("#family-reader-title")).toHaveText(story.title.en);
+    await expect(page.locator("#family-reader-title")).toBeFocused();
+    await expect(page.locator(".family-caregiver-notes summary")).toHaveText("Caregiver preview and safety notes");
+    await expect(page.locator(".family-caregiver-notes li")).toHaveCount(story.caregiverNotes.en.length + story.factualNotes.en.length + story.referenceIds.length);
+    await expect(page.locator(".family-spread")).toContainText("Spread 1 / 6");
+    await expect(page.locator(".family-illustration svg")).toHaveAttribute("role", "img");
+    await expect(page.locator(".family-illustration svg")).toHaveAttribute("aria-label", story.pages[0].illustrationAlt.en);
+    await expect(page.locator("[data-story-print]")).toBeVisible();
+    await expect(page.locator(".family-print-story")).not.toHaveAttribute("aria-hidden");
+    await page.emulateMedia({ media: "print" });
+    await expect(page.locator(".family-print-story")).toBeVisible();
+    await expect(page.locator(".family-print-spread")).toHaveCount(6);
+    await expect(page.locator(".family-print-story")).toContainText(story.pages[0].text.en);
+    await expect(page.locator(".family-print-story")).toContainText(story.pages[0].text.ko);
+    await expect(page.locator(".family-print-story")).toContainText(catalogKidsFamily.pilot.rightsNotice.en);
+    await expect(page.locator(".family-print-story")).toContainText(catalogKidsFamily.pilot.rightsNotice.ko);
+    await page.emulateMedia({ media: "screen" });
+    await page.evaluate(() => { window.print = () => { window.familyPrintRequested = true; }; });
+    await page.locator("[data-story-print]").click();
+    expect(await page.evaluate(() => window.familyPrintRequested)).toBe(true);
+    const promptToggle = page.locator("[data-prompts-toggle]");
+    await expect(promptToggle).toHaveAttribute("aria-pressed", "true");
+    await promptToggle.click();
+    await expect(page.locator(".family-prompt")).toBeHidden();
+    await expect(page.locator("[data-prompts-toggle]")).toHaveAttribute("aria-pressed", "false");
+    await page.locator("[data-prompts-toggle]").click();
+    await expect(page.locator(".family-prompt")).toBeVisible();
+    await page.locator("[data-story-detail]").click();
+    await expect(page.locator(".family-optional-detail")).toBeVisible();
+    await expect(page.locator("[data-story-detail]")).toHaveAttribute("aria-expanded", "true");
+
+    for (let spread = 2; spread <= story.pages.length; spread += 1) {
+      await page.locator("[data-story-next]").focus();
+      await page.keyboard.press("Enter");
+      await expect(page.locator(".family-page-count")).toHaveText(`Spread ${spread} / ${story.pages.length}`);
+      await expect(page.locator(".family-page-count")).toBeFocused();
+      await expect(page.locator(".family-illustration svg")).toHaveAttribute("aria-label", story.pages[spread - 1].illustrationAlt.en);
+    }
+    await expect(page.locator("[data-story-next]")).toBeDisabled();
+    await expect(page.locator(".family-page-count")).toBeFocused();
+    await expect(page.locator(".family-page-count")).toHaveCSS("outline-style", "solid");
+    await page.getByRole("button", { name: "Switch language" }).click();
+    await expect(page.locator("html")).toHaveAttribute("lang", "ko");
+    await expect(page.locator("#family-reader-title")).toHaveText(story.title.ko);
+    await expect(page.locator(".family-story-copy")).toContainText(story.pages[story.pages.length - 1].text.ko);
+    await page.getByRole("button", { name: "언어 전환" }).click();
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+    await page.locator("[data-story-close]").focus();
+    await page.keyboard.press("Enter");
+    await expect(page.locator("#family-selected-title")).toBeFocused();
+    await expect(page.locator("#family-selected-title")).toHaveCSS("outline-style", "solid");
+  }
+});
+
+test("family data is loaded only for the family route", async ({ page }) => {
+  let familyRequests = 0;
+  page.on("request", request => {
+    if (new URL(request.url()).pathname.endsWith("/data/kids-family.json")) familyRequests += 1;
+  });
+  await page.route("**/data/kids-family.json", route => route.abort());
+  await page.goto("./");
+  await expect(page.locator(".hero h1")).toBeVisible();
+  await page.goto("library.html");
+  await expect(page.locator("#book-search")).toBeVisible();
+  expect(familyRequests).toBe(0);
+});
+
 test("Learning Journey keeps a stable bilingual announcement and labels depth as editorial map order", async ({ page }) => {
   await page.goto("learning-journey.html");
   const announcer = page.locator("#journey-announcer");
@@ -269,7 +376,7 @@ test("primary navigation wraps without clipping at 320 pixels in both languages"
   await page.goto("learning-journey.html");
   const nav = page.getByRole("navigation", { name: "Primary navigation" });
   const assertLinksFit = async (navigation) => {
-    await expect(navigation.getByRole("link")).toHaveCount(6);
+    await expect(navigation.getByRole("link")).toHaveCount(7);
     for (const link of await navigation.getByRole("link").all()) await expect(link).toBeVisible();
     const geometry = await navigation.evaluate(element => {
       const bounds = element.getBoundingClientRect();
@@ -466,7 +573,7 @@ test("all primary views fit the viewport without horizontal overflow", async ({ 
   page.on("response", response => {
     if (response.status() >= 400 && !response.request().isNavigationRequest()) errors.push(`${response.url()} returned HTTP ${response.status()}`);
   });
-  for (const route of ["./", "library.html", "categories.html", "roadmap.html", "learning-journey.html", "paths.html", "experiments.html", "book.html?slug=pmicbook", "feedback.html", "unknown/path"]) {
+  for (const route of ["./", "library.html", "categories.html", "roadmap.html", "learning-journey.html", "kids-family.html", "paths.html", "experiments.html", "book.html?slug=pmicbook", "feedback.html", "unknown/path"]) {
     const consoleStart = consoleErrors.length;
     const response = await page.goto(route);
     if (route === "unknown/path") {

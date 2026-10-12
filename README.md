@@ -42,19 +42,20 @@ Contributions to the portal follow [CONTRIBUTING.md](CONTRIBUTING.md).
 
 - site/ — deployable static Pages artifact; flat HTML routes share one data-driven app.
 - catalog/books/ — one validated record per book explicitly registered with the portal.
-- catalog/ — subject maps, reading paths, editorial roadmaps, and the versioned concept map.
+- catalog/ — subject maps, reading paths, editorial roadmaps, the versioned concept map, and the separate Kids & Family story collection.
 - schemas/book.schema.json — manifest schema.
 - schemas/learning-journey.schema.json — curriculum-source, stage, strand, and concept-map schema.
+- schemas/kids-family.schema.json — bilingual family theme, story draft, proposal, and source-note schema.
 - tools/book_factory.py — read-only validation, index generation, and safe register/update command.
 - tools/verify_experiments.py — bounded live HTTPS checks for published experiment links and fragments.
 - book-starter/ and tools/scaffold_book.py — independent textbook starter.
 - tests/ — data/static checks and project-prefix Playwright journeys.
 
 See docs/PRODUCT_VISION.md, docs/ARCHITECTURE.md, docs/ROADMAP.md, docs/USER_MANUAL.md, docs/DEPLOYMENT.md, and docs/BOOK_FACTORY.md.
-For lifelong learning sources and specifications, see docs/LEARNING_JOURNEY.md, docs/CURRICULUM_SOURCES.md, docs/MATHEMATICS_ROADMAP.md, and docs/CURIOSITYBOOK_SPEC.md.
+For lifelong learning sources and specifications, see docs/LEARNING_JOURNEY.md, docs/CURRICULUM_SOURCES.md, docs/MATHEMATICS_ROADMAP.md, docs/CURIOSITYBOOK_SPEC.md, docs/KIDS_FAMILY_PORTAL_SPEC.md, and docs/HEAVYVEHICLEBOOK_PILOT.md.
 
 ## License and reference
 
-Portal implementation code is MIT-licensed. My Library-authored catalog descriptions, editorial roadmap, and documentation are offered under CC BY 4.0 unless an individual record states otherwise. Individual textbook content retains the license in its independent repository.
+Portal implementation code is MIT-licensed. My Library-authored catalog descriptions, editorial roadmap, and documentation are offered under CC BY 4.0 unless an individual record states otherwise. The bilingual story prose in `catalog/kids-family.json` is a public editorial preview with no reuse license granted; its SVG preview art follows the separate software license. A content license must be selected before publication. Individual textbook content retains the license in its independent repository.
 
 My Library was implemented independently after auditing geniuskey/books. No upstream catalog records, prose, covers, screenshots, analytics, or backend configuration are copied. See docs/UPSTREAM_ATTRIBUTION.md.

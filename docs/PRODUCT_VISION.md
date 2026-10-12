@@ -9,7 +9,8 @@ My Library is a personal, carefully curated entry point to independently publish
 - PMICBook, WATBook, and ProcessIntegrationBook as published titles, represented by verified release metadata, language entry points, chapter indexes, and experiments.
 - An interactive bookshelf, searchable catalog, subject map, editorial roadmap, verified reading paths, and experiment explorer.
 - A bilingual Mathematics roadmap and stage/strand Learning Journey that keeps curriculum concepts and planned titles separate from books.
-- A Korean-first CuriosityBook picture-book pilot: enjoyable parent-child read-aloud stories with sparse optional story interactions, uninterrupted reading, and complementary printable/offline editions. No child profiles or tracking.
+- A Korean-first CuriosityBook picture-book pilot: enjoyable parent-child read-aloud stories with sparse optional story interactions, uninterrupted reading, and complementary printable/offline editions. CuriosityBook remains a planned project; no child profiles or tracking.
+- A separate Kids & Family / Little Explorers portal with theme-first interest browsing, flexible Learning Journey links, three complete bilingual HeavyVehicleBook editorial drafts, and four additional scoped proposals. All family manuscripts and proposals remain outside the published catalog; no child profiles or progress tracking.
 - Independently deployed books connected through normalized manifests.
 - No paid service, database, or private credential is required; feedback uses the repository's public GitHub Issues form.
 

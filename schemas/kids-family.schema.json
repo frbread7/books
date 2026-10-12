@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://frbread7.github.io/books/schemas/kids-family.schema.json",
+  "title": "My Library Kids & Family editorial pilot",
+  "type": "object",
+  "required": ["schemaVersion", "pilot", "interests", "themes", "stories", "references", "proposals"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "pilot": {
+      "type": "object",
+      "required": ["id", "title", "collection", "status", "publicationStatus", "description", "readerNote", "rightsNotice"],
+      "properties": {
+        "id": { "const": "heavyvehiclebook" },
+        "title": { "$ref": "#/$defs/localized" },
+        "collection": { "$ref": "#/$defs/localized" },
+        "status": { "const": "editorial-pilot" },
+        "publicationStatus": { "const": "unpublished" },
+        "description": { "$ref": "#/$defs/localized" },
+        "readerNote": { "$ref": "#/$defs/localized" },
+        "rightsNotice": { "$ref": "#/$defs/localized" }
+      },
+      "additionalProperties": false
+    },
+    "interests": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "description"],
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "label": { "$ref": "#/$defs/localized" },
+          "description": { "$ref": "#/$defs/localized" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "themes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "description", "interestIds", "storyId", "conceptIds"],
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "title": { "$ref": "#/$defs/localized" },
+          "description": { "$ref": "#/$defs/localized" },
+          "interestIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+          "storyId": { "$ref": "#/$defs/id" },
+          "conceptIds": { "type": "array", "minItems": 2, "maxItems": 5, "uniqueItems": true, "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "stories": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "themeId", "status", "description", "pages", "caregiverNotes", "factualNotes", "referenceIds"],
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "title": { "$ref": "#/$defs/localized" },
+          "themeId": { "$ref": "#/$defs/id" },
+          "status": { "const": "editorial-draft" },
+          "description": { "$ref": "#/$defs/localized" },
+          "pages": {
+            "type": "array",
+            "minItems": 4,
+            "items": {
+              "type": "object",
+              "required": ["id", "sceneId", "text", "illustrationAlt", "prompt", "optionalDetail"],
+              "properties": {
+                "id": { "$ref": "#/$defs/id" },
+                "sceneId": { "$ref": "#/$defs/id" },
+                "text": { "$ref": "#/$defs/localized" },
+                "illustrationAlt": { "$ref": "#/$defs/localized" },
+                "prompt": { "oneOf": [{ "$ref": "#/$defs/localized" }, { "type": "null" }] },
+                "optionalDetail": { "$ref": "#/$defs/localized" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "caregiverNotes": { "$ref": "#/$defs/localizedList" },
+          "factualNotes": { "$ref": "#/$defs/localizedList" },
+          "referenceIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "organization", "reviewedOn", "url", "use"],
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "title": { "$ref": "#/$defs/localized" },
+          "organization": { "type": "string", "minLength": 1 },
+          "reviewedOn": { "type": "string", "format": "date" },
+          "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+          "use": { "$ref": "#/$defs/localized" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "proposals": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "status", "publicationStatus", "scope", "interestIds"],
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "title": { "$ref": "#/$defs/localized" },
+          "status": { "enum": ["editorial-pilot", "proposal"] },
+          "publicationStatus": { "const": "unpublished" },
+          "scope": { "$ref": "#/$defs/localized" },
+          "interestIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "localized": {
+      "type": "object",
+      "required": ["en", "ko"],
+      "properties": {
+        "en": { "type": "string", "minLength": 1 },
+        "ko": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "localizedList": {
+      "type": "object",
+      "required": ["en", "ko"],
+      "properties": {
+        "en": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "ko": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+      },
+      "additionalProperties": false
+    }
+  }
+}

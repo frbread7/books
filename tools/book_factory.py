@@ -460,8 +460,93 @@ def validate_learning_journey(books, roadmap, categories, journey):
             prior_order, prior_depth = order, concept["depth"]
 
 
+def validate_kids_family(data, journey, books, roadmap):
+    schema = read_json(ROOT / "schemas" / "kids-family.schema.json")
+    Draft202012Validator.check_schema(schema)
+    errors = list(Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(data))
+    if errors:
+        first = errors[0]
+        location = ".".join(str(part) for part in first.absolute_path) or "$"
+        fail(f"Kids & Family schema validation at {location}: {first.message}")
+
+    def unique_ids(items, label):
+        ids = [item["id"] for item in items]
+        if len(ids) != len(set(ids)):
+            fail(f"Kids & Family {label} IDs must be unique")
+        return set(ids)
+
+    interest_ids = unique_ids(data["interests"], "interest")
+    theme_ids = unique_ids(data["themes"], "theme")
+    story_ids = unique_ids(data["stories"], "story")
+    reference_ids = unique_ids(data["references"], "reference")
+    proposal_ids = unique_ids(data["proposals"], "family proposal")
+    registered_ids = {book["id"] for book in books}
+    roadmap_ids = {item["id"] for group in ("books", "mathematicsBooks", "familyProjects") for item in roadmap[group]}
+    if data["pilot"]["id"] in registered_ids or data["pilot"]["id"] in roadmap_ids:
+        fail("Kids & Family editorial pilot must stay outside the book catalog and roadmap")
+    expected_proposals = {"heavyvehiclebook", "carbook", "dinosaurbook", "animalbook", "robotbook"}
+    if proposal_ids != expected_proposals:
+        fail("Kids & Family must define the five scoped editorial proposals without expanding the published catalog")
+    if any(proposal_id in registered_ids or proposal_id in roadmap_ids for proposal_id in proposal_ids):
+        fail("Kids & Family proposals must stay outside the book catalog and roadmap")
+    if not any(item["id"] == data["pilot"]["id"] and item["status"] == "editorial-pilot" for item in data["proposals"]):
+        fail("Kids & Family pilot must appear as the HeavyVehicleBook editorial-pilot proposal")
+    for proposal in data["proposals"]:
+        if set(proposal["interestIds"]) - interest_ids:
+            fail(f"Kids & Family proposal {proposal['id']} references an unknown interest")
+
+    concepts = {item["id"]: item for item in journey["concepts"]}
+    stages = {item["id"]: item for item in journey["stages"]}
+    ordered_stages = sorted(journey["stages"], key=lambda item: item["order"])
+    themes = {item["id"]: item for item in data["themes"]}
+    stories = {item["id"]: item for item in data["stories"]}
+    used_references = set()
+    scene_ids = []
+
+    for theme in data["themes"]:
+        unknown_interests = set(theme["interestIds"]) - interest_ids
+        if unknown_interests:
+            fail(f"Kids & Family theme {theme['id']} references unknown interests: {', '.join(sorted(unknown_interests))}")
+        story = stories.get(theme["storyId"])
+        if not story or story["themeId"] != theme["id"]:
+            fail(f"Kids & Family theme {theme['id']} must point to its matching story")
+        seeds = [concepts.get(concept_id) for concept_id in theme["conceptIds"]]
+        if any(concept is None for concept in seeds):
+            fail(f"Kids & Family theme {theme['id']} references an unknown Learning Journey concept")
+        if any(concept["stageId"] != "preschool" for concept in seeds):
+            fail(f"Kids & Family theme {theme['id']} must start from relevant preschool concept IDs")
+        strands = [concept["strandId"] for concept in seeds]
+        if len(strands) != len(set(strands)):
+            fail(f"Kids & Family theme {theme['id']} should map each starting concept to a distinct subject strand")
+
+        # Stage navigation follows only the Learning Journey's existing explicit revisit links.
+        for seed in seeds:
+            current = seed
+            for stage in ordered_stages:
+                if current["stageId"] != stage["id"]:
+                    successors = [item for item in journey["concepts"] if item["revisits"] == current["id"]]
+                    if len(successors) != 1 or successors[0]["stageId"] != stage["id"]:
+                        fail(f"Kids & Family concept {current['id']} has no unique explicit continuation to {stage['id']}")
+                    current = successors[0]
+
+    for story in data["stories"]:
+        theme = themes.get(story["themeId"])
+        if not theme or theme["storyId"] != story["id"]:
+            fail(f"Kids & Family story {story['id']} must belong to its matching theme")
+        for page in story["pages"]:
+            scene_ids.append(page["sceneId"])
+        unknown_references = set(story["referenceIds"]) - reference_ids
+        if unknown_references:
+            fail(f"Kids & Family story {story['id']} references unknown sources: {', '.join(sorted(unknown_references))}")
+        used_references.update(story["referenceIds"])
+    if len(scene_ids) != len(set(scene_ids)):
+        fail("Kids & Family illustration scene IDs must be unique")
+    if used_references != reference_ids:
+        fail("Kids & Family references must be used by at least one story")
+
+
 def validate_discovery_indexes(books, indexes):
-    for name in ("categories", "learning-paths", "roadmap", "learning-journey"):
+    for name in ("categories", "learning-paths", "roadmap", "learning-journey", "kids-family"):
         if not isinstance(indexes.get(name), dict):
             fail(f"catalog/{name}.json must contain an object")
     published = {book["id"]: book for book in books if book["status"] == "published"}
@@ -531,6 +616,7 @@ def validate_discovery_indexes(books, indexes):
     if len(all_roadmap_ids) != len(set(all_roadmap_ids)):
         fail("roadmap IDs must be unique across sections")
     validate_learning_journey(books, indexes["roadmap"], categories, indexes["learning-journey"])
+    validate_kids_family(indexes["kids-family"], indexes["learning-journey"], books, indexes["roadmap"])
     product_specific = indexes["roadmap"].get("productSpecific")
     if not isinstance(product_specific, dict) or product_specific.get("status") != "editorial-space":
         fail("roadmap productSpecific must remain an editorial-space")
@@ -548,7 +634,7 @@ def atomic_json(path: Path, data):
 
 def derived_indexes():
     books = all_books()
-    indexes = {source: read_json(ROOT / "catalog" / f"{source}.json") for source in ("categories", "roadmap", "learning-paths", "learning-journey")}
+    indexes = {source: read_json(ROOT / "catalog" / f"{source}.json") for source in ("categories", "roadmap", "learning-paths", "learning-journey", "kids-family")}
     validate_discovery_indexes(books, indexes)
     return {"books": books, **indexes}
 

@@ -2,7 +2,7 @@
 
 ## Shape
 
-My Library is a static site with no server-side runtime. The site/ directory is the complete Pages artifact. Flat route shells (index.html, library.html, categories.html, roadmap.html, learning-journey.html, paths.html, experiments.html, book.html, and feedback.html) share one small vanilla-JavaScript renderer and stylesheet. Catalog JSON is fetched at runtime from site/data/.
+My Library is a static site with no server-side runtime. The site/ directory is the complete Pages artifact. Flat route shells (index.html, library.html, categories.html, roadmap.html, learning-journey.html, kids-family.html, paths.html, experiments.html, book.html, and feedback.html) share one small vanilla-JavaScript renderer and stylesheet. Catalog and editorial JSON is fetched at runtime from site/data/.
 
 site/js/paths.js derives the site base from `document.baseURI` and resolves every internal route and data request from that base. The 404 shell declares the `/books/` project base explicitly so a nested invalid URL can still load assets and catalog data. Other flat pages keep relative paths. This supports the GitHub Pages project prefix without maintaining a second set of routes.
 
@@ -16,13 +16,15 @@ Canonical and Open Graph URLs are set at runtime; book details retain a normaliz
 - The seven proposed mathematics titles in catalog/roadmap.json have a typed prerequisiteIds graph. These suggested-preparation edges are validated for known IDs and acyclicity, then rendered as roadmap links; they do not create book records or gates.
 - catalog/learning-paths.json — ordered references to published book and chapter IDs.
 - catalog/learning-journey.json — versioned references, bilingual guidance stages/strands, and stable prerequisite/revisit concept IDs. Concepts stay separate from books.
+- catalog/kids-family.json — separate bilingual interest taxonomy, family story drafts, scoped editorial proposals, source notes, and links to existing preschool Learning Journey concepts. It is not a book manifest or roadmap record.
 - schemas/book.schema.json and tools/book_factory.py — manifest shape and semantic validation.
 - schemas/learning-journey.schema.json — learning-map shape. The Book Factory validates sources, graph edges, stage/strand coverage, roadmap targets, and published chapter references before generating indexes.
+- schemas/kids-family.schema.json — strict family collection shape; the Book Factory checks concept IDs, existing explicit revisit continuations, cited sources, proposal boundaries, and unpublished pilot status.
 - site/data/*.json — generated runtime indexes; regenerate with `python3 tools/book_factory.py generate`, then confirm with the read-only `validate` command.
 
 The browser never treats roadmap entries as book records. Published totals derive only from registered records with status published.
 
-The roadmap has separate semiconductor, mathematics, and family-project arrays. Active editorial work can remain `status: planned` until it is registered, at which point its proposal is removed. Homepage proposal totals include all roadmap sections; published counts derive only from registered manifests with completed publication evidence.
+The roadmap has separate semiconductor, mathematics, and family-project arrays. Active editorial work can remain `status: planned` until it is registered, at which point its proposal is removed. Homepage proposal totals include all roadmap sections; published counts derive only from registered manifests with completed publication evidence. Kids & Family themes, drafts, and its five scoping cards stay in the separate family collection and do not change either count.
 
 ## Boundaries
 
@@ -34,4 +36,4 @@ Production is static GitHub Pages. Runtime has no third-party JavaScript or netw
 
 ## Adding routes
 
-Use a flat shell with data-page, ./css/style.css, ./js/paths.js, ./js/i18n.js, and ./js/app.js. Add interface copy in both dictionaries. Resolve internal links and data with MyLibraryPaths.siteUrl; never hardcode a leading slash. Add the route to the route-contract tests. Keep child learning data local and static; do not introduce accounts, profiles, saved progress, external trackers, or back-end storage.
+Use a flat shell with data-page, ./css/style.css, ./js/paths.js, ./js/i18n.js, and ./js/app.js. Add interface copy in both dictionaries. Resolve internal links and data with MyLibraryPaths.siteUrl; never hardcode a leading slash. Add the route to the route-contract tests. Keep family interests and story drafts in their own local static dataset; do not introduce accounts, profiles, saved progress, external trackers, or back-end storage.

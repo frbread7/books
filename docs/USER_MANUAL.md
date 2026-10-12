@@ -2,7 +2,7 @@
 
 ## Browse
 
-The home page highlights PMICBook, shows counts from published book records, and links to the lifelong Learning Journey. Select Explore the library to browse registered books. Mathematics and family-learning proposals are separate from the book catalog and do not count as publications.
+The home page highlights PMICBook, shows counts from published book records, and links to the lifelong Learning Journey and Little Explorers. Select Explore the library to browse registered books. Mathematics proposals, CuriosityBook, and the Kids & Family drafts are separate from the book catalog and do not count as publications.
 
 ## Search and filter
 
@@ -10,7 +10,7 @@ Search title, subtitle, description, chapter titles, topics, and tags. Narrow re
 
 ## Follow subject and learning links
 
-Subjects show which knowledge areas have a published textbook connection. Select Semiconductor Engineering for its knowledge map or Mathematics to open its concept map. Published map items link only to current published books. The Learning Journey lets you choose a guidance stage and one of eleven subjects, explore prerequisite/revisit connections, and see whether real chapter material exists, a book is only planned, or a concept has no authored book yet. Stage navigation is flexible guidance, not a readiness judgment. The existing Learning paths route sequences reviewed chapters in published books.
+Subjects show which knowledge areas have a published textbook connection. Select Semiconductor Engineering for its knowledge map or Mathematics to open its concept map. Published map items link only to current published books. The Learning Journey lets you choose a guidance stage and one of eleven subjects, explore prerequisite/revisit connections, and see whether real chapter material exists, a book is only planned, or a concept has no authored book yet. Stage navigation is flexible guidance, not a readiness judgment. Little Explorers starts with interests and story themes, then links a few existing preschool concept IDs to their explicit later-stage revisits. Only the three HeavyVehicleBook stories have complete drafts; other interests show an honest empty state. Caregiver and factual notes are available before reading, while prompts and picture details can be skipped. Use **Print or save this bilingual story** to print all spreads or save a local PDF for offline read-aloud. The existing Learning paths route sequences reviewed chapters in published books.
 
 ## Experiments
 
