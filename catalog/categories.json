@@ -227,6 +227,19 @@
       ]
     },
     {
+      "id": "mathematics",
+      "name": {
+        "en": "Mathematics",
+        "ko": "수학"
+      },
+      "description": {
+        "en": "A staged concept map from early number and pattern play to calculus, linear structures, probability, and numerical methods.",
+        "ko": "초기 수·패턴 놀이부터 미적분·선형 구조·확률·수치해석까지 연결하는 단계형 개념 지도입니다."
+      },
+      "color": "#6c6e9d",
+      "map": []
+    },
+    {
       "id": "electronics",
       "name": {
         "en": "Electronics",

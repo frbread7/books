@@ -2,7 +2,7 @@
 
 ## Shape
 
-My Library is a static site with no server-side runtime. The site/ directory is the complete Pages artifact. Flat route shells (index.html, library.html, categories.html, roadmap.html, paths.html, experiments.html, book.html, and feedback.html) share one small vanilla-JavaScript renderer and stylesheet. Catalog JSON is fetched at runtime from site/data/.
+My Library is a static site with no server-side runtime. The site/ directory is the complete Pages artifact. Flat route shells (index.html, library.html, categories.html, roadmap.html, learning-journey.html, paths.html, experiments.html, book.html, and feedback.html) share one small vanilla-JavaScript renderer and stylesheet. Catalog JSON is fetched at runtime from site/data/.
 
 site/js/paths.js derives the site base from `document.baseURI` and resolves every internal route and data request from that base. The 404 shell declares the `/books/` project base explicitly so a nested invalid URL can still load assets and catalog data. Other flat pages keep relative paths. This supports the GitHub Pages project prefix without maintaining a second set of routes.
 
@@ -13,11 +13,16 @@ Canonical and Open Graph URLs are set at runtime; book details retain a normaliz
 - catalog/books/<id>.json — normalized records for explicitly registered books.
 - catalog/categories.json — extensible categories and published knowledge-map connections.
 - catalog/roadmap.json — future editorial proposals, separate from the published catalog.
+- The seven proposed mathematics titles in catalog/roadmap.json have a typed prerequisiteIds graph. These suggested-preparation edges are validated for known IDs and acyclicity, then rendered as roadmap links; they do not create book records or gates.
 - catalog/learning-paths.json — ordered references to published book and chapter IDs.
+- catalog/learning-journey.json — versioned references, bilingual guidance stages/strands, and stable prerequisite/revisit concept IDs. Concepts stay separate from books.
 - schemas/book.schema.json and tools/book_factory.py — manifest shape and semantic validation.
+- schemas/learning-journey.schema.json — learning-map shape. The Book Factory validates sources, graph edges, stage/strand coverage, roadmap targets, and published chapter references before generating indexes.
 - site/data/*.json — generated runtime indexes; regenerate with `python3 tools/book_factory.py generate`, then confirm with the read-only `validate` command.
 
 The browser never treats roadmap entries as book records. Published totals derive only from registered records with status published.
+
+The roadmap has separate semiconductor, mathematics, and family-project arrays. `workState: active-project` can signal active editorial work while an item remains `status: planned` outside the book catalog. This keeps ProcessIntegrationBook visible without claiming it is released. Homepage proposal totals include all roadmap sections; published counts still derive only from registered manifests.
 
 ## Boundaries
 
@@ -29,4 +34,4 @@ Production is static GitHub Pages. Runtime has no third-party JavaScript or netw
 
 ## Adding routes
 
-Use a flat shell with data-page, ./css/style.css, ./js/paths.js, ./js/i18n.js, and ./js/app.js. Add interface copy in both dictionaries. Resolve internal links and data with MyLibraryPaths.siteUrl; never hardcode a leading slash. Add the route to the route-contract tests.
+Use a flat shell with data-page, ./css/style.css, ./js/paths.js, ./js/i18n.js, and ./js/app.js. Add interface copy in both dictionaries. Resolve internal links and data with MyLibraryPaths.siteUrl; never hardcode a leading slash. Add the route to the route-contract tests. Keep child learning data local and static; do not introduce accounts, profiles, saved progress, external trackers, or back-end storage.

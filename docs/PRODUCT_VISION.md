@@ -6,14 +6,18 @@ My Library is a personal, carefully curated entry point to independently publish
 
 - English-default interface with complete Korean navigation and control labels.
 - Semiconductor engineering as the first subject area, with room for electronics, computing, AI, and practical knowledge.
-- PMICBook as the sole published title, represented by verified release metadata, language entry points, chapter index, and experiments.
-- An interactive bookshelf, searchable catalog, subject map, editorial roadmap, verified learning paths, and experiment explorer.
+- PMICBook and WATBook as published titles, represented by verified release metadata, language entry points, chapter index, and experiments.
+- An interactive bookshelf, searchable catalog, subject map, editorial roadmap, verified reading paths, and experiment explorer.
+- A bilingual Mathematics roadmap and stage/strand Learning Journey that keeps curriculum concepts and planned titles separate from books.
+- A Korean-first CuriosityBook picture-book pilot: enjoyable parent-child read-aloud stories with sparse optional story interactions, uninterrupted reading, and complementary printable/offline editions. No child profiles or tracking.
 - Independently deployed books connected through normalized manifests.
 - No paid service, database, or private credential is required; feedback uses the repository's public GitHub Issues form.
 
 ## Editorial principle
 
 The collection grows by publishing useful, reviewed books. Roadmap records remain proposals and never affect published totals. Shared foundations should be linked across books instead of repeated; product-specific explanation belongs in the book whose reader needs it.
+
+The Learning Journey offers flexible guidance, not a placement system. It distinguishes official Korean curriculum facts from professional recommendations and My Library editorial proposals. Its age bands and concept graph do not imply readiness, rank learners, or claim curriculum compliance. Family-oriented concepts are mapped separately from authored textbooks.
 
 ## Out of scope
 

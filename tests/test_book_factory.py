@@ -181,7 +181,7 @@ class BookFactoryTests(unittest.TestCase):
         books = [self.book]
         indexes = {
             name: json.loads((ROOT / "catalog" / f"{filename}.json").read_text(encoding="utf-8"))
-            for name, filename in (("categories", "categories"), ("roadmap", "roadmap"), ("learning-paths", "learning-paths"))
+            for name, filename in (("categories", "categories"), ("roadmap", "roadmap"), ("learning-paths", "learning-paths"), ("learning-journey", "learning-journey"))
         }
         broken = deepcopy(indexes)
         broken["categories"]["categories"][0]["map"][0].pop("connections")

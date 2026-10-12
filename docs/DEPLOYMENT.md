@@ -30,7 +30,7 @@ Install Python 3.12+, Node.js 20+, and npm. Install the Python `jsonschema` depe
 3. Push/merge the reviewed commit to main.
 4. Wait for the validation and deployment workflow to pass.
 5. Confirm the GitHub Pages deployment environment reports the site URL.
-6. Open the homepage, search, PMICBook English/Korean routes, subjects, paths, and experiments; inspect a mobile viewport.
+6. Open the homepage, search, PMICBook/WATBook English/Korean routes, subject pages, Learning Journey in both languages, legacy reading paths, and experiments; inspect desktop and mobile viewports.
 7. Confirm internal assets and JSON requests use /books/ and the deployed worktree is clean.
 
 ## Feedback

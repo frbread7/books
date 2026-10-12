@@ -12,6 +12,10 @@
 | Omit production analytics | A personal static library has no justified need for tracking tokens or external beacons. |
 | Use Playwright only in development | Browser journeys are part of acceptance; production does not need a package runtime. |
 | Offer portal code under MIT and authored planning/docs under CC BY 4.0 | Clear reuse terms for the independent implementation; individual books remain governed by their own licenses. |
+| Keep curriculum-map concepts separate from registered books | A useful subject graph can exist before a textbook is authored. Only Book Factory manifests and publication evidence affect book counts or open textbook links. |
+| Use a versioned, bilingual Learning Journey graph with explicit sources | Curriculum, recommendations, university examples, and editorial proposals have different authority; labeled sources and stable concept IDs keep that distinction reviewable. |
+| Treat age bands as optional wayfinding and avoid child profiles | Family learning is a static guide, not a placement or progress system; no account, child data, analytics, or saved activity is justified. |
+| Keep Nuri and National Academies material citation-only | Nuri’s source page indicates attribution/noncommercial/no-derivatives terms; citations and links explain the audit without copying or adapting protected material. |
 
 ## Open boundaries
 

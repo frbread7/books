@@ -3,6 +3,7 @@ const catalogBooks = require("../../site/data/books.json");
 const catalogCategories = require("../../site/data/categories.json").categories;
 const catalogRoadmap = require("../../site/data/roadmap.json");
 const catalogPaths = require("../../site/data/learning-paths.json").paths;
+const catalogJourney = require("../../site/data/learning-journey.json");
 const publishedBooks = catalogBooks.filter(book => book.status === "published");
 const publishedExperimentCount = publishedBooks.reduce((count, book) => count + book.experiments.length, 0);
 const bcdMatches = catalogBooks.filter(book => [
@@ -18,7 +19,8 @@ test("home, featured textbook, chapter links and structure work at the /books/ b
   await expect(page).toHaveTitle("My Library — Interactive Engineering & Knowledge Books");
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", "My Library — Interactive Engineering & Knowledge Books");
   await expect(page.locator(".hero-stats strong").nth(0)).toHaveText(String(publishedBooks.length).padStart(2, "0"));
-  await expect(page.locator(".hero-stats strong").nth(1)).toHaveText(String(catalogRoadmap.books.length).padStart(2, "0"));
+  const plannedIdeas = [...catalogRoadmap.books, ...catalogRoadmap.mathematicsBooks, ...catalogRoadmap.familyProjects].length;
+  await expect(page.locator(".hero-stats strong").nth(1)).toHaveText(String(plannedIdeas).padStart(2, "0"));
   await expect(page.locator(".hero-stats strong").nth(2)).toHaveText(String(publishedExperimentCount).padStart(2, "0"));
   await expect(page.locator(".featured-shelf .book-card")).toHaveCount(publishedBooks.length ? 1 : 0);
   await expect(page.locator(".featured-shelf a[href^='https://frbread7.github.io/pmicbook/']")).toHaveCount(2);
@@ -104,6 +106,173 @@ test("subjects, paths and experiment discovery use published content only", asyn
   await page.goto("experiments.html");
   await expect(page.locator(".experiment-card")).toHaveCount(publishedExperimentCount);
   await expect(page.locator(".experiment-card a").first()).toHaveAttribute("href", "https://frbread7.github.io/pmicbook/chapters/fundamentals.html#pm-fund-sim");
+  await page.goto("categories.html?id=mathematics");
+  await expect(page.locator(".knowledge-section")).toContainText("This subject has no published books yet.");
+  await expect(page.locator(".knowledge-section .empty-state a")).toHaveAttribute("href", /learning-journey\.html\?strand=mathematics$/);
+});
+
+test("Learning Journey explores stages, strands, prerequisites, planned and concept-only states", async ({ page }) => {
+  await page.goto("learning-journey.html");
+  await expect(page.locator("h1")).toHaveText("A lifelong learning journey");
+  await expect(page.locator("[data-stage-select]")).toHaveCount(6);
+  await expect(page.locator("[data-strand-select]")).toHaveCount(11);
+  await expect(page.locator(".journey-concept > h3")).toHaveText("Quantity, shape, and pattern through play");
+  await expect(page.locator(".journey-material-planned")).toContainText("CuriosityBook");
+  await expect(page.locator(".journey-material-planned")).toContainText("Planned book · not published");
+  await expect(page.locator(".journey-concept-description")).toContainText("animal-friends story");
+
+  const tabUntilFocused = async (locator, key = "Tab") => {
+    for (let step = 0; step < 50; step += 1) {
+      await page.keyboard.press(key);
+      if (await locator.evaluate(element => element === document.activeElement)) return;
+    }
+    throw new Error(`Keyboard traversal did not reach ${await locator.getAttribute("data-stage-select") || await locator.getAttribute("data-strand-select")}`);
+  };
+  const englishStrand = page.locator('[data-strand-select="english-language"]');
+  await tabUntilFocused(englishStrand);
+  await page.keyboard.press("Enter");
+  await expect(englishStrand).toBeFocused();
+  await expect(englishStrand).toHaveAttribute("aria-pressed", "true");
+  await expect(page).toHaveURL(/learning-journey\.html\?strand=english-language$/);
+  const earlyElementary = page.locator('[data-stage-select="early-elementary"]');
+  await tabUntilFocused(earlyElementary, "Shift+Tab");
+  await page.keyboard.press("Space");
+  await expect(earlyElementary).toBeFocused();
+  await expect(earlyElementary).toHaveAttribute("aria-pressed", "true");
+  await expect(page).toHaveURL(/learning-journey\.html\?strand=english-language&stage=early-elementary$/);
+  await expect(page.locator("#journey-announcer")).toContainText("Now showing:");
+  await expect(page.locator("#journey-announcer")).toContainText("Early elementary");
+  await expect(page.locator("#journey-announcer")).toContainText("English");
+  await expect(page.locator(".journey-material-concept")).toContainText("Curriculum concept · no authored book yet");
+  await expect(page.locator(".journey-material-planned, .journey-material-available")).toHaveCount(0);
+
+  await page.locator('[data-stage-select="preschool"]').click();
+  await expect(page.locator('[data-stage-select="preschool"]')).toBeFocused();
+  await page.locator('[data-strand-select="mathematics"]').click();
+  await expect(page.locator('[data-strand-select="mathematics"]')).toBeFocused();
+  await page.locator('[data-stage-select="university-advanced"]').click();
+  await expect(page.locator('[data-stage-select="university-advanced"]')).toBeFocused();
+  await expect(page.locator(".journey-concept > h3")).toHaveText("Calculus, linear structures, and mathematical models");
+  await expect(page.locator(".journey-material-planned").filter({ hasText: "CalculusBook" })).toContainText("CalculusBook");
+  await expect(page.locator(".journey-relations h4")).toHaveText("Revisits an earlier idea");
+  await expect(page.locator(".journey-relations a")).toHaveAttribute("href", /learning-journey\.html\?stage=high-school&strand=mathematics$/);
+  await expect(page.getByRole("navigation", { name: "Primary navigation" })).toBeVisible();
+  await expect(page).toHaveURL(/learning-journey\.html\?strand=mathematics&stage=university-advanced$/);
+  await page.goBack();
+  await expect(page.locator(".journey-concept > h3")).toHaveText("Quantity, shape, and pattern through play");
+  await page.goForward();
+  await expect(page.locator(".journey-concept > h3")).toHaveText("Calculus, linear structures, and mathematical models");
+  await expect(page.locator(".journey-links a").filter({ hasText: "Explore verified book reading paths" })).toHaveAttribute("href", /\/books\/paths\.html$/);
+
+  await page.getByRole("button", { name: "Switch language" }).click();
+  await expect(page.locator("html")).toHaveAttribute("lang", "ko");
+  await expect(page.getByRole("button", { name: "언어 전환" })).toBeVisible();
+  await expect(page.locator(".primary-nav").getByRole("link", { name: "배움 여정" })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "주요 탐색" })).toBeVisible();
+  await expect(page.locator("#stage-selector-title")).toHaveText("학습 단계 선택");
+  await expect(page.locator("#strand-selector-title")).toHaveText("주제 영역 선택");
+  await expect(page.locator(".journey-concept > h3")).toHaveText("미적분·선형 구조와 수학적 모형");
+  await expect(page.locator(".journey-material-planned").filter({ hasText: "CalculusBook" })).toContainText("계획된 교재 · 미출판");
+  await expect(page.locator(".journey-sources summary")).toHaveText("출처와 이 지도의 활용 방식");
+  await expect(page.locator(".journey-links a").filter({ hasText: "검증된 도서별 학습 경로 보기" })).toBeVisible();
+  expect(catalogJourney.concepts).toHaveLength(66);
+  await page.locator("details.journey-sources summary").click();
+  await expect(page.locator(".journey-sources li")).toHaveCount(catalogJourney.references.length);
+});
+
+test("CuriosityBook picture-book ideas stay planned and enrich the Learning Journey", async ({ page }) => {
+  await page.goto("learning-journey.html?stage=preschool&strand=mathematics");
+  await expect(page.locator(".journey-concept-description")).toContainText("animal-friends story");
+  await expect(page.locator(".journey-material-planned")).toContainText("CuriosityBook");
+  await expect(page.locator(".journey-material-planned")).toContainText("Planned book · not published");
+
+  await page.goto("learning-journey.html?stage=preschool&strand=science");
+  await expect(page.locator(".journey-concept-description")).toContainText("Where Does Rain Come From?");
+  await expect(page.locator(".journey-material-planned")).toContainText("CuriosityBook");
+
+  await page.goto("learning-journey.html?stage=preschool&strand=korean-history");
+  await expect(page.locator(".journey-concept-description")).toContainText("King Sejong");
+  await expect(page.locator(".journey-material-planned")).toContainText("CuriosityBook");
+
+  await page.goto("learning-journey.html?stage=preschool&strand=korean-language-literature");
+  await expect(page.locator(".journey-concept-description")).toContainText("Parent Read-Aloud Mode");
+  await expect(page.locator(".journey-material-planned")).toContainText("CuriosityBook");
+});
+
+test("Learning Journey keeps a stable bilingual announcement and labels depth as editorial map order", async ({ page }) => {
+  await page.goto("learning-journey.html");
+  const announcer = page.locator("#journey-announcer");
+  await expect(announcer).toHaveAttribute("aria-live", "polite");
+  await expect(announcer).toHaveAttribute("aria-atomic", "true");
+  await expect(page.locator(".journey-depth")).toContainText("Map depth");
+  await expect(page.locator(".journey-depth")).toContainText("not learner progress or level");
+  await page.evaluate(() => { window.journeyAnnouncerBeforeUpdate = document.querySelector("#journey-announcer"); });
+
+  await page.locator('[data-strand-select="science"]').click();
+  await expect(announcer).toContainText("Now showing:");
+  expect(await announcer.evaluate(element => element === window.journeyAnnouncerBeforeUpdate)).toBe(true);
+
+  await page.getByRole("button", { name: "Switch language" }).click();
+  await expect(page.locator("html")).toHaveAttribute("lang", "ko");
+  await expect(page.locator(".journey-depth")).toContainText("지도 깊이");
+  await expect(page.locator(".journey-depth")).toContainText("편집상 순서 · 학습 진도나 수준이 아님");
+  const koreanAnnouncer = page.locator("#journey-announcer");
+  await page.evaluate(() => { window.journeyAnnouncerBeforeUpdate = document.querySelector("#journey-announcer"); });
+  await page.locator('[data-strand-select="korean-history"]').click();
+  await expect(koreanAnnouncer).toContainText("현재 보기:");
+  expect(await koreanAnnouncer.evaluate(element => element === window.journeyAnnouncerBeforeUpdate)).toBe(true);
+});
+
+test("primary navigation wraps without clipping at 320 pixels in both languages", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 820 });
+  await page.goto("learning-journey.html");
+  const nav = page.getByRole("navigation", { name: "Primary navigation" });
+  const assertLinksFit = async (navigation) => {
+    await expect(navigation.getByRole("link")).toHaveCount(6);
+    for (const link of await navigation.getByRole("link").all()) await expect(link).toBeVisible();
+    const geometry = await navigation.evaluate(element => {
+      const bounds = element.getBoundingClientRect();
+      return {
+        clientWidth: element.clientWidth,
+        scrollWidth: element.scrollWidth,
+        left: bounds.left,
+        right: bounds.right,
+        links: [...element.querySelectorAll("a")].map(link => {
+          const rect = link.getBoundingClientRect();
+          return { left: rect.left, right: rect.right };
+        })
+      };
+    });
+    expect(geometry.scrollWidth).toBeLessThanOrEqual(geometry.clientWidth);
+    for (const link of geometry.links) {
+      expect(link.left).toBeGreaterThanOrEqual(geometry.left);
+      expect(link.right).toBeLessThanOrEqual(geometry.right);
+    }
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
+  };
+  await assertLinksFit(nav);
+
+  await page.getByRole("button", { name: "Switch language" }).click();
+  await expect(page.locator("html")).toHaveAttribute("lang", "ko");
+  await assertLinksFit(page.getByRole("navigation", { name: "주요 탐색" }));
+});
+
+test("mathematics roadmap exposes planned textbook preparation links", async ({ page }) => {
+  await page.goto("roadmap.html#idea-differentialequationsbook");
+  const differentialEquations = page.locator("#idea-differentialequationsbook");
+  await expect(differentialEquations.locator(".badge-planned")).toHaveText("Planned");
+  await expect(differentialEquations.locator(".roadmap-prerequisite-links a")).toHaveCount(2);
+  await expect(differentialEquations.locator(".roadmap-prerequisite-links a").filter({ hasText: "CalculusBook" })).toHaveAttribute("href", /roadmap\.html#idea-calculusbook$/);
+  await expect(differentialEquations.locator(".roadmap-prerequisite-links a").filter({ hasText: "AlgebraBook" })).toHaveAttribute("href", /roadmap\.html#idea-algebrabook$/);
+  await expect(page.locator("#roadmap-mathematics")).toContainText("Links show suggested preparation, not age gates");
+
+  await page.goto("roadmap.html#idea-curiositybook");
+  const curiosity = page.locator("#idea-curiositybook");
+  await expect(curiosity.getByRole("heading", { level: 4, name: "Pilot story and experience ideas" })).toBeVisible();
+  await expect(curiosity).not.toContainText("Proposed chapter groups");
+  await page.getByRole("button", { name: "Switch language" }).click();
+  await expect(page.locator("html")).toHaveAttribute("lang", "ko");
+  await expect(page.locator("#idea-curiositybook").getByRole("heading", { level: 4, name: "파일럿 이야기와 경험 아이디어" })).toBeVisible();
 });
 
 test("catalog expansion updates aggregate counts and registered drafts have an honest status page", async ({ page }) => {
@@ -253,7 +422,7 @@ test("all primary views fit the viewport without horizontal overflow", async ({ 
   page.on("response", response => {
     if (response.status() >= 400 && !response.request().isNavigationRequest()) errors.push(`${response.url()} returned HTTP ${response.status()}`);
   });
-  for (const route of ["./", "library.html", "categories.html", "roadmap.html", "paths.html", "experiments.html", "book.html?slug=pmicbook", "feedback.html", "unknown/path"]) {
+  for (const route of ["./", "library.html", "categories.html", "roadmap.html", "learning-journey.html", "paths.html", "experiments.html", "book.html?slug=pmicbook", "feedback.html", "unknown/path"]) {
     const consoleStart = consoleErrors.length;
     const response = await page.goto(route);
     if (route === "unknown/path") {

@@ -10,13 +10,13 @@ npm run validate
 npm run test:e2e
 ~~~
 
-npx playwright install --with-deps chromium installs browser system dependencies on Linux when they are absent. `npm run validate` runs offline Python checks and then compares every derived site/data index with canonical manifests, maps, roadmap, and paths without writing files. A stale or missing index fails the command before deployment. `python3 tools/book_factory.py generate` is the explicit index-writing command. Tests cover routes/assets, base-path centralization, dynamic catalog data, roadmap/catalog separation, PMICBook's stable chapter and experiment facts, recorded live evidence, and absence of upstream domain/identity/infrastructure from deployed files. Book Factory tests exercise publication evidence, duplicate chapter IDs, required live experiment evidence, discovery cross-references, second-book expansion, successful register/update generation, drift detection without mutation, and protection against implicit overwrite.
+npx playwright install --with-deps chromium installs browser system dependencies on Linux when they are absent. `npm run validate` runs offline Python checks and then compares every derived site/data index with canonical manifests, maps, roadmap, learning paths, and Learning Journey without writing files. A stale or missing index fails the command before deployment. `python3 tools/book_factory.py generate` is the explicit index-writing command. Tests cover routes/assets, base-path centralization, dynamic catalog data, roadmap/catalog separation, the published-book count, PMICBook/WATBook records, recorded live evidence, and absence of upstream domain/identity/infrastructure from deployed files. The Learning Journey checks complete stage/strand coverage, unique stable IDs, bilingual fields, acyclic prerequisites, revisit depth, source metadata, and honest planned/published material references. Book Factory tests exercise publication evidence, duplicate chapter IDs, required live experiment evidence, discovery cross-references, roadmap separation, second-book expansion, successful register/update generation, drift detection without mutation, and protection against implicit overwrite.
 
 npm run test:e2e starts tests/serve.py, which serves the exact site artifact beneath /books/. Playwright covers mobile (390×844), tablet (768×1024), and desktop (1440×1000):
 
 - Home to PMICBook details and its 25 chapters/four experiments.
 - Search, empty results, reset, and planned-status filtering.
-- Subject knowledge map, learning paths, and experiment discovery using catalog-driven expected totals.
+- Subject knowledge maps, Learning Journey stage/strand selection, concept relations, material-status honesty, legacy learning paths, and experiment discovery.
 - A synthetic second published book, aggregate statistics, and a registered in-progress detail state with no false reading link.
 - A nested unknown route with project-base stylesheet, script, JSON, and navigation resolution.
 - English/Korean controls and saved theme preference.

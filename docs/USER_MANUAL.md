@@ -2,7 +2,7 @@
 
 ## Browse
 
-The home page highlights PMICBook and shows counts from published book records. Select Explore the library to browse registered books. Roadmap proposals are separate and do not count as books.
+The home page highlights PMICBook, shows counts from published book records, and links to the lifelong Learning Journey. Select Explore the library to browse registered books. Mathematics and family-learning proposals are separate from the book catalog and do not count as publications.
 
 ## Search and filter
 
@@ -10,11 +10,11 @@ Search title, subtitle, description, chapter titles, topics, and tags. Narrow re
 
 ## Follow subject and learning links
 
-Subjects show which knowledge areas have a published textbook connection. Select Semiconductor Engineering for its knowledge map. Map items link only to content in published books. Learning paths sequence reviewed chapters; outbound links open the independent textbook.
+Subjects show which knowledge areas have a published textbook connection. Select Semiconductor Engineering for its knowledge map or Mathematics to open its concept map. Published map items link only to current published books. The Learning Journey lets you choose a guidance stage and one of eleven subjects, explore prerequisite/revisit connections, and see whether real chapter material exists, a book is only planned, or a concept has no authored book yet. Stage navigation is flexible guidance, not a readiness judgment. The existing Learning paths route sequences reviewed chapters in published books.
 
 ## Experiments
 
-Experiments lists anchors verified against published book sites. PMICBook currently contributes four. Select Open experiment to jump to the corresponding interactive chapter section.
+Experiments lists ten anchors verified against the published book sites: four from PMICBook and six from WATBook. Select Open experiment to jump to the corresponding interactive chapter section.
 
 ## Language and appearance
 
@@ -22,4 +22,4 @@ The language button switches between English and Korean and remembers the choice
 
 ## Feedback and book status
 
-Feedback opens a public GitHub issue form. Issue titles, descriptions, attachments, and your GitHub username are public; do not include private or confidential information. Roadmap entries are proposals, not available textbooks. A published title links to its repository and production site.
+Feedback opens a public GitHub issue form. Issue titles, descriptions, attachments, and your GitHub username are public; do not include private or confidential information. Roadmap entries are proposals, not available textbooks. The Learning Journey stores no child profile or progress and requests no identifying information. A published title links to its repository and production site.

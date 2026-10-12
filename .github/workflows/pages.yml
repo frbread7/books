@@ -63,7 +63,7 @@ jobs:
           parsed = urlparse(base)
           if parsed.scheme != "https" or parsed.netloc != "frbread7.github.io" or parsed.path != "/books/":
               raise SystemExit(f"Unexpected Pages deployment URL: {base}")
-          paths = ["", "data/books.json", "book.html?slug=watbook", "css/style.css", "js/app.js", "assets/covers/watbook.svg"]
+          paths = ["", "data/books.json", "book.html?slug=watbook", "learning-journey.html", "data/learning-journey.json", "data/roadmap.json", "css/style.css", "js/app.js", "assets/covers/watbook.svg"]
 
           def fetch(path):
               url = urljoin(base, path)
@@ -94,6 +94,23 @@ jobs:
                       else:
                           if not any(book.get("id") == "watbook" and book.get("status") == "published" for book in books):
                               last_errors.append(f"{url}: published WATBook record missing")
+                  elif url.endswith("data/learning-journey.json"):
+                      try:
+                          journey = json.loads(body)
+                      except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+                          last_errors.append(f"{url}: invalid JSON: {exc}")
+                      else:
+                          if (len(journey.get("stages", [])), len(journey.get("strands", [])), len(journey.get("concepts", []))) != (6, 11, 66):
+                              last_errors.append(f"{url}: expected 6 stages, 11 strands, and 66 concepts")
+                  elif url.endswith("data/roadmap.json"):
+                      try:
+                          roadmap = json.loads(body)
+                      except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+                          last_errors.append(f"{url}: invalid JSON: {exc}")
+                      else:
+                          math_books = roadmap.get("mathematicsBooks", [])
+                          if len(math_books) != 7 or any(item.get("status") != "planned" for item in math_books):
+                              last_errors.append(f"{url}: expected seven planned mathematics proposals")
                   elif url.endswith("assets/covers/watbook.svg") and b"<svg" not in body[:512]:
                       last_errors.append(f"{url}: WATBook cover is not SVG content")
               if not last_errors:

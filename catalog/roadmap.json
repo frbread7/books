@@ -74,7 +74,8 @@
       "differentiation": {
         "en": "Advanced cross-module interaction and technology integration; not a generic fabrication introduction or a proprietary process recipe.",
         "ko": "고급 모듈 간 상호작용과 기술 통합을 다루며 일반 제조 입문서나 독점 공정 레시피가 아닙니다."
-      }
+      },
+      "workState": "active-project"
     },
     {
       "id": "fabcontrolbook",
@@ -371,5 +372,643 @@
       "en": "Keep a flexible editorial slot for future product-specific books. A proposal needs a distinct audience, real technical gap, and clear links to shared foundations; do not create empty repositories to fill the shelf.",
       "ko": "미래 제품별 교재를 위한 유연한 편집 공간입니다. 제안에는 명확한 독자층·실제 기술 공백·공통 기초와의 연결이 필요하며 책장을 채우기 위해 빈 저장소를 만들지 않습니다."
     }
-  }
+  },
+  "mathematicsBooks": [
+    {
+      "id": "algebrabook",
+      "title": {
+        "en": "AlgebraBook",
+        "ko": "AlgebraBook"
+      },
+      "subtitle": {
+        "en": "Symbolic algebra, equations, and functions",
+        "ko": "기호 대수·방정식·함수"
+      },
+      "status": "planned",
+      "priority": 1,
+      "audience": {
+        "en": "Secondary learners, adult returners, and early-college students bridging arithmetic to mathematical modeling.",
+        "ko": "산술에서 수학적 모델링으로 나아가는 중·고등학생, 성인 학습자, 대학 초기 학습자."
+      },
+      "questions": {
+        "en": [
+          "How do expressions encode relationships?",
+          "How can equations and inequalities be transformed without changing their meaning?",
+          "How do functions connect symbolic, graphical, tabular, and contextual representations?"
+        ],
+        "ko": [
+          "식은 관계를 어떻게 나타낼까?",
+          "등식과 부등식의 의미를 보존하며 어떻게 변형할까?",
+          "함수는 기호·그래프·표·맥락 표현을 어떻게 연결할까?"
+        ]
+      },
+      "chapterGroups": {
+        "en": [
+          "Number systems, ratios, and signed quantities",
+          "Expressions, equations, inequalities, and systems",
+          "Functions, graphs, polynomial and rational models",
+          "Exponential/logarithmic models and mathematical modeling"
+        ],
+        "ko": [
+          "수 체계·비·부호 있는 양",
+          "식·방정식·부등식·연립방정식",
+          "함수·그래프·다항·유리 모델",
+          "지수·로그 모델과 수학적 모델링"
+        ]
+      },
+      "prerequisites": {
+        "en": [
+          "Number sense and proportional reasoning; geometry and coordinate graphs."
+        ],
+        "ko": [
+          "수 감각과 비례 추론, 기하 및 좌표 그래프."
+        ]
+      },
+      "relationships": {
+        "en": "Fills the school-to-early-college symbolic-algebra gap. MathBook uses algebra inside application chapters, not as a systematic prerequisite course.",
+        "ko": "학교에서 대학 초기까지 필요한 기호 대수의 공백을 메웁니다. MathBook은 응용 장에서 대수를 활용하지만 체계적인 선수 과정은 아닙니다."
+      },
+      "differentiation": {
+        "en": "Elementary algebra here means symbolic expressions, equations, inequalities, and functions. It is distinct from LinearAlgebraBook’s vector spaces and linear maps, and from a future AbstractAlgebraBook on groups, rings, and fields.",
+        "ko": "여기서 학교 대수는 기호식·방정식·부등식·함수입니다. 선형대수의 벡터 공간·선형 사상과 다르고, 군·환·체를 다루는 미래 추상대수와도 별개입니다."
+      },
+      "simulatorIdeas": {
+        "en": [
+          "Balance-scale equation explorer with reversible steps",
+          "Function transformations across table, graph, and rule"
+        ],
+        "ko": [
+          "등식 양변의 변형을 보여 주는 저울 탐색기",
+          "표·그래프·식 사이 함수 변환"
+        ]
+      },
+      "purpose": {
+        "en": "Foundation for calculus and quantitative engineering books; not an encyclopedia of every algebraic structure.",
+        "ko": "미적분과 정량 공학 교재의 기초이며 모든 대수 구조를 망라하지 않습니다."
+      },
+      "prerequisiteIds": []
+    },
+    {
+      "id": "calculusbook",
+      "title": {
+        "en": "CalculusBook",
+        "ko": "CalculusBook"
+      },
+      "subtitle": {
+        "en": "A rigorous calculus sequence for science and engineering",
+        "ko": "과학·공학을 위한 체계적 미적분"
+      },
+      "status": "planned",
+      "priority": 2,
+      "audience": {
+        "en": "Advanced secondary learners and first-year university students preparing for science, engineering, or further mathematics.",
+        "ko": "과학·공학·수학 심화를 준비하는 고교 심화 및 대학 1학년 학습자."
+      },
+      "questions": {
+        "en": [
+          "What do limits make precise about approximation and change?",
+          "How do derivatives and integrals answer local and global questions?",
+          "When do multivariable calculus and infinite-series models apply?"
+        ],
+        "ko": [
+          "극한은 근사와 변화의 의미를 어떻게 엄밀하게 만들까?",
+          "미분과 적분은 국소·전체 문제에 각각 어떻게 답할까?",
+          "다변수 미적분과 무한급수 모형은 언제 적용될까?"
+        ]
+      },
+      "chapterGroups": {
+        "en": [
+          "Functions, limits, and continuity",
+          "Differentiation, approximation, and optimization",
+          "Integration, accumulation, and the Fundamental Theorem",
+          "Sequences, series, and convergence",
+          "Multivariable calculus and vector fields (scope option)"
+        ],
+        "ko": [
+          "함수·극한·연속",
+          "미분·근사·최적화",
+          "적분·누적과 미적분학의 기본 정리",
+          "수열·급수·수렴",
+          "다변수 미적분과 벡터장 (범위 검토 항목)"
+        ]
+      },
+      "prerequisites": {
+        "en": [
+          "AlgebraBook topics, functions, trigonometry, and coordinate geometry. Linear algebra can be studied alongside; institutional sequences differ."
+        ],
+        "ko": [
+          "AlgebraBook 수준의 대수·함수·삼각함수·좌표 기하. 선형대수는 병행할 수 있으며 대학별 순서는 다릅니다."
+        ]
+      },
+      "relationships": {
+        "en": "MathBook contains selected application-focused calculus. This proposal would teach a complete sequence and link to, not reproduce, MathBook examples and tools.",
+        "ko": "MathBook은 응용 중심의 미적분 사례를 다룹니다. 이 제안은 완결된 학습 순서를 제공하고 사례와 도구는 복제하지 않고 연결합니다."
+      },
+      "differentiation": {
+        "en": "Formal first course with stated assumptions, appropriately scoped proofs, approximation error, and modeling limits; no repetition of MathBook’s calculus fragments.",
+        "ko": "가정을 밝히고 적절한 증명·근사 오차·모델 한계를 다루는 정식 첫 과정이며 MathBook의 미적분 설명을 반복하지 않습니다."
+      },
+      "simulatorIdeas": {
+        "en": [
+          "Derivative definition versus finite differences",
+          "Integral accumulation with partition and convergence controls",
+          "Error-aware quadrature"
+        ],
+        "ko": [
+          "도함수 정의와 유한차분 비교",
+          "분할과 수렴을 조절하는 적분 누적",
+          "오차를 보여 주는 수치 적분"
+        ]
+      },
+      "purpose": {
+        "en": "Recommended first advanced-mathematics textbook: a rigorous but visual foundation for differential equations, numerical methods, probability models, and engineering analysis.",
+        "ko": "첫 고급 수학 교재로 권장합니다. 시각화와 엄밀성을 갖춘 기초로 미분방정식·수치해석·확률 모형·공학 해석을 지원합니다."
+      },
+      "prerequisiteIds": [
+        "algebrabook"
+      ]
+    },
+    {
+      "id": "linearalgebrabook",
+      "title": {
+        "en": "LinearAlgebraBook",
+        "ko": "LinearAlgebraBook"
+      },
+      "subtitle": {
+        "en": "Vector spaces, linear maps, and computation",
+        "ko": "벡터 공간·선형 사상·계산"
+      },
+      "status": "planned",
+      "priority": 3,
+      "audience": {
+        "en": "University STEM students and engineers who need to understand matrix methods as structure rather than notation.",
+        "ko": "행렬 기법을 기호가 아닌 구조로 이해하려는 이공계 대학생과 엔지니어."
+      },
+      "questions": {
+        "en": [
+          "What do bases, dimension, and coordinate choice mean?",
+          "How do linear maps, rank, null spaces, and eigenvectors explain systems?",
+          "How do conditioning and inner products affect computation?"
+        ],
+        "ko": [
+          "기저·차원·좌표 선택은 무엇을 의미할까?",
+          "선형 사상·랭크·영공간·고유벡터는 시스템을 어떻게 설명할까?",
+          "조건수와 내적은 계산에 어떤 영향을 줄까?"
+        ]
+      },
+      "chapterGroups": {
+        "en": [
+          "Vectors and linear systems",
+          "Vector spaces, subspaces, bases, and dimension",
+          "Linear transformations, matrices, rank, and nullity",
+          "Determinants, eigenstructure, orthogonality, and least squares",
+          "Numerical conditioning and applications"
+        ],
+        "ko": [
+          "벡터와 선형 시스템",
+          "벡터 공간·부분공간·기저·차원",
+          "선형 변환·행렬·랭크·영공간",
+          "행렬식·고유 구조·직교성·최소제곱",
+          "수치 조건과 응용"
+        ]
+      },
+      "prerequisites": {
+        "en": [
+          "Elementary algebra and systems of equations; calculus is useful in some applications but is not a universal entry requirement."
+        ],
+        "ko": [
+          "학교 대수와 연립방정식. 일부 응용에는 미적분이 유용하지만 보편적 진입 요건은 아닙니다."
+        ]
+      },
+      "relationships": {
+        "en": "MathBook offers an intuitive matrix/application chapter. This proposal develops vector spaces, maps, proof, and conditioning, then links to that chapter.",
+        "ko": "MathBook은 직관적인 행렬·응용 장을 제공합니다. 이 제안은 벡터 공간·사상·증명·조건수를 심화한 뒤 해당 장으로 연결합니다."
+      },
+      "differentiation": {
+        "en": "Distinct from school AlgebraBook’s equations/functions and abstract algebra’s groups/rings/fields: focuses on vector spaces and linear maps.",
+        "ko": "학교 대수의 방정식·함수 및 추상대수의 군·환·체와 구분되며 벡터 공간과 선형 사상에 집중합니다."
+      },
+      "simulatorIdeas": {
+        "en": [
+          "Gaussian elimination with pivoting and conditioning",
+          "Geometric basis and linear-map explorer",
+          "Eigenvector and least-squares demonstrations with residuals"
+        ],
+        "ko": [
+          "피벗과 조건을 포함하는 가우스 소거",
+          "기하적 기저·선형 사상 탐색기",
+          "잔차를 표시하는 고유벡터·최소제곱 실험"
+        ]
+      },
+      "purpose": {
+        "en": "Bridge coordinate methods to the linear structures used throughout engineering and data analysis.",
+        "ko": "좌표 계산을 공학·데이터 분석에 쓰이는 선형 구조와 연결합니다."
+      },
+      "prerequisiteIds": [
+        "algebrabook"
+      ]
+    },
+    {
+      "id": "probabilitystatisticsbook",
+      "title": {
+        "en": "ProbabilityStatisticsBook",
+        "ko": "ProbabilityStatisticsBook"
+      },
+      "subtitle": {
+        "en": "Probability, inference, and uncertainty for engineers",
+        "ko": "엔지니어를 위한 확률·추론·불확도"
+      },
+      "status": "planned",
+      "priority": 4,
+      "audience": {
+        "en": "Engineering, science, and data learners interpreting noisy measurements, populations, reliability, and experiments.",
+        "ko": "노이즈 측정·모집단·신뢰성·실험을 해석하는 공학·과학·데이터 학습자."
+      },
+      "questions": {
+        "en": [
+          "How do random variables represent uncertainty?",
+          "What can samples establish, and under which assumptions?",
+          "How should experiments and decisions communicate uncertainty?"
+        ],
+        "ko": [
+          "확률변수는 불확도를 어떻게 표현할까?",
+          "표본은 어떤 가정 아래 무엇을 말해 줄까?",
+          "실험과 의사결정에서 불확도를 어떻게 전달할까?"
+        ]
+      },
+      "chapterGroups": {
+        "en": [
+          "Counting, conditional probability, and random variables",
+          "Distributions, expectation, and dependence",
+          "Sampling, estimation, intervals, and tests",
+          "Regression, experimental design, and uncertainty communication"
+        ],
+        "ko": [
+          "경우의 수·조건부 확률·확률변수",
+          "분포·기댓값·의존성",
+          "표본·추정·구간·검정",
+          "회귀·실험 설계·불확도 전달"
+        ]
+      },
+      "prerequisites": {
+        "en": [
+          "Algebra, ratios, graphs, and quantitative-data literacy; calculus is an optional path to advanced probability."
+        ],
+        "ko": [
+          "대수·비·그래프·정량 자료 읽기. 고급 확률에는 미적분이 추가로 필요할 수 있습니다."
+        ]
+      },
+      "relationships": {
+        "en": "MathBook touches probability, Bayesian examples, sampling, and information; WATBook and PMICBook use selected statistics. This title teaches coherent inference and experiment design.",
+        "ko": "MathBook은 확률·베이즈·샘플링·정보를 다루고 WATBook과 PMICBook은 일부 통계를 사용합니다. 이 교재는 추론과 실험 설계의 이론을 가르칩니다."
+      },
+      "differentiation": {
+        "en": "Focus on statistical reasoning, assumptions, experimental design, dependence, and uncertainty—not another distribution list or yield-only guide.",
+        "ko": "분포 목록이나 수율 안내를 반복하지 않고 통계적 추론·가정·실험 설계·의존성·불확도에 집중합니다."
+      },
+      "simulatorIdeas": {
+        "en": [
+          "Sampling distribution and interval-coverage lab",
+          "Regression residual and confounding demonstration",
+          "Bayesian update with explicit prior and likelihood"
+        ],
+        "ko": [
+          "표집 분포와 구간 포함률 실험",
+          "회귀 잔차·교란 시연",
+          "사전분포와 우도가 명시된 베이즈 갱신"
+        ]
+      },
+      "purpose": {
+        "en": "Shared quantitative literacy for WAT, process control, reliability, and future engineering texts without duplicating their case studies.",
+        "ko": "WAT·공정 제어·신뢰성·미래 공학 교재에 공통 정량 소양을 제공하며 분야별 사례를 중복하지 않습니다."
+      },
+      "prerequisiteIds": [
+        "algebrabook"
+      ]
+    },
+    {
+      "id": "differentialequationsbook",
+      "title": {
+        "en": "DifferentialEquationsBook",
+        "ko": "DifferentialEquationsBook"
+      },
+      "subtitle": {
+        "en": "Ordinary and partial differential equations with modeling limits",
+        "ko": "모델 한계를 포함한 상미분·편미분방정식"
+      },
+      "status": "planned",
+      "priority": 5,
+      "audience": {
+        "en": "Engineering and physical-science students modeling time-dependent systems, transport, and stability.",
+        "ko": "시간 의존 시스템·수송·안정성을 모델링하는 공학·물리과학 학습자."
+      },
+      "questions": {
+        "en": [
+          "How do physical assumptions become equations and conditions?",
+          "What do existence, stability, and qualitative behavior reveal?",
+          "How do analytic and numerical solutions differ in validity and error?"
+        ],
+        "ko": [
+          "물리 가정은 방정식과 조건으로 어떻게 표현될까?",
+          "존재성·안정성·정성 거동은 무엇을 알려 줄까?",
+          "해석해와 수치해는 적용 범위와 오차에서 어떻게 다를까?"
+        ]
+      },
+      "chapterGroups": {
+        "en": [
+          "First-order ODEs and modeling",
+          "Linear ODEs, systems, and stability",
+          "Boundary-value problems and transforms",
+          "PDEs, qualitative analysis, and numerical discretization"
+        ],
+        "ko": [
+          "1계 ODE와 모델링",
+          "선형 ODE·시스템·안정성",
+          "경계값 문제와 변환",
+          "PDE·정성 분석·수치 이산화"
+        ]
+      },
+      "prerequisites": {
+        "en": [
+          "Calculus and algebra; linear algebra supports systems; probability is useful for stochastic extensions."
+        ],
+        "ko": [
+          "미적분과 대수. 시스템에는 선형대수, 확률적 확장에는 확률이 유용합니다."
+        ]
+      },
+      "relationships": {
+        "en": "MathBook has an application-first ODE/PDE chapter. This course systematically teaches formulation, solution families, boundary conditions, stability, and error.",
+        "ko": "MathBook은 응용 우선 ODE/PDE 장이 있습니다. 이 과정은 모델 수립·해의 종류·경계 조건·안정성·오차를 체계적으로 다룹니다."
+      },
+      "differentiation": {
+        "en": "Link circuits and thermal examples rather than repeat MathBook applications; state idealizations and distinguish numerical illustration from physical validation.",
+        "ko": "MathBook의 회로·열 응용은 반복하지 않고 연결합니다. 이상화 가정을 밝히고 수치 시연과 물리 검증을 구분합니다."
+      },
+      "simulatorIdeas": {
+        "en": [
+          "Initial-value phase portrait with stability regions",
+          "Boundary conditions versus eigenmodes",
+          "Convergence of a simple finite-difference scheme"
+        ],
+        "ko": [
+          "안정 영역을 표시하는 초기값 위상도",
+          "경계 조건과 고유 모드 비교",
+          "간단한 유한차분법의 수렴 실험"
+        ]
+      },
+      "purpose": {
+        "en": "Connect calculus and linear algebra to dynamic engineering models while exposing solvability and approximation limits.",
+        "ko": "미적분과 선형대수를 동적 공학 모형에 연결하고 해의 존재성과 근사 한계를 드러냅니다."
+      },
+      "prerequisiteIds": [
+        "algebrabook",
+        "calculusbook"
+      ]
+    },
+    {
+      "id": "numericalmethodsbook",
+      "title": {
+        "en": "NumericalMethodsBook",
+        "ko": "NumericalMethodsBook"
+      },
+      "subtitle": {
+        "en": "Approximation, error, and reliable scientific computation",
+        "ko": "근사·오차·신뢰할 수 있는 과학 계산"
+      },
+      "status": "planned",
+      "priority": 6,
+      "audience": {
+        "en": "Engineering and applied-mathematics learners implementing algorithms and judging whether outputs are trustworthy.",
+        "ko": "알고리즘을 구현하고 결과의 신뢰성을 평가하는 공학·응용수학 학습자."
+      },
+      "questions": {
+        "en": [
+          "How do truncation, round-off, conditioning, and stability differ?",
+          "How can roots, systems, integrals, and ODEs be computed responsibly?",
+          "How can convergence and error estimates be tested reproducibly?"
+        ],
+        "ko": [
+          "절단·반올림·조건수·안정성은 어떻게 다를까?",
+          "근·시스템·적분·ODE를 책임 있게 어떻게 계산할까?",
+          "수렴과 오차 추정은 어떻게 재현 가능하게 검증할까?"
+        ]
+      },
+      "chapterGroups": {
+        "en": [
+          "Floating point and error propagation",
+          "Root finding, interpolation, and least squares",
+          "Linear systems, conditioning, and iterative methods",
+          "Differentiation, quadrature, and ODE integration",
+          "Reproducibility and algorithm selection"
+        ],
+        "ko": [
+          "부동소수점과 오차 전파",
+          "근 찾기·보간·최소제곱",
+          "선형 시스템·조건수·반복법",
+          "수치 미분·적분·ODE 적분",
+          "재현성과 알고리즘 선택"
+        ]
+      },
+      "prerequisites": {
+        "en": [
+          "Algebra and functions; calculus for derivatives/integrals; linear algebra for matrix methods."
+        ],
+        "ko": [
+          "대수와 함수. 미분·적분에는 미적분, 행렬 기법에는 선형대수가 필요합니다."
+        ]
+      },
+      "relationships": {
+        "en": "MathBook includes selected numerical applications. This course develops algorithmic guarantees, conditioning, convergence, and reproducibility; reuse examples only as comparisons.",
+        "ko": "MathBook은 일부 수치 응용을 포함합니다. 이 과정은 알고리즘 보장·조건수·수렴·재현성을 심화하고 사례는 비교로만 연결합니다."
+      },
+      "differentiation": {
+        "en": "Show residuals, convergence criteria, failure cases, scale sensitivity, and floating-point limits instead of arbitrary exact-answer demos.",
+        "ko": "임의의 정답 시연 대신 잔차·수렴 기준·실패 사례·스케일 민감도·부동소수점 한계를 보여 줍니다."
+      },
+      "simulatorIdeas": {
+        "en": [
+          "Stable versus unstable algorithms on a known ill-conditioned problem",
+          "Residual and error curves under refinement",
+          "ODE step-size convergence"
+        ],
+        "ko": [
+          "조건이 나쁜 문제에서 안정·불안정 알고리즘 비교",
+          "세분화에 따른 잔차·오차 곡선",
+          "ODE 스텝 크기 수렴"
+        ]
+      },
+      "purpose": {
+        "en": "Teach dependable computation across technical books rather than repackage the MathBook lab collection.",
+        "ko": "MathBook 실험을 다시 포장하지 않고 전문 교재 전반에 신뢰할 수 있는 계산을 가르칩니다."
+      },
+      "prerequisiteIds": [
+        "algebrabook",
+        "calculusbook",
+        "linearalgebrabook"
+      ]
+    },
+    {
+      "id": "engineeringmathbook",
+      "title": {
+        "en": "EngineeringMathBook",
+        "ko": "EngineeringMathBook"
+      },
+      "subtitle": {
+        "en": "A map of mathematical methods for engineering decisions",
+        "ko": "공학 의사결정을 위한 수학 기법 지도"
+      },
+      "status": "planned",
+      "priority": 7,
+      "audience": {
+        "en": "Practicing engineers choosing and combining mathematical methods across disciplines.",
+        "ko": "분야를 넘나들며 수학 기법을 선택·결합하는 현업 엔지니어."
+      },
+      "questions": {
+        "en": [
+          "Which model class fits a system and its available evidence?",
+          "How do transforms, optimization, probability, and numerical tools connect?",
+          "When does a useful simplification become misleading?"
+        ],
+        "ko": [
+          "시스템과 이용 가능한 증거에 어떤 모형이 적합할까?",
+          "변환·최적화·확률·수치 기법은 어떻게 연결될까?",
+          "유용한 단순화는 언제 오해를 낳을까?"
+        ]
+      },
+      "chapterGroups": {
+        "en": [
+          "Model selection and dimensional reasoning",
+          "Transforms and frequency-domain methods",
+          "Optimization and constrained decisions",
+          "Probability, data, and uncertainty",
+          "Numerical method selection and case studies"
+        ],
+        "ko": [
+          "모형 선택과 차원 추론",
+          "변환과 주파수 영역 기법",
+          "최적화와 제약 의사결정",
+          "확률·데이터·불확도",
+          "수치 기법 선택과 사례"
+        ]
+      },
+      "prerequisites": {
+        "en": [
+          "Working knowledge of calculus, linear algebra, differential equations, probability/statistics, and numerical methods as relevant."
+        ],
+        "ko": [
+          "주제에 따라 미적분·선형대수·미분방정식·확률통계·수치해석의 실무 이해가 필요합니다."
+        ]
+      },
+      "relationships": {
+        "en": "MathBook already bridges calculus, Fourier, sampling, optimization, information, numerical methods, and symmetry. This low-priority idea must synthesize method selection rather than reteach those topics.",
+        "ko": "MathBook은 미적분·푸리에·샘플링·최적화·정보·수치해석·대칭을 연결합니다. 이 낮은 우선순위 제안은 해당 주제를 다시 가르치지 않고 기법 선택을 종합해야 합니다."
+      },
+      "differentiation": {
+        "en": "Highest overlap risk. Prefer a concise method-selection handbook with cross-links; remove any chapter that repeats standalone foundations.",
+        "ko": "중복 위험이 가장 큽니다. 교차 링크를 갖춘 간결한 기법 선택서로 제한하고 독립 기초를 반복하는 장은 제외합니다."
+      },
+      "simulatorIdeas": {
+        "en": [
+          "Decision tree for model-family and method selection",
+          "Sensitivity map from assumptions to outputs"
+        ],
+        "ko": [
+          "모형과 기법 선택을 돕는 결정도",
+          "가정에서 결과까지의 민감도 지도"
+        ]
+      },
+      "purpose": {
+        "en": "Only a later synthesis if standalone math titles create a genuine method-selection need.",
+        "ko": "독립 수학 교재가 생긴 뒤 기법 선택 안내가 실제로 필요할 경우에만 만드는 후속 종합서."
+      },
+      "prerequisiteIds": [
+        "calculusbook",
+        "linearalgebrabook",
+        "differentialequationsbook",
+        "probabilitystatisticsbook",
+        "numericalmethodsbook"
+      ]
+    }
+  ],
+  "familyProjects": [
+    {
+      "id": "curiositybook",
+      "title": {
+        "en": "CuriosityBook",
+        "ko": "CuriosityBook"
+      },
+    "subtitle": {
+      "en": "A Korean-first illustrated read-aloud series for ages 3–5",
+      "ko": "만 3~5세를 위한 한국어 우선 그림책 함께 읽기 시리즈"
+      },
+      "status": "planned",
+      "priority": 1,
+    "audience": {
+      "en": "Children ages 3–5 sharing beautifully illustrated read-aloud stories with a parent, caregiver, or educator.",
+      "ko": "보호자·양육자·교사와 아름다운 그림책을 함께 소리 내어 읽고 이야기를 나누는 만 3~5세 어린이."
+      },
+      "questions": {
+      "en": [
+        "How can original stories make early language, mathematics, science, arts, and history enjoyable to explore together?",
+        "How can sparse optional taps enrich a picture without interrupting an uninterrupted parent read-aloud?",
+        "How can a story invite conversation and optional offline discovery without testing or tracking?"
+      ],
+      "ko": [
+        "새로운 이야기는 언어·수학·과학·예술·역사를 함께 즐겁게 탐색하도록 어떻게 도울까?",
+        "간결한 선택형 터치가 부모와 아이의 끊김 없는 낭독을 방해하지 않으면서 그림을 어떻게 풍성하게 할까?",
+        "시험이나 기록 없이 이야기가 대화와 선택형 오프라인 발견으로 이어지게 하려면?"
+        ]
+      },
+      "chapterGroups": {
+      "en": [
+        "Picture book: Where Does Rain Come From? — a raindrop, clouds, and the water cycle",
+        "Picture book: How Many Friends Came to Play? — counting animals, patterns, and shapes",
+        "Picture book: Meeting King Sejong — a historically researched story about a person, place, and writing",
+        "Series reading design: Parent Read-Aloud Mode, optional sparse prompts, and read uninterrupted",
+        "Small optional story-relevant taps that enrich illustrations without gating the narrative",
+        "Original illustration, accessibility, and printable/offline companion specifications"
+      ],
+      "ko": [
+        "그림책: 비는 어디서 올까요? — 빗방울·구름·물의 순환",
+        "그림책: 친구들이 몇 명 왔을까요? — 동물 세기·규칙성·모양",
+        "그림책: 세종대왕을 만나다 — 인물·장소·문자를 다루는 역사 조사 기반 이야기",
+        "시리즈 읽기 방식: 부모 낭독 모드, 드문 선택형 질문, 끊김 없이 읽기",
+        "이야기를 막지 않고 그림을 풍성하게 하는 작고 선택적인 상호작용",
+        "새 그림·접근성·인쇄 및 오프라인 동반 자료 규격"
+        ]
+      },
+      "prerequisites": {
+      "en": [
+        "No academic prerequisite, account, or personal profile. A child may listen, look, tap optionally, ask questions, or leave the story at any time."
+      ],
+      "ko": [
+        "학업 선행 요건·계정·개인 프로필이 없습니다. 아이는 듣거나 보고, 원할 때만 누르고, 질문하거나 언제든 이야기를 멈출 수 있습니다."
+        ]
+      },
+    "relationships": {
+      "en": "Editorial picture-book pilot informed by the five Nuri domains and public early-learning recommendations; the portal's stages are not official requirements, and the stories do not reproduce curriculum material.",
+      "ko": "누리과정 5개 영역과 공개 유아학습 권고를 참고하는 그림책 편집 파일럿입니다. 포털 단계는 공식 요건이 아니며 교육과정 자료를 복제하지 않습니다."
+      },
+    "differentiation": {
+      "en": "Korean-first with optional brief English. The story is complete without tapping; prompts are sparse and skippable, and uninterrupted reading is a first-class option. No child identity, account, progress tracking, quiz, ranking, streak reward, auto-play, or addictive loop. Print/offline reading is complementary, not a screen-use judgment.",
+      "ko": "한국어 중심이며 짧은 영어는 선택 사항입니다. 터치 없이도 이야기를 온전히 읽을 수 있고 질문은 적고 건너뛸 수 있으며 끊김 없는 낭독을 중요하게 지원합니다. 아동 식별정보·계정·진도 추적·퀴즈·순위·연속 보상·자동 재생·중독성 반복을 두지 않습니다. 인쇄·오프라인 읽기는 보완 선택지이지 화면 이용에 대한 평가가 아닙니다."
+      },
+    "simulatorIdeas": {
+      "en": [
+        "Tap a cloud to start a short rain animation; allow the story to continue untouched",
+        "Optional touch highlights animal groups, counts, or shapes without correctness feedback",
+        "A read-uninterrupted setting hides all caregiver prompts; provide an equivalent printable story"
+      ],
+      "ko": [
+        "구름을 누르면 짧은 비 내림 애니메이션이 시작되며 누르지 않아도 이야기 진행",
+        "정답 피드백 없이 동물 무리·수·모양을 선택적으로 터치해 강조",
+        "보호자 질문을 숨기는 끊김 없는 읽기 설정과 동등한 인쇄 이야기 제공"
+        ]
+      },
+    "purpose": {
+      "en": "Picture-book series pilot specification only, not a manuscript or published textbook. Create and review a small original story set before deciding whether to open a repository.",
+      "ko": "그림책 시리즈 파일럿 규격이며 원고나 출판 교재가 아닙니다. 저장소 생성 여부를 결정하기 전에 소수의 새 이야기부터 만들고 검토합니다."
+      }
+    }
+  ]
 }

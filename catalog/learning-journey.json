@@ -1,0 +1,2292 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-10-12",
+  "references": [
+    {
+      "id": "nuri-2019",
+      "kind": "official-curriculum",
+      "version": "2019 Revised Nuri Curriculum; Ministry of Education notice and explanatory materials (official packet posted 2020-01-02)",
+      "reviewedOn": "2026-10-12",
+      "title": {
+        "en": "2019 Revised Nuri Curriculum — official notice and explanatory guide",
+        "ko": "2019 개정 누리과정 고시문·해설서"
+      },
+      "url": "https://www.moe.go.kr/boardCnts/view.do?boardID=312&boardSeq=79419&lev=0&m=03",
+      "use": {
+        "en": "Official common curriculum for ages 3–5: five integrated domains and play-centered, locally adaptable practice. My stage strands are an editorial crosswalk, not official standards or a compliance checklist.",
+        "ko": "만 3~5세 국가 공통 교육과정의 5개 통합 영역과 놀이 중심·현장 자율성을 참고합니다. 서가의 단계·주제는 편집상 연결이며 공식 성취기준이나 준수 점검표가 아닙니다."
+      },
+      "reuseLimit": {
+        "en": "The source page indicates attribution, non-commercial, and no-derivatives conditions. This project uses citation metadata and links only; it does not reproduce or adapt Nuri text, activity content, or artwork.",
+        "ko": "원문 페이지에는 출처표시·비영리·변경금지 조건이 표시되어 있습니다. 이 프로젝트는 서지 정보와 링크만 사용하며 누리과정 문구·활동 내용·미술 자료를 복제하거나 각색하지 않습니다."
+      }
+    },
+    {
+      "id": "national-2022-math",
+      "kind": "official-curriculum",
+      "version": "Ministry of Education Notice 2022-33 (2022-12-22), Elementary/Middle/High Mathematics Curriculum, Appendix 8",
+      "reviewedOn": "2026-10-12",
+      "title": {
+        "en": "2022 Revised National Curriculum — mathematics Appendix 8",
+        "ko": "2022 개정 수학과 교육과정 별책 8"
+      },
+      "url": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=141&boardSeq=93458&lev=0&search=",
+      "use": {
+        "en": "Primary official source for the mathematics curriculum. The site offers a broad concept progression and is not a line-by-line standards crosswalk.",
+        "ko": "수학과 교육과정의 공식 원문을 참고합니다. 이 사이트의 개념 흐름은 폭넓은 편집 지도이며 성취기준별 대응표가 아닙니다."
+      }
+    },
+    {
+      "id": "national-2022-general",
+      "kind": "official-curriculum",
+      "version": "Ministry of Education Notice 2022-33 (2022-12-22), revised general and subject curricula; amendment lineage through National Education Commission Notices 2024-3 and 2026-1",
+      "reviewedOn": "2026-10-12",
+      "title": {
+        "en": "2022 Revised National Curriculum — general and subject curriculum records",
+        "ko": "2022 개정 초·중등학교 교육과정 총론 및 교과 교육과정"
+      },
+      "url": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=141&boardSeq=93458&lev=0&search=",
+      "use": {
+        "en": "Official context for broad school-stage subject strands and staged implementation. Later notices 2024-3 and 2026-1 amended specified appendices; consult the source register for scope. Portal concepts are editorial examples, not a complete standards or compliance map.",
+        "ko": "학교급별 주제 흐름과 단계적 시행을 위한 공식 맥락입니다. 후속 고시 2024-3호와 2026-1호는 지정 별책을 일부 개정했으며 범위는 출처 등록표를 참고하세요. 포털 개념은 편집상 예시이며 전체 성취기준이나 준수 대응표가 아닙니다."
+      }
+    },
+    {
+      "id": "national-2024-amendment",
+      "kind": "official-curriculum",
+      "version": "National Education Commission Notice 2024-3 (2024-08-16), partial amendment to Notice 2022-33; listed appendices 1–4, 7, 12, 14, 18, 19, 22, 23–39, and 41; Appendix 8 not listed",
+      "reviewedOn": "2026-10-12",
+      "title": {
+        "en": "2024 partial amendment to the 2022 National Curriculum",
+        "ko": "2022 개정 교육과정 2024년 일부 개정"
+      },
+      "url": "https://www.ne.go.kr/user/bbs/BD_selectBbs.do?q_bbsDocNo=20240927163706792&q_bbsSn=1016",
+      "use": {
+        "en": "The official 2024 notice partially amends the 2022 curriculum and enumerates the affected appendices. Mathematics Appendix 8 is not listed in that amendment; this statement is limited to the notice scope, not a claim that no other notice can apply.",
+        "ko": "2024년 공식 고시는 2022 개정 교육과정의 일부를 개정하고 대상 별책을 열거합니다. 이 고시의 개정 목록에 수학 별책 8은 없습니다. 이는 해당 고시의 범위에 한정한 설명이며 다른 고시가 없다는 뜻은 아닙니다."
+      }
+    },
+    {
+      "id": "national-2026-amendment",
+      "kind": "official-curriculum",
+      "version": "National Education Commission Notice 2026-1 (2026-01-21), partial amendment to Notice 2024-3, listing Appendices 1–4 and 15; Appendix 8 not listed",
+      "reviewedOn": "2026-10-12",
+      "title": {
+        "en": "2026 partial amendment to the 2022 National Curriculum",
+        "ko": "2022 개정 교육과정 2026년 일부 개정"
+      },
+      "url": "https://www.ne.go.kr/new/user/bbs/BD_selectBbs.do?q_bbsDocNo=20260121102419070&q_bbsSn=1016",
+      "use": {
+        "en": "Checked the latest listed partial-amendment scope as of 2026-10-12: this notice amends Appendices 1–4 and 15 of Notice 2024-3. Mathematics Appendix 8 is not listed in either the 2024-3 or 2026-1 amendment notice. This is a bounded notice review, not a guarantee against later changes.",
+        "ko": "2026-10-12 기준으로 최신 일부 개정 범위를 확인했습니다. 이 고시는 2024-3호의 별책 1–4 및 15를 개정합니다. 수학 별책 8은 2024-3호 및 2026-1호의 개정 목록에 없습니다. 이는 확인한 고시 범위에 한정하며 이후 변경 가능성을 배제하지 않습니다."
+      }
+    },
+    {
+      "id": "naeyc-dap",
+      "kind": "professional-guidance",
+      "version": "Developmentally Appropriate Practice Position Statement, 4th edition (2020)",
+      "reviewedOn": "2026-10-12",
+      "title": {
+        "en": "NAEYC Developmentally Appropriate Practice Position Statement",
+        "ko": "NAEYC 발달에 적합한 실제 입장문"
+      },
+      "url": "https://www.naeyc.org/resources/position-statements/dap/contents",
+      "use": {
+        "en": "Professional recommendation: strengths-based, play-based, joyful learning; account for common development, individual experience, and cultural/linguistic context. This is guidance, not Korean law.",
+        "ko": "전문가 권고: 강점과 놀이를 바탕으로 즐겁게 배우고, 공통 발달·개별 경험·문화·언어 맥락을 함께 고려합니다. 한국 법령이나 교육과정 고시는 아닙니다."
+      }
+    },
+    {
+      "id": "mit-math-catalog",
+      "kind": "university-catalog",
+      "version": "MIT Bulletin 2026–2027, Course 18 subject catalog and Mathematics degree chart (reviewed 2026-10-12)",
+      "reviewedOn": "2026-10-12",
+      "title": {
+        "en": "MIT Mathematics Course 18 catalog and degree chart",
+        "ko": "MIT 수학과 Course 18 과목 안내 및 학위 이수표"
+      },
+      "url": "https://catalog.mit.edu/degree-charts/mathematics-course-18/",
+      "use": {
+        "en": "One current university example for prerequisite dependencies among calculus, linear algebra, differential equations, probability/statistics, and numerical analysis. MIT requirements are not universal.",
+        "ko": "미적분·선형대수·미분방정식·확률통계·수치해석의 선행 관계를 살펴보는 한 대학의 최신 사례입니다. MIT 요건이 보편 규칙은 아닙니다."
+      }
+    },
+    {
+      "id": "nrc-early-math",
+      "kind": "research-report",
+      "version": "National Research Council (2009), Mathematics Learning in Early Childhood: Paths Toward Excellence and Equity, National Academies Press, DOI 10.17226/12519",
+      "reviewedOn": "2026-10-12",
+      "title": {
+        "en": "Mathematics Learning in Early Childhood (NRC, 2009)",
+        "ko": "유아 수학 학습 (미국 국립연구위원회, 2009)"
+      },
+      "url": "https://www.nationalacademies.org/publications/12519",
+      "use": {
+        "en": "Research synthesis and recommendations on early mathematical learning; informs playful attention to number, operations, shape, space, and development. It is not Korean curriculum or a prescribed activity sequence.",
+        "ko": "유아 수학 학습의 연구 종합과 권고로 수·연산·모양·공간·발달에 대한 놀이 중심 관점을 참고합니다. 한국 교육과정이나 정해진 활동 순서가 아닙니다."
+      }
+    },
+    {
+      "id": "nasem-preschool-curriculum",
+      "kind": "research-report",
+      "version": "National Academies of Sciences, Engineering, and Medicine (2024), A New Vision for High-Quality Preschool Curriculum, National Academies Press, DOI 10.17226/27429; publisher suggested citation states 2024",
+      "reviewedOn": "2026-10-12",
+      "title": {
+        "en": "A New Vision for High-Quality Preschool Curriculum (NASEM, 2024)",
+        "ko": "양질의 유아교육과정에 대한 새로운 비전 (미국 국립학술원, 2024)"
+      },
+      "url": "https://www.nationalacademies.org/read/27429/chapter/5",
+      "use": {
+        "en": "Evidence and recommendations for integrated, joyful preschool learning, including dialogic reading and foundational spatial/mathematical ideas. U.S.-context professional evidence, not Korean legal requirements.",
+        "ko": "대화형 읽기와 기초 공간·수학 개념을 포함하는 통합적이고 즐거운 유아 학습의 근거와 권고입니다. 미국 맥락의 전문가 근거이며 한국의 법적 요건이 아닙니다."
+      }
+    }
+  ],
+  "stages": [
+    {
+      "id": "preschool",
+      "order": 1,
+      "ageRange": {
+        "min": 3,
+        "max": 5
+      },
+      "label": {
+        "en": "Preschool · ages 3–5",
+        "ko": "유아기 · 만 3~5세"
+      },
+      "description": {
+        "en": "Illustrated stories, shared read-aloud, conversation, movement, and everyday discovery can lead. Optional prompts or taps add to the story without becoming an academic target.",
+        "ko": "그림책 함께 읽기·대화·움직임·일상 속 발견이 중심이 될 수 있습니다. 선택형 질문이나 터치는 학업 목표가 아니라 이야기를 풍성하게 합니다."
+      },
+      "guidanceOnly": true
+    },
+    {
+      "id": "early-elementary",
+      "order": 2,
+      "ageRange": {
+        "min": 6,
+        "max": 8
+      },
+      "label": {
+        "en": "Early elementary · approx. ages 6–8",
+        "ko": "초등 저학년 · 약 6~8세"
+      },
+      "description": {
+        "en": "Build confidence through concrete examples, stories, drawing, conversation, and gentle practice. Readiness and school timing vary.",
+        "ko": "구체물·이야기·그림·대화·부담 없는 연습으로 자신감을 쌓습니다. 준비도와 학교 진도는 다를 수 있습니다."
+      },
+      "guidanceOnly": true
+    },
+    {
+      "id": "upper-elementary",
+      "order": 3,
+      "ageRange": {
+        "min": 9,
+        "max": 11
+      },
+      "label": {
+        "en": "Upper elementary · approx. ages 9–11",
+        "ko": "초등 고학년 · 약 9~11세"
+      },
+      "description": {
+        "en": "Connect models, observations, and explanations; revisit earlier ideas in new contexts. This is flexible guidance.",
+        "ko": "모형·관찰·설명을 연결하고 익숙한 개념을 새로운 맥락에서 다시 만납니다. 유연한 안내입니다."
+      },
+      "guidanceOnly": true
+    },
+    {
+      "id": "middle-school",
+      "order": 4,
+      "ageRange": {
+        "min": 12,
+        "max": 14
+      },
+      "label": {
+        "en": "Middle school · approx. ages 12–14",
+        "ko": "중학교 · 약 12~14세"
+      },
+      "description": {
+        "en": "Compare representations, argue from evidence, and begin to generalize. Do not use the stage as a placement or performance judgment.",
+        "ko": "표현을 비교하고 증거로 논증하며 일반화를 시작합니다. 단계는 배치나 성취도 판정에 쓰지 않습니다."
+      },
+      "guidanceOnly": true
+    },
+    {
+      "id": "high-school",
+      "order": 5,
+      "ageRange": {
+        "min": 15,
+        "max": 18
+      },
+      "label": {
+        "en": "High school · approx. ages 15–18",
+        "ko": "고등학교 · 약 15~18세"
+      },
+      "description": {
+        "en": "Connect formal models, disciplined inquiry, and applications while allowing different school pathways and interests.",
+        "ko": "정식 모형·체계적 탐구·응용을 연결하되 다양한 학교 경로와 관심을 존중합니다."
+      },
+      "guidanceOnly": true
+    },
+    {
+      "id": "university-advanced",
+      "order": 6,
+      "ageRange": {
+        "min": 18,
+        "max": null
+      },
+      "label": {
+        "en": "University & advanced study · 18+",
+        "ko": "대학 및 심화 학습 · 18세 이상"
+      },
+      "description": {
+        "en": "Use disciplinary depth, proof, design, and research as needed. The MIT sequence is an example, not a required universal order.",
+        "ko": "필요에 따라 전공 심화·증명·설계·연구를 다룹니다. MIT의 순서는 한 사례일 뿐 보편적인 필수 순서가 아닙니다."
+      },
+      "guidanceOnly": true
+    }
+  ],
+  "strands": [
+    {
+      "id": "korean-language-literature",
+      "label": {
+        "en": "Korean language & literature",
+        "ko": "국어와 문학"
+      },
+      "description": {
+        "en": "Listening, speaking, reading, writing, stories, and interpretation.",
+        "ko": "듣기·말하기·읽기·쓰기·이야기·해석을 다룹니다."
+      }
+    },
+    {
+      "id": "english-language",
+      "label": {
+        "en": "English language",
+        "ko": "영어"
+      },
+      "description": {
+        "en": "Optional exposure grows into communication, literacy, and purposeful language use.",
+        "ko": "선택적 노출에서 의사소통·문해력·목적 있는 언어 사용으로 넓혀 갑니다."
+      }
+    },
+    {
+      "id": "mathematics",
+      "label": {
+        "en": "Mathematics",
+        "ko": "수학"
+      },
+      "description": {
+        "en": "Quantities, patterns, spatial reasoning, algebra, and later mathematical models.",
+        "ko": "양·규칙성·공간 추론·대수와 수학적 모형으로 확장합니다."
+      }
+    },
+    {
+      "id": "science",
+      "label": {
+        "en": "Science",
+        "ko": "과학"
+      },
+      "description": {
+        "en": "Observe the natural world, make explanations, and use evidence with care.",
+        "ko": "자연을 관찰하고 설명을 만들며 증거를 신중히 사용합니다."
+      }
+    },
+    {
+      "id": "korean-history",
+      "label": {
+        "en": "Korean history",
+        "ko": "한국사"
+      },
+      "description": {
+        "en": "Place people, sources, change, and continuity in Korean historical contexts.",
+        "ko": "한국의 역사 맥락에서 사람·사료·변화와 지속을 살펴봅니다."
+      }
+    },
+    {
+      "id": "world-history-geography",
+      "label": {
+        "en": "World history & geography",
+        "ko": "세계사와 지리"
+      },
+      "description": {
+        "en": "Understand place, movement, environment, and connections across time and regions.",
+        "ko": "시간과 지역을 넘어 장소·이동·환경·연결을 이해합니다."
+      }
+    },
+    {
+      "id": "social-studies-citizenship",
+      "label": {
+        "en": "Social studies & citizenship",
+        "ko": "사회와 시민성"
+      },
+      "description": {
+        "en": "Explore communities, institutions, rights, responsibilities, and civic participation.",
+        "ko": "공동체·제도·권리·책임·시민 참여를 탐구합니다."
+      }
+    },
+    {
+      "id": "technology-computing",
+      "label": {
+        "en": "Technology & computing",
+        "ko": "기술과 컴퓨팅"
+      },
+      "description": {
+        "en": "Understand tools, systems, algorithms, data, and responsible creation.",
+        "ko": "도구·시스템·알고리즘·데이터와 책임 있는 창작을 이해합니다."
+      }
+    },
+    {
+      "id": "art-music",
+      "label": {
+        "en": "Art & music",
+        "ko": "미술과 음악"
+      },
+      "description": {
+        "en": "Make, notice, interpret, and share creative work across forms and traditions.",
+        "ko": "다양한 표현과 전통을 만들고 감상하고 해석하며 나눕니다."
+      }
+    },
+    {
+      "id": "physical-education-health",
+      "label": {
+        "en": "Physical education & health",
+        "ko": "체육과 건강"
+      },
+      "description": {
+        "en": "Build movement confidence, well-being, safety, and understanding of the body.",
+        "ko": "움직임의 자신감·건강·안전·몸에 대한 이해를 기릅니다."
+      }
+    },
+    {
+      "id": "critical-thinking-research",
+      "label": {
+        "en": "Critical thinking & research",
+        "ko": "비판적 사고와 탐구"
+      },
+      "description": {
+        "en": "Ask questions, find and evaluate evidence, and communicate reasoned conclusions.",
+        "ko": "질문하고 증거를 찾고 평가하며 근거 있는 결론을 표현합니다."
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "id": "korean-preschool-shared-stories",
+      "threadId": "korean-meaning",
+      "strandId": "korean-language-literature",
+      "stageId": "preschool",
+      "depth": 1,
+      "title": {
+        "en": "Shared stories and conversation",
+        "ko": "함께 읽고 나누는 이야기"
+      },
+      "description": {
+        "en": "Share an illustrated story in Parent Read-Aloud Mode. A few optional prompts invite conversation; hide them to read uninterrupted.",
+        "ko": "부모 낭독 모드에서 그림책을 함께 읽습니다. 드문 선택형 질문으로 대화하고, 질문을 숨겨 끊김 없이 읽을 수도 있습니다."
+      },
+      "prerequisites": [],
+      "revisits": null,
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "nuri-2019",
+        "naeyc-dap",
+        "nasem-preschool-curriculum"
+      ],
+      "plannedBookIds": [
+        "curiositybook"
+      ],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Meaning-making through Korean language and literature",
+        "ko": "국어와 문학을 통한 의미 구성"
+      }
+    },
+    {
+      "id": "korean-early-elementary-sounds-and-print",
+      "threadId": "korean-meaning",
+      "strandId": "korean-language-literature",
+      "stageId": "early-elementary",
+      "depth": 2,
+      "title": {
+        "en": "Sounds, letters, and meaningful print",
+        "ko": "소리·글자와 생활 속 글"
+      },
+      "description": {
+        "en": "Notice sounds, names, signs, and books during everyday routines.",
+        "ko": "일상에서 말소리·이름·표지·책을 함께 살펴봅니다."
+      },
+      "prerequisites": [],
+      "revisits": "korean-preschool-shared-stories",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Meaning-making through Korean language and literature",
+        "ko": "국어와 문학을 통한 의미 구성"
+      }
+    },
+    {
+      "id": "korean-upper-elementary-reading-meaning",
+      "threadId": "korean-meaning",
+      "strandId": "korean-language-literature",
+      "stageId": "upper-elementary",
+      "depth": 3,
+      "title": {
+        "en": "Reading for meaning",
+        "ko": "의미를 생각하며 읽기"
+      },
+      "description": {
+        "en": "Retell events, compare viewpoints, and use clues from a text.",
+        "ko": "사건을 다시 말하고 관점을 비교하며 글 속 단서를 찾습니다."
+      },
+      "prerequisites": [],
+      "revisits": "korean-early-elementary-sounds-and-print",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Meaning-making through Korean language and literature",
+        "ko": "국어와 문학을 통한 의미 구성"
+      }
+    },
+    {
+      "id": "korean-middle-school-genre-and-evidence",
+      "threadId": "korean-meaning",
+      "strandId": "korean-language-literature",
+      "stageId": "middle-school",
+      "depth": 4,
+      "title": {
+        "en": "Genre, voice, and textual evidence",
+        "ko": "갈래·표현과 글의 근거"
+      },
+      "description": {
+        "en": "Compare forms and explain how wording shapes an interpretation.",
+        "ko": "갈래를 비교하고 표현이 해석에 미치는 영향을 설명합니다."
+      },
+      "prerequisites": [],
+      "revisits": "korean-upper-elementary-reading-meaning",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Meaning-making through Korean language and literature",
+        "ko": "국어와 문학을 통한 의미 구성"
+      }
+    },
+    {
+      "id": "korean-high-school-literary-analysis",
+      "threadId": "korean-meaning",
+      "strandId": "korean-language-literature",
+      "stageId": "high-school",
+      "depth": 5,
+      "title": {
+        "en": "Literary analysis and communication",
+        "ko": "문학 분석과 의사소통"
+      },
+      "description": {
+        "en": "Interpret voice, structure, context, and ambiguity with evidence.",
+        "ko": "근거를 들어 목소리·구조·맥락·모호성을 해석합니다."
+      },
+      "prerequisites": [],
+      "revisits": "korean-middle-school-genre-and-evidence",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Meaning-making through Korean language and literature",
+        "ko": "국어와 문학을 통한 의미 구성"
+      }
+    },
+    {
+      "id": "korean-university-advanced-research-writing",
+      "threadId": "korean-meaning",
+      "strandId": "korean-language-literature",
+      "stageId": "university-advanced",
+      "depth": 6,
+      "title": {
+        "en": "Research writing and critical reading",
+        "ko": "탐구 글쓰기와 비판적 읽기"
+      },
+      "description": {
+        "en": "Synthesize sources, make claims, and revise for readers.",
+        "ko": "자료를 종합하고 주장을 세우며 독자를 위해 글을 고칩니다."
+      },
+      "prerequisites": [],
+      "revisits": "korean-high-school-literary-analysis",
+      "authority": "editorial-proposal",
+      "sourceIds": [],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Meaning-making through Korean language and literature",
+        "ko": "국어와 문학을 통한 의미 구성"
+      }
+    },
+    {
+      "id": "english-preschool-optional-songs",
+      "threadId": "english-meaning",
+      "strandId": "english-language",
+      "stageId": "preschool",
+      "depth": 1,
+      "title": {
+        "en": "Optional songs, sounds, and playful phrases",
+        "ko": "선택적 노래·소리·놀이 표현"
+      },
+      "description": {
+        "en": "Offer a brief English word, phrase, or song as an optional story side note; the Korean read-aloud remains complete on its own.",
+        "ko": "짧은 영어 단어·표현·노래를 이야기의 선택형 곁가지로 제안합니다. 한국어 낭독만으로도 이야기가 완결됩니다."
+      },
+      "prerequisites": [],
+      "revisits": null,
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "nuri-2019",
+        "naeyc-dap"
+      ],
+      "plannedBookIds": [
+        "curiositybook"
+      ],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Meaningful communication in English",
+        "ko": "영어로 의미 있게 소통하기"
+      }
+    },
+    {
+      "id": "english-early-elementary-everyday-phrases",
+      "threadId": "english-meaning",
+      "strandId": "english-language",
+      "stageId": "early-elementary",
+      "depth": 2,
+      "title": {
+        "en": "Everyday words and communication",
+        "ko": "생활 어휘와 의사소통"
+      },
+      "description": {
+        "en": "Use short phrases for greetings, objects, and shared activities.",
+        "ko": "인사·사물·함께 하는 활동에 짧은 표현을 사용합니다."
+      },
+      "prerequisites": [],
+      "revisits": "english-preschool-optional-songs",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Meaningful communication in English",
+        "ko": "영어로 의미 있게 소통하기"
+      }
+    },
+    {
+      "id": "english-upper-elementary-reading-and-listening",
+      "threadId": "english-meaning",
+      "strandId": "english-language",
+      "stageId": "upper-elementary",
+      "depth": 3,
+      "title": {
+        "en": "Listening and reading for meaning",
+        "ko": "의미를 듣고 읽기"
+      },
+      "description": {
+        "en": "Use context, images, and familiar words to follow a short text.",
+        "ko": "맥락·그림·익숙한 어휘를 활용해 짧은 글의 의미를 따라갑니다."
+      },
+      "prerequisites": [],
+      "revisits": "english-early-elementary-everyday-phrases",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Meaningful communication in English",
+        "ko": "영어로 의미 있게 소통하기"
+      }
+    },
+    {
+      "id": "english-middle-school-language-patterns",
+      "threadId": "english-meaning",
+      "strandId": "english-language",
+      "stageId": "middle-school",
+      "depth": 4,
+      "title": {
+        "en": "Language patterns and purposeful expression",
+        "ko": "언어 규칙과 목적 있는 표현"
+      },
+      "description": {
+        "en": "Compare sentence patterns and adapt language to a clear purpose.",
+        "ko": "문장 패턴을 비교하고 목적에 맞게 표현을 조정합니다."
+      },
+      "prerequisites": [],
+      "revisits": "english-upper-elementary-reading-and-listening",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Meaningful communication in English",
+        "ko": "영어로 의미 있게 소통하기"
+      }
+    },
+    {
+      "id": "english-high-school-academic-communication",
+      "threadId": "english-meaning",
+      "strandId": "english-language",
+      "stageId": "high-school",
+      "depth": 5,
+      "title": {
+        "en": "Academic reading and communication",
+        "ko": "학술적 읽기와 의사소통"
+      },
+      "description": {
+        "en": "Summarize claims, ask clarifying questions, and compare sources.",
+        "ko": "주장을 요약하고 질문하며 여러 자료를 비교합니다."
+      },
+      "prerequisites": [],
+      "revisits": "english-middle-school-language-patterns",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Meaningful communication in English",
+        "ko": "영어로 의미 있게 소통하기"
+      }
+    },
+    {
+      "id": "english-university-advanced-disciplinary-english",
+      "threadId": "english-meaning",
+      "strandId": "english-language",
+      "stageId": "university-advanced",
+      "depth": 6,
+      "title": {
+        "en": "Disciplinary English and global exchange",
+        "ko": "전공 영어와 국제적 소통"
+      },
+      "description": {
+        "en": "Read technical or scholarly work critically and communicate across contexts.",
+        "ko": "기술·학술 자료를 비판적으로 읽고 다양한 맥락에서 소통합니다."
+      },
+      "prerequisites": [],
+      "revisits": "english-high-school-academic-communication",
+      "authority": "editorial-proposal",
+      "sourceIds": [],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Meaningful communication in English",
+        "ko": "영어로 의미 있게 소통하기"
+      }
+    },
+    {
+      "id": "math-preschool-quantity-and-pattern",
+      "threadId": "math-relationships",
+      "strandId": "mathematics",
+      "stageId": "preschool",
+      "depth": 1,
+      "title": {
+        "en": "Quantity, shape, and pattern through play",
+        "ko": "놀이 속 양·모양·규칙성"
+      },
+      "description": {
+        "en": "An illustrated animal-friends story invites shared counting, “more” or “same,” repeating patterns, and shapes. An optional tap can highlight a group; counting never depends on tapping.",
+        "ko": "동물 친구들의 그림책을 함께 읽으며 수 세기·많고 같음·반복 규칙·모양을 살펴봅니다. 원하면 터치로 무리를 강조할 수 있지만 터치 없이도 셀 수 있습니다."
+      },
+      "prerequisites": [],
+      "revisits": null,
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "nuri-2019",
+        "naeyc-dap",
+        "nrc-early-math",
+        "nasem-preschool-curriculum"
+      ],
+      "plannedBookIds": [
+        "curiositybook"
+      ],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Quantities, relationships, and mathematical models",
+        "ko": "양·관계와 수학적 모형"
+      }
+    },
+    {
+      "id": "math-early-elementary-number-and-operations",
+      "threadId": "math-relationships",
+      "strandId": "mathematics",
+      "stageId": "early-elementary",
+      "depth": 2,
+      "title": {
+        "en": "Number sense and operations",
+        "ko": "수 감각과 연산"
+      },
+      "description": {
+        "en": "Represent quantities, place value, and operations with objects, drawings, and symbols.",
+        "ko": "구체물·그림·기호로 양·자릿값·연산을 표현합니다."
+      },
+      "prerequisites": [],
+      "revisits": "math-preschool-quantity-and-pattern",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-math",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Quantities, relationships, and mathematical models",
+        "ko": "양·관계와 수학적 모형"
+      }
+    },
+    {
+      "id": "math-upper-elementary-fractions-and-measure",
+      "threadId": "math-relationships",
+      "strandId": "mathematics",
+      "stageId": "upper-elementary",
+      "depth": 3,
+      "title": {
+        "en": "Fractions, measurement, and proportional reasoning",
+        "ko": "분수·측정과 비례 추론"
+      },
+      "description": {
+        "en": "Connect fractions, units, ratios, and data to measured situations.",
+        "ko": "분수·단위·비·자료를 실제 측정 상황과 연결합니다."
+      },
+      "prerequisites": [],
+      "revisits": "math-early-elementary-number-and-operations",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-math",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Quantities, relationships, and mathematical models",
+        "ko": "양·관계와 수학적 모형"
+      }
+    },
+    {
+      "id": "math-middle-school-algebraic-relationships",
+      "threadId": "math-relationships",
+      "strandId": "mathematics",
+      "stageId": "middle-school",
+      "depth": 4,
+      "title": {
+        "en": "Algebraic relationships and equations",
+        "ko": "대수적 관계와 방정식"
+      },
+      "description": {
+        "en": "Represent unknowns, equations, functions, and change with multiple forms.",
+        "ko": "미지수·방정식·함수·변화를 여러 표현으로 나타냅니다."
+      },
+      "prerequisites": [],
+      "revisits": "math-upper-elementary-fractions-and-measure",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-math",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [
+        "algebrabook"
+      ],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Quantities, relationships, and mathematical models",
+        "ko": "양·관계와 수학적 모형"
+      }
+    },
+    {
+      "id": "math-high-school-functions-and-change",
+      "threadId": "math-relationships",
+      "strandId": "mathematics",
+      "stageId": "high-school",
+      "depth": 5,
+      "title": {
+        "en": "Functions, trigonometry, and change",
+        "ko": "함수·삼각법과 변화"
+      },
+      "description": {
+        "en": "Use functions, trigonometry, and rates to model relationships.",
+        "ko": "함수·삼각법·변화율로 관계를 모형화합니다."
+      },
+      "prerequisites": [],
+      "revisits": "math-middle-school-algebraic-relationships",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-math",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [
+        "algebrabook",
+        "calculusbook",
+        "probabilitystatisticsbook"
+      ],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Quantities, relationships, and mathematical models",
+        "ko": "양·관계와 수학적 모형"
+      }
+    },
+    {
+      "id": "math-university-advanced-advanced-mathematical-models",
+      "threadId": "math-relationships",
+      "strandId": "mathematics",
+      "stageId": "university-advanced",
+      "depth": 6,
+      "title": {
+        "en": "Calculus, linear structures, and mathematical models",
+        "ko": "미적분·선형 구조와 수학적 모형"
+      },
+      "description": {
+        "en": "Choose calculus, linear algebra, probability, or discrete structure for a question; assumptions matter.",
+        "ko": "문제에 맞춰 미적분·선형대수·확률·이산 구조를 선택하고 가정을 확인합니다."
+      },
+      "prerequisites": [],
+      "revisits": "math-high-school-functions-and-change",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "mit-math-catalog"
+      ],
+      "plannedBookIds": [
+        "algebrabook",
+        "calculusbook",
+        "probabilitystatisticsbook",
+        "linearalgebrabook",
+        "differentialequationsbook",
+        "engineeringmathbook",
+        "numericalmethodsbook"
+      ],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Quantities, relationships, and mathematical models",
+        "ko": "양·관계와 수학적 모형"
+      }
+    },
+    {
+      "id": "science-preschool-noticing-and-wonder",
+      "threadId": "science-meaning",
+      "strandId": "science",
+      "stageId": "preschool",
+      "depth": 1,
+      "title": {
+        "en": "Noticing and wondering about everyday nature",
+        "ko": "생활 속 자연을 관찰하고 궁금해하기"
+      },
+      "description": {
+        "en": "In Where Does Rain Come From?, follow a raindrop through cloud and rain. A cloud tap may reveal a brief rain animation; the adult can skip it, read on, then notice weather together safely.",
+        "ko": "『비는 어디서 올까요?』에서 빗방울을 따라 구름과 비를 살펴봅니다. 구름 터치로 짧은 비 애니메이션을 볼 수 있지만 건너뛰고 계속 읽은 뒤 안전한 곳에서 날씨를 함께 관찰할 수 있습니다."
+      },
+      "prerequisites": [],
+      "revisits": null,
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "nuri-2019",
+        "naeyc-dap"
+      ],
+      "plannedBookIds": [
+        "curiositybook"
+      ],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Observation, explanation, and scientific evidence",
+        "ko": "관찰·설명과 과학적 증거"
+      }
+    },
+    {
+      "id": "science-early-elementary-observe-and-describe",
+      "threadId": "science-meaning",
+      "strandId": "science",
+      "stageId": "early-elementary",
+      "depth": 2,
+      "title": {
+        "en": "Observe, describe, and compare",
+        "ko": "관찰·기술·비교"
+      },
+      "description": {
+        "en": "Record observable differences using words, drawings, and simple measures.",
+        "ko": "말·그림·간단한 측정으로 관찰한 차이를 기록합니다."
+      },
+      "prerequisites": [],
+      "revisits": "science-preschool-noticing-and-wonder",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Observation, explanation, and scientific evidence",
+        "ko": "관찰·설명과 과학적 증거"
+      }
+    },
+    {
+      "id": "science-upper-elementary-models-and-investigation",
+      "threadId": "science-meaning",
+      "strandId": "science",
+      "stageId": "upper-elementary",
+      "depth": 3,
+      "title": {
+        "en": "Models and fair investigations",
+        "ko": "모형과 공정한 탐구"
+      },
+      "description": {
+        "en": "Plan a safe comparison, distinguish observation from explanation, and revise a model.",
+        "ko": "안전한 비교를 계획하고 관찰과 설명을 구분하며 모형을 고칩니다."
+      },
+      "prerequisites": [],
+      "revisits": "science-early-elementary-observe-and-describe",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Observation, explanation, and scientific evidence",
+        "ko": "관찰·설명과 과학적 증거"
+      }
+    },
+    {
+      "id": "science-middle-school-systems-and-variables",
+      "threadId": "science-meaning",
+      "strandId": "science",
+      "stageId": "middle-school",
+      "depth": 4,
+      "title": {
+        "en": "Systems, variables, and evidence",
+        "ko": "시스템·변인과 증거"
+      },
+      "description": {
+        "en": "Use controlled variables and evidence to test a focused explanation.",
+        "ko": "변인을 통제하고 증거로 구체적인 설명을 점검합니다."
+      },
+      "prerequisites": [],
+      "revisits": "science-upper-elementary-models-and-investigation",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Observation, explanation, and scientific evidence",
+        "ko": "관찰·설명과 과학적 증거"
+      }
+    },
+    {
+      "id": "science-high-school-quantitative-science",
+      "threadId": "science-meaning",
+      "strandId": "science",
+      "stageId": "high-school",
+      "depth": 5,
+      "title": {
+        "en": "Quantitative models and uncertainty",
+        "ko": "정량 모형과 불확실성"
+      },
+      "description": {
+        "en": "Use graphs, equations, and uncertainty to evaluate scientific claims.",
+        "ko": "그래프·방정식·불확실성으로 과학적 주장을 평가합니다."
+      },
+      "prerequisites": [
+        "math-middle-school-algebraic-relationships"
+      ],
+      "revisits": "science-middle-school-systems-and-variables",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Observation, explanation, and scientific evidence",
+        "ko": "관찰·설명과 과학적 증거"
+      }
+    },
+    {
+      "id": "science-university-advanced-research-practice",
+      "threadId": "science-meaning",
+      "strandId": "science",
+      "stageId": "university-advanced",
+      "depth": 6,
+      "title": {
+        "en": "Research design and scientific limits",
+        "ko": "연구 설계와 과학의 한계"
+      },
+      "description": {
+        "en": "Assess measurement, reproducibility, causal inference, and limits of a study.",
+        "ko": "측정·재현성·인과 추론과 연구의 한계를 살핍니다."
+      },
+      "prerequisites": [],
+      "revisits": "science-high-school-quantitative-science",
+      "authority": "editorial-proposal",
+      "sourceIds": [],
+      "plannedBookIds": [],
+      "publishedMaterials": [
+        {
+          "bookId": "pmicbook",
+          "chapterId": "devices",
+          "why": {
+            "en": "A verified published example connects device concepts to a power-management product.",
+            "ko": "출판 검증된 전력 관리 제품 사례로 반도체 소자 개념을 연결합니다."
+          }
+        }
+      ],
+      "threadTitle": {
+        "en": "Observation, explanation, and scientific evidence",
+        "ko": "관찰·설명과 과학적 증거"
+      }
+    },
+    {
+      "id": "korean-history-preschool-family-and-community-stories",
+      "threadId": "korean-history-meaning",
+      "strandId": "korean-history",
+      "stageId": "preschool",
+      "depth": 1,
+      "title": {
+        "en": "People and stories from the past",
+        "ko": "과거의 인물과 이야기"
+      },
+      "description": {
+        "en": "An optional illustrated story may introduce King Sejong and the history of Hangul. Keep historical facts sourced and distinct from an imagined child narrator or invented dialogue; no family disclosure is needed.",
+        "ko": "선택형 그림책으로 세종대왕과 한글의 역사를 만날 수 있습니다. 역사적 사실은 출처를 확인하고 상상 속 어린이 화자나 지어낸 대사와 구분하며, 가족 경험을 말할 필요는 없습니다."
+      },
+      "prerequisites": [],
+      "revisits": null,
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "nuri-2019",
+        "naeyc-dap"
+      ],
+      "plannedBookIds": [
+        "curiositybook"
+      ],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Historical narratives and source evidence",
+        "ko": "역사 서사와 사료 증거"
+      }
+    },
+    {
+      "id": "korean-history-early-elementary-past-and-present",
+      "threadId": "korean-history-meaning",
+      "strandId": "korean-history",
+      "stageId": "early-elementary",
+      "depth": 2,
+      "title": {
+        "en": "Past and present in familiar places",
+        "ko": "익숙한 장소의 과거와 현재"
+      },
+      "description": {
+        "en": "Notice how places, objects, and routines can change over time.",
+        "ko": "장소·물건·생활 방식이 시간에 따라 달라짐을 살펴봅니다."
+      },
+      "prerequisites": [],
+      "revisits": "korean-history-preschool-family-and-community-stories",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Historical narratives and source evidence",
+        "ko": "역사 서사와 사료 증거"
+      }
+    },
+    {
+      "id": "korean-history-upper-elementary-chronology-and-sources",
+      "threadId": "korean-history-meaning",
+      "strandId": "korean-history",
+      "stageId": "upper-elementary",
+      "depth": 3,
+      "title": {
+        "en": "Chronology and historical sources",
+        "ko": "시간의 순서와 역사 사료"
+      },
+      "description": {
+        "en": "Place events in sequence and ask who created a source and why.",
+        "ko": "사건을 시간 순서에 놓고 누가 왜 자료를 만들었는지 묻습니다."
+      },
+      "prerequisites": [],
+      "revisits": "korean-history-early-elementary-past-and-present",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Historical narratives and source evidence",
+        "ko": "역사 서사와 사료 증거"
+      }
+    },
+    {
+      "id": "korean-history-middle-school-korean-historical-change",
+      "threadId": "korean-history-meaning",
+      "strandId": "korean-history",
+      "stageId": "middle-school",
+      "depth": 4,
+      "title": {
+        "en": "Korean historical change and continuity",
+        "ko": "한국사의 변화와 지속"
+      },
+      "description": {
+        "en": "Compare periods and perspectives using age-appropriate primary and secondary sources.",
+        "ko": "나이에 맞는 1차·2차 자료로 시대와 관점을 비교합니다."
+      },
+      "prerequisites": [],
+      "revisits": "korean-history-upper-elementary-chronology-and-sources",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Historical narratives and source evidence",
+        "ko": "역사 서사와 사료 증거"
+      }
+    },
+    {
+      "id": "korean-history-high-school-historical-argument",
+      "threadId": "korean-history-meaning",
+      "strandId": "korean-history",
+      "stageId": "high-school",
+      "depth": 5,
+      "title": {
+        "en": "Historical argument and context",
+        "ko": "역사적 논증과 맥락"
+      },
+      "description": {
+        "en": "Explain change, continuity, causation, and perspective with cited evidence.",
+        "ko": "근거를 인용해 변화·지속·인과·관점을 설명합니다."
+      },
+      "prerequisites": [],
+      "revisits": "korean-history-middle-school-korean-historical-change",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Historical narratives and source evidence",
+        "ko": "역사 서사와 사료 증거"
+      }
+    },
+    {
+      "id": "korean-history-university-advanced-historical-research",
+      "threadId": "korean-history-meaning",
+      "strandId": "korean-history",
+      "stageId": "university-advanced",
+      "depth": 6,
+      "title": {
+        "en": "Historical research and public memory",
+        "ko": "역사 연구와 공공 기억"
+      },
+      "description": {
+        "en": "Evaluate source limits and how institutions, memory, and evidence shape narratives.",
+        "ko": "자료의 한계와 제도·기억·증거가 역사 서술에 미치는 영향을 평가합니다."
+      },
+      "prerequisites": [
+        "critical-high-school-research-design"
+      ],
+      "revisits": "korean-history-high-school-historical-argument",
+      "authority": "editorial-proposal",
+      "sourceIds": [],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Historical narratives and source evidence",
+        "ko": "역사 서사와 사료 증거"
+      }
+    },
+    {
+      "id": "world-history-preschool-places-and-journeys",
+      "threadId": "world-history-meaning",
+      "strandId": "world-history-geography",
+      "stageId": "preschool",
+      "depth": 1,
+      "title": {
+        "en": "Places, routes, and journeys",
+        "ko": "장소·길·여행"
+      },
+      "description": {
+        "en": "Explore maps and places through stories, play, and safe local walks.",
+        "ko": "이야기·놀이·안전한 동네 산책으로 지도와 장소를 만납니다."
+      },
+      "prerequisites": [],
+      "revisits": null,
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "nuri-2019",
+        "naeyc-dap"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Place, movement, and connections across time",
+        "ko": "장소·이동과 시대 간 연결"
+      }
+    },
+    {
+      "id": "world-history-early-elementary-maps-and-environments",
+      "threadId": "world-history-meaning",
+      "strandId": "world-history-geography",
+      "stageId": "early-elementary",
+      "depth": 2,
+      "title": {
+        "en": "Maps, environments, and human activity",
+        "ko": "지도·환경과 사람의 활동"
+      },
+      "description": {
+        "en": "Read simple maps and notice how people use and care for places.",
+        "ko": "간단한 지도를 보고 사람들이 장소를 이용하고 돌보는 방식을 살핍니다."
+      },
+      "prerequisites": [],
+      "revisits": "world-history-preschool-places-and-journeys",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Place, movement, and connections across time",
+        "ko": "장소·이동과 시대 간 연결"
+      }
+    },
+    {
+      "id": "world-history-upper-elementary-regions-and-movement",
+      "threadId": "world-history-meaning",
+      "strandId": "world-history-geography",
+      "stageId": "upper-elementary",
+      "depth": 3,
+      "title": {
+        "en": "Regions, movement, and exchange",
+        "ko": "지역·이동과 교류"
+      },
+      "description": {
+        "en": "Connect physical geography with migration, trade, and cultural exchange.",
+        "ko": "자연지리와 이주·교역·문화 교류를 연결합니다."
+      },
+      "prerequisites": [],
+      "revisits": "world-history-early-elementary-maps-and-environments",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Place, movement, and connections across time",
+        "ko": "장소·이동과 시대 간 연결"
+      }
+    },
+    {
+      "id": "world-history-middle-school-historical-connections",
+      "threadId": "world-history-meaning",
+      "strandId": "world-history-geography",
+      "stageId": "middle-school",
+      "depth": 4,
+      "title": {
+        "en": "Historical connections across regions",
+        "ko": "지역을 잇는 역사적 관계"
+      },
+      "description": {
+        "en": "Compare how environments and networks shaped societies over time.",
+        "ko": "환경과 교류망이 사회를 형성한 방식을 시간 속에서 비교합니다."
+      },
+      "prerequisites": [],
+      "revisits": "world-history-upper-elementary-regions-and-movement",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Place, movement, and connections across time",
+        "ko": "장소·이동과 시대 간 연결"
+      }
+    },
+    {
+      "id": "world-history-high-school-global-systems",
+      "threadId": "world-history-meaning",
+      "strandId": "world-history-geography",
+      "stageId": "high-school",
+      "depth": 5,
+      "title": {
+        "en": "Global systems and uneven change",
+        "ko": "세계 체계와 불균등한 변화"
+      },
+      "description": {
+        "en": "Analyze regional connections while attending to different experiences and scale.",
+        "ko": "지역 간 연결을 분석하면서 서로 다른 경험과 규모를 고려합니다."
+      },
+      "prerequisites": [],
+      "revisits": "world-history-middle-school-historical-connections",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Place, movement, and connections across time",
+        "ko": "장소·이동과 시대 간 연결"
+      }
+    },
+    {
+      "id": "world-history-university-advanced-comparative-world-history",
+      "threadId": "world-history-meaning",
+      "strandId": "world-history-geography",
+      "stageId": "university-advanced",
+      "depth": 6,
+      "title": {
+        "en": "Comparative world history and geography",
+        "ko": "비교 세계사와 지리"
+      },
+      "description": {
+        "en": "Synthesize sources to explain global processes without reducing local histories to a single story.",
+        "ko": "자료를 종합해 세계적 과정을 설명하되 지역 역사를 하나의 서사로 환원하지 않습니다."
+      },
+      "prerequisites": [],
+      "revisits": "world-history-high-school-global-systems",
+      "authority": "editorial-proposal",
+      "sourceIds": [],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Place, movement, and connections across time",
+        "ko": "장소·이동과 시대 간 연결"
+      }
+    },
+    {
+      "id": "civics-preschool-belonging-and-cooperation",
+      "threadId": "civics-meaning",
+      "strandId": "social-studies-citizenship",
+      "stageId": "preschool",
+      "depth": 1,
+      "title": {
+        "en": "Belonging, care, and cooperation",
+        "ko": "소속감·돌봄과 협력"
+      },
+      "description": {
+        "en": "Practice taking turns, helping, and naming shared needs in play.",
+        "ko": "놀이에서 차례를 나누고 돕고 함께 필요한 것을 말해 봅니다."
+      },
+      "prerequisites": [],
+      "revisits": null,
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "nuri-2019",
+        "naeyc-dap"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Community, public decisions, and participation",
+        "ko": "공동체·공적 결정과 참여"
+      }
+    },
+    {
+      "id": "civics-early-elementary-rules-and-community",
+      "threadId": "civics-meaning",
+      "strandId": "social-studies-citizenship",
+      "stageId": "early-elementary",
+      "depth": 2,
+      "title": {
+        "en": "Rules, fairness, and community roles",
+        "ko": "규칙·공정성과 공동체 역할"
+      },
+      "description": {
+        "en": "Discuss why groups make rules and how decisions affect people.",
+        "ko": "공동체가 규칙을 만드는 이유와 결정이 사람에게 미치는 영향을 이야기합니다."
+      },
+      "prerequisites": [],
+      "revisits": "civics-preschool-belonging-and-cooperation",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Community, public decisions, and participation",
+        "ko": "공동체·공적 결정과 참여"
+      }
+    },
+    {
+      "id": "civics-upper-elementary-institutions-and-rights",
+      "threadId": "civics-meaning",
+      "strandId": "social-studies-citizenship",
+      "stageId": "upper-elementary",
+      "depth": 3,
+      "title": {
+        "en": "Institutions, rights, and responsibilities",
+        "ko": "제도·권리와 책임"
+      },
+      "description": {
+        "en": "Connect public institutions and rights with everyday civic examples.",
+        "ko": "공공 제도와 권리를 생활 속 시민 사례와 연결합니다."
+      },
+      "prerequisites": [],
+      "revisits": "civics-early-elementary-rules-and-community",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Community, public decisions, and participation",
+        "ko": "공동체·공적 결정과 참여"
+      }
+    },
+    {
+      "id": "civics-middle-school-civic-questions",
+      "threadId": "civics-meaning",
+      "strandId": "social-studies-citizenship",
+      "stageId": "middle-school",
+      "depth": 4,
+      "title": {
+        "en": "Civic questions and multiple perspectives",
+        "ko": "시민적 질문과 다양한 관점"
+      },
+      "description": {
+        "en": "Compare stakeholder views and distinguish evidence from preference.",
+        "ko": "이해관계자의 관점을 비교하고 증거와 선호를 구분합니다."
+      },
+      "prerequisites": [],
+      "revisits": "civics-upper-elementary-institutions-and-rights",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Community, public decisions, and participation",
+        "ko": "공동체·공적 결정과 참여"
+      }
+    },
+    {
+      "id": "civics-high-school-public-reasoning",
+      "threadId": "civics-meaning",
+      "strandId": "social-studies-citizenship",
+      "stageId": "high-school",
+      "depth": 5,
+      "title": {
+        "en": "Public reasoning and participation",
+        "ko": "공적 추론과 참여"
+      },
+      "description": {
+        "en": "Evaluate policy trade-offs and communicate a reasoned civic position.",
+        "ko": "정책의 상충 관계를 평가하고 근거 있는 시민 의견을 표현합니다."
+      },
+      "prerequisites": [],
+      "revisits": "civics-middle-school-civic-questions",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Community, public decisions, and participation",
+        "ko": "공동체·공적 결정과 참여"
+      }
+    },
+    {
+      "id": "civics-university-advanced-civic-research",
+      "threadId": "civics-meaning",
+      "strandId": "social-studies-citizenship",
+      "stageId": "university-advanced",
+      "depth": 6,
+      "title": {
+        "en": "Civic research, law, and institutions",
+        "ko": "시민 연구·법과 제도"
+      },
+      "description": {
+        "en": "Study institutions, legal frameworks, and participation with source-aware reasoning.",
+        "ko": "자료의 맥락을 살펴 제도·법 체계·참여를 연구합니다."
+      },
+      "prerequisites": [],
+      "revisits": "civics-high-school-public-reasoning",
+      "authority": "editorial-proposal",
+      "sourceIds": [],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Community, public decisions, and participation",
+        "ko": "공동체·공적 결정과 참여"
+      }
+    },
+    {
+      "id": "computing-preschool-tools-and-cause",
+      "threadId": "computing-meaning",
+      "strandId": "technology-computing",
+      "stageId": "preschool",
+      "depth": 1,
+      "title": {
+        "en": "Tools, materials, and cause and effect",
+        "ko": "도구·재료와 원인·결과"
+      },
+      "description": {
+        "en": "Explore safe tools and notice what changes when an action changes.",
+        "ko": "안전한 도구를 탐색하고 행동에 따라 달라지는 점을 발견합니다."
+      },
+      "prerequisites": [],
+      "revisits": null,
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "nuri-2019",
+        "naeyc-dap"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Tools, systems, and responsible creation",
+        "ko": "도구·시스템과 책임 있는 창작"
+      }
+    },
+    {
+      "id": "computing-early-elementary-sequences-and-instructions",
+      "threadId": "computing-meaning",
+      "strandId": "technology-computing",
+      "stageId": "early-elementary",
+      "depth": 2,
+      "title": {
+        "en": "Sequences, instructions, and simple machines",
+        "ko": "순서·절차와 단순 기계"
+      },
+      "description": {
+        "en": "Describe steps and use unplugged games to make instructions precise.",
+        "ko": "단계를 설명하고 언플러그드 놀이로 정확한 절차를 만듭니다."
+      },
+      "prerequisites": [],
+      "revisits": "computing-preschool-tools-and-cause",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Tools, systems, and responsible creation",
+        "ko": "도구·시스템과 책임 있는 창작"
+      }
+    },
+    {
+      "id": "computing-upper-elementary-data-and-algorithms",
+      "threadId": "computing-meaning",
+      "strandId": "technology-computing",
+      "stageId": "upper-elementary",
+      "depth": 3,
+      "title": {
+        "en": "Data, algorithms, and digital systems",
+        "ko": "데이터·알고리즘과 디지털 시스템"
+      },
+      "description": {
+        "en": "Represent data, trace algorithms, and ask what a system leaves out.",
+        "ko": "데이터를 표현하고 알고리즘을 추적하며 시스템이 빠뜨리는 것을 질문합니다."
+      },
+      "prerequisites": [],
+      "revisits": "computing-early-elementary-sequences-and-instructions",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Tools, systems, and responsible creation",
+        "ko": "도구·시스템과 책임 있는 창작"
+      }
+    },
+    {
+      "id": "computing-middle-school-programming-and-models",
+      "threadId": "computing-meaning",
+      "strandId": "technology-computing",
+      "stageId": "middle-school",
+      "depth": 4,
+      "title": {
+        "en": "Programming, models, and debugging",
+        "ko": "프로그래밍·모형과 디버깅"
+      },
+      "description": {
+        "en": "Build and test a model; debug behavior rather than blame the learner.",
+        "ko": "모형을 만들고 시험하며 학습자가 아니라 동작의 오류를 찾습니다."
+      },
+      "prerequisites": [
+        "math-upper-elementary-fractions-and-measure"
+      ],
+      "revisits": "computing-upper-elementary-data-and-algorithms",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Tools, systems, and responsible creation",
+        "ko": "도구·시스템과 책임 있는 창작"
+      }
+    },
+    {
+      "id": "computing-high-school-systems-and-ethics",
+      "threadId": "computing-meaning",
+      "strandId": "technology-computing",
+      "stageId": "high-school",
+      "depth": 5,
+      "title": {
+        "en": "Computational systems and responsible design",
+        "ko": "계산 시스템과 책임 있는 설계"
+      },
+      "description": {
+        "en": "Analyze interfaces, data practices, accessibility, and social consequences.",
+        "ko": "인터페이스·데이터 관행·접근성·사회적 결과를 분석합니다."
+      },
+      "prerequisites": [],
+      "revisits": "computing-middle-school-programming-and-models",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Tools, systems, and responsible creation",
+        "ko": "도구·시스템과 책임 있는 창작"
+      }
+    },
+    {
+      "id": "computing-university-advanced-computing-research",
+      "threadId": "computing-meaning",
+      "strandId": "technology-computing",
+      "stageId": "university-advanced",
+      "depth": 6,
+      "title": {
+        "en": "Computing research and system trade-offs",
+        "ko": "컴퓨팅 연구와 시스템 상충 관계"
+      },
+      "description": {
+        "en": "Design or evaluate systems with explicit performance, safety, privacy, and fairness criteria.",
+        "ko": "성능·안전·개인정보·공정성 기준을 명시해 시스템을 설계·평가합니다."
+      },
+      "prerequisites": [],
+      "revisits": "computing-high-school-systems-and-ethics",
+      "authority": "editorial-proposal",
+      "sourceIds": [],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Tools, systems, and responsible creation",
+        "ko": "도구·시스템과 책임 있는 창작"
+      }
+    },
+    {
+      "id": "arts-preschool-materials-and-sound",
+      "threadId": "arts-meaning",
+      "strandId": "art-music",
+      "stageId": "preschool",
+      "depth": 1,
+      "title": {
+        "en": "Materials, marks, movement, and sound",
+        "ko": "재료·표현·움직임과 소리"
+      },
+      "description": {
+        "en": "Experiment with paper, found objects, rhythm, movement, and quiet listening.",
+        "ko": "종이·주변 사물·리듬·움직임·조용히 듣기를 탐색합니다."
+      },
+      "prerequisites": [],
+      "revisits": null,
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "nuri-2019",
+        "naeyc-dap"
+      ],
+      "plannedBookIds": [
+        "curiositybook"
+      ],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Creative making, interpretation, and context",
+        "ko": "창작·해석과 맥락"
+      }
+    },
+    {
+      "id": "arts-early-elementary-elements-and-expression",
+      "threadId": "arts-meaning",
+      "strandId": "art-music",
+      "stageId": "early-elementary",
+      "depth": 2,
+      "title": {
+        "en": "Elements and expressive choices",
+        "ko": "요소와 표현 선택"
+      },
+      "description": {
+        "en": "Notice color, shape, rhythm, and contrast; choose how to express an idea.",
+        "ko": "색·형태·리듬·대비를 발견하고 생각을 표현하는 방식을 선택합니다."
+      },
+      "prerequisites": [],
+      "revisits": "arts-preschool-materials-and-sound",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Creative making, interpretation, and context",
+        "ko": "창작·해석과 맥락"
+      }
+    },
+    {
+      "id": "arts-upper-elementary-form-and-interpretation",
+      "threadId": "arts-meaning",
+      "strandId": "art-music",
+      "stageId": "upper-elementary",
+      "depth": 3,
+      "title": {
+        "en": "Form, style, and interpretation",
+        "ko": "형식·양식과 해석"
+      },
+      "description": {
+        "en": "Compare works and explain how choices shape an audience’s experience.",
+        "ko": "작품을 비교하고 선택이 감상 경험에 미치는 영향을 설명합니다."
+      },
+      "prerequisites": [],
+      "revisits": "arts-early-elementary-elements-and-expression",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Creative making, interpretation, and context",
+        "ko": "창작·해석과 맥락"
+      }
+    },
+    {
+      "id": "arts-middle-school-traditions-and-creation",
+      "threadId": "arts-meaning",
+      "strandId": "art-music",
+      "stageId": "middle-school",
+      "depth": 4,
+      "title": {
+        "en": "Traditions, media, and original creation",
+        "ko": "전통·매체와 창작"
+      },
+      "description": {
+        "en": "Study traditions respectfully while making and revising original work.",
+        "ko": "전통을 존중하며 살펴보고 작품을 만들고 고칩니다."
+      },
+      "prerequisites": [],
+      "revisits": "arts-upper-elementary-form-and-interpretation",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Creative making, interpretation, and context",
+        "ko": "창작·해석과 맥락"
+      }
+    },
+    {
+      "id": "arts-high-school-critical-arts-practice",
+      "threadId": "arts-meaning",
+      "strandId": "art-music",
+      "stageId": "high-school",
+      "depth": 5,
+      "title": {
+        "en": "Critical arts practice and context",
+        "ko": "비판적 예술 실천과 맥락"
+      },
+      "description": {
+        "en": "Interpret form, context, technique, and cultural perspective.",
+        "ko": "형식·맥락·기법·문화적 관점으로 작품을 해석합니다."
+      },
+      "prerequisites": [],
+      "revisits": "arts-middle-school-traditions-and-creation",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Creative making, interpretation, and context",
+        "ko": "창작·해석과 맥락"
+      }
+    },
+    {
+      "id": "arts-university-advanced-research-and-curation",
+      "threadId": "arts-meaning",
+      "strandId": "art-music",
+      "stageId": "university-advanced",
+      "depth": 6,
+      "title": {
+        "en": "Arts research, curation, and practice",
+        "ko": "예술 연구·기획과 실천"
+      },
+      "description": {
+        "en": "Research works and traditions, document process, and curate with attribution.",
+        "ko": "작품과 전통을 조사하고 창작 과정을 기록하며 출처를 밝혀 기획합니다."
+      },
+      "prerequisites": [],
+      "revisits": "arts-high-school-critical-arts-practice",
+      "authority": "editorial-proposal",
+      "sourceIds": [],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Creative making, interpretation, and context",
+        "ko": "창작·해석과 맥락"
+      }
+    },
+    {
+      "id": "health-preschool-movement-and-rest",
+      "threadId": "health-meaning",
+      "strandId": "physical-education-health",
+      "stageId": "preschool",
+      "depth": 1,
+      "title": {
+        "en": "Movement, rest, and body awareness",
+        "ko": "움직임·휴식과 몸의 감각"
+      },
+      "description": {
+        "en": "Offer outdoor movement, rest, hydration, and body-safe choices.",
+        "ko": "야외 움직임·휴식·수분 섭취와 몸에 편안한 선택을 제안합니다."
+      },
+      "prerequisites": [],
+      "revisits": null,
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "nuri-2019",
+        "naeyc-dap"
+      ],
+      "plannedBookIds": [
+        "curiositybook"
+      ],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Movement, well-being, and informed choices",
+        "ko": "움직임·건강과 근거 있는 선택"
+      }
+    },
+    {
+      "id": "health-early-elementary-coordination-and-safety",
+      "threadId": "health-meaning",
+      "strandId": "physical-education-health",
+      "stageId": "early-elementary",
+      "depth": 2,
+      "title": {
+        "en": "Coordination, play, and basic safety",
+        "ko": "협응·놀이와 기본 안전"
+      },
+      "description": {
+        "en": "Practice varied movement and simple safety routines at a comfortable pace.",
+        "ko": "편안한 속도로 다양한 움직임과 기본 안전 습관을 연습합니다."
+      },
+      "prerequisites": [],
+      "revisits": "health-preschool-movement-and-rest",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Movement, well-being, and informed choices",
+        "ko": "움직임·건강과 근거 있는 선택"
+      }
+    },
+    {
+      "id": "health-upper-elementary-skills-and-wellbeing",
+      "threadId": "health-meaning",
+      "strandId": "physical-education-health",
+      "stageId": "upper-elementary",
+      "depth": 3,
+      "title": {
+        "en": "Movement skills and well-being",
+        "ko": "움직임 기술과 건강"
+      },
+      "description": {
+        "en": "Build skills and understand how activity, sleep, nutrition, and context interact.",
+        "ko": "활동·수면·영양·환경이 서로 영향을 줌을 이해합니다."
+      },
+      "prerequisites": [],
+      "revisits": "health-early-elementary-coordination-and-safety",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Movement, well-being, and informed choices",
+        "ko": "움직임·건강과 근거 있는 선택"
+      }
+    },
+    {
+      "id": "health-middle-school-training-and-health-literacy",
+      "threadId": "health-meaning",
+      "strandId": "physical-education-health",
+      "stageId": "middle-school",
+      "depth": 4,
+      "title": {
+        "en": "Training, health literacy, and safety",
+        "ko": "훈련·건강 문해력과 안전"
+      },
+      "description": {
+        "en": "Use reliable information to make safe choices about activity and health.",
+        "ko": "신뢰할 수 있는 정보로 신체활동과 건강의 안전한 선택을 합니다."
+      },
+      "prerequisites": [],
+      "revisits": "health-upper-elementary-skills-and-wellbeing",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Movement, well-being, and informed choices",
+        "ko": "움직임·건강과 근거 있는 선택"
+      }
+    },
+    {
+      "id": "health-high-school-performance-and-evidence",
+      "threadId": "health-meaning",
+      "strandId": "physical-education-health",
+      "stageId": "high-school",
+      "depth": 5,
+      "title": {
+        "en": "Performance, recovery, and evidence",
+        "ko": "수행·회복과 증거"
+      },
+      "description": {
+        "en": "Interpret training data cautiously and avoid one-size-fits-all prescriptions.",
+        "ko": "훈련 자료를 신중히 해석하고 모두에게 같은 처방을 피합니다."
+      },
+      "prerequisites": [],
+      "revisits": "health-middle-school-training-and-health-literacy",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Movement, well-being, and informed choices",
+        "ko": "움직임·건강과 근거 있는 선택"
+      }
+    },
+    {
+      "id": "health-university-advanced-lifelong-health",
+      "threadId": "health-meaning",
+      "strandId": "physical-education-health",
+      "stageId": "university-advanced",
+      "depth": 6,
+      "title": {
+        "en": "Lifelong health and evidence-informed practice",
+        "ko": "평생 건강과 근거 기반 실천"
+      },
+      "description": {
+        "en": "Evaluate health claims and adapt activity to individual needs and evidence.",
+        "ko": "건강 주장을 평가하고 개인의 필요와 근거에 맞게 활동을 조정합니다."
+      },
+      "prerequisites": [],
+      "revisits": "health-high-school-performance-and-evidence",
+      "authority": "editorial-proposal",
+      "sourceIds": [],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Movement, well-being, and informed choices",
+        "ko": "움직임·건강과 근거 있는 선택"
+      }
+    },
+    {
+      "id": "critical-preschool-questions-and-noticing",
+      "threadId": "critical-meaning",
+      "strandId": "critical-thinking-research",
+      "stageId": "preschool",
+      "depth": 1,
+      "title": {
+        "en": "Questions, noticing, and explanation",
+        "ko": "질문·관찰과 설명"
+      },
+      "description": {
+        "en": "Ask open questions and wonder together without turning play into a quiz.",
+        "ko": "놀이를 퀴즈로 바꾸지 않고 열린 질문과 함께 궁금해합니다."
+      },
+      "prerequisites": [],
+      "revisits": null,
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "nuri-2019",
+        "naeyc-dap"
+      ],
+      "plannedBookIds": [
+        "curiositybook"
+      ],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Questions, claims, and evidence",
+        "ko": "질문·주장과 증거"
+      }
+    },
+    {
+      "id": "critical-early-elementary-claims-and-reasons",
+      "threadId": "critical-meaning",
+      "strandId": "critical-thinking-research",
+      "stageId": "early-elementary",
+      "depth": 2,
+      "title": {
+        "en": "Claims, reasons, and information sources",
+        "ko": "주장·이유와 정보 출처"
+      },
+      "description": {
+        "en": "Give a reason, compare accounts, and notice where information came from.",
+        "ko": "이유를 말하고 설명을 비교하며 정보의 출처를 살핍니다."
+      },
+      "prerequisites": [],
+      "revisits": "critical-preschool-questions-and-noticing",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Questions, claims, and evidence",
+        "ko": "질문·주장과 증거"
+      }
+    },
+    {
+      "id": "critical-upper-elementary-evidence-and-inference",
+      "threadId": "critical-meaning",
+      "strandId": "critical-thinking-research",
+      "stageId": "upper-elementary",
+      "depth": 3,
+      "title": {
+        "en": "Evidence, inference, and uncertainty",
+        "ko": "증거·추론과 불확실성"
+      },
+      "description": {
+        "en": "Separate observation from inference and state what remains unknown.",
+        "ko": "관찰과 추론을 구분하고 모르는 부분을 밝힙니다."
+      },
+      "prerequisites": [],
+      "revisits": "critical-early-elementary-claims-and-reasons",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Questions, claims, and evidence",
+        "ko": "질문·주장과 증거"
+      }
+    },
+    {
+      "id": "critical-middle-school-source-evaluation",
+      "threadId": "critical-meaning",
+      "strandId": "critical-thinking-research",
+      "stageId": "middle-school",
+      "depth": 4,
+      "title": {
+        "en": "Source evaluation and argument",
+        "ko": "자료 평가와 논증"
+      },
+      "description": {
+        "en": "Check authorship, evidence, purpose, and counterexamples before accepting a claim.",
+        "ko": "주장을 받아들이기 전 저자·증거·목적·반례를 점검합니다."
+      },
+      "prerequisites": [],
+      "revisits": "critical-upper-elementary-evidence-and-inference",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Questions, claims, and evidence",
+        "ko": "질문·주장과 증거"
+      }
+    },
+    {
+      "id": "critical-high-school-research-design",
+      "threadId": "critical-meaning",
+      "strandId": "critical-thinking-research",
+      "stageId": "high-school",
+      "depth": 5,
+      "title": {
+        "en": "Research design and communication",
+        "ko": "연구 설계와 소통"
+      },
+      "description": {
+        "en": "Plan a question, method, evidence record, and transparent conclusion.",
+        "ko": "질문·방법·증거 기록·투명한 결론을 계획합니다."
+      },
+      "prerequisites": [],
+      "revisits": "critical-middle-school-source-evaluation",
+      "authority": "editorial-proposal",
+      "sourceIds": [
+        "national-2022-general",
+        "national-2024-amendment",
+        "national-2026-amendment"
+      ],
+      "plannedBookIds": [],
+      "publishedMaterials": [],
+      "threadTitle": {
+        "en": "Questions, claims, and evidence",
+        "ko": "질문·주장과 증거"
+      }
+    },
+    {
+      "id": "critical-university-advanced-independent-inquiry",
+      "threadId": "critical-meaning",
+      "strandId": "critical-thinking-research",
+      "stageId": "university-advanced",
+      "depth": 6,
+      "title": {
+        "en": "Independent inquiry and scholarly practice",
+        "ko": "독립적 탐구와 학술 실천"
+      },
+      "description": {
+        "en": "Synthesize sources, disclose uncertainty, respect ethics, and communicate reproducibly.",
+        "ko": "자료를 종합하고 불확실성을 밝히며 윤리를 지키고 재현 가능하게 소통합니다."
+      },
+      "prerequisites": [],
+      "revisits": "critical-high-school-research-design",
+      "authority": "editorial-proposal",
+      "sourceIds": [],
+      "plannedBookIds": [],
+      "publishedMaterials": [
+        {
+          "bookId": "watbook",
+          "chapterId": "c01-measurement-to-decision",
+          "why": {
+            "en": "A verified published example follows electrical evidence into bounded engineering decisions.",
+            "ko": "출판 검증된 사례에서 전기적 증거를 한계가 명시된 엔지니어링 의사결정으로 연결합니다."
+          }
+        }
+      ],
+      "threadTitle": {
+        "en": "Questions, claims, and evidence",
+        "ko": "질문·주장과 증거"
+      }
+    }
+  ]
+}

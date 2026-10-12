@@ -2,11 +2,11 @@
 
 **Interactive Engineering & Knowledge Books**
 
-My Library is a static, bilingual bookshelf for independently maintained textbooks. PMICBook is the first published book. Future semiconductor titles are editorial proposals on the roadmap; they are not listed as published books.
+My Library is a static, bilingual bookshelf for independently maintained textbooks. PMICBook and WATBook are published books. The Mathematics collection and Family Learning Journey add editorial maps and proposals without treating plans as publications.
 
 - Live target: https://frbread7.github.io/books/
 - Source: https://github.com/frbread7/books
-- First book: [PMICBook](https://frbread7.github.io/pmicbook/)
+- Published books: [PMICBook](https://frbread7.github.io/pmicbook/) and [WATBook](https://frbread7.github.io/watbook/)
 
 ## Work locally
 
@@ -42,14 +42,16 @@ Contributions to the portal follow [CONTRIBUTING.md](CONTRIBUTING.md).
 
 - site/ — deployable static Pages artifact; flat HTML routes share one data-driven app.
 - catalog/books/ — one validated record per book explicitly registered with the portal.
-- catalog/ — subject maps, learning paths, and the editorial roadmap.
+- catalog/ — subject maps, reading paths, editorial roadmaps, and the versioned concept map.
 - schemas/book.schema.json — manifest schema.
+- schemas/learning-journey.schema.json — curriculum-source, stage, strand, and concept-map schema.
 - tools/book_factory.py — read-only validation, index generation, and safe register/update command.
 - tools/verify_experiments.py — bounded live HTTPS checks for published experiment links and fragments.
 - book-starter/ and tools/scaffold_book.py — independent textbook starter.
 - tests/ — data/static checks and project-prefix Playwright journeys.
 
 See docs/PRODUCT_VISION.md, docs/ARCHITECTURE.md, docs/ROADMAP.md, docs/USER_MANUAL.md, docs/DEPLOYMENT.md, and docs/BOOK_FACTORY.md.
+For lifelong learning sources and specifications, see docs/LEARNING_JOURNEY.md, docs/CURRICULUM_SOURCES.md, docs/MATHEMATICS_ROADMAP.md, and docs/CURIOSITYBOOK_SPEC.md.
 
 ## License and reference
 

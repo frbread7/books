@@ -280,8 +280,188 @@ def all_books():
     return books
 
 
+def validate_roadmap_group(items, group_name, registered_ids, minimum_fields=True):
+    if not isinstance(items, list):
+        fail(f"roadmap {group_name} must be a list")
+    ids = set()
+    for idea in items:
+        if not isinstance(idea, dict) or not isinstance(idea.get("id"), str) or not idea["id"].strip() or idea["id"] in ids:
+            fail(f"roadmap {group_name} IDs must be present and unique")
+        if idea["id"] in registered_ids or idea.get("status") != "planned":
+            fail(f"roadmap entry {idea['id']} must remain separate from registered books and marked planned")
+        if not isinstance(idea.get("priority"), int) or isinstance(idea["priority"], bool) or idea["priority"] < 1:
+            fail(f"roadmap entry {idea['id']} priority must be a positive integer")
+        if idea.get("workState") not in (None, "active-project"):
+            fail(f"roadmap entry {idea['id']} has an unsupported workState")
+        for field in ("title", "subtitle", "audience", "relationships", "differentiation"):
+            localized(idea.get(field), f"roadmap entry {idea['id']} {field}")
+        for field in ("questions", "chapterGroups", "prerequisites", "simulatorIdeas"):
+            localized_list(idea.get(field), f"roadmap entry {idea['id']} {field}")
+        if minimum_fields:
+            localized(idea.get("purpose"), f"roadmap entry {idea['id']} purpose")
+        ids.add(idea["id"])
+    return ids
+
+
+def validate_math_prerequisite_graph(items):
+    if not isinstance(items, list) or not items:
+        fail("roadmap mathematicsBooks must be a non-empty list")
+    ids = {item["id"] for item in items if isinstance(item, dict) and isinstance(item.get("id"), str)}
+    graph = {}
+    for item in items:
+        book_id = item.get("id")
+        prerequisites = item.get("prerequisiteIds")
+        if not isinstance(prerequisites, list) or any(not isinstance(value, str) or not value for value in prerequisites):
+            fail(f"mathematics roadmap entry {book_id} requires a prerequisiteIds list of book IDs")
+        if len(prerequisites) != len(set(prerequisites)):
+            fail(f"mathematics roadmap entry {book_id} has duplicate prerequisite IDs")
+        unknown = set(prerequisites) - ids
+        if unknown:
+            fail(f"mathematics roadmap entry {book_id} has unknown prerequisite IDs: {', '.join(sorted(unknown))}")
+        if book_id in prerequisites:
+            fail(f"mathematics roadmap entry {book_id} cannot depend on itself")
+        graph[book_id] = prerequisites
+
+    visiting, visited = set(), set()
+    def visit(book_id):
+        if book_id in visiting:
+            fail(f"mathematics roadmap prerequisite cycle includes {book_id}")
+        if book_id in visited:
+            return
+        visiting.add(book_id)
+        for prerequisite_id in graph[book_id]:
+            visit(prerequisite_id)
+        visiting.remove(book_id)
+        visited.add(book_id)
+    for book_id in graph:
+        visit(book_id)
+
+
+def validate_learning_journey(books, roadmap, categories, journey):
+    schema = read_json(ROOT / "schemas" / "learning-journey.schema.json")
+    Draft202012Validator.check_schema(schema)
+    errors = list(Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(journey))
+    if errors:
+        first = errors[0]
+        location = ".".join(str(part) for part in first.absolute_path) or "$"
+        fail(f"learning journey schema validation at {location}: {first.message}")
+
+    def unique_ids(items, label):
+        ids = [item["id"] for item in items]
+        if len(ids) != len(set(ids)):
+            fail(f"learning journey {label} IDs must be unique")
+        return set(ids)
+
+    references = {item["id"]: item for item in journey["references"]}
+    stages = {item["id"]: item for item in journey["stages"]}
+    strands = {item["id"]: item for item in journey["strands"]}
+    concepts = {item["id"]: item for item in journey["concepts"]}
+    unique_ids(journey["references"], "reference")
+    unique_ids(journey["stages"], "stage")
+    unique_ids(journey["strands"], "strand")
+    unique_ids(journey["concepts"], "concept")
+    ordered_stages = sorted(journey["stages"], key=lambda item: item["order"])
+    orders = [stage["order"] for stage in ordered_stages]
+    if orders != list(range(1, len(orders) + 1)):
+        fail("learning journey stage order must be unique and contiguous from 1")
+    for stage in ordered_stages:
+        age = stage["ageRange"]
+        if age["max"] is not None and age["max"] < age["min"]:
+            fail(f"learning journey stage {stage['id']} has an invalid age range")
+
+    book_by_id = {book["id"]: book for book in books}
+    chapter_ids = {book_id: {chapter["id"] for chapter in book["chapters"]} for book_id, book in book_by_id.items() if book["status"] == "published"}
+    roadmap_ids = set()
+    for group in ("books", "mathematicsBooks", "familyProjects"):
+        group_ids = validate_roadmap_group(roadmap.get(group), group, set(book_by_id), minimum_fields=(group != "books"))
+        duplicate = roadmap_ids & group_ids
+        if duplicate:
+            fail("roadmap IDs must be unique across sections: " + ", ".join(sorted(duplicate)))
+        roadmap_ids.update(group_ids)
+    if not any(item["id"] == "mathematics" for item in categories):
+        fail("learning journey requires a Mathematics subject category")
+
+    pair_keys = set()
+    by_thread = {}
+    for concept in journey["concepts"]:
+        if concept["strandId"] not in strands:
+            fail(f"concept {concept['id']} references unknown strand {concept['strandId']}")
+        if concept["stageId"] not in stages:
+            fail(f"concept {concept['id']} references unknown stage {concept['stageId']}")
+        if concept["strandId"] == "mathematics" and concept["stageId"] == "university-advanced" and not concept["plannedBookIds"]:
+            fail("advanced mathematics concept must link to a planned mathematics title")
+        pair = (concept["stageId"], concept["strandId"])
+        if pair in pair_keys:
+            fail(f"duplicate stage/strand concept entry: {pair[0]}/{pair[1]}")
+        pair_keys.add(pair)
+        for source_id in concept["sourceIds"]:
+            if source_id not in references:
+                fail(f"concept {concept['id']} references unknown source {source_id}")
+        for book_id in concept["plannedBookIds"]:
+            if book_id not in roadmap_ids:
+                fail(f"concept {concept['id']} references unknown planned title {book_id}")
+        for material in concept["publishedMaterials"]:
+            material_book = book_by_id.get(material["bookId"])
+            if not material_book or material_book["status"] != "published" or material["chapterId"] not in chapter_ids.get(material["bookId"], set()):
+                fail(f"concept {concept['id']} references an unpublished book or unknown chapter")
+        thread = by_thread.setdefault(concept["threadId"], {"strandId": concept["strandId"], "title": concept["threadTitle"], "concepts": []})
+        if thread["strandId"] != concept["strandId"] or thread["title"] != concept["threadTitle"]:
+            fail(f"learning thread {concept['threadId']} must keep one strand and bilingual title")
+        thread["concepts"].append(concept)
+
+    expected_pairs = {(stage_id, strand_id) for stage_id in stages for strand_id in strands}
+    if pair_keys != expected_pairs:
+        missing = sorted(f"{stage}/{strand}" for stage, strand in expected_pairs - pair_keys)
+        fail("learning journey needs one representative concept for every stage/strand pair; missing " + ", ".join(missing))
+
+    graph = {concept_id: concept["prerequisites"] for concept_id, concept in concepts.items()}
+    for concept in journey["concepts"]:
+        earlier = stages[concept["stageId"]]["order"]
+        for dependency_id in concept["prerequisites"]:
+            if dependency_id not in concepts:
+                fail(f"concept {concept['id']} has unknown prerequisite {dependency_id}")
+            if dependency_id == concept["id"]:
+                fail(f"concept {concept['id']} cannot depend on itself")
+            if stages[concepts[dependency_id]["stageId"]]["order"] > earlier:
+                fail(f"concept {concept['id']} cannot depend on a later stage")
+        revisits = concept["revisits"]
+        if revisits is not None:
+            prior = concepts.get(revisits)
+            if not prior:
+                fail(f"concept {concept['id']} revisits must name an existing concept")
+            if prior["threadId"] != concept["threadId"] or prior["depth"] >= concept["depth"] or stages[prior["stageId"]]["order"] >= earlier:
+                fail(f"concept {concept['id']} revisits must point to an earlier depth in the same thread")
+        if not isinstance(concept["depth"], int) or isinstance(concept["depth"], bool):
+            fail(f"concept {concept['id']} depth must be an integer")
+
+    visiting, visited = set(), set()
+    def visit(concept_id):
+        if concept_id in visiting:
+            fail(f"learning journey prerequisite cycle includes {concept_id}")
+        if concept_id in visited:
+            return
+        visiting.add(concept_id)
+        for dependency_id in graph[concept_id]:
+            visit(dependency_id)
+        visiting.remove(concept_id)
+        visited.add(concept_id)
+    for concept_id in concepts:
+        visit(concept_id)
+
+    for thread_id, thread in by_thread.items():
+        ordered = sorted(thread["concepts"], key=lambda item: stages[item["stageId"]]["order"])
+        seen_depths = set()
+        prior_order, prior_depth = 0, 0
+        for concept in ordered:
+            order = stages[concept["stageId"]]["order"]
+            if order <= prior_order or concept["depth"] <= prior_depth or concept["depth"] in seen_depths:
+                fail(f"learning thread {thread_id} must increase stage and depth without duplicates")
+            seen_depths.add(concept["depth"])
+            prior_order, prior_depth = order, concept["depth"]
+
+
 def validate_discovery_indexes(books, indexes):
-    for name in ("categories", "learning-paths", "roadmap"):
+    for name in ("categories", "learning-paths", "roadmap", "learning-journey"):
         if not isinstance(indexes.get(name), dict):
             fail(f"catalog/{name}.json must contain an object")
     published = {book["id"]: book for book in books if book["status"] == "published"}
@@ -343,19 +523,14 @@ def validate_discovery_indexes(books, indexes):
     roadmap = indexes["roadmap"].get("books")
     if not isinstance(roadmap, list):
         fail("catalog/roadmap.json must contain a books list")
-    roadmap_ids = set()
-    for idea in roadmap:
-        if not isinstance(idea, dict) or not isinstance(idea.get("id"), str) or not idea["id"].strip() or idea["id"] in roadmap_ids:
-            fail("roadmap IDs must be present and unique")
-        if idea["id"] in {book["id"] for book in books} or idea.get("status") != "planned":
-            fail(f"roadmap entry {idea['id']} must remain separate from registered books and marked planned")
-        if not isinstance(idea.get("priority"), int) or isinstance(idea["priority"], bool) or idea["priority"] < 1:
-            fail(f"roadmap entry {idea['id']} priority must be a positive integer")
-        for field in ("title", "subtitle", "audience", "relationships", "differentiation"):
-            localized(idea.get(field), f"roadmap entry {idea['id']} {field}")
-        for field in ("questions", "chapterGroups", "prerequisites", "simulatorIdeas"):
-            localized_list(idea.get(field), f"roadmap entry {idea['id']} {field}")
-        roadmap_ids.add(idea["id"])
+    validate_roadmap_group(roadmap, "books", {book["id"] for book in books}, minimum_fields=False)
+    validate_roadmap_group(indexes["roadmap"].get("mathematicsBooks"), "mathematicsBooks", {book["id"] for book in books})
+    validate_math_prerequisite_graph(indexes["roadmap"].get("mathematicsBooks"))
+    validate_roadmap_group(indexes["roadmap"].get("familyProjects"), "familyProjects", {book["id"] for book in books})
+    all_roadmap_ids = [idea["id"] for key in ("books", "mathematicsBooks", "familyProjects") for idea in indexes["roadmap"].get(key, [])]
+    if len(all_roadmap_ids) != len(set(all_roadmap_ids)):
+        fail("roadmap IDs must be unique across sections")
+    validate_learning_journey(books, indexes["roadmap"], categories, indexes["learning-journey"])
     product_specific = indexes["roadmap"].get("productSpecific")
     if not isinstance(product_specific, dict) or product_specific.get("status") != "editorial-space":
         fail("roadmap productSpecific must remain an editorial-space")
@@ -373,7 +548,7 @@ def atomic_json(path: Path, data):
 
 def derived_indexes():
     books = all_books()
-    indexes = {source: read_json(ROOT / "catalog" / f"{source}.json") for source in ("categories", "roadmap", "learning-paths")}
+    indexes = {source: read_json(ROOT / "catalog" / f"{source}.json") for source in ("categories", "roadmap", "learning-paths", "learning-journey")}
     validate_discovery_indexes(books, indexes)
     return {"books": books, **indexes}
 
