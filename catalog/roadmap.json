@@ -87,7 +87,7 @@
         "ko": "첨단 증착·에피택시·계면·박막 엔지니어링"
       },
       "status": "planned",
-      "priority": 1,
+      "priority": 2,
       "audience": {
         "en": "Deposition, materials, device, and integration engineers who need quantitative film and interface understanding.",
         "ko": "정량적인 박막과 계면 이해가 필요한 증착·재료·소자·통합 엔지니어."
@@ -162,7 +162,7 @@
         "ko": "신뢰성 물리·품질 인증·수명 모델링"
       },
       "status": "planned",
-      "priority": 1,
+      "priority": 3,
       "audience": {
         "en": "Reliability, device, product, quality, and failure-analysis engineers planning physics-based evidence and qualification.",
         "ko": "물리 기반 증거와 품질 인증을 설계하는 신뢰성·소자·제품·품질·고장 분석 엔지니어."
@@ -237,7 +237,7 @@
         "ko": "독자 수요에 따라 선정할 미래 전문 기술 분야"
       },
       "status": "planned",
-      "priority": 1,
+      "priority": 4,
       "audience": {
         "en": "To be defined after a distinct audience and technical gap are established for RFIC or MEMS.",
         "ko": "RFIC 또는 MEMS의 독자층과 기술 공백이 확인된 뒤 정의합니다."

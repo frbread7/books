@@ -162,6 +162,25 @@ class LearningJourneyTests(unittest.TestCase):
         first = min(self.roadmap["books"], key=lambda book: book["priority"])
         self.assertEqual(first["id"], "fabcontrolbook")
         self.assertEqual(first["priority"], 1)
+        semiconductor_sequence = [
+            (book["id"], book["priority"])
+            for book in sorted(self.roadmap["books"], key=lambda item: item["priority"])
+            if book["id"] in {
+                "fabcontrolbook",
+                "thinfilmbook",
+                "reliabilityengineeringbook",
+                "rficbook-or-memsbook",
+            }
+        ]
+        self.assertEqual(
+            semiconductor_sequence,
+            [
+                ("fabcontrolbook", 1),
+                ("thinfilmbook", 2),
+                ("reliabilityengineeringbook", 3),
+                ("rficbook-or-memsbook", 4),
+            ],
+        )
 
 
 if __name__ == "__main__":

@@ -133,7 +133,7 @@ test("search and filters work and keep unstarted roadmap ideas out of the catalo
 
 test("subjects, paths and experiment discovery use published content only", async ({ page }) => {
   await page.goto("categories.html?id=semiconductor");
-  const categoryCanonical = "http://127.0.0.1:4173/books/categories.html?id=semiconductor";
+  const categoryCanonical = page.url();
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", categoryCanonical);
   await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", categoryCanonical);
   await expect(page.locator(".knowledge-map .map-node")).toHaveCount(catalogCategories.find(category => category.id === "semiconductor").map.length);
@@ -380,6 +380,8 @@ test("language and theme controls change state and persist", async ({ page }) =>
 
 test("search placeholder and published badge meet text contrast in both themes", async ({ page }) => {
   await page.goto("library.html");
+  await expect(page.locator("#book-search")).toBeVisible();
+  await expect(page.locator(".badge-published").first()).toBeVisible();
   for (const theme of ["light", "dark"]) {
     await page.evaluate(value => {
       if (value === "dark") document.documentElement.dataset.theme = "dark";
@@ -421,9 +423,10 @@ test("nested unknown routes keep their shell, scripts, styles, and navigation at
   expect(response.status()).toBe(404);
   await expect(page.locator("h1")).toHaveText("This shelf is empty");
   await expect(page.locator("base")).toHaveAttribute("href", "/books/");
-  await expect(page.locator(".brand")).toHaveAttribute("href", "http://127.0.0.1:4173/books/");
+  const projectBase = await page.locator("base").evaluate(element => new URL(element.href).href);
+  await expect(page.locator(".brand")).toHaveAttribute("href", projectBase);
   const resources = await page.evaluate(() => [...document.styleSheets].map(sheet => sheet.href).filter(Boolean));
-  expect(resources).toContain("http://127.0.0.1:4173/books/css/style.css");
+  expect(resources).toContain(new URL("css/style.css", projectBase).href);
   const missingPath = new URL(page.url()).pathname;
   await expect(page.locator(".skip-link")).toHaveAttribute("href", `${page.url()}#main`);
   await page.keyboard.press("Tab");
@@ -469,8 +472,7 @@ test("all primary views fit the viewport without horizontal overflow", async ({ 
     if (route === "unknown/path") {
       expect(response.status()).toBe(404);
       expect(response.request().isNavigationRequest()).toBe(true);
-      const knownDocument404 = "Failed to load resource: the server responded with a status of 404 (Not Found)";
-      const knownErrorIndex = consoleErrors.findIndex((message, index) => index >= consoleStart && message === knownDocument404);
+      const knownErrorIndex = consoleErrors.findIndex((message, index) => index >= consoleStart && /Failed to load resource: the server responded with a status of 404/.test(message));
       if (knownErrorIndex >= 0) consoleErrors.splice(knownErrorIndex, 1);
     }
     await expect(page.locator("h1").first()).toBeVisible();
