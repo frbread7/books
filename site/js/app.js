@@ -168,7 +168,21 @@
     button.addEventListener("click", () => { const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark"; document.documentElement.dataset.theme = next; setPreference("my-library-theme", next); syncThemeLabel(); });
     document.querySelector('[data-action="language"]').addEventListener("click", () => { setPreference("my-library-language", language === "en" ? "ko" : "en"); location.reload(); });
   }
+  function attachNotFoundSkipLink() {
+    if (page !== "not-found") return;
+    const link = document.querySelector(".skip-link");
+    if (!link || !main) return;
+    const destination = new URL(location.href);
+    destination.hash = "main";
+    link.href = destination.href;
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      history.replaceState(null, "", destination.href);
+      main.focus();
+    });
+  }
   async function start() {
+    attachNotFoundSkipLink();
     try {
       const [books, categoriesData, roadmap, paths] = await Promise.all(["books", "categories", "roadmap", "learning-paths"].map(name => fetch(siteUrl(`data/${name}.json`)).then(response => { if (!response.ok) throw new Error(`${name}: ${response.status}`); return response.json(); })));
       const categories = categoriesData.categories;

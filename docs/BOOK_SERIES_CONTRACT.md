@@ -6,6 +6,8 @@
 - My Library stores metadata and links; it does not copy chapters or redeploy books.
 - A record describes the ownership and evidence it actually has. Independent reference books remain credited as their own projects and authors; they are not My Library publications.
 - Upstream educational material or code is reused only after checking its current license and preserving the required notices and attribution. Prefer original prose, examples, and assets.
+- The generated book starter includes a public license-and-attribution notice in the `site/` deployment artifact. It explicitly grants no rights until the book owner selects and adds licenses; complete the page and preserve all required third-party notices before release.
+- A manifest with `status: "published"` must name a selected license. Book Factory validation rejects the starter placeholder and explicit no-license statements; in-progress drafts may retain the placeholder.
 
 ## Manifest rules
 

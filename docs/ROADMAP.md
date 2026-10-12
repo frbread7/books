@@ -2,7 +2,7 @@
 
 The canonical proposals are in `catalog/roadmap.json`. They are editorial ideas, not repository, release, or publication commitments. Only an explicitly registered book appears in the library catalog; only records with verified release evidence count as published.
 
-WATBook v1.0.0 is published in `catalog/books/watbook.json` with release, deployment, chapter, and experiment evidence. It has been removed from the unstarted proposal list; future updates must use the existing catalog record rather than treating WATBook as a new roadmap idea.
+WATBook v1.0.2 is the current published release in `catalog/books/watbook.json`, with release, deployment, chapter, and experiment evidence. It corrects release-review and registration metadata only; the original content release v1.0.0 remains recorded in its release history. WATBook has been removed from the unstarted proposal list; future updates must use the existing catalog record rather than treating it as a new roadmap idea.
 
 ## Differentiated semiconductor priorities
 

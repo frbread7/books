@@ -38,6 +38,32 @@ class BookFactoryTests(unittest.TestCase):
         with self.assertRaisesRegex(book_factory.ManifestError, "schema validation.*publicationEvidence"):
             book_factory.validate_manifest(self.book)
 
+    def test_empty_in_progress_book_is_allowed_but_empty_published_book_is_rejected(self):
+        draft = deepcopy(self.book)
+        draft.update({"status": "in-progress", "chapterCount": 0, "chapters": [], "experiments": []})
+        draft.pop("publicationEvidence")
+        self.assertEqual(book_factory.validate_manifest(draft)["status"], "in-progress")
+
+        published = deepcopy(draft)
+        published["status"] = "published"
+        published["publicationEvidence"] = self.book["publicationEvidence"]
+        with self.assertRaisesRegex(book_factory.ManifestError, "schema validation at (chapterCount|chapters)"):
+            book_factory.validate_manifest(published)
+
+    def test_published_book_rejects_unselected_license_but_draft_may_keep_placeholder(self):
+        draft = deepcopy(self.book)
+        draft.update({"status": "in-progress"})
+        draft.pop("publicationEvidence")
+        draft["attribution"]["license"] = "CHOOSE-AND-RECORD"
+        self.assertEqual(book_factory.validate_manifest(draft)["status"], "in-progress")
+
+        for license_name in ("CHOOSE-AND-RECORD", "TBD", "no license", "unlicensed", "All rights reserved"):
+            with self.subTest(license_name=license_name):
+                published = deepcopy(self.book)
+                published["attribution"]["license"] = license_name
+                with self.assertRaisesRegex(book_factory.ManifestError, "published books require a selected license"):
+                    book_factory.validate_manifest(published)
+
     def test_experiment_requires_a_fragment_anchor(self):
         self.book["experiments"][0]["url"] = self.book["productionUrl"]
         with self.assertRaisesRegex(book_factory.ManifestError, "include an anchor"):

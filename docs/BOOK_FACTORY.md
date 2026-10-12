@@ -4,7 +4,7 @@ The Book Factory is a small contract and registration command, not a CMS. Every 
 
 ## Contract
 
-The canonical v1 shape is schemas/book.schema.json; semantic checks live in tools/book_factory.py. A record includes stable ID and slug, bilingual display metadata, subject and tags, status, repository and production URLs, available languages, version/date, chapter count/index, verified experiments, prerequisite/related book IDs, cover and color theme, license attribution, and publication evidence.
+The canonical v1 shape is schemas/book.schema.json; semantic checks live in tools/book_factory.py. A record includes stable ID and slug, bilingual display metadata, subject and tags, status, repository and production URLs, available languages, version/date, chapter count/index, verified experiments, prerequisite/related book IDs, cover and color theme, license attribution, and publication evidence. In-progress scaffolds may retain the `CHOOSE-AND-RECORD` license placeholder; published records reject placeholders and explicit no-license statements.
 
 Install the small validator with python3 -m pip install -r requirements.txt. JSON Schema catches structural and format errors; Python checks enforce cross-record IDs, category/chapter links, production-host boundaries, and generated-index integrity.
 

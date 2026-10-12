@@ -361,7 +361,15 @@
       "then": {
         "required": [
           "publicationEvidence"
-        ]
+        ],
+        "properties": {
+          "chapterCount": {
+            "minimum": 1
+          },
+          "chapters": {
+            "minItems": 1
+          }
+        }
       }
     },
     {

@@ -155,6 +155,8 @@ def validate_manifest(book):
         fail("chapters must be a list")
     if not isinstance(book["chapterCount"], int) or isinstance(book["chapterCount"], bool) or book["chapterCount"] != len(book["chapters"]):
         fail("chapterCount must equal the length of chapters")
+    if book["status"] == "published" and book["chapterCount"] < 1:
+        fail("published books must include at least one chapter")
     chapter_ids, chapter_numbers = set(), set()
     for chapter in book["chapters"]:
         if not isinstance(chapter, dict):
@@ -225,6 +227,10 @@ def validate_manifest(book):
         fail(f"cover asset does not exist: site/{book['cover']}")
     if not isinstance(book["attribution"], dict) or not all(isinstance(book["attribution"].get(k), str) and book["attribution"][k].strip() for k in ("license", "repositoryUrl", "notes")):
         fail("attribution requires non-empty license, repositoryUrl, and notes")
+    license_value = re.sub(r"[^a-z0-9]+", "", book["attribution"]["license"].casefold())
+    unselected_licenses = {"chooseandrecord", "tbd", "todo", "none", "unlicensed", "nolicense", "nolicence", "notselected", "licensepending", "licencepending", "allrightsreserved"}
+    if book["status"] == "published" and license_value in unselected_licenses:
+        fail("published books require a selected license; attribution.license cannot be a placeholder or no-license statement")
     check_url(book["attribution"]["repositoryUrl"], "attribution.repositoryUrl")
     if not isinstance(book["theme"], dict) or not all(isinstance(book["theme"].get(k), str) for k in ("accent", "accentSoft", "motif")):
         fail("theme requires accent, accentSoft, and motif strings")

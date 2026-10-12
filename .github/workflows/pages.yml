@@ -13,12 +13,12 @@ jobs:
   validate:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24
           cache: npm
-      - uses: actions/setup-python@v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
       - run: python -m pip install -r requirements.txt
@@ -39,11 +39,68 @@ jobs:
       name: github-pages
       url: https://frbread7.github.io/books/
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
+      - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
         with:
           path: site
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
+      - name: Smoke-test deployed portal
+        env:
+          PAGES_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          python3 - <<'PY'
+          from concurrent.futures import ThreadPoolExecutor
+          import json
+          import os
+          import time
+          from urllib.parse import urljoin, urlparse
+          from urllib.request import urlopen
+
+          base = os.environ["PAGES_URL"].rstrip("/") + "/"
+          parsed = urlparse(base)
+          if parsed.scheme != "https" or parsed.netloc != "frbread7.github.io" or parsed.path != "/books/":
+              raise SystemExit(f"Unexpected Pages deployment URL: {base}")
+          paths = ["", "data/books.json", "book.html?slug=watbook", "css/style.css", "js/app.js", "assets/covers/watbook.svg"]
+
+          def fetch(path):
+              url = urljoin(base, path)
+              try:
+                  with urlopen(url, timeout=6) as response:
+                      body = response.read(2_000_001)
+                      return url, response.status, response.geturl(), body, None
+              except Exception as exc:
+                  return url, None, None, b"", f"{type(exc).__name__}: {exc}"
+
+          last_errors = []
+          for attempt in range(1, 13):
+              with ThreadPoolExecutor(max_workers=len(paths)) as pool:
+                  results = list(pool.map(fetch, paths))
+              last_errors = []
+              for url, status, final_url, body, error in results:
+                  if error:
+                      last_errors.append(f"{url}: {error}")
+                  elif status != 200 or not body:
+                      last_errors.append(f"{url}: status={status}, bytes={len(body)}")
+                  elif not final_url.startswith(base):
+                      last_errors.append(f"{url}: redirected outside project site to {final_url}")
+                  elif url.endswith("data/books.json"):
+                      try:
+                          books = json.loads(body)
+                      except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+                          last_errors.append(f"{url}: invalid JSON: {exc}")
+                      else:
+                          if not any(book.get("id") == "watbook" and book.get("status") == "published" for book in books):
+                              last_errors.append(f"{url}: published WATBook record missing")
+                  elif url.endswith("assets/covers/watbook.svg") and b"<svg" not in body[:512]:
+                      last_errors.append(f"{url}: WATBook cover is not SVG content")
+              if not last_errors:
+                  print(f"Pages smoke passed on attempt {attempt}: {len(paths)} routes/assets at {base}")
+                  break
+              if attempt < 12:
+                  time.sleep(5)
+          else:
+              raise SystemExit("Pages smoke failed after retries:\n" + "\n".join(last_errors))
+          PY

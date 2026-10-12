@@ -111,13 +111,14 @@ def main():
             "theme": {"accent": "#bf5836", "accentSoft": "#f5e3d8", "motif": "replace-with-original"}
         }
         write(output / "library-manifest.json", json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
-        write(output / f"assets/covers/{args.id}.svg", cover_svg(args.id, args.title_en))
+        write(output / f"site/assets/covers/{args.id}.svg", cover_svg(args.id, args.title_en))
         title_html = escape(args.title_en)
         description_html = escape(args.description_en)
-        write(output / "index.html", f'''<!doctype html>
+        license_notice = "# License and attribution\n\nNo publication license has been selected for this scaffold; it grants no reuse rights. Before publishing, select and add licenses for the original book text and code, include their complete notices, record third-party sources and license obligations, and describe the result accurately in the library manifest.\n"
+        write(output / "site/index.html", f'''<!doctype html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{description_html}"><title>{title_html}</title><style>body{{margin:0;background:#f4f3ef;color:#1e2a32;font:16px/1.7 system-ui,sans-serif}}main{{max-width:850px;margin:8vh auto;padding:24px}}img{{float:right;width:min(38vw,220px);margin:0 0 24px 30px;box-shadow:12px 12px #e4d5c9}}h1{{font:500 clamp(38px,7vw,64px)/1.1 Georgia,serif}}p{{max-width:570px;color:#53616a}}.note{{clear:both;padding:14px;border:1px solid #deded7;font-size:13px}}</style></head>
-<body><main><img src="./assets/covers/{args.id}.svg" alt="{title_html} starter cover"><p>INDEPENDENT ENGINEERING TEXTBOOK · STARTER</p><h1>{title_html}</h1><p>{description_html}</p><p class="note">This repository is a scaffold, not a finished textbook. Replace this page and cover, author reviewed content, test every experiment, and choose licenses before publication.</p></main></body>
+<body><main><img src="./assets/covers/{args.id}.svg" alt="{title_html} starter cover"><p>INDEPENDENT ENGINEERING TEXTBOOK · STARTER</p><h1>{title_html}</h1><p>{description_html}</p><p class="note">This repository is a scaffold, not a finished textbook. Replace this page and cover, author reviewed content, test every experiment, and choose licenses before publication. Read the <a href="./LICENSE-AND-ATTRIBUTION.md">license and attribution notice</a>.</p></main></body>
 </html>
 ''')
         write(output / "README.md", f'''# {title_html}
@@ -127,6 +128,8 @@ Independent textbook repository scaffold.
 This starter is not a finished or reviewed book. Complete the content, tests, original artwork, references, license choice, and attribution before release. The library manifest remains status=in-progress until a production release and checks exist.
 
 Production candidate: {args.production_url}
+
+The generated GitHub Pages workflow publishes only the `site/` directory.
 ''')
         write(output / ".github/workflows/pages.yml", f'''name: Deploy textbook
 on:
@@ -135,26 +138,29 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-  pages: write
-  id-token: write
 concurrency:
   group: pages
   cancel-in-progress: true
 jobs:
   deploy:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: {json.dumps(args.production_url, ensure_ascii=True)}
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
+      - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
         with:
-          path: .
-      - uses: actions/deploy-pages@v4
+          path: site
+      - uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
 ''')
-        write(output / "LICENSE-AND-ATTRIBUTION.md", "# License and attribution\n\nChoose and add a license for the original book text and code before publishing. Record third-party licenses and retain required notices. The portal manifest must describe the resulting license accurately.\n")
+        write(output / "LICENSE-AND-ATTRIBUTION.md", license_notice)
+        write(output / "site/LICENSE-AND-ATTRIBUTION.md", license_notice)
     except (OSError, ValueError) as exc:
         print(f"scaffold_book: error: {exc}", file=sys.stderr)
         return 1

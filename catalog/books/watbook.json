@@ -35,7 +35,7 @@
     "en",
     "ko"
   ],
-  "version": "1.0.0",
+  "version": "1.0.2",
   "lastUpdated": "2026-10-12",
   "chapterCount": 10,
   "chapters": [
@@ -236,9 +236,9 @@
         "httpStatus": 200,
         "fragmentFound": true,
         "contentSha256": "818be680ec80249868551f4a7209856f4da6fada732e1c50c31c0e9ee42f6290",
-        "sourceRevision": "e27f1f7a7decdba191a2f610c47812870e23ffa3",
+        "sourceRevision": "63b0b0d14c2ea779b3314e8fef4a64a3e0c861da",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
-        "evidence": "Live HTTPS response; HTTP 200; fragment #monitor-planner present in HTML; SHA-256 recorded."
+        "evidence": "Live HTTPS response on the published WATBook v1.0.2 deployment; HTTP 200; required fragment present; SHA-256 recorded."
       }
     },
     {
@@ -259,9 +259,9 @@
         "httpStatus": 200,
         "fragmentFound": true,
         "contentSha256": "818be680ec80249868551f4a7209856f4da6fada732e1c50c31c0e9ee42f6290",
-        "sourceRevision": "e27f1f7a7decdba191a2f610c47812870e23ffa3",
+        "sourceRevision": "63b0b0d14c2ea779b3314e8fef4a64a3e0c861da",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
-        "evidence": "Live HTTPS response; HTTP 200; fragment #extraction-lab present in HTML; SHA-256 recorded."
+        "evidence": "Live HTTPS response on the published WATBook v1.0.2 deployment; HTTP 200; required fragment present; SHA-256 recorded."
       }
     },
     {
@@ -282,9 +282,9 @@
         "httpStatus": 200,
         "fragmentFound": true,
         "contentSha256": "818be680ec80249868551f4a7209856f4da6fada732e1c50c31c0e9ee42f6290",
-        "sourceRevision": "e27f1f7a7decdba191a2f610c47812870e23ffa3",
+        "sourceRevision": "63b0b0d14c2ea779b3314e8fef4a64a3e0c861da",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
-        "evidence": "Live HTTPS response; HTTP 200; fragment #uncertainty-lab present in HTML; SHA-256 recorded."
+        "evidence": "Live HTTPS response on the published WATBook v1.0.2 deployment; HTTP 200; required fragment present; SHA-256 recorded."
       }
     },
     {
@@ -305,9 +305,9 @@
         "httpStatus": 200,
         "fragmentFound": true,
         "contentSha256": "818be680ec80249868551f4a7209856f4da6fada732e1c50c31c0e9ee42f6290",
-        "sourceRevision": "e27f1f7a7decdba191a2f610c47812870e23ffa3",
+        "sourceRevision": "63b0b0d14c2ea779b3314e8fef4a64a3e0c861da",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
-        "evidence": "Live HTTPS response; HTTP 200; fragment #wafer-map-lab present in HTML; SHA-256 recorded."
+        "evidence": "Live HTTPS response on the published WATBook v1.0.2 deployment; HTTP 200; required fragment present; SHA-256 recorded."
       }
     },
     {
@@ -328,9 +328,9 @@
         "httpStatus": 200,
         "fragmentFound": true,
         "contentSha256": "818be680ec80249868551f4a7209856f4da6fada732e1c50c31c0e9ee42f6290",
-        "sourceRevision": "e27f1f7a7decdba191a2f610c47812870e23ffa3",
+        "sourceRevision": "63b0b0d14c2ea779b3314e8fef4a64a3e0c861da",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
-        "evidence": "Live HTTPS response; HTTP 200; fragment #wat-eds-lab present in HTML; SHA-256 recorded."
+        "evidence": "Live HTTPS response on the published WATBook v1.0.2 deployment; HTTP 200; required fragment present; SHA-256 recorded."
       }
     },
     {
@@ -351,9 +351,9 @@
         "httpStatus": 200,
         "fragmentFound": true,
         "contentSha256": "818be680ec80249868551f4a7209856f4da6fada732e1c50c31c0e9ee42f6290",
-        "sourceRevision": "e27f1f7a7decdba191a2f610c47812870e23ffa3",
+        "sourceRevision": "63b0b0d14c2ea779b3314e8fef4a64a3e0c861da",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
-        "evidence": "Live HTTPS response; HTTP 200; fragment #diagnosis-lab present in HTML; SHA-256 recorded."
+        "evidence": "Live HTTPS response on the published WATBook v1.0.2 deployment; HTTP 200; required fragment present; SHA-256 recorded."
       }
     }
   ],
@@ -373,12 +373,12 @@
     "motif": "wafer map and probe point"
   },
   "publicationEvidence": {
-    "releaseUrl": "https://github.com/frbread7/watbook/releases/tag/v1.0.0",
+    "releaseUrl": "https://github.com/frbread7/watbook/releases/tag/v1.0.2",
     "releasePublishedAt": "2026-10-12",
-    "productionRevision": "e27f1f7a7decdba191a2f610c47812870e23ffa3",
+    "productionRevision": "63b0b0d14c2ea779b3314e8fef4a64a3e0c861da",
     "contentReview": "Independent internal engineering, measurement, statistics, numerical-model, bilingual, accessibility, security, licensing, and educational reviews completed; actionable P0/P1/P2 issues were resolved and targeted re-reviews cleared. This internal review is not external certification or silicon validation.",
-    "siteVerification": "GitHub Actions run 38201406299 and Pages deployment 7006088208 succeeded for e27f1f7a7decdba191a2f610c47812870e23ffa3. Independent production browser verification confirmed 28 EN/KO routes, six lab interactions, and no browser errors or bad same-origin requests at 390px and 1440px.",
-    "chapterVerification": "All 20 bilingual chapter routes returned HTTP 200 in production; both home pages, both lab routes, both references routes, and both license routes also returned HTTP 200 (28/28 total routes).",
-    "experimentVerification": "My Library tools/verify_experiments.py verified all six declared lab URLs against deployment source revision e27f1f7a7decdba191a2f610c47812870e23ffa3 on 2026-10-12. Each returned HTTP 200, contained its required fragment, and has a recorded response SHA-256 in this manifest."
+    "siteVerification": "GitHub Actions run 38202942788 and Pages deployment 7006338014 succeeded for v1.0.2 source revision 63b0b0d14c2ea779b3314e8fef4a64a3e0c861da. Live production checks confirmed 28/28 bilingual routes returned HTTP 200; Chromium at 390x844 and 1440x1000 exercised all six lab interactions and Korean navigation with no overflow, page errors, or bad same-origin responses.",
+    "chapterVerification": "All 20 English/Korean chapter URLs plus both entry pages, lab pages, references pages, and license pages returned HTTP 200 against successful Pages deployment 7006338014 at revision 63b0b0d14c2ea779b3314e8fef4a64a3e0c861da (28/28 routes).",
+    "experimentVerification": "tools/verify_experiments.py rechecked all six declared lab URLs against deployment source revision 63b0b0d14c2ea779b3314e8fef4a64a3e0c861da on 2026-10-12; each returned HTTP 200 and contained its required fragment, with response SHA-256 values recorded per experiment."
   }
 }

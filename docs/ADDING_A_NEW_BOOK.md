@@ -21,7 +21,7 @@ python3 ./books/tools/scaffold_book.py \
   --out ./fabcontrolbook
 ```
 
-The scaffold is only a starting point. Replace its landing page and artwork, author both language editions, cite public technical sources, choose/record licenses, and implement tests. Keep its manifest `in-progress`. Create the public repository, configure its Pages workflow, and verify the actual published site before claiming a release.
+The scaffold is only a starting point. Replace its landing page and artwork, author both language editions, cite public technical sources, choose/record licenses, and implement tests. The generated `site/` includes a linked license-and-attribution notice; update it with the selected licenses and complete third-party notices before publication. Keep its manifest `in-progress`. Create the public repository, configure its Pages workflow, and verify the actual published site before claiming a release.
 
 ## 2. Build and review the textbook
 
@@ -45,7 +45,7 @@ An unstarted editorial idea belongs in `catalog/roadmap.json`. Once the book rep
 ```sh
 cd ../books
 mkdir -p site/assets/covers
-cp ../fabcontrolbook/assets/covers/fabcontrolbook.svg site/assets/covers/fabcontrolbook.svg
+cp ../fabcontrolbook/site/assets/covers/fabcontrolbook.svg site/assets/covers/fabcontrolbook.svg
 python3 tools/book_factory.py register ../fabcontrolbook/library-manifest.json
 python3 tools/book_factory.py validate
 npm test
@@ -105,7 +105,7 @@ print(book["productionUrl"], book["publicationEvidence"]["productionRevision"])
 PY
 ```
 
-WATBook is the completed Book Factory example: release `v1.0.0`, ten bilingual chapters, successful Pages deployment, and six verified experiment anchors. Its repository's `library-manifest.json` remains the in-progress registration input; the published catalog copy in `catalog/books/watbook.json` is the authoritative lifecycle and evidence record. Confirm the result without modifying either textbook repository:
+WATBook is the completed Book Factory example: current release `v1.0.2` (a documentation and registration-metadata patch), ten bilingual chapters, successful Pages deployment, and six verified experiment anchors. The original content release remains `v1.0.0` at `e27f1f7a7decdba191a2f610c47812870e23ffa3`; v1.0.1 and v1.0.2 only correct release-review/manifest metadata and change no chapter, simulator, or runtime behavior. The current successful release and deployment both target `63b0b0d14c2ea779b3314e8fef4a64a3e0c861da`. Its repository's `library-manifest.json` remains the in-progress registration input; the published catalog copy in `catalog/books/watbook.json` is the authoritative lifecycle and evidence record. Confirm the result without modifying either textbook repository:
 
 ```sh
 cd /home/ubuntu/projects/books
@@ -115,10 +115,11 @@ import json
 from pathlib import Path
 book = json.loads(Path("catalog/books/watbook.json").read_text())
 assert book["status"] == "published"
-assert book["version"] == "1.0.0"
+assert book["version"] == "1.0.2"
 assert book["chapterCount"] == len(book["chapters"]) == 10
 assert all(item["verification"]["httpStatus"] == 200 and item["verification"]["fragmentFound"] for item in book["experiments"])
-assert book["publicationEvidence"]["productionRevision"] == "e27f1f7a7decdba191a2f610c47812870e23ffa3"
+assert book["publicationEvidence"]["releaseUrl"].endswith("/v1.0.2")
+assert book["publicationEvidence"]["productionRevision"] == "63b0b0d14c2ea779b3314e8fef4a64a3e0c861da"
 print(book["publicationEvidence"]["releaseUrl"])
 PY
 ```

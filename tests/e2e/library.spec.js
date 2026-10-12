@@ -45,6 +45,36 @@ test("home, featured textbook, chapter links and structure work at the /books/ b
   expect(await page.evaluate(() => getComputedStyle(document.activeElement).outlineStyle)).toBe("solid");
 });
 
+test("WATBook detail exposes its bilingual chapters and six verified experiments", async ({ page }) => {
+  const watbook = catalogBooks.find(book => book.id === "watbook");
+  expect(watbook).toBeTruthy();
+  await page.goto("book.html?slug=watbook");
+  await expect(page.locator("h1")).toHaveText("WATBook");
+  await expect(page.locator(".chapter-list li")).toHaveCount(10);
+  await expect(page.locator(".mini-experiment")).toHaveCount(6);
+  await expect(page.locator(".book-facts dd").nth(0)).toHaveText(watbook.version);
+  await expect(page.locator(".book-facts dd").nth(2)).toHaveText("English · Korean");
+  await expect(page.locator(`.detail-actions a[href="${watbook.productionUrl}"]`)).toBeVisible();
+  await expect(page.locator(`.detail-actions a[href="${watbook.languageUrls.ko}"]`)).toBeVisible();
+  await expect(page.locator(`.detail-actions a[href="${watbook.repositoryUrl}"]`)).toBeVisible();
+  expect(await page.locator(".chapter-list a").evaluateAll(links => links.map(link => link.href)))
+    .toEqual(watbook.chapters.map(chapter => chapter.urls.en));
+  expect(await page.locator(".mini-experiment").evaluateAll(links => links.map(link => link.href)))
+    .toEqual(watbook.experiments.map(experiment => experiment.url));
+
+  await page.getByRole("button", { name: "Switch language" }).click();
+  await expect(page.locator("html")).toHaveAttribute("lang", "ko");
+  await expect(page.locator(".book-facts dd").nth(2)).toHaveText("영어 · 한국어");
+  expect(await page.locator(".chapter-list a").evaluateAll(links => links.map(link => link.href)))
+    .toEqual(watbook.chapters.map(chapter => chapter.urls.ko));
+
+  await page.goto("experiments.html");
+  const watExperiments = page.locator(".experiment-card").filter({ hasText: "WATBook" });
+  await expect(watExperiments).toHaveCount(6);
+  expect(await watExperiments.locator("a").evaluateAll(links => links.map(link => link.href)))
+    .toEqual(watbook.experiments.map(experiment => experiment.url));
+});
+
 test("search and filters work and keep unstarted roadmap ideas out of the catalog", async ({ page }) => {
   await page.goto("library.html");
   await expect(page.locator(".book-card")).toHaveCount(catalogBooks.length);
@@ -184,8 +214,33 @@ test("nested unknown routes keep their shell, scripts, styles, and navigation at
   await expect(page.locator(".brand")).toHaveAttribute("href", "http://127.0.0.1:4173/books/");
   const resources = await page.evaluate(() => [...document.styleSheets].map(sheet => sheet.href).filter(Boolean));
   expect(resources).toContain("http://127.0.0.1:4173/books/css/style.css");
+  const missingPath = new URL(page.url()).pathname;
+  await expect(page.locator(".skip-link")).toHaveAttribute("href", `${page.url()}#main`);
+  await page.keyboard.press("Tab");
+  await expect(page.locator(".skip-link")).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#main")).toBeFocused();
+  const afterSkip = new URL(page.url());
+  expect(afterSkip.pathname).toBe(missingPath);
+  expect(afterSkip.hash).toBe("#main");
   expect(failedRequests).toEqual([]);
   expect(failedSubresources).toEqual([]);
+});
+
+test("404 skip link stays on the error page when catalog startup fails", async ({ page }) => {
+  await page.route("**/books/data/books.json", route => route.abort());
+  const response = await page.goto("unknown/startup-failure");
+  expect(response.status()).toBe(404);
+  await expect(page.locator("h1")).toBeVisible();
+  const missingPath = new URL(page.url()).pathname;
+  await expect(page.locator(".skip-link")).toHaveAttribute("href", `${page.url()}#main`);
+  await page.keyboard.press("Tab");
+  await expect(page.locator(".skip-link")).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#main")).toBeFocused();
+  const afterSkip = new URL(page.url());
+  expect(afterSkip.pathname).toBe(missingPath);
+  expect(afterSkip.hash).toBe("#main");
 });
 
 test("all primary views fit the viewport without horizontal overflow", async ({ page }) => {

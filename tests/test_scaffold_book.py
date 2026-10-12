@@ -49,6 +49,16 @@ class ScaffoldBookTests(unittest.TestCase):
             self.assertNotIn("permissions: contents: write", workflow)
             manifest = json.loads((output / "library-manifest.json").read_text(encoding="utf-8"))
             self.assertEqual(manifest["status"], "in-progress")
+            self.assertTrue((output / "site/index.html").is_file())
+            self.assertTrue((output / "site/assets/covers/samplebook.svg").is_file())
+            site_notice = output / "site/LICENSE-AND-ATTRIBUTION.md"
+            self.assertTrue(site_notice.is_file())
+            self.assertEqual(site_notice.read_text(encoding="utf-8"), (output / "LICENSE-AND-ATTRIBUTION.md").read_text(encoding="utf-8"))
+            self.assertIn('href="./LICENSE-AND-ATTRIBUTION.md"', (output / "site/index.html").read_text(encoding="utf-8"))
+            self.assertIn("path: site", workflow)
+            self.assertNotIn("path: .", workflow)
+            self.assertEqual(workflow.count("pages: write"), 1)
+            self.assertEqual(workflow.count("id-token: write"), 1)
 
 
 if __name__ == "__main__":
