@@ -151,7 +151,7 @@ class LearningJourneyTests(unittest.TestCase):
         self.assertEqual(len(integration["chapters"]), 13)
         self.assertEqual(set(integration["languages"]), {"en", "ko"})
         self.assertEqual(set(integration["relatedBooks"]), {"pmicbook", "watbook"})
-        self.assertEqual(integration["publicationEvidence"]["productionRevision"], "dac0f2401da47fa8a858ab3e2c7e24ad4e86fa84")
+        self.assertEqual(integration["publicationEvidence"]["productionRevision"], "e22df2d06d5ac4d9a8266815f5ca61b8bae63ffb")
         self.assertTrue(integration["publicationEvidence"]["releaseUrl"].endswith("/v1.0.0"))
         for experiment in integration["experiments"]:
             self.assertEqual(experiment["verification"]["checkedUrl"], experiment["url"])

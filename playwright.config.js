@@ -1,4 +1,5 @@
 const { defineConfig } = require("@playwright/test");
+const productionBaseURL = process.env.PLAYWRIGHT_BASE_URL;
 
 module.exports = defineConfig({
   testDir: "./tests/e2e",
@@ -6,7 +7,7 @@ module.exports = defineConfig({
   reporter: [["list"]],
   outputDir: "test-results",
   use: {
-    baseURL: "http://127.0.0.1:4173/books/",
+    baseURL: productionBaseURL || "http://127.0.0.1:4173/books/",
     trace: "retain-on-failure",
     screenshot: "only-on-failure"
   },
@@ -15,10 +16,12 @@ module.exports = defineConfig({
     { name: "tablet", use: { viewport: { width: 768, height: 1024 } } },
     { name: "desktop", use: { viewport: { width: 1440, height: 1000 } } }
   ],
-  webServer: {
-    command: "python3 tests/serve.py",
-    url: "http://127.0.0.1:4173/books/",
-    reuseExistingServer: !process.env.CI,
-    timeout: 15000
-  }
+  ...(productionBaseURL ? {} : {
+    webServer: {
+      command: "python3 tests/serve.py",
+      url: "http://127.0.0.1:4173/books/",
+      reuseExistingServer: !process.env.CI,
+      timeout: 15000
+    }
+  })
 });

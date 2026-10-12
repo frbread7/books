@@ -33,6 +33,8 @@ Install Python 3.12+, Node.js 20+, and npm. Install the Python `jsonschema` depe
 6. Open the homepage, search, and all three published detail pages (PMICBook, WATBook, and ProcessIntegrationBook). Follow English and Korean entry links and at least one chapter link for each book; confirm each cover, subject pages, Learning Journey in both languages, legacy reading paths, and experiments on desktop and mobile.
 7. Confirm internal assets and JSON requests use /books/ and the deployed worktree is clean.
 
+Run the full browser suite against the deployed portal with `PLAYWRIGHT_BASE_URL=https://frbread7.github.io/books/ npm run test:e2e`. When `PLAYWRIGHT_BASE_URL` is set, Playwright uses that URL and does not start the local preview server.
+
 ## Feedback
 
 The Feedback view opens the repository's public GitHub issue form. No administrative token is configured; feedback uses GitHub's public issue service. Issue titles, descriptions, attachments, and GitHub usernames are public; the issue template tells users not to submit confidential material.
