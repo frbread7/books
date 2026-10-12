@@ -88,6 +88,25 @@ class StaticSiteContractTests(unittest.TestCase):
                 self.assertIn(step["bookId"], chapters)
                 self.assertIn(step["chapterId"], chapters[step["bookId"]])
 
+    def test_pmic_learning_path_continues_into_wat_measurement_evidence(self):
+        paths = json.loads((SITE / "data" / "learning-paths.json").read_text(encoding="utf-8"))
+        path = next(path for path in paths["paths"] if path["id"] == "pmic-systems-to-silicon")
+        sequence = [(step["bookId"], step["chapterId"]) for step in path["steps"]]
+        expected = [
+            ("pmicbook", "metrology"),
+            ("watbook", "c01-measurement-to-decision"),
+            ("watbook", "c03-measurement-contract"),
+            ("watbook", "c08-wat-to-eds"),
+        ]
+        start = sequence.index(expected[0])
+        self.assertEqual(sequence[start : start + len(expected)], expected)
+
+        categories = json.loads((SITE / "data" / "categories.json").read_text(encoding="utf-8"))
+        semiconductor = next(category for category in categories["categories"] if category["id"] == "semiconductor")
+        test_yield = next(node for node in semiconductor["map"] if node["id"] == "test-yield")
+        mapped = {(item["bookId"], item["chapterId"]) for item in test_yield["connections"]}
+        self.assertTrue(set(expected[1:]).issubset(mapped))
+
     def test_no_upstream_personal_or_infrastructure_identity_in_deployed_files(self):
         for path in [*SITE.rglob("*.html"), *SITE.rglob("*.js"), *SITE.rglob("*.css"), *SITE.rglob("*.json")]:
             content = path.read_text(encoding="utf-8").lower()

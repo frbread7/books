@@ -70,7 +70,7 @@ Replace `OWNER/REPOSITORY` with the book repository. The verifier checks the ful
 
 ## PMICBook example
 
-PMICBook is registered in catalog/books/pmicbook.json. Its formal version and release URL remain v1.0.0; the latest successful Pages deployment is source commit `da37b183c559d35fcb7f6471c86c513b104a7020` (run `37942176575`). These fields describe different facts. The record includes its stable title/chapter index, English/Korean entry points, and four live-checked experiment anchors. To verify the committed indexes without changing them:
+PMICBook is registered in catalog/books/pmicbook.json. Its latest formal release is v1.1.0; the latest successful Pages deployment is source commit `da37b183c559d35fcb7f6471c86c513b104a7020` (Pages deployment `6962762856`, run `37942176575`). These fields describe different facts. The record includes 25 bilingual chapters, English/Korean entry points, and four live-checked experiment anchors. To verify the committed indexes without changing them:
 
 ~~~sh
 python3 tools/book_factory.py validate
@@ -80,7 +80,7 @@ The textbook repository stays separate and is not changed by this workflow.
 
 ## Future-book workflow
 
-1. Scaffold an independent textbook with python3 tools/scaffold_book.py. When work starts, remove its matching ID from catalog/roadmap.json; an editorial idea and registered book cannot share an ID.
+1. Scaffold an independent textbook with python3 tools/scaffold_book.py. Register its validated starter as `in-progress`, and remove its matching ID from catalog/roadmap.json in the same My Library change; an editorial idea and registered book cannot share an ID. For this project, WATBook is the worked example; its detailed scope and overlap decisions live in the independent WATBook repository.
 2. Author, test, review, version, and deploy it in its own GitHub repository.
 3. Confirm production routes and anchors and record release/review evidence.
 4. Copy its completed manifest to catalog/books/<id>.json and cover artwork to the referenced site/assets/ path.

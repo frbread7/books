@@ -4,16 +4,16 @@
     {
       "id": "pmic-systems-to-silicon",
       "title": {
-        "en": "From power rails to silicon",
-        "ko": "전원 레일부터 실리콘까지"
+        "en": "From PMIC systems to wafer-level evidence",
+        "ko": "PMIC 시스템에서 웨이퍼 수준 증거까지"
       },
       "audience": {
-        "en": "Readers beginning with PMIC system needs and wanting one connected path into BCD implementation.",
-        "ko": "PMIC 시스템 요구부터 BCD 구현까지 하나의 흐름으로 학습하려는 독자."
+        "en": "Readers following PMIC system needs through BCD implementation and into wafer-level electrical evidence.",
+        "ko": "PMIC 시스템 요구부터 BCD 구현과 웨이퍼 수준 전기적 증거까지 이어서 학습하려는 독자."
       },
       "outcome": {
-        "en": "Explain how system specifications connect to circuits, devices, BCD integration, and test.",
-        "ko": "시스템 사양이 회로, 소자, BCD 통합, 시험과 어떻게 연결되는지 설명합니다."
+        "en": "Explain how system specifications connect to circuits, devices, BCD integration, production characterization, and the limits of wafer-level test evidence.",
+        "ko": "시스템 사양이 회로, 소자, BCD 통합, 양산 특성 평가 및 웨이퍼 수준 시험 증거의 한계와 어떻게 연결되는지 설명합니다."
       },
       "steps": [
         {
@@ -60,8 +60,32 @@
           "bookId": "pmicbook",
           "chapterId": "metrology",
           "why": {
-            "en": "Finish by connecting the design to characterization and production test.",
-            "ko": "특성 평가와 양산 시험으로 학습을 마무리합니다."
+            "en": "Establish the PMIC production-characterization context and the measurements used in product engineering.",
+            "ko": "제품 엔지니어링에서 사용하는 측정과 PMIC 양산 특성 평가의 맥락을 파악합니다."
+          }
+        },
+        {
+          "bookId": "watbook",
+          "chapterId": "c01-measurement-to-decision",
+          "why": {
+            "en": "Continue from PMIC characterization into WAT's measurement-to-decision role and its place in the manufacturing flow.",
+            "ko": "PMIC 특성 평가에서 이어서 WAT의 측정-의사결정 역할과 제조 흐름에서의 위치를 살펴봅니다."
+          }
+        },
+        {
+          "bookId": "watbook",
+          "chapterId": "c03-measurement-contract",
+          "why": {
+            "en": "Define the conditions and validity limits behind each reported wafer parameter.",
+            "ko": "각 웨이퍼 파라미터 결과의 측정 조건과 유효성 한계를 확인합니다."
+          }
+        },
+        {
+          "bookId": "watbook",
+          "chapterId": "c08-wat-to-eds",
+          "why": {
+            "en": "Connect WAT, inline measurements, and electrical die sort (EDS) while distinguishing association from prediction and causality.",
+            "ko": "WAT, 인라인 측정, 전기적 다이 선별(EDS)을 연결하되 연관성·예측·인과관계를 구분합니다."
           }
         }
       ]

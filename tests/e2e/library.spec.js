@@ -110,7 +110,13 @@ test("catalog expansion updates aggregate counts and registered drafts have an h
   await page.getByRole("link", { name: "Future Fixture", exact: true }).click();
   await expect(page.locator("h1")).toHaveText("Future Fixture");
   await expect(page.locator(".unavailable-note")).toContainText("In progress");
-  await expect(page.locator(".detail-actions a")).toHaveCount(0);
+  await expect(page.locator(".book-progress-detail")).toHaveAttribute("data-book-status", "in-progress");
+  await expect(page.locator(".book-progress-detail .detail-description")).toContainText("catalog expansion");
+  await expect(page.locator(".progress-repository")).toHaveAttribute("href", "https://github.com/example/futurefixture");
+  await expect(page.locator(".detail-actions a")).toHaveCount(2);
+  await expect(page.locator(".detail-actions a").filter({ hasText: "Open the textbook" })).toHaveCount(0);
+  await expect(page.locator(`.detail-actions a[href="${draft.productionUrl}"]`)).toHaveCount(0);
+  await expect(page.locator(".chapter-list, .mini-experiment")).toHaveCount(0);
 });
 
 test("language and theme controls change state and persist", async ({ page }) => {

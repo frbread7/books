@@ -7,7 +7,7 @@
 | Use flat HTML, vanilla JavaScript, and JSON | Works on project Pages with no application framework and keeps base paths auditable. |
 | Centralize internal URLs in site/js/paths.js | The production site includes /books/; one derived base avoids root-hosting assumptions. |
 | Keep future candidates out of catalog/books/ | Editorial ideas must not inflate book or publication counts. |
-| Use evidence-backed chapter and experiment URLs | The PMICBook record is based on stable v1.0.0 metadata, not speculative simulators. |
+| Use evidence-backed chapter and experiment URLs | The PMICBook record tracks its latest v1.1.0 release and successful Pages deployment, not speculative simulators. |
 | Use GitHub Issues for feedback | Free, transparent, and needs no Worker, database, credential, or third-party administrator identity. |
 | Omit production analytics | A personal static library has no justified need for tracking tokens or external beacons. |
 | Use Playwright only in development | Browser journeys are part of acceptance; production does not need a package runtime. |

@@ -1,100 +1,137 @@
 # Adding a new book
 
-This keeps the textbook independently deployable and ensures the bookshelf links only to content that exists.
+Each textbook lives in its own repository and deploys independently. My Library stores and validates a manifest, generates discovery indexes, and links to the textbook; it does not copy chapters or deploy the book for you.
 
-## 1. Scaffold an independent repository
+## 1. Create the independent textbook
 
-Run this from the directory that contains the `books/` checkout:
+From the parent directory that contains the `books/` checkout, scaffold a new repository. Substitute a unique ID, accurate metadata, repository URL, and production URL; choose every language that will actually be deployed.
 
-~~~sh
+```sh
 python3 ./books/tools/scaffold_book.py \
-  --id devicephysicsbook \
-  --title-en DevicePhysicsBook \
-  --title-ko DevicePhysicsBook \
-  --subtitle-en "Semiconductor physics and devices" \
-  --subtitle-ko "반도체 물리와 소자" \
-  --description-en "An interactive textbook on semiconductor materials, transport, junctions, and devices." \
-  --description-ko "반도체 재료, 수송, 접합 및 소자의 기초를 다루는 인터랙티브 교재입니다." \
-  --repository-url https://github.com/frbread7/devicephysicsbook \
-  --production-url https://frbread7.github.io/devicephysicsbook/ \
-  --out ./devicephysicsbook
-cd ./devicephysicsbook
-~~~
+  --id fabcontrolbook \
+  --title-en FabControlBook \
+  --title-ko FabControlBook \
+  --subtitle-en "Statistical and manufacturing process control" \
+  --subtitle-ko "통계적·제조 공정 제어" \
+  --description-en "A reviewed technical textbook on semiconductor manufacturing process control." \
+  --description-ko "반도체 제조 공정 제어를 다루는 검토된 기술 교재입니다." \
+  --repository-url https://github.com/frbread7/fabcontrolbook \
+  --production-url https://frbread7.github.io/fabcontrolbook/ \
+  --category semiconductor --languages en,ko \
+  --out ./fabcontrolbook
+```
 
-The starter creates a bilingual metadata skeleton, a static landing page, an original cover placeholder, a license/attribution reminder, and an initial in-progress manifest. It is not a complete textbook and is not published.
+The scaffold is only a starting point. Replace its landing page and artwork, author both language editions, cite public technical sources, choose/record licenses, and implement tests. Keep its manifest `in-progress`. Create the public repository, configure its Pages workflow, and verify the actual published site before claiming a release.
 
-## 2. Write and independently validate
+## 2. Build and review the textbook
 
-Author substantive chapters, references, original diagrams, tests, and interactive models in the new repository. Keep its license and source acknowledgements. Set up its own Pages workflow and verify both language entry points and all chapter URLs. List an experiment only when its interface and anchor exist. Publish a release after content review; repository creation alone is not publication.
+Each book owns its chapter data, assets, simulators, validation, and deployment workflow. Keep the manifest chapter index, chapter count, available language editions, experiment anchors, and production links synchronized with the built site. Simulators need a documented model, assumptions, units, valid range, reference calculations, edge-case checks, and an honest validation label. Synthetic datasets must be labeled synthetic.
 
-## 3. Prepare the My Library record
+Run that book's validation in its repository. For WATBook, the exact commands are:
 
-Edit the starter library-manifest.json. Supply actual available languages, version/date, chapter titles and URLs, chapter count, topics, prerequisite and related book IDs, and verified experiment anchors. Before registration:
-
-- Use stable lowercase hyphenated ID and slug values.
-- Set status to published only after the live site and content pass review.
-- Add the formal release URL/version and factual site/chapter verification evidence for a published book. Also record `publicationEvidence.productionRevision`, the full source commit SHA from the current successful Pages deployment; this is distinct from the stable release tag and does not imply a new book release.
-- Verify each experiment against the live deployed HTML with the verifier below. This records the checked URL, date, HTTP status, fragment result, response hash, and caller-attested production commit SHA. The verifier checks the SHA format but not repository membership.
-- Choose a cover path under site/assets/ in My Library and place original artwork there.
-- Keep prerequisites and relatedBooks empty when no existing published title applies.
-- Advertise only real deployed language editions; catalog display text can be bilingual.
-- Use HTTPS URLs on the actual production host.
-- Do not assign the book a prerequisite ID that points back to itself.
-
-## 4. Register in the portal
-
-Register the starter as `in-progress` first. A title cannot be both a roadmap proposal and a registered book, so remove its matching ID from `books/catalog/roadmap.json` as soon as work starts; `devicephysicsbook` is already listed there. Keep its technical scope in the portal roadmap only while it remains unstarted. From the parent directory containing both sibling checkouts, copy the generated cover into the portal. Its actual scaffold path is `assets/covers/devicephysicsbook.svg`:
-
-~~~sh
-cd ..
-mkdir -p ./books/site/assets/covers
-cp ./devicephysicsbook/assets/covers/devicephysicsbook.svg ./books/site/assets/covers/devicephysicsbook.svg
-python3 ./books/tools/book_factory.py register ./devicephysicsbook/library-manifest.json
-cd ./books
+```sh
+cd ../watbook
 npm ci
-npx playwright install chromium
 npm test
-~~~
+npm run build
+```
 
-The starter manifest already uses `assets/covers/devicephysicsbook.svg`. The register command validates it and regenerates the portal indexes. `validate` is read-only and checks that those generated files still match the canonical catalog.
+Do not set `published` while content, model review, CI, release, deployment, chapter URLs, or experiment checks are incomplete.
 
-~~~sh
+## 3. Register an active book as in-progress
+
+An unstarted editorial idea belongs in `catalog/roadmap.json`. Once the book repository is active, register its manifest in `catalog/books/` with `status: "in-progress"` and remove its matching idea from the roadmap in the same My Library change. Copy the original cover to `site/assets/covers/`, update the category map and learning paths only when real registered content supports those links, then use the Book Factory:
+
+```sh
+cd ../books
+mkdir -p site/assets/covers
+cp ../fabcontrolbook/assets/covers/fabcontrolbook.svg site/assets/covers/fabcontrolbook.svg
+python3 tools/book_factory.py register ../fabcontrolbook/library-manifest.json
 python3 tools/book_factory.py validate
 npm test
-~~~
+```
 
-After the book site is live and the release is reviewed, read the SHA only after checking that the latest Pages deployment completed successfully. This example fails closed if there is no deployment record or its latest status is not success:
+`register` validates the new record and regenerates derived indexes. It refuses to overwrite a record. For a later change to the same stable ID, use `update` instead. Before committing, confirm the roadmap no longer contains that ID and inspect the generated bookshelf, category links, learning paths, and experiment discovery.
 
-~~~sh
+## 4. Promote to published only with evidence
+
+First create a versioned release after the content and technical reviews pass. Then wait for a successful GitHub Pages deployment and obtain the full source SHA from that same successful `github-pages` deployment record. Keep the release version/tag and deployment SHA as separate facts. Fail closed when deployment is missing, still running, failed, or has no valid SHA.
+
+For a new book, inspect its latest Pages deployment before using its SHA:
+
+```sh
 set -eu
-deployment_id=$(gh api repos/frbread7/devicephysicsbook/deployments --jq '[.[] | select(.environment == "github-pages")][0].id // empty')
+deployment_id=$(gh api repos/OWNER/REPOSITORY/deployments --jq '[.[] | select(.environment == "github-pages")][0].id // empty')
 test -n "$deployment_id"
-deployment_state=$(gh api "repos/frbread7/devicephysicsbook/deployments/$deployment_id/statuses" --jq '.[0].state // empty')
+deployment_state=$(gh api "repos/OWNER/REPOSITORY/deployments/$deployment_id/statuses" --jq '.[0].state // empty')
 test "$deployment_state" = success
-production_sha=$(gh api "repos/frbread7/devicephysicsbook/deployments/$deployment_id" --jq '.sha // empty')
-test -n "$production_sha"
-python3 tools/verify_experiments.py ../devicephysicsbook/library-manifest.json \
+production_sha=$(gh api "repos/OWNER/REPOSITORY/deployments/$deployment_id" --jq '.sha // empty')
+printf '%s\n' "$production_sha" | rg '^[0-9a-f]{40}$'
+```
+
+Verify the English and Korean entry pages, every chapter URL, and every declared experiment anchor against production. The existing verifier checks exact experiment URL/fragment responses and records their date, status, content hash, and caller-attested deployment SHA:
+
+```sh
+python3 tools/verify_experiments.py catalog/books/BOOK_ID.json \
   --source-revision "$production_sha" --write-back
-~~~
+```
 
-The verifier is the normal Book Factory step that makes network requests. It checks each experiment page against the declared host/path, pins each validated public destination while preserving configured proxy and CA behavior, enforces an 8-second total response deadline and a 1 MB cap, and writes evidence only if all checks pass. Edit `library-manifest.json` to set `status` to `published` and add the actual formal release URL/version, publication date, `productionRevision` using `$production_sha`, content review, site verification, and chapter verification. The release URL records the formal tagged release; `productionRevision` records the currently deployed site source. Then update the existing portal record:
+Review the resulting evidence. The verifier confirms SHA shape and the live checked routes; the caller is responsible for copying the SHA from the successful Pages deployment for the same source revision.
 
-~~~sh
-python3 tools/book_factory.py update ../devicephysicsbook/library-manifest.json
+Update the My Library manifest to `published` only when the required release URL/date, successful production revision, content-review note, site verification, chapter verification, and all experiment evidence have been recorded. Pass the completed manifest to `update`, then validate:
+
+```sh
+python3 tools/book_factory.py update /path/to/validated-published-manifest.json
+python3 tools/book_factory.py validate
 npm test
-~~~
+```
 
-Review `site/data/books.json`, the card, category map, and learning paths. Add a map connection to `catalog/categories.json` only after the book is registered. Learning-path steps must use chapter IDs present in registered books.
+## 5. Executable My Library examples
 
-## 5. Deploy and update
+PMICBook is the existing published reference record. Inspect and validate it without touching its independent repository:
 
-Commit the canonical manifest, cover, catalog edits, and generated indexes together. Pull requests run read-only index-integrity validation and browser checks; a main-branch merge deploys the static site. Verify the live portal and book links after deployment.
+```sh
+cd /home/ubuntu/projects/books
+python3 tools/book_factory.py validate
+python3 - <<'PY'
+import json
+from pathlib import Path
+book = json.loads(Path("catalog/books/pmicbook.json").read_text())
+assert book["status"] == "published"
+assert book["repositoryUrl"] == "https://github.com/frbread7/pmicbook"
+assert book["chapterCount"] == len(book["chapters"]) == 25
+assert book["publicationEvidence"]["releaseUrl"].endswith("/v1.1.0")
+print(book["productionUrl"], book["publicationEvidence"]["productionRevision"])
+PY
+```
 
-To update later while retaining the same stable ID:
+WATBook is the completed Book Factory example: release `v1.0.0`, ten bilingual chapters, successful Pages deployment, and six verified experiment anchors. Its repository's `library-manifest.json` remains the in-progress registration input; the published catalog copy in `catalog/books/watbook.json` is the authoritative lifecycle and evidence record. Confirm the result without modifying either textbook repository:
 
-~~~sh
-python3 tools/book_factory.py update ../devicephysicsbook/library-manifest.json
+```sh
+cd /home/ubuntu/projects/books
+python3 tools/book_factory.py validate
+python3 - <<'PY'
+import json
+from pathlib import Path
+book = json.loads(Path("catalog/books/watbook.json").read_text())
+assert book["status"] == "published"
+assert book["version"] == "1.0.0"
+assert book["chapterCount"] == len(book["chapters"]) == 10
+assert all(item["verification"]["httpStatus"] == 200 and item["verification"]["fragmentFound"] for item in book["experiments"])
+assert book["publicationEvidence"]["productionRevision"] == "e27f1f7a7decdba191a2f610c47812870e23ffa3"
+print(book["publicationEvidence"]["releaseUrl"])
+PY
+```
+
+For a new book, follow sections 1–4 and register its in-progress record before publication; remove its matching proposal from the roadmap in that same catalog change. After the book's own release, deployment, review, and live checks pass, promote the My Library record with the `update` command above. Do not publish a planned book just to fill the shelf. PMICBook stays independently deployed and is not modified by portal registration.
+
+## 6. Deploy the portal
+
+Commit the canonical manifest, cover, matching roadmap/category/path changes, and generated indexes together. CI runs validation and browser journeys; merge/push to `main` deploys the My Library Pages artifact. Smoke-test the live portal and textbook links after deployment.
+
+```sh
+python3 tools/book_factory.py validate
 npm test
-~~~
+```
 
-Register refuses to replace a current record; update is explicit and cannot change the ID.
+`register` is for a new ID. `update` is explicit, validates before writing, and cannot change an existing ID.

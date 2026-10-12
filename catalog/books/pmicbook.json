@@ -32,8 +32,8 @@
     "en",
     "ko"
   ],
-  "version": "1.0.0",
-  "lastUpdated": "2026-10-06",
+  "version": "1.1.0",
+  "lastUpdated": "2026-10-09",
   "chapterCount": 25,
   "chapters": [
     {
@@ -568,11 +568,11 @@
     "motif": "power-path"
   },
   "publicationEvidence": {
-    "releaseUrl": "https://github.com/frbread7/pmicbook/releases/tag/v1.0.0",
-    "releasePublishedAt": "2026-10-06",
-    "contentReview": "Recorded in the v1.0.0 release documentation; see docs/PRODUCTION_QA.md in the book repository.",
-    "siteVerification": "GitHub Pages reports a successful deployment of main commit da37b183c559d35fcb7f6471c86c513b104a7020 (deployment run 37942176575); representative English and Korean production pages returned HTTP 200 on 2026-10-09.",
-    "chapterVerification": "The formal v1.0.0 release contains 25 paired chapter entries; the production deployment revision is recorded separately.",
+    "releaseUrl": "https://github.com/frbread7/pmicbook/releases/tag/v1.1.0",
+    "releasePublishedAt": "2026-10-09",
+    "contentReview": "The v1.1.0 release includes the technical-quality review and production QA record in docs/V1_1_REVIEW.md and docs/PRODUCTION_QA.md; these are internal educational reviews, not external certification.",
+    "siteVerification": "GitHub Pages deployment 6962762856 and Actions run 37942176575 completed successfully for commit da37b183c559d35fcb7f6471c86c513b104a7020; representative English and Korean production routes returned HTTP 200 on 2026-10-09.",
+    "chapterVerification": "The v1.1.0 production release has 25 English/Korean chapter pairs; its successful deployed source revision is recorded separately.",
     "experimentVerification": "All four live experiment links returned HTTP 200 and contained their declared fragments on 2026-10-09; response hashes and the deployed source revision are recorded per experiment.",
     "productionRevision": "da37b183c559d35fcb7f6471c86c513b104a7020"
   },

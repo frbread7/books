@@ -1,16 +1,19 @@
 # Roadmap
 
-The source is catalog/roadmap.json. These are editorial proposals, not published catalog records.
+The canonical proposals are in `catalog/roadmap.json`. They are editorial ideas, not repository, release, or publication commitments. Only an explicitly registered book appears in the library catalog; only records with verified release evidence count as published.
 
-| Priority | Candidate | Focus boundary |
-| --- | --- | --- |
-| 1 | DevicePhysicsBook | General materials, carrier statistics, transport, junctions, and device operation. PMICBook retains PMIC/BCD applications. |
-| 2 | FabProcessBook | Transferable unit processes, process integration, and control across device families; product-specific flows link to product books. |
-| 3 | InlineMetrologyBook | Inline measurement, monitoring, WAT, EDS, sampling, and method limits; yield interpretation links to YieldDefectBook. |
-| 4 | YieldDefectBook | Defect populations, yield models, wafer-map analysis, variation, and commonality; physical methods link to FailureAnalysisBook. |
-| 5 | FailureAnalysisBook | Electrical localization, physical analysis, sample preparation, evidence quality, and reporting boundaries. |
-| 6 | PowerDeviceBook | Discrete/module technologies, structures, termination, and comparisons beyond PMICBook's integrated BCD context. |
+WATBook v1.0.0 is published in `catalog/books/watbook.json` with release, deployment, chapter, and experiment evidence. It has been removed from the unstarted proposal list; future updates must use the existing catalog record rather than treating WATBook as a new roadmap idea.
 
-Each roadmap record has a bilingual audience, core questions, proposed chapter groups, prerequisites, relationships and overlap boundaries, simulator concepts, differentiation, and priority. Product-specific future textbooks have an editorial space for memory, sensors, analog, displays, packaging, and other areas once audience and scope are clear.
+## Differentiated semiconductor priorities
 
-Priorities are not a schedule or promise. DevicePhysicsBook is the recommended next title: it supplies reusable foundations for fabrication, power devices, PMIC, metrology, and failure analysis while letting PMICBook link to general explanations instead of duplicating them.
+| Priority | Candidate | Intended boundary | Existing reference coverage to reuse and link |
+| --- | --- | --- | --- |
+| 1 | ProcessIntegrationBook | Advanced cross-module interactions, thermal/material budgets, technology co-optimization, and integration learning. | Upstream ProcessBook surveys process modules; this title must teach the constraints between them, not repeat the survey. PMICBook remains a BCD product example. |
+| 2 | FabControlBook | Operational SPC/FDC/APC, signal quality, control loops, alarm policy, and response workflows. | Upstream YieldBook and TestBook already cover statistical foundations and selected SPC; link those concepts and focus on control-system decisions. |
+| 3 | ThinFilmBook | Quantitative thin-film growth, epitaxy, interfaces, materials, and film-specific measurement. | Upstream ProcessBook introduces deposition and epitaxy; a future title must provide a meaningful advanced materials and interface treatment. |
+| 4 | ReliabilityEngineeringBook | Failure physics, mechanism-relevant acceleration, lifetime inference, qualification design, and uncertainty. | Upstream FailureBook focuses on failure-analysis methods. PMICBook provides product-level reliability context; link both without repeating their introductions. |
+| 5 | RFICBook or MEMSBook | One future specialization selected only after a distinct audience and content gap are established. | Compare with upstream DesignBook, AnalogBook, SensorBook, and relevant MEMS material before choosing either path. |
+
+The reference collection already provides broad device physics, circuit/design, process-module, yield, test, failure-analysis, and product coverage. My Library must keep these external works clearly attributed as independent references, not as books authored or published by this collection. See [the reference audit](REFERENCE_AUDIT.md) and each upstream repository's current license before any reuse.
+
+The roadmap is intentionally short. Future product-specific textbooks can be proposed when they have a clear audience, substantial technical gap, and explicit links to shared foundations. Do not create empty repositories to increase the catalog count.

@@ -1,0 +1,384 @@
+{
+  "schemaVersion": 1,
+  "id": "watbook",
+  "slug": "watbook",
+  "title": {
+    "en": "WATBook",
+    "ko": "WATBook"
+  },
+  "subtitle": {
+    "en": "Wafer Acceptance Test & Parametric Engineering",
+    "ko": "웨이퍼 전기적 특성 평가와 파라미터 엔지니어링"
+  },
+  "description": {
+    "en": "A bilingual engineering textbook on wafer-level parametric measurement, uncertainty, spatial context, and evidence-based manufacturing decisions.",
+    "ko": "웨이퍼 수준 파라미터 측정, 불확도, 공간적 맥락 및 증거 기반 제조 의사결정을 다루는 이중 언어 공학 교재입니다."
+  },
+  "category": "semiconductor",
+  "tags": [
+    "WAT",
+    "PCM",
+    "Parametric characterization",
+    "Measurement uncertainty",
+    "Wafer maps",
+    "Electrical test",
+    "Manufacturing evidence"
+  ],
+  "status": "published",
+  "repositoryUrl": "https://github.com/frbread7/watbook",
+  "productionUrl": "https://frbread7.github.io/watbook/",
+  "languageUrls": {
+    "en": "https://frbread7.github.io/watbook/",
+    "ko": "https://frbread7.github.io/watbook/ko/"
+  },
+  "languages": [
+    "en",
+    "ko"
+  ],
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-12",
+  "chapterCount": 10,
+  "chapters": [
+    {
+      "id": "c01-measurement-to-decision",
+      "number": 1,
+      "title": {
+        "en": "WAT as a measurement-to-decision chain",
+        "ko": "측정에서 의사결정까지의 WAT"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/watbook/chapters/c01-measurement-to-decision.html",
+        "ko": "https://frbread7.github.io/watbook/ko/chapters/c01-measurement-to-decision.html"
+      },
+      "topics": [
+        "WAT scope",
+        "measurement-to-decision",
+        "population hierarchy"
+      ]
+    },
+    {
+      "id": "c02-monitor-design",
+      "number": 2,
+      "title": {
+        "en": "Monitor purpose, structures, and sampling",
+        "ko": "모니터 목적·구조·표본추출"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/watbook/chapters/c02-monitor-design.html",
+        "ko": "https://frbread7.github.io/watbook/ko/chapters/c02-monitor-design.html"
+      },
+      "topics": [
+        "PCM",
+        "monitor design",
+        "sampling",
+        "coordinate plan"
+      ]
+    },
+    {
+      "id": "c03-measurement-contract",
+      "number": 3,
+      "title": {
+        "en": "The WAT measurement contract",
+        "ko": "WAT 측정 계약"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/watbook/chapters/c03-measurement-contract.html",
+        "ko": "https://frbread7.github.io/watbook/ko/chapters/c03-measurement-contract.html"
+      },
+      "topics": [
+        "SMU context",
+        "compliance",
+        "settling",
+        "measurement validity"
+      ]
+    },
+    {
+      "id": "c04-extraction-contract",
+      "number": 4,
+      "title": {
+        "en": "Extraction methods and parameter definitions",
+        "ko": "추출 방법과 파라미터 정의"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/watbook/chapters/c04-extraction-contract.html",
+        "ko": "https://frbread7.github.io/watbook/ko/chapters/c04-extraction-contract.html"
+      },
+      "topics": [
+        "Vth extraction",
+        "I-V",
+        "C-V",
+        "LDMOS",
+        "parameter contract"
+      ]
+    },
+    {
+      "id": "c05-uncertainty",
+      "number": 5,
+      "title": {
+        "en": "Uncertainty and measurement-process validity",
+        "ko": "불확도와 측정 프로세스 유효성"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/watbook/chapters/c05-uncertainty.html",
+        "ko": "https://frbread7.github.io/watbook/ko/chapters/c05-uncertainty.html"
+      },
+      "topics": [
+        "GUM",
+        "NIST TN 1297",
+        "uncertainty",
+        "measurement systems"
+      ]
+    },
+    {
+      "id": "c06-wafer-lot-context",
+      "number": 6,
+      "title": {
+        "en": "Wafer maps, hierarchy, and coordinate provenance",
+        "ko": "웨이퍼 맵·계층·좌표 출처"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/watbook/chapters/c06-wafer-lot-context.html",
+        "ko": "https://frbread7.github.io/watbook/ko/chapters/c06-wafer-lot-context.html"
+      },
+      "topics": [
+        "wafer maps",
+        "random effects",
+        "coordinate systems",
+        "test artifacts"
+      ]
+    },
+    {
+      "id": "c07-electrical-signatures",
+      "number": 7,
+      "title": {
+        "en": "Electrical signatures and bounded hypotheses",
+        "ko": "전기적 시그니처와 제한된 가설"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/watbook/chapters/c07-electrical-signatures.html",
+        "ko": "https://frbread7.github.io/watbook/ko/chapters/c07-electrical-signatures.html"
+      },
+      "topics": [
+        "signature analysis",
+        "hypothesis testing",
+        "evidence limits"
+      ]
+    },
+    {
+      "id": "c08-wat-to-eds",
+      "number": 8,
+      "title": {
+        "en": "WAT, inline metrology, and EDS evidence",
+        "ko": "WAT·인라인 계측·EDS 증거"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/watbook/chapters/c08-wat-to-eds.html",
+        "ko": "https://frbread7.github.io/watbook/ko/chapters/c08-wat-to-eds.html"
+      },
+      "topics": [
+        "EDS",
+        "grouped validation",
+        "confounding",
+        "prediction limits"
+      ]
+    },
+    {
+      "id": "c09-excursion-case",
+      "number": 9,
+      "title": {
+        "en": "Synthetic engineering excursion",
+        "ko": "합성 엔지니어링 이상 사례"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/watbook/chapters/c09-excursion-case.html",
+        "ko": "https://frbread7.github.io/watbook/ko/chapters/c09-excursion-case.html"
+      },
+      "topics": [
+        "synthetic case",
+        "measurement revisions",
+        "engineering diagnosis"
+      ]
+    },
+    {
+      "id": "c10-evidence-handoff",
+      "number": 10,
+      "title": {
+        "en": "Reproducible evidence and engineering handoff",
+        "ko": "재현 가능한 증거와 엔지니어링 인계"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/watbook/chapters/c10-evidence-handoff.html",
+        "ko": "https://frbread7.github.io/watbook/ko/chapters/c10-evidence-handoff.html"
+      },
+      "topics": [
+        "reproducibility",
+        "technical reporting",
+        "review evidence"
+      ]
+    }
+  ],
+  "experiments": [
+    {
+      "id": "monitor-planner",
+      "title": {
+        "en": "Monitor-purpose planner",
+        "ko": "모니터 목적 계획기"
+      },
+      "chapterId": "c02-monitor-design",
+      "url": "https://frbread7.github.io/watbook/lab.html#monitor-planner",
+      "kind": {
+        "en": "Coverage bookkeeping",
+        "ko": "커버리지 기록"
+      },
+      "verification": {
+        "checkedAt": "2026-10-12",
+        "checkedUrl": "https://frbread7.github.io/watbook/lab.html#monitor-planner",
+        "httpStatus": 200,
+        "fragmentFound": true,
+        "contentSha256": "818be680ec80249868551f4a7209856f4da6fada732e1c50c31c0e9ee42f6290",
+        "sourceRevision": "e27f1f7a7decdba191a2f610c47812870e23ffa3",
+        "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+        "evidence": "Live HTTPS response; HTTP 200; fragment #monitor-planner present in HTML; SHA-256 recorded."
+      }
+    },
+    {
+      "id": "extraction-sensitivity",
+      "title": {
+        "en": "Threshold extraction sensitivity",
+        "ko": "문턱전압 추출 민감도"
+      },
+      "chapterId": "c04-extraction-contract",
+      "url": "https://frbread7.github.io/watbook/lab.html#extraction-lab",
+      "kind": {
+        "en": "Analytical toy model",
+        "ko": "해석식 교육 모델"
+      },
+      "verification": {
+        "checkedAt": "2026-10-12",
+        "checkedUrl": "https://frbread7.github.io/watbook/lab.html#extraction-lab",
+        "httpStatus": 200,
+        "fragmentFound": true,
+        "contentSha256": "818be680ec80249868551f4a7209856f4da6fada732e1c50c31c0e9ee42f6290",
+        "sourceRevision": "e27f1f7a7decdba191a2f610c47812870e23ffa3",
+        "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+        "evidence": "Live HTTPS response; HTTP 200; fragment #extraction-lab present in HTML; SHA-256 recorded."
+      }
+    },
+    {
+      "id": "uncertainty-budget",
+      "title": {
+        "en": "Measurement uncertainty budget",
+        "ko": "측정 불확도 예산"
+      },
+      "chapterId": "c05-uncertainty",
+      "url": "https://frbread7.github.io/watbook/lab.html#uncertainty-lab",
+      "kind": {
+        "en": "Independent RSS components",
+        "ko": "독립 RSS 요소"
+      },
+      "verification": {
+        "checkedAt": "2026-10-12",
+        "checkedUrl": "https://frbread7.github.io/watbook/lab.html#uncertainty-lab",
+        "httpStatus": 200,
+        "fragmentFound": true,
+        "contentSha256": "818be680ec80249868551f4a7209856f4da6fada732e1c50c31c0e9ee42f6290",
+        "sourceRevision": "e27f1f7a7decdba191a2f610c47812870e23ffa3",
+        "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+        "evidence": "Live HTTPS response; HTTP 200; fragment #uncertainty-lab present in HTML; SHA-256 recorded."
+      }
+    },
+    {
+      "id": "wafer-map-context",
+      "title": {
+        "en": "Wafer/lot and test-context map",
+        "ko": "웨이퍼·로트 및 시험 맥락 맵"
+      },
+      "chapterId": "c06-wafer-lot-context",
+      "url": "https://frbread7.github.io/watbook/lab.html#wafer-map-lab",
+      "kind": {
+        "en": "Seeded synthetic data",
+        "ko": "시드 기반 합성 데이터"
+      },
+      "verification": {
+        "checkedAt": "2026-10-12",
+        "checkedUrl": "https://frbread7.github.io/watbook/lab.html#wafer-map-lab",
+        "httpStatus": 200,
+        "fragmentFound": true,
+        "contentSha256": "818be680ec80249868551f4a7209856f4da6fada732e1c50c31c0e9ee42f6290",
+        "sourceRevision": "e27f1f7a7decdba191a2f610c47812870e23ffa3",
+        "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+        "evidence": "Live HTTPS response; HTTP 200; fragment #wafer-map-lab present in HTML; SHA-256 recorded."
+      }
+    },
+    {
+      "id": "wat-eds-limits",
+      "title": {
+        "en": "WAT-to-EDS aggregation limits",
+        "ko": "WAT-EDS 집계 한계"
+      },
+      "chapterId": "c08-wat-to-eds",
+      "url": "https://frbread7.github.io/watbook/lab.html#wat-eds-lab",
+      "kind": {
+        "en": "Lot-confounding demonstration",
+        "ko": "로트 교란 예시"
+      },
+      "verification": {
+        "checkedAt": "2026-10-12",
+        "checkedUrl": "https://frbread7.github.io/watbook/lab.html#wat-eds-lab",
+        "httpStatus": 200,
+        "fragmentFound": true,
+        "contentSha256": "818be680ec80249868551f4a7209856f4da6fada732e1c50c31c0e9ee42f6290",
+        "sourceRevision": "e27f1f7a7decdba191a2f610c47812870e23ffa3",
+        "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+        "evidence": "Live HTTPS response; HTTP 200; fragment #wat-eds-lab present in HTML; SHA-256 recorded."
+      }
+    },
+    {
+      "id": "evidence-diagnosis",
+      "title": {
+        "en": "Evidence-led diagnosis",
+        "ko": "증거 기반 진단"
+      },
+      "chapterId": "c09-excursion-case",
+      "url": "https://frbread7.github.io/watbook/lab.html#diagnosis-lab",
+      "kind": {
+        "en": "Ordinal hypothesis ranking",
+        "ko": "순서형 가설 순위"
+      },
+      "verification": {
+        "checkedAt": "2026-10-12",
+        "checkedUrl": "https://frbread7.github.io/watbook/lab.html#diagnosis-lab",
+        "httpStatus": 200,
+        "fragmentFound": true,
+        "contentSha256": "818be680ec80249868551f4a7209856f4da6fada732e1c50c31c0e9ee42f6290",
+        "sourceRevision": "e27f1f7a7decdba191a2f610c47812870e23ffa3",
+        "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+        "evidence": "Live HTTPS response; HTTP 200; fragment #diagnosis-lab present in HTML; SHA-256 recorded."
+      }
+    }
+  ],
+  "prerequisites": [],
+  "relatedBooks": [
+    "pmicbook"
+  ],
+  "attribution": {
+    "license": "CC-BY-4.0 (original text, figures, translations, synthetic data); MIT (original code)",
+    "repositoryUrl": "https://github.com/frbread7/watbook",
+    "notes": "Original prose, translations, artwork, formulas, synthetic data, and code are authored for WATBook. Upstream works are linked for scope comparison and are not copied. See LICENSE.md and docs/REFERENCES.md."
+  },
+  "cover": "assets/covers/watbook.svg",
+  "theme": {
+    "accent": "#b84f31",
+    "accentSoft": "#f3dfd5",
+    "motif": "wafer map and probe point"
+  },
+  "publicationEvidence": {
+    "releaseUrl": "https://github.com/frbread7/watbook/releases/tag/v1.0.0",
+    "releasePublishedAt": "2026-10-12",
+    "productionRevision": "e27f1f7a7decdba191a2f610c47812870e23ffa3",
+    "contentReview": "Independent internal engineering, measurement, statistics, numerical-model, bilingual, accessibility, security, licensing, and educational reviews completed; actionable P0/P1/P2 issues were resolved and targeted re-reviews cleared. This internal review is not external certification or silicon validation.",
+    "siteVerification": "GitHub Actions run 38201406299 and Pages deployment 7006088208 succeeded for e27f1f7a7decdba191a2f610c47812870e23ffa3. Independent production browser verification confirmed 28 EN/KO routes, six lab interactions, and no browser errors or bad same-origin requests at 390px and 1440px.",
+    "chapterVerification": "All 20 bilingual chapter routes returned HTTP 200 in production; both home pages, both lab routes, both references routes, and both license routes also returned HTTP 200 (28/28 total routes).",
+    "experimentVerification": "My Library tools/verify_experiments.py verified all six declared lab URLs against deployment source revision e27f1f7a7decdba191a2f610c47812870e23ffa3 on 2026-10-12. Each returned HTTP 200, contained its required fragment, and has a recorded response SHA-256 in this manifest."
+  }
+}

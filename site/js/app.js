@@ -116,7 +116,10 @@
     setMeta(title, localized(book.description), new URL(siteUrl(`book.html?slug=${encodeURIComponent(book.slug)}`)).href);
     if (book.status !== "published") {
       const message = t("bookUnavailable").replace("{status}", statusText(book.status));
-      return `<section class="not-found"><p class="eyebrow">${esc(t("navLibrary"))} · ${badge(book.status)}</p><h1>${esc(title)}</h1><p class="detail-subtitle">${esc(localized(book.subtitle))}</p><p>${esc(localized(book.description))}</p><p class="unavailable-note">${esc(message)}</p><a class="button button-primary" href="${local("library.html")}">${esc(t("returnLibrary"))}</a></section>`;
+      const repository = book.status === "in-progress" && book.repositoryUrl
+        ? `<a class="button button-quiet progress-repository" href="${esc(safeHref(book.repositoryUrl))}" target="_blank" rel="noopener noreferrer">${esc(t("repository"))} ↗</a>`
+        : "";
+      return `<section class="not-found book-progress-detail" data-book-status="${esc(book.status)}"><p class="eyebrow">${esc(t("navLibrary"))} · ${badge(book.status)}</p><h1>${esc(title)}</h1><p class="detail-subtitle">${esc(localized(book.subtitle))}</p><p class="detail-description">${esc(localized(book.description))}</p><p class="unavailable-note">${esc(message)}</p><div class="detail-actions">${repository}<a class="button button-primary" href="${local("library.html")}">${esc(t("returnLibrary"))}</a></div></section>`;
     }
     const chapterList = book.chapters.map(chapter => `<li><span class="chapter-number">${String(chapter.number).padStart(2, "0")}</span><div><a href="${esc(safeHref(chapter.urls[language] || chapter.urls.en || chapter.urls.ko || Object.values(chapter.urls)[0]))}" target="_blank" rel="noopener noreferrer">${esc(localized(chapter.title))} <span aria-hidden="true">↗</span></a><div class="chapter-topics">${chapter.topics.map(x => `<span>${esc(x)}</span>`).join("")}</div></div></li>`).join("");
     const experimentList = book.experiments.map(item => `<a class="mini-experiment" href="${esc(safeHref(item.url))}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">⌁</span><span><strong>${esc(localized(item.title))}</strong><small>${esc(localized(item.kind))}</small></span><span aria-hidden="true">↗</span></a>`).join("");

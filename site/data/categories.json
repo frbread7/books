@@ -145,6 +145,18 @@
             {
               "bookId": "pmicbook",
               "chapterId": "metrology"
+            },
+            {
+              "bookId": "watbook",
+              "chapterId": "c01-measurement-to-decision"
+            },
+            {
+              "bookId": "watbook",
+              "chapterId": "c03-measurement-contract"
+            },
+            {
+              "bookId": "watbook",
+              "chapterId": "c08-wat-to-eds"
             }
           ]
         },
