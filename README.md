@@ -2,11 +2,11 @@
 
 **Interactive Engineering & Knowledge Books**
 
-My Library is a static, bilingual bookshelf for independently maintained textbooks. PMICBook and WATBook are published books. The Mathematics collection and Family Learning Journey add editorial maps and proposals without treating plans as publications.
+My Library is a static, bilingual bookshelf for independently maintained textbooks. PMICBook, WATBook, and ProcessIntegrationBook are published books. The Mathematics collection and Family Learning Journey add editorial maps and proposals without treating plans as publications.
 
 - Live target: https://frbread7.github.io/books/
 - Source: https://github.com/frbread7/books
-- Published books: [PMICBook](https://frbread7.github.io/pmicbook/) and [WATBook](https://frbread7.github.io/watbook/)
+- Published books: [PMICBook](https://frbread7.github.io/pmicbook/), [WATBook](https://frbread7.github.io/watbook/), and [ProcessIntegrationBook](https://frbread7.github.io/processintegrationbook/)
 
 ## Work locally
 

@@ -28,7 +28,7 @@ class LearningJourneyTests(unittest.TestCase):
         self.assertTrue(all(stage["guidanceOnly"] for stage in self.journey["stages"]))
         self.assertTrue(all(set(stage["label"]) == {"en", "ko"} and set(stage["description"]) == {"en", "ko"} for stage in self.journey["stages"]))
         self.assertTrue(all(set(strand["label"]) == {"en", "ko"} and set(strand["description"]) == {"en", "ko"} for strand in self.journey["strands"]))
-        self.assertEqual(sum(book["status"] == "published" for book in self.books), 2)
+        self.assertEqual(sum(book["status"] == "published" for book in self.books), 3)
         self.assertEqual(len(self.roadmap["mathematicsBooks"]), 7)
         self.assertEqual([project["id"] for project in self.roadmap["familyProjects"]], ["curiositybook"])
         self.assertTrue(all(book["status"] == "planned" for book in self.roadmap["mathematicsBooks"] + self.roadmap["familyProjects"]))
@@ -143,11 +143,25 @@ class LearningJourneyTests(unittest.TestCase):
         with self.assertRaisesRegex(book_factory.ManifestError, "revisits must name an existing concept"):
             self.validate(journey=broken)
 
-    def test_active_semiconductor_project_remains_planned_and_unpublished(self):
-        integration = next(item for item in self.roadmap["books"] if item["id"] == "processintegrationbook")
-        self.assertEqual(integration["workState"], "active-project")
-        self.assertEqual(integration["status"], "planned")
-        self.assertNotIn(integration["id"], {book["id"] for book in self.books})
+    def test_process_integration_publication_replaces_its_roadmap_proposal(self):
+        integration = next(book for book in self.books if book["id"] == "processintegrationbook")
+        self.assertEqual(integration["status"], "published")
+        self.assertEqual(integration["version"], "1.0.0")
+        self.assertEqual(integration["chapterCount"], 13)
+        self.assertEqual(len(integration["chapters"]), 13)
+        self.assertEqual(set(integration["languages"]), {"en", "ko"})
+        self.assertEqual(set(integration["relatedBooks"]), {"pmicbook", "watbook"})
+        self.assertEqual(integration["publicationEvidence"]["productionRevision"], "dac0f2401da47fa8a858ab3e2c7e24ad4e86fa84")
+        self.assertTrue(integration["publicationEvidence"]["releaseUrl"].endswith("/v1.0.0"))
+        for experiment in integration["experiments"]:
+            self.assertEqual(experiment["verification"]["checkedUrl"], experiment["url"])
+            self.assertEqual(experiment["verification"]["httpStatus"], 200)
+            self.assertIs(experiment["verification"]["fragmentFound"], True)
+            self.assertEqual(experiment["verification"]["sourceRevision"], integration["publicationEvidence"]["productionRevision"])
+        self.assertNotIn("processintegrationbook", {book["id"] for book in self.roadmap["books"]})
+        first = min(self.roadmap["books"], key=lambda book: book["priority"])
+        self.assertEqual(first["id"], "fabcontrolbook")
+        self.assertEqual(first["priority"], 1)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "id": "processintegrationbook",
+  "slug": "processintegrationbook",
+  "title": {
+    "en": "ProcessIntegrationBook",
+    "ko": "ProcessIntegrationBook"
+  },
+  "subtitle": {
+    "en": "Advanced Process Integration & Technology Co-Optimization",
+    "ko": "첨단 공정 통합과 기술 공동 최적화"
+  },
+  "description": {
+    "en": "An engineering textbook on cross-module dependencies, integration architecture, cumulative process budgets, and evidence-led technology trade-offs.",
+    "ko": "모듈 간 의존성, 통합 아키텍처, 누적 공정 예산, 증거 기반 기술 절충을 다루는 공학 교재입니다."
+  },
+  "category": "semiconductor",
+  "tags": [
+    "process integration",
+    "technology development",
+    "cross-module constraints",
+    "DTCO",
+    "process sequence",
+    "engineering evidence"
+  ],
+  "status": "published",
+  "repositoryUrl": "https://github.com/frbread7/processintegrationbook",
+  "productionUrl": "https://frbread7.github.io/processintegrationbook/",
+  "languageUrls": {
+    "en": "https://frbread7.github.io/processintegrationbook/",
+    "ko": "https://frbread7.github.io/processintegrationbook/ko/"
+  },
+  "languages": [
+    "en",
+    "ko"
+  ],
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-12",
+  "chapterCount": 13,
+  "chapters": [
+    {
+      "id": "c01-integration-as-decision",
+      "number": 1,
+      "title": {
+        "en": "Integration as a technology decision",
+        "ko": "기술 의사결정으로서의 공정 통합"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/processintegrationbook/chapters/c01-integration-as-decision.html",
+        "ko": "https://frbread7.github.io/processintegrationbook/ko/chapters/c01-integration-as-decision.html"
+      },
+      "topics": [
+        "integration decision / 통합 의사결정",
+        "technology architecture / 기술 아키텍처",
+        "evidence / 증거"
+      ]
+    },
+    {
+      "id": "c02-requirements-to-architecture",
+      "number": 2,
+      "title": {
+        "en": "From requirements to process architecture",
+        "ko": "요구사항에서 공정 아키텍처까지"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/processintegrationbook/chapters/c02-requirements-to-architecture.html",
+        "ko": "https://frbread7.github.io/processintegrationbook/ko/chapters/c02-requirements-to-architecture.html"
+      },
+      "topics": [
+        "requirements allocation / 요구사항 할당",
+        "device portfolio / 소자 포트폴리오",
+        "process architecture / 공정 아키텍처"
+      ]
+    },
+    {
+      "id": "c03-sequence-interface-contracts",
+      "number": 3,
+      "title": {
+        "en": "Sequence dependencies and interface contracts",
+        "ko": "공정 순서 의존성과 인터페이스 계약"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/processintegrationbook/chapters/c03-sequence-interface-contracts.html",
+        "ko": "https://frbread7.github.io/processintegrationbook/ko/chapters/c03-sequence-interface-contracts.html"
+      },
+      "topics": [
+        "sequence dependency / 순서 의존성",
+        "interfaces / 인터페이스",
+        "compatibility / 호환성"
+      ]
+    },
+    {
+      "id": "c04-isolation-substrate-choices",
+      "number": 4,
+      "title": {
+        "en": "Isolation and substrate as shared interfaces",
+        "ko": "공통 인터페이스로서의 절연과 기판"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/processintegrationbook/chapters/c04-isolation-substrate-choices.html",
+        "ko": "https://frbread7.github.io/processintegrationbook/ko/chapters/c04-isolation-substrate-choices.html"
+      },
+      "topics": [
+        "isolation / 절연",
+        "substrate / 기판",
+        "parasitics / 기생 성분"
+      ]
+    },
+    {
+      "id": "c05-gate-stack-architecture",
+      "number": 5,
+      "title": {
+        "en": "Gate-stack architecture and process order",
+        "ko": "게이트 스택 아키텍처와 공정 순서"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/processintegrationbook/chapters/c05-gate-stack-architecture.html",
+        "ko": "https://frbread7.github.io/processintegrationbook/ko/chapters/c05-gate-stack-architecture.html"
+      },
+      "topics": [
+        "gate stack / 게이트 스택",
+        "process order / 공정 순서",
+        "thermal compatibility / 열적 호환성"
+      ]
+    },
+    {
+      "id": "c06-junction-thermal-history",
+      "number": 6,
+      "title": {
+        "en": "Junction evolution under a shared thermal history",
+        "ko": "공유 열 이력에 따른 접합 변화"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/processintegrationbook/chapters/c06-junction-thermal-history.html",
+        "ko": "https://frbread7.github.io/processintegrationbook/ko/chapters/c06-junction-thermal-history.html"
+      },
+      "topics": [
+        "junction profile / 접합 프로파일",
+        "thermal history / 열 이력",
+        "diffusion model / 확산 모델"
+      ]
+    },
+    {
+      "id": "c07-pattern-transfer-chain",
+      "number": 7,
+      "title": {
+        "en": "Pattern transfer across lithography, etch, and planarization",
+        "ko": "리소그래피·식각·평탄화 간 패턴 전사"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/processintegrationbook/chapters/c07-pattern-transfer-chain.html",
+        "ko": "https://frbread7.github.io/processintegrationbook/ko/chapters/c07-pattern-transfer-chain.html"
+      },
+      "topics": [
+        "lithography / 리소그래피",
+        "etch transfer / 식각 전사",
+        "planarization / 평탄화"
+      ]
+    },
+    {
+      "id": "c08-contact-mol-interface",
+      "number": 8,
+      "title": {
+        "en": "The contact and middle-of-line interface",
+        "ko": "콘택트와 MOL 인터페이스"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/processintegrationbook/chapters/c08-contact-mol-interface.html",
+        "ko": "https://frbread7.github.io/processintegrationbook/ko/chapters/c08-contact-mol-interface.html"
+      },
+      "topics": [
+        "contact resistance / 콘택트 저항",
+        "MOL / MOL(중간 공정)",
+        "interface engineering / 인터페이스 엔지니어링"
+      ]
+    },
+    {
+      "id": "c09-beol-compatibility",
+      "number": 9,
+      "title": {
+        "en": "Back-end integration and material compatibility",
+        "ko": "배선 공정 통합과 재료 호환성"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/processintegrationbook/chapters/c09-beol-compatibility.html",
+        "ko": "https://frbread7.github.io/processintegrationbook/ko/chapters/c09-beol-compatibility.html"
+      },
+      "topics": [
+        "BEOL / BEOL(후공정 배선)",
+        "materials compatibility / 재료 호환성",
+        "reliability / 신뢰성"
+      ]
+    },
+    {
+      "id": "c10-variation-propagation",
+      "number": 10,
+      "title": {
+        "en": "How integration choices propagate variation",
+        "ko": "통합 선택에 따른 변동 전파"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/processintegrationbook/chapters/c10-variation-propagation.html",
+        "ko": "https://frbread7.github.io/processintegrationbook/ko/chapters/c10-variation-propagation.html"
+      },
+      "topics": [
+        "variation propagation / 변동성 전파",
+        "sensitivity / 민감도",
+        "evidence / 증거"
+      ]
+    },
+    {
+      "id": "c11-design-technology-cooptimization",
+      "number": 11,
+      "title": {
+        "en": "Design-technology co-optimization",
+        "ko": "설계-기술 공동 최적화"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/processintegrationbook/chapters/c11-design-technology-cooptimization.html",
+        "ko": "https://frbread7.github.io/processintegrationbook/ko/chapters/c11-design-technology-cooptimization.html"
+      },
+      "topics": [
+        "DTCO / DTCO(설계-기술 공동 최적화)",
+        "layout constraints / 레이아웃 제약",
+        "process window / 공정 윈도"
+      ]
+    },
+    {
+      "id": "c12-integration-learning-qualification",
+      "number": 12,
+      "title": {
+        "en": "Learning, qualification, and controlled change",
+        "ko": "학습·품질 인증·변경 관리"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/processintegrationbook/chapters/c12-integration-learning-qualification.html",
+        "ko": "https://frbread7.github.io/processintegrationbook/ko/chapters/c12-integration-learning-qualification.html"
+      },
+      "topics": [
+        "DOE / DOE(실험계획법)",
+        "qualification / 품질 인증",
+        "controlled change / 변경 관리"
+      ]
+    },
+    {
+      "id": "c13-public-platform-case",
+      "number": 13,
+      "title": {
+        "en": "Reading a disclosed platform as an integration case",
+        "ko": "공개 플랫폼을 통합 사례로 읽기"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/processintegrationbook/chapters/c13-public-platform-case.html",
+        "ko": "https://frbread7.github.io/processintegrationbook/ko/chapters/c13-public-platform-case.html"
+      },
+      "topics": [
+        "public technology case / 공개 기술 사례",
+        "literature interpretation / 문헌 해석",
+        "evidence limits / 증거의 한계"
+      ]
+    }
+  ],
+  "experiments": [
+    {
+      "id": "thermal-history-junction",
+      "title": {
+        "en": "Thermal history and Gaussian junction estimate",
+        "ko": "열 이력과 가우시안 접합 추정"
+      },
+      "chapterId": "c06-junction-thermal-history",
+      "url": "https://frbread7.github.io/processintegrationbook/lab.html#thermal-lab",
+      "kind": {
+        "en": "Analytically checked, model-limited",
+        "ko": "해석식 확인, 모델 한정"
+      },
+      "verification": {
+        "checkedAt": "2026-10-12",
+        "checkedUrl": "https://frbread7.github.io/processintegrationbook/lab.html#thermal-lab",
+        "httpStatus": 200,
+        "fragmentFound": true,
+        "contentSha256": "7bfe93c16a5da051a3c80b57eb165e65077eb8abb409a98704eb4bbd37f6418e",
+        "sourceRevision": "dac0f2401da47fa8a858ab3e2c7e24ad4e86fa84",
+        "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+        "evidence": "Live HTTPS response; HTTP 200; fragment #thermal-lab present in HTML; SHA-256 recorded."
+      }
+    },
+    {
+      "id": "process-dependency-explorer",
+      "title": {
+        "en": "Process dependency explorer",
+        "ko": "공정 의존성 탐색기"
+      },
+      "chapterId": "c03-sequence-interface-contracts",
+      "url": "https://frbread7.github.io/processintegrationbook/lab.html#dependency-explorer",
+      "kind": {
+        "en": "Qualitative constraint map",
+        "ko": "정성적 제약 맵"
+      },
+      "verification": {
+        "checkedAt": "2026-10-12",
+        "checkedUrl": "https://frbread7.github.io/processintegrationbook/lab.html#dependency-explorer",
+        "httpStatus": 200,
+        "fragmentFound": true,
+        "contentSha256": "7bfe93c16a5da051a3c80b57eb165e65077eb8abb409a98704eb4bbd37f6418e",
+        "sourceRevision": "dac0f2401da47fa8a858ab3e2c7e24ad4e86fa84",
+        "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+        "evidence": "Live HTTPS response; HTTP 200; fragment #dependency-explorer present in HTML; SHA-256 recorded."
+      }
+    },
+    {
+      "id": "integration-evidence-challenge",
+      "title": {
+        "en": "Integration evidence challenge",
+        "ko": "통합 증거 판단 실습"
+      },
+      "chapterId": "c12-integration-learning-qualification",
+      "url": "https://frbread7.github.io/processintegrationbook/lab.html#integration-review",
+      "kind": {
+        "en": "Qualitative learning activity",
+        "ko": "정성적 학습 활동"
+      },
+      "verification": {
+        "checkedAt": "2026-10-12",
+        "checkedUrl": "https://frbread7.github.io/processintegrationbook/lab.html#integration-review",
+        "httpStatus": 200,
+        "fragmentFound": true,
+        "contentSha256": "7bfe93c16a5da051a3c80b57eb165e65077eb8abb409a98704eb4bbd37f6418e",
+        "sourceRevision": "dac0f2401da47fa8a858ab3e2c7e24ad4e86fa84",
+        "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+        "evidence": "Live HTTPS response; HTTP 200; fragment #integration-review present in HTML; SHA-256 recorded."
+      }
+    }
+  ],
+  "prerequisites": [],
+  "relatedBooks": [
+    "pmicbook",
+    "watbook"
+  ],
+  "attribution": {
+    "license": "CC-BY-4.0 (original text, diagrams, translation, and synthetic examples); MIT (original software)",
+    "repositoryUrl": "https://github.com/frbread7/processintegrationbook",
+    "notes": "Original educational text, translation, cover, code, and synthetic teaching scenarios. Public literature and independent books are linked as sources and scope references; their material is not reproduced. See LICENSE.md, THIRD_PARTY_NOTICES.md, and docs/REFERENCES.md."
+  },
+  "cover": "assets/covers/processintegrationbook.svg",
+  "theme": {
+    "accent": "#b94f32",
+    "accentSoft": "#f3e2d9",
+    "motif": "layered process interfaces and a decision path"
+  },
+  "publicationEvidence": {
+    "releaseUrl": "https://github.com/frbread7/processintegrationbook/releases/tag/v1.0.0",
+    "releasePublishedAt": "2026-10-12",
+    "productionRevision": "dac0f2401da47fa8a858ab3e2c7e24ad4e86fa84",
+    "contentReview": "Internal independent requirements, device/process integration, numerical-model, QA, accessibility, security/licensing, and documentation reviews passed after targeted re-review; no actionable P0–P3 findings remain. The thermal diffusion activity is an illustrative constant-dilute Arrhenius/Gaussian model with analytical checks only, not validation against silicon or foundry data. Accessible secondary sources support the cited Arrhenius pair; the original Sze (1983)/Scotten (2000) page or table provenance remains unverified and is disclosed.",
+    "siteVerification": "GitHub Actions run 38211639092 validation and deployment jobs succeeded. Successful GitHub Pages deployment 7007733961 targets this exact source revision. Production Playwright passed 8/8 desktop/tablet/mobile journeys; all 41 static files returned HTTP 200.",
+    "chapterVerification": "All 26 English and Korean chapter URLs returned HTTP 200 on the production site; both language entry pages also returned HTTP 200.",
+    "experimentVerification": "tools/verify_experiments.py checked all three declared production URLs and exact anchors on 2026-10-12 at the deployment revision; each returned HTTP 200 with its fragment present and response SHA-256 recorded."
+  }
+}

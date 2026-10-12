@@ -104,6 +104,42 @@
             {
               "bookId": "pmicbook",
               "chapterId": "integration"
+            },
+            {
+              "bookId": "processintegrationbook",
+              "chapterId": "c01-integration-as-decision"
+            },
+            {
+              "bookId": "processintegrationbook",
+              "chapterId": "c03-sequence-interface-contracts"
+            },
+            {
+              "bookId": "processintegrationbook",
+              "chapterId": "c06-junction-thermal-history"
+            },
+            {
+              "bookId": "processintegrationbook",
+              "chapterId": "c07-pattern-transfer-chain"
+            },
+            {
+              "bookId": "processintegrationbook",
+              "chapterId": "c08-contact-mol-interface"
+            },
+            {
+              "bookId": "processintegrationbook",
+              "chapterId": "c09-beol-compatibility"
+            },
+            {
+              "bookId": "processintegrationbook",
+              "chapterId": "c11-design-technology-cooptimization"
+            },
+            {
+              "bookId": "processintegrationbook",
+              "chapterId": "c12-integration-learning-qualification"
+            },
+            {
+              "bookId": "processintegrationbook",
+              "chapterId": "c13-public-platform-case"
             }
           ]
         },
@@ -157,6 +193,10 @@
             {
               "bookId": "watbook",
               "chapterId": "c08-wat-to-eds"
+            },
+            {
+              "bookId": "processintegrationbook",
+              "chapterId": "c10-variation-propagation"
             }
           ]
         },

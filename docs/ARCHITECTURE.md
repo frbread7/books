@@ -22,7 +22,7 @@ Canonical and Open Graph URLs are set at runtime; book details retain a normaliz
 
 The browser never treats roadmap entries as book records. Published totals derive only from registered records with status published.
 
-The roadmap has separate semiconductor, mathematics, and family-project arrays. `workState: active-project` can signal active editorial work while an item remains `status: planned` outside the book catalog. This keeps ProcessIntegrationBook visible without claiming it is released. Homepage proposal totals include all roadmap sections; published counts still derive only from registered manifests.
+The roadmap has separate semiconductor, mathematics, and family-project arrays. Active editorial work can remain `status: planned` until it is registered, at which point its proposal is removed. Homepage proposal totals include all roadmap sections; published counts derive only from registered manifests with completed publication evidence.
 
 ## Boundaries
 

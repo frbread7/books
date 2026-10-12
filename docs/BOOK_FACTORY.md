@@ -80,7 +80,7 @@ The textbook repository stays separate and is not changed by this workflow.
 
 ## Future-book workflow
 
-1. Scaffold an independent textbook with python3 tools/scaffold_book.py. Register its validated starter as `in-progress`, and remove its matching ID from catalog/roadmap.json in the same My Library change; an editorial idea and registered book cannot share an ID. For this project, WATBook is the worked example; its detailed scope and overlap decisions live in the independent WATBook repository.
+1. Scaffold an independent textbook with python3 tools/scaffold_book.py. Register its validated starter as `in-progress`, and remove its matching ID from catalog/roadmap.json in the same My Library change; an editorial idea and registered book cannot share an ID. WATBook and ProcessIntegrationBook are end-to-end worked examples; each remains an independent repository and its detailed scope and review evidence live there. ProcessIntegrationBook v1.0.0 has 13 bilingual chapters and three verified experiment links. Its successful Pages deployment `7007733961` and release both target `dac0f2401da47fa8a858ab3e2c7e24ad4e86fa84`.
 2. Author, test, review, version, and deploy it in its own GitHub repository.
 3. Confirm production routes and anchors and record release/review evidence.
 4. Copy its completed manifest to catalog/books/<id>.json and cover artwork to the referenced site/assets/ path.

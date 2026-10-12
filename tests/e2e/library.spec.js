@@ -77,6 +77,47 @@ test("WATBook detail exposes its bilingual chapters and six verified experiments
     .toEqual(watbook.experiments.map(experiment => experiment.url));
 });
 
+test("ProcessIntegrationBook is published across its bilingual detail, map, path, and experiment views", async ({ page }) => {
+  const integration = catalogBooks.find(book => book.id === "processintegrationbook");
+  expect(integration).toBeTruthy();
+  expect(integration.status).toBe("published");
+  expect(integration.publicationEvidence.productionRevision).toMatch(/^[0-9a-f]{40}$/);
+  expect(catalogRoadmap.books.some(book => book.id === integration.id)).toBe(false);
+  expect(catalogRoadmap.books[0].id).toBe("fabcontrolbook");
+
+  await page.goto("book.html?slug=processintegrationbook");
+  await expect(page.locator("h1")).toHaveText("ProcessIntegrationBook");
+  await expect(page.locator(".chapter-list li")).toHaveCount(13);
+  await expect(page.locator(".mini-experiment")).toHaveCount(3);
+  await expect(page.locator(".book-facts dd").nth(0)).toHaveText("1.0.0");
+  await expect(page.locator(".detail-actions a[href^='https://frbread7.github.io/processintegrationbook/']")).toHaveCount(2);
+  await expect(page.locator(`.detail-actions a[href="${integration.repositoryUrl}"]`)).toBeVisible();
+  expect(await page.locator(".chapter-list a").evaluateAll(links => links.map(link => link.href)))
+    .toEqual(integration.chapters.map(chapter => chapter.urls.en));
+  expect(await page.locator(".mini-experiment").evaluateAll(links => links.map(link => link.href)))
+    .toEqual(integration.experiments.map(experiment => experiment.url));
+
+  await page.getByRole("button", { name: "Switch language" }).click();
+  await expect(page.locator("html")).toHaveAttribute("lang", "ko");
+  await expect(page.locator(".chapter-list li").first()).toContainText("기술 의사결정으로서의 공정 통합");
+  expect(await page.locator(".chapter-list a").evaluateAll(links => links.map(link => link.href)))
+    .toEqual(integration.chapters.map(chapter => chapter.urls.ko));
+
+  await page.getByRole("button", { name: "언어 전환" }).click();
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  await page.goto("categories.html?id=semiconductor");
+  await expect(page.locator('.knowledge-map a[href^="https://frbread7.github.io/processintegrationbook/"]')).toHaveCount(10);
+  await page.goto("paths.html");
+  const integrationPath = page.locator(".path-card").filter({ has: page.getByRole("heading", { name: "Cross-module choices to measured evidence" }) });
+  await expect(integrationPath.locator(".path-step")).toHaveCount(10);
+  await expect(integrationPath).toContainText("ProcessIntegrationBook");
+  await page.goto("experiments.html");
+  const experiments = page.locator(".experiment-card").filter({ hasText: "ProcessIntegrationBook" });
+  await expect(experiments).toHaveCount(3);
+  expect(await experiments.locator("a").evaluateAll(links => links.map(link => link.href)))
+    .toEqual(integration.experiments.map(experiment => experiment.url));
+});
+
 test("search and filters work and keep unstarted roadmap ideas out of the catalog", async ({ page }) => {
   await page.goto("library.html");
   await expect(page.locator(".book-card")).toHaveCount(catalogBooks.length);

@@ -146,6 +146,103 @@
           }
         }
       ]
+    },
+    {
+      "id": "cross-module-choices-to-measured-evidence",
+      "title": {
+        "en": "Cross-module choices to measured evidence",
+        "ko": "공정 모듈 선택에서 측정 증거까지"
+      },
+      "audience": {
+        "en": "Process integration, device, technology-development, and yield engineers connecting process decisions to wafer-level evidence.",
+        "ko": "공정 통합·소자·기술 개발·수율 엔지니어 중 공정 의사결정을 웨이퍼 수준 증거와 연결하려는 학습자."
+      },
+      "outcome": {
+        "en": "Trace integration constraints into measurable variation, design useful evidence, and distinguish a plausible process hypothesis from a demonstrated cause.",
+        "ko": "통합 제약이 측정 가능한 변동으로 이어지는 과정을 추적하고 유용한 증거를 설계하며, 그럴듯한 공정 가설과 입증된 원인을 구분합니다."
+      },
+      "steps": [
+        {
+          "bookId": "watbook",
+          "chapterId": "c01-measurement-to-decision",
+          "why": {
+            "en": "Start with the role of wafer-level measurements and their decision limits.",
+            "ko": "웨이퍼 수준 측정의 역할과 의사결정 한계를 먼저 파악합니다."
+          }
+        },
+        {
+          "bookId": "processintegrationbook",
+          "chapterId": "c01-integration-as-decision",
+          "why": {
+            "en": "Frame integration as allocation of requirements and evidence across modules.",
+            "ko": "모듈 전반에 요구사항과 증거를 배분하는 통합 의사결정의 틀을 세웁니다."
+          }
+        },
+        {
+          "bookId": "processintegrationbook",
+          "chapterId": "c03-sequence-interface-contracts",
+          "why": {
+            "en": "Map sequence dependencies and the interface conditions one module leaves for the next.",
+            "ko": "공정 순서 의존성과 앞 단계가 다음 단계에 남기는 인터페이스 조건을 정리합니다."
+          }
+        },
+        {
+          "bookId": "processintegrationbook",
+          "chapterId": "c06-junction-thermal-history",
+          "why": {
+            "en": "Examine how shared thermal history couples junction targets to the rest of the sequence.",
+            "ko": "공유 열 이력이 접합 목표와 전체 공정 순서를 어떻게 결합하는지 살펴봅니다."
+          }
+        },
+        {
+          "bookId": "processintegrationbook",
+          "chapterId": "c10-variation-propagation",
+          "why": {
+            "en": "Follow a bounded process perturbation through sensitivities and measurable outcomes.",
+            "ko": "범위가 명시된 공정 변화가 민감도와 측정 결과로 전파되는 과정을 추적합니다."
+          }
+        },
+        {
+          "bookId": "watbook",
+          "chapterId": "c05-uncertainty",
+          "why": {
+            "en": "Check whether measurement uncertainty and process variation can be distinguished.",
+            "ko": "측정 불확도와 공정 변동을 구분할 수 있는지 확인합니다."
+          }
+        },
+        {
+          "bookId": "processintegrationbook",
+          "chapterId": "c12-integration-learning-qualification",
+          "why": {
+            "en": "Turn competing hypotheses into controlled learning and qualification evidence.",
+            "ko": "경쟁 가설을 통제된 학습 및 품질 인증 증거로 연결합니다."
+          }
+        },
+        {
+          "bookId": "watbook",
+          "chapterId": "c07-electrical-signatures",
+          "why": {
+            "en": "Treat an electrical signature as a bounded hypothesis, not a unique root-cause label.",
+            "ko": "전기적 시그니처를 단일 원인 판정이 아닌 범위가 제한된 가설로 다룹니다."
+          }
+        },
+        {
+          "bookId": "processintegrationbook",
+          "chapterId": "c13-public-platform-case",
+          "why": {
+            "en": "Practice separating disclosed platform facts from inferred integration decisions.",
+            "ko": "공개된 플랫폼 사실과 추론한 통합 의사결정을 구분하는 연습을 합니다."
+          }
+        },
+        {
+          "bookId": "watbook",
+          "chapterId": "c09-excursion-case",
+          "why": {
+            "en": "Finish by documenting a synthetic excursion diagnosis with evidence and remaining alternatives.",
+            "ko": "합성 이상 사례를 증거와 남은 대안을 포함해 진단하고 문서화하며 마무리합니다."
+          }
+        }
+      ]
     }
   ]
 }

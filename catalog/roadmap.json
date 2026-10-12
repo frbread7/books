@@ -1,83 +1,7 @@
 {
   "schemaVersion": 1,
   "books": [
-    {
-      "id": "processintegrationbook",
-      "title": {
-        "en": "ProcessIntegrationBook",
-        "ko": "ProcessIntegrationBook"
-      },
-      "subtitle": {
-        "en": "Advanced semiconductor technology and cross-module integration",
-        "ko": "첨단 반도체 기술과 공정 모듈 간 통합"
-      },
-      "status": "planned",
-      "priority": 1,
-      "audience": {
-        "en": "Experienced process/device engineers and graduate learners working across process modules and technology definition.",
-        "ko": "여러 공정 모듈을 아우르는 기술 정의를 담당하는 경력 공정·소자 엔지니어와 대학원 학습자."
-      },
-      "questions": {
-        "en": [
-          "How do module interactions, sequence, and thermal budgets constrain a technology?",
-          "How are device, integration, and design rules co-optimized?",
-          "How can process-integration hypotheses be tested with monitor structures and split experiments?"
-        ],
-        "ko": [
-          "모듈 간 상호작용, 순서, 열 예산은 기술을 어떻게 제한할까?",
-          "소자·통합·설계 규칙을 어떻게 공동 최적화할까?",
-          "모니터 구조와 분할 실험으로 공정 통합 가설을 어떻게 검증할까?"
-        ]
-      },
-      "chapterGroups": {
-        "en": [
-          "Integration requirements and technology roadmaps",
-          "Module interfaces, masks, and sequence dependencies",
-          "Thermal budget, diffusion, stress, and materials compatibility",
-          "Isolation, junction, contact, and interconnect co-integration",
-          "Design-technology co-optimization and process windows",
-          "Split-lot learning, integration monitors, and failure reviews"
-        ],
-        "ko": [
-          "통합 요구사항과 기술 로드맵",
-          "모듈 인터페이스·마스크·순서 의존성",
-          "열 예산·확산·응력·재료 호환성",
-          "절연·접합·콘택트·배선 공동 통합",
-          "설계-기술 공동 최적화와 공정 윈도우",
-          "분할 로트 학습·통합 모니터·실패 검토"
-        ]
-      },
-      "prerequisites": {
-        "en": [
-          "Device fundamentals and introductory knowledge of lithography, etch, deposition, doping, and thermal processing."
-        ],
-        "ko": [
-          "소자 기초와 리소그래피·식각·증착·도핑·열처리의 입문 지식이 필요합니다."
-        ]
-      },
-      "relationships": {
-        "en": "Goes beyond the upstream ProcessBook's process-module survey by analyzing cross-module constraints and technology co-optimization. Product-specific integration stays with its product book; PMICBook remains the BCD application case.",
-        "ko": "공정 모듈을 개괄하는 upstream ProcessBook을 넘어 모듈 간 제약과 기술 공동 최적화를 분석합니다. 제품별 통합은 해당 제품 교재에 두고 PMICBook은 BCD 응용 사례로 유지합니다."
-      },
-      "simulatorIdeas": {
-        "en": [
-          "Thermal-budget accumulation with explicit diffusion assumptions",
-          "Module-sequence dependency graph",
-          "Design-rule/process-window tradeoff explorer"
-        ],
-        "ko": [
-          "확산 가정을 명시한 열 예산 누적기",
-          "모듈 순서 의존성 그래프",
-          "설계 규칙·공정 윈도우 절충 탐색기"
-        ]
-      },
-      "differentiation": {
-        "en": "Advanced cross-module interaction and technology integration; not a generic fabrication introduction or a proprietary process recipe.",
-        "ko": "고급 모듈 간 상호작용과 기술 통합을 다루며 일반 제조 입문서나 독점 공정 레시피가 아닙니다."
-      },
-      "workState": "active-project"
-    },
-    {
+        {
       "id": "fabcontrolbook",
       "title": {
         "en": "FabControlBook",
@@ -88,7 +12,7 @@
         "ko": "SPC·FDC·APC와 반도체 제조 제어"
       },
       "status": "planned",
-      "priority": 2,
+      "priority": 1,
       "audience": {
         "en": "Fab process-control, equipment, data, and integration engineers designing monitoring and control responses.",
         "ko": "모니터링과 제어 대응을 설계하는 팹 공정 제어·장비·데이터·통합 엔지니어."
@@ -163,7 +87,7 @@
         "ko": "첨단 증착·에피택시·계면·박막 엔지니어링"
       },
       "status": "planned",
-      "priority": 3,
+      "priority": 1,
       "audience": {
         "en": "Deposition, materials, device, and integration engineers who need quantitative film and interface understanding.",
         "ko": "정량적인 박막과 계면 이해가 필요한 증착·재료·소자·통합 엔지니어."
@@ -238,7 +162,7 @@
         "ko": "신뢰성 물리·품질 인증·수명 모델링"
       },
       "status": "planned",
-      "priority": 4,
+      "priority": 1,
       "audience": {
         "en": "Reliability, device, product, quality, and failure-analysis engineers planning physics-based evidence and qualification.",
         "ko": "물리 기반 증거와 품질 인증을 설계하는 신뢰성·소자·제품·품질·고장 분석 엔지니어."
@@ -313,7 +237,7 @@
         "ko": "독자 수요에 따라 선정할 미래 전문 기술 분야"
       },
       "status": "planned",
-      "priority": 5,
+      "priority": 1,
       "audience": {
         "en": "To be defined after a distinct audience and technical gap are established for RFIC or MEMS.",
         "ko": "RFIC 또는 MEMS의 독자층과 기술 공백이 확인된 뒤 정의합니다."
