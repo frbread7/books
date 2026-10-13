@@ -19,6 +19,10 @@ Official references:
 
 No custom domain or CNAME is configured. GitHub Actions must be the Pages source rather than a branch-folder build.
 
+## Workflow trust boundary
+
+The reference-monitor job runs only for `main` and checks out `main` explicitly. These controls constrain runs that use the reviewed workflow definition; they do not make workflow YAML immutable. A collaborator with workflow write access can alter the YAML on another branch and dispatch that altered workflow/ref, including changing steps or requested permissions. Treat Actions/workflow writers and dispatch authority as trusted; protect workflow changes with branch review and writer-access controls, and keep workflow permissions minimal.
+
 ## Local validation prerequisites
 
 Install Python 3.12+, Node.js 20+, and npm. Install the Python `jsonschema` dependency with `python3 -m pip install -r requirements.txt`, install JavaScript dependencies with `npm ci`, and install Playwright Chromium with `npx playwright install chromium`. On Linux hosts missing browser libraries, use `npx playwright install --with-deps chromium`. See [Testing](TESTING.md) for commands and coverage details.

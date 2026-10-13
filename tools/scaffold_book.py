@@ -8,6 +8,7 @@ import sys
 from datetime import date
 from pathlib import Path
 from urllib.parse import urlparse
+import reference_intelligence as reference_gate
 
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
@@ -48,6 +49,13 @@ def write(path: Path, content: str):
     path.write_text(content, encoding="utf-8")
 
 
+def validate_reference_project(book_id):
+    """Require a locally reviewed overlap/differentiation record before scaffolding."""
+    inventory = reference_gate.load_json(reference_gate.INVENTORY_PATH)
+    decisions = reference_gate.load_json(reference_gate.REVIEWS_PATH)
+    return reference_gate.validate_project_gate(book_id, decisions, inventory)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--id", required=True)
@@ -79,6 +87,7 @@ def main():
         output = args.out.resolve()
         if output.exists() and any(output.iterdir()):
             raise ValueError(f"refusing to overwrite non-empty output directory: {output}")
+        validate_reference_project(args.id)
         output.mkdir(parents=True, exist_ok=True)
 
         manifest = {

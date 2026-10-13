@@ -1,0 +1,652 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-13",
+  "works": [
+    {
+      "workId": "pmicbook",
+      "workName": "PMICBook",
+      "workUrl": "https://github.com/frbread7/pmicbook",
+      "auditScope": "Read-only attribution docs at main SHA da37b183c559d35fcb7f6471c86c513b104a7020; ProcessBook baseline separately pinned.",
+      "reuseRecords": [
+        {
+          "classification": "cc-by-4.0-adaptation",
+          "summary": "PMICBook explicitly acknowledges ProcessBook as its derivative source and maps adapted/translated educational chapters.",
+          "sourceTitle": "ProcessBook",
+          "sourceAuthor": "geniuskey and ProcessBook contributors (as credited in PMICBook docs)",
+          "sourceRepository": "https://github.com/geniuskey/processbook",
+          "sourcePath": "chapters/ (per-file destinations below)",
+          "sourceCommitSha": "0bc4314d1e13c485a658e0cb1d4fd237b5fc8dff",
+          "licenseName": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "requiredNotices": [
+            "Credit ProcessBook and the credited contributors, link to the applicable source and CC BY 4.0 license, retain relevant notices, and identify adaptations and Korean translation as modifications."
+          ],
+          "changesMade": "English/Korean translation and PMIC/BCD adaptation; source notes are in docs/UPSTREAM_ATTRIBUTION.md.",
+          "translationStatus": "Bilingual adapted content; Korean is a further translation/modification.",
+          "destinationPath": "chapters/ and ko/chapters/",
+          "sourceMappings": [
+            {
+              "sourcePath": "chapters/wafer.html",
+              "destinationPath": "wafer.html",
+              "changesMade": "Selected substrate/cleaning/epitaxy material reframed for BCD."
+            },
+            {
+              "sourcePath": "chapters/oxidation.html",
+              "destinationPath": "oxidation.html",
+              "changesMade": "Dielectric material adapted to BCD structures/thermal budget."
+            },
+            {
+              "sourcePath": "chapters/litho.html",
+              "destinationPath": "litho.html",
+              "changesMade": "Selected imaging/focus material adapted; resist sequence merged."
+            },
+            {
+              "sourcePath": "chapters/resist.html",
+              "destinationPath": "litho.html",
+              "changesMade": "Selected resist/transfer material merged; old route retired."
+            },
+            {
+              "sourcePath": "chapters/etch.html",
+              "destinationPath": "etch.html",
+              "changesMade": "Profile/selectivity material reframed for PMIC geometry."
+            },
+            {
+              "sourcePath": "chapters/deposition.html",
+              "destinationPath": "deposition.html",
+              "changesMade": "Film methods connected to BCD stacks."
+            },
+            {
+              "sourcePath": "chapters/implant.html",
+              "destinationPath": "implant.html",
+              "changesMade": "Implant range/masking reframed for device regions."
+            },
+            {
+              "sourcePath": "chapters/anneal.html",
+              "destinationPath": "anneal.html",
+              "changesMade": "Diffusion/activation connected to junction limits."
+            },
+            {
+              "sourcePath": "chapters/cmp.html",
+              "destinationPath": "cmp.html",
+              "changesMade": "Planarization connected to contacts and BEOL."
+            },
+            {
+              "sourcePath": "chapters/metal.html",
+              "destinationPath": "metal.html",
+              "changesMade": "Resistance/current density reframed for PMIC paths."
+            },
+            {
+              "sourcePath": "chapters/integration.html",
+              "destinationPath": "integration.html",
+              "changesMade": "Bounded process-composer content plus original BCD map."
+            },
+            {
+              "sourcePath": "chapters/advanced.html",
+              "destinationPath": "advanced.html",
+              "changesMade": "Bonding geometry with stated limits and PMIC context."
+            },
+            {
+              "sourcePath": "chapters/metrology.html",
+              "destinationPath": "metrology.html",
+              "changesMade": "Metrology/SPC connected to product characterization."
+            },
+            {
+              "sourcePath": "chapters/lab.html",
+              "destinationPath": "lab.html",
+              "changesMade": "Sandbox patterns adapted with grid limitations."
+            },
+            {
+              "sourcePath": "chapters/glossary.html",
+              "destinationPath": "glossary.html",
+              "changesMade": "Search/quiz shell retained; subject prose/questions replaced."
+            }
+          ]
+        },
+        {
+          "classification": "mit-code-reuse",
+          "summary": "Shared framework, layout, styles, scripts, and simulator code remain derived per PMICBook attribution. The root MIT notice is retained; current docs do not exhaustively map each reused code file.",
+          "sourceTitle": "ProcessBook site/software framework",
+          "sourceAuthor": "geniuskey and ProcessBook contributors (LICENSE-MIT notice)",
+          "sourceRepository": "https://github.com/geniuskey/processbook",
+          "sourcePath": "Shared HTML/CSS/JS/Python and simulator components; exact subset needs file-level mapping.",
+          "sourceCommitSha": "0bc4314d1e13c485a658e0cb1d4fd237b5fc8dff",
+          "licenseName": "MIT License",
+          "licenseUrl": "https://github.com/geniuskey/processbook/blob/0bc4314d1e13c485a658e0cb1d4fd237b5fc8dff/LICENSE-MIT",
+          "requiredNotices": [
+            "Preserve the applicable upstream copyright notice and include the complete MIT permission and warranty notice with copied or substantial portions."
+          ],
+          "changesMade": "Framework/code retained or modified as documented; MIT notices retained.",
+          "translationStatus": "Code adaptation; not a prose translation.",
+          "destinationPath": "Shared PMICBook shell, styles, scripts, and simulator code."
+        },
+        {
+          "classification": "original",
+          "summary": "PMIC/BCD-specific lessons, diagrams, and product examples are identified as original; sources are cited, not presented as permission.",
+          "sourcePath": "docs/UPSTREAM_ATTRIBUTION.md lists new chapters.",
+          "destinationPath": "PMICBook English/Korean chapters.",
+          "rightsStatus": "PMICBook docs declare derivative chapter attribution and distinguish newly authored material; exact rights are described in docs/UPSTREAM_ATTRIBUTION.md."
+        }
+      ],
+      "findings": [
+        {
+          "severity": "P2",
+          "summary": "MIT code reuse is not exhaustively mapped file-by-file.",
+          "evidence": "docs/UPSTREAM_ATTRIBUTION.md describes derived framework and preserved notices without a complete source/destination code list.",
+          "recommendedAction": "Add a baseline-based code map as maintenance. This is provenance precision, not an infringement claim."
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "workId": "watbook",
+      "workName": "WATBook",
+      "workUrl": "https://github.com/frbread7/watbook",
+      "auditScope": "Read-only LICENSE/REFERENCES/scope/model review at main SHA 63b0b0d14c2ea779b3314e8fef4a64a3e0c861da.",
+      "reuseRecords": [
+        {
+          "classification": "original",
+          "summary": "Original bilingual prose, figures, tests, code, and labeled synthetic data are described under separate CC BY 4.0 content/MIT software terms; docs say upstream books are linked, not copied.",
+          "sourcePath": "content/en/chapters/, content/ko/chapters/, docs/MODELS_AND_VALIDATION.md",
+          "destinationPath": "WATBook repository",
+          "licenseName": "CC BY 4.0 content / MIT software",
+          "licenseUrl": "https://github.com/frbread7/watbook/blob/63b0b0d14c2ea779b3314e8fef4a64a3e0c861da/LICENSE.md",
+          "rightsStatus": "Project-declared split; third-party terms remain separate"
+        },
+        {
+          "classification": "reference-only",
+          "summary": "WATBook scope/further-reading references only; no upstream material incorporated.",
+          "sourceTitle": "DeviceBook",
+          "sourceAuthor": "geniuskey (GitHub repository owner/publisher; individual author not inferred)",
+          "sourceRepository": "https://github.com/geniuskey/devicebook",
+          "sourcePath": "chapters/transport.html",
+          "sourceCommitSha": "32f52a3961c2a3399659cd4279c0538391c34f97",
+          "licenseName": "Repository-specific declared terms; GitHub API NOASSERTION",
+          "licenseUrl": "https://github.com/geniuskey/devicebook/blob/32f52a3961c2a3399659cd4279c0538391c34f97/LICENSE.md",
+          "licenseObservation": "Pinned license guide and license files reviewed; source linked only. API reports NOASSERTION; individual third-party files remain separate.",
+          "sourceMappings": [
+            {
+              "sourcePath": "chapters/transport.html",
+              "url": "https://github.com/geniuskey/devicebook/blob/32f52a3961c2a3399659cd4279c0538391c34f97/chapters/transport.html"
+            },
+            {
+              "sourcePath": "chapters/ms.html",
+              "url": "https://github.com/geniuskey/devicebook/blob/32f52a3961c2a3399659cd4279c0538391c34f97/chapters/ms.html"
+            },
+            {
+              "sourcePath": "chapters/mosfet.html",
+              "url": "https://github.com/geniuskey/devicebook/blob/32f52a3961c2a3399659cd4279c0538391c34f97/chapters/mosfet.html"
+            },
+            {
+              "sourcePath": "chapters/mos.html",
+              "url": "https://github.com/geniuskey/devicebook/blob/32f52a3961c2a3399659cd4279c0538391c34f97/chapters/mos.html"
+            },
+            {
+              "sourcePath": "chapters/diode.html",
+              "url": "https://github.com/geniuskey/devicebook/blob/32f52a3961c2a3399659cd4279c0538391c34f97/chapters/diode.html"
+            }
+          ],
+          "changesMade": "No prose, images, code, questions, datasets, or simulators copied.",
+          "destinationPath": "Relevant bilingual chapter citation links in content/en/chapters/ and content/ko/chapters/; consolidated references in content/en/references.html and content/ko/references.html."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "WATBook scope/further-reading references only; no upstream material incorporated.",
+          "sourceTitle": "ProcessBook",
+          "sourceAuthor": "geniuskey (GitHub repository owner/publisher; individual author not inferred)",
+          "sourceRepository": "https://github.com/geniuskey/processbook",
+          "sourcePath": "chapters/wafer.html",
+          "sourceCommitSha": "f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed",
+          "licenseName": "Repository-specific declared terms; GitHub API NOASSERTION",
+          "licenseUrl": "https://github.com/geniuskey/processbook/blob/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed/LICENSE.md",
+          "licenseObservation": "Pinned license guide and license files reviewed; source linked only. API reports NOASSERTION; individual third-party files remain separate.",
+          "sourceMappings": [
+            {
+              "sourcePath": "chapters/wafer.html",
+              "url": "https://github.com/geniuskey/processbook/blob/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed/chapters/wafer.html"
+            },
+            {
+              "sourcePath": "chapters/metrology.html",
+              "url": "https://github.com/geniuskey/processbook/blob/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed/chapters/metrology.html"
+            }
+          ],
+          "changesMade": "No prose, images, code, questions, datasets, or simulators copied.",
+          "destinationPath": "Relevant bilingual chapter citation links in content/en/chapters/ and content/ko/chapters/; consolidated references in content/en/references.html and content/ko/references.html."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "WATBook scope/further-reading references only; no upstream material incorporated.",
+          "sourceTitle": "TCADBook",
+          "sourceAuthor": "geniuskey (GitHub repository owner/publisher; individual author not inferred)",
+          "sourceRepository": "https://github.com/geniuskey/tcadbook",
+          "sourcePath": "chapters/mosfet.html",
+          "sourceCommitSha": "56d3c14f757a55caed574e720069cfdf2b7a2bf6",
+          "licenseName": "Repository-specific declared terms; GitHub API NOASSERTION",
+          "licenseUrl": "https://github.com/geniuskey/tcadbook/blob/56d3c14f757a55caed574e720069cfdf2b7a2bf6/LICENSE.md",
+          "licenseObservation": "Pinned license guide and license files reviewed; source linked only. API reports NOASSERTION; individual third-party files remain separate.",
+          "sourceMappings": [
+            {
+              "sourcePath": "chapters/mosfet.html",
+              "url": "https://github.com/geniuskey/tcadbook/blob/56d3c14f757a55caed574e720069cfdf2b7a2bf6/chapters/mosfet.html"
+            },
+            {
+              "sourcePath": "chapters/calibration.html",
+              "url": "https://github.com/geniuskey/tcadbook/blob/56d3c14f757a55caed574e720069cfdf2b7a2bf6/chapters/calibration.html"
+            },
+            {
+              "sourcePath": "chapters/variability.html",
+              "url": "https://github.com/geniuskey/tcadbook/blob/56d3c14f757a55caed574e720069cfdf2b7a2bf6/chapters/variability.html"
+            }
+          ],
+          "changesMade": "No prose, images, code, questions, datasets, or simulators copied.",
+          "destinationPath": "Relevant bilingual chapter citation links in content/en/chapters/ and content/ko/chapters/; consolidated references in content/en/references.html and content/ko/references.html."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "WATBook scope/further-reading references only; no upstream material incorporated.",
+          "sourceTitle": "YieldBook",
+          "sourceAuthor": "geniuskey (GitHub repository owner/publisher; individual author not inferred)",
+          "sourceRepository": "https://github.com/geniuskey/yieldbook",
+          "sourcePath": "chapters/wafer.html",
+          "sourceCommitSha": "2acd8844633274ebea91e808c4a22ed4035549b8",
+          "licenseName": "Repository-specific declared terms; GitHub API NOASSERTION",
+          "licenseUrl": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/LICENSE.md",
+          "licenseObservation": "Pinned license guide and license files reviewed; source linked only. API reports NOASSERTION; individual third-party files remain separate.",
+          "sourceMappings": [
+            {
+              "sourcePath": "chapters/wafer.html",
+              "url": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/chapters/wafer.html"
+            },
+            {
+              "sourcePath": "chapters/sort.html",
+              "url": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/chapters/sort.html"
+            },
+            {
+              "sourcePath": "chapters/patterns.html",
+              "url": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/chapters/patterns.html"
+            },
+            {
+              "sourcePath": "chapters/statistics.html",
+              "url": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/chapters/statistics.html"
+            }
+          ],
+          "changesMade": "No prose, images, code, questions, datasets, or simulators copied.",
+          "destinationPath": "Relevant bilingual chapter citation links in content/en/chapters/ and content/ko/chapters/; consolidated references in content/en/references.html and content/ko/references.html."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "WATBook scope/further-reading references only; no upstream material incorporated.",
+          "sourceTitle": "TestBook",
+          "sourceAuthor": "geniuskey (GitHub repository owner/publisher; individual author not inferred)",
+          "sourceRepository": "https://github.com/geniuskey/testbook",
+          "sourcePath": "chapters/interface.html",
+          "sourceCommitSha": "a69997b5bee01346d44c864bed2cc3304b8571e5",
+          "licenseName": "Repository-specific declared terms; GitHub API NOASSERTION",
+          "licenseUrl": "https://github.com/geniuskey/testbook/blob/a69997b5bee01346d44c864bed2cc3304b8571e5/LICENSE.md",
+          "licenseObservation": "Pinned license guide and license files reviewed; source linked only. API reports NOASSERTION; individual third-party files remain separate.",
+          "sourceMappings": [
+            {
+              "sourcePath": "chapters/interface.html",
+              "url": "https://github.com/geniuskey/testbook/blob/a69997b5bee01346d44c864bed2cc3304b8571e5/chapters/interface.html"
+            },
+            {
+              "sourcePath": "chapters/dc.html",
+              "url": "https://github.com/geniuskey/testbook/blob/a69997b5bee01346d44c864bed2cc3304b8571e5/chapters/dc.html"
+            },
+            {
+              "sourcePath": "chapters/limits.html",
+              "url": "https://github.com/geniuskey/testbook/blob/a69997b5bee01346d44c864bed2cc3304b8571e5/chapters/limits.html"
+            }
+          ],
+          "changesMade": "No prose, images, code, questions, datasets, or simulators copied.",
+          "destinationPath": "Relevant bilingual chapter citation links in content/en/chapters/ and content/ko/chapters/; consolidated references in content/en/references.html and content/ko/references.html."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "WATBook scope/further-reading references only; no upstream material incorporated.",
+          "sourceTitle": "FailureBook",
+          "sourceAuthor": "geniuskey (GitHub repository owner/publisher; individual author not inferred)",
+          "sourceRepository": "https://github.com/geniuskey/failurebook",
+          "sourcePath": "chapters/test.html",
+          "sourceCommitSha": "f8cae35a3637acb963c6156b6317b4bb124638e8",
+          "licenseName": "Repository-specific declared terms; GitHub API NOASSERTION",
+          "licenseUrl": "https://github.com/geniuskey/failurebook/blob/f8cae35a3637acb963c6156b6317b4bb124638e8/LICENSE.md",
+          "licenseObservation": "Pinned license guide and license files reviewed; source linked only. API reports NOASSERTION; individual third-party files remain separate.",
+          "sourceMappings": [
+            {
+              "sourcePath": "chapters/test.html",
+              "url": "https://github.com/geniuskey/failurebook/blob/f8cae35a3637acb963c6156b6317b4bb124638e8/chapters/test.html"
+            }
+          ],
+          "changesMade": "No prose, images, code, questions, datasets, or simulators copied.",
+          "destinationPath": "Relevant bilingual chapter citation links in content/en/chapters/ and content/ko/chapters/; consolidated references in content/en/references.html and content/ko/references.html."
+        }
+      ],
+      "findings": [
+        {
+          "severity": "informational",
+          "summary": "WATBook distinguishes citations from reuse rights and labels synthetic datasets.",
+          "evidence": "LICENSE.md, docs/REFERENCES.md, docs/SCOPE_AND_OVERLAP.md.",
+          "recommendedAction": "Keep source SHA pins fresh and review embedded third-party assets separately."
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "workId": "processintegrationbook",
+      "workName": "ProcessIntegrationBook",
+      "workUrl": "https://github.com/frbread7/processintegrationbook",
+      "auditScope": "Read-only LICENSE/REFERENCES/OVERLAP/CITATION review at main SHA 7c1fbd44e4993b61c6eeb3fe6e11eaec1c213577.",
+      "reuseRecords": [
+        {
+          "classification": "original",
+          "summary": "Original bilingual prose, diagrams, cases, and software are declared under separate CC BY 4.0 content/MIT terms; docs state no upstream text/code/figure/simulator/recipe/private dataset is copied.",
+          "sourcePath": "content/en/chapters/, content/ko/chapters/, docs/CITATION_AUDIT.md",
+          "destinationPath": "ProcessIntegrationBook repository",
+          "licenseName": "CC BY 4.0 content / MIT software",
+          "licenseUrl": "https://github.com/frbread7/processintegrationbook/blob/7c1fbd44e4993b61c6eeb3fe6e11eaec1c213577/LICENSE.md",
+          "rightsStatus": "Project-declared split; third-party terms remain separate"
+        },
+        {
+          "classification": "reference-only",
+          "summary": "ProcessIntegrationBook chapter comparison/reference only; its audit documents original authored content.",
+          "sourceTitle": "ProcessBook",
+          "sourceAuthor": "geniuskey (GitHub repository owner/publisher; individual author not inferred)",
+          "sourceRepository": "https://github.com/geniuskey/processbook",
+          "sourcePath": "chapters/integration.html",
+          "sourceCommitSha": "f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed",
+          "licenseName": "Repository-specific declared terms; GitHub API NOASSERTION",
+          "licenseUrl": "https://github.com/geniuskey/processbook/blob/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed/LICENSE.md",
+          "licenseObservation": "Pinned license guide and license files reviewed; source linked only. API reports NOASSERTION; individual third-party files remain separate.",
+          "sourceMappings": [
+            {
+              "sourcePath": "chapters/integration.html",
+              "url": "https://github.com/geniuskey/processbook/blob/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed/chapters/integration.html"
+            },
+            {
+              "sourcePath": "chapters/advanced.html",
+              "url": "https://github.com/geniuskey/processbook/blob/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed/chapters/advanced.html"
+            },
+            {
+              "sourcePath": "chapters/lab.html",
+              "url": "https://github.com/geniuskey/processbook/blob/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed/chapters/lab.html"
+            },
+            {
+              "sourcePath": "chapters/anneal.html",
+              "url": "https://github.com/geniuskey/processbook/blob/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed/chapters/anneal.html"
+            },
+            {
+              "sourcePath": "chapters/oxidation.html",
+              "url": "https://github.com/geniuskey/processbook/blob/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed/chapters/oxidation.html"
+            },
+            {
+              "sourcePath": "chapters/implant.html",
+              "url": "https://github.com/geniuskey/processbook/blob/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed/chapters/implant.html"
+            },
+            {
+              "sourcePath": "chapters/etch.html",
+              "url": "https://github.com/geniuskey/processbook/blob/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed/chapters/etch.html"
+            },
+            {
+              "sourcePath": "chapters/deposition.html",
+              "url": "https://github.com/geniuskey/processbook/blob/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed/chapters/deposition.html"
+            },
+            {
+              "sourcePath": "chapters/cmp.html",
+              "url": "https://github.com/geniuskey/processbook/blob/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed/chapters/cmp.html"
+            },
+            {
+              "sourcePath": "chapters/metal.html",
+              "url": "https://github.com/geniuskey/processbook/blob/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed/chapters/metal.html"
+            }
+          ],
+          "changesMade": "No prose, images, code, questions, datasets, or simulators copied.",
+          "destinationPath": "Relevant bilingual chapter citation links in content/en/chapters/ and content/ko/chapters/; consolidated references in content/en/references.html and content/ko/references.html."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "ProcessIntegrationBook chapter comparison/reference only; its audit documents original authored content.",
+          "sourceTitle": "DopingBook",
+          "sourceAuthor": "geniuskey (GitHub repository owner/publisher; individual author not inferred)",
+          "sourceRepository": "https://github.com/geniuskey/dopingbook",
+          "sourcePath": "chapters/flow.html",
+          "sourceCommitSha": "944526d6c2bb790d5d8f1e08d2614e1c5de22c3c",
+          "licenseName": "Repository-specific declared terms; GitHub API NOASSERTION",
+          "licenseUrl": "https://github.com/geniuskey/dopingbook/blob/944526d6c2bb790d5d8f1e08d2614e1c5de22c3c/LICENSE.md",
+          "licenseObservation": "Pinned license guide and license files reviewed; source linked only. API reports NOASSERTION; individual third-party files remain separate.",
+          "sourceMappings": [
+            {
+              "sourcePath": "chapters/flow.html",
+              "url": "https://github.com/geniuskey/dopingbook/blob/944526d6c2bb790d5d8f1e08d2614e1c5de22c3c/chapters/flow.html"
+            },
+            {
+              "sourcePath": "chapters/budget.html",
+              "url": "https://github.com/geniuskey/dopingbook/blob/944526d6c2bb790d5d8f1e08d2614e1c5de22c3c/chapters/budget.html"
+            },
+            {
+              "sourcePath": "chapters/anneal.html",
+              "url": "https://github.com/geniuskey/dopingbook/blob/944526d6c2bb790d5d8f1e08d2614e1c5de22c3c/chapters/anneal.html"
+            },
+            {
+              "sourcePath": "chapters/diffusion.html",
+              "url": "https://github.com/geniuskey/dopingbook/blob/944526d6c2bb790d5d8f1e08d2614e1c5de22c3c/chapters/diffusion.html"
+            },
+            {
+              "sourcePath": "chapters/damage.html",
+              "url": "https://github.com/geniuskey/dopingbook/blob/944526d6c2bb790d5d8f1e08d2614e1c5de22c3c/chapters/damage.html"
+            },
+            {
+              "sourcePath": "chapters/metrology.html",
+              "url": "https://github.com/geniuskey/dopingbook/blob/944526d6c2bb790d5d8f1e08d2614e1c5de22c3c/chapters/metrology.html"
+            }
+          ],
+          "changesMade": "No prose, images, code, questions, datasets, or simulators copied.",
+          "destinationPath": "Relevant bilingual chapter citation links in content/en/chapters/ and content/ko/chapters/; consolidated references in content/en/references.html and content/ko/references.html."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "ProcessIntegrationBook chapter comparison/reference only; its audit documents original authored content.",
+          "sourceTitle": "LithoBook",
+          "sourceAuthor": "geniuskey (GitHub repository owner/publisher; individual author not inferred)",
+          "sourceRepository": "https://github.com/geniuskey/lithobook",
+          "sourcePath": "chapters/transfer.html",
+          "sourceCommitSha": "5a4fa0a5b79f3d5581af140caa0e7831ccf88a05",
+          "licenseName": "Repository-specific declared terms; GitHub API NOASSERTION",
+          "licenseUrl": "https://github.com/geniuskey/lithobook/blob/5a4fa0a5b79f3d5581af140caa0e7831ccf88a05/LICENSE.md",
+          "licenseObservation": "Pinned license guide and license files reviewed; source linked only. API reports NOASSERTION; individual third-party files remain separate.",
+          "sourceMappings": [
+            {
+              "sourcePath": "chapters/transfer.html",
+              "url": "https://github.com/geniuskey/lithobook/blob/5a4fa0a5b79f3d5581af140caa0e7831ccf88a05/chapters/transfer.html"
+            },
+            {
+              "sourcePath": "chapters/overlay.html",
+              "url": "https://github.com/geniuskey/lithobook/blob/5a4fa0a5b79f3d5581af140caa0e7831ccf88a05/chapters/overlay.html"
+            },
+            {
+              "sourcePath": "chapters/window.html",
+              "url": "https://github.com/geniuskey/lithobook/blob/5a4fa0a5b79f3d5581af140caa0e7831ccf88a05/chapters/window.html"
+            },
+            {
+              "sourcePath": "chapters/multipatterning.html",
+              "url": "https://github.com/geniuskey/lithobook/blob/5a4fa0a5b79f3d5581af140caa0e7831ccf88a05/chapters/multipatterning.html"
+            },
+            {
+              "sourcePath": "chapters/opc.html",
+              "url": "https://github.com/geniuskey/lithobook/blob/5a4fa0a5b79f3d5581af140caa0e7831ccf88a05/chapters/opc.html"
+            }
+          ],
+          "changesMade": "No prose, images, code, questions, datasets, or simulators copied.",
+          "destinationPath": "Relevant bilingual chapter citation links in content/en/chapters/ and content/ko/chapters/; consolidated references in content/en/references.html and content/ko/references.html."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "ProcessIntegrationBook chapter comparison/reference only; its audit documents original authored content.",
+          "sourceTitle": "EtchBook",
+          "sourceAuthor": "geniuskey (GitHub repository owner/publisher; individual author not inferred)",
+          "sourceRepository": "https://github.com/geniuskey/etchbook",
+          "sourcePath": "chapters/overview.html",
+          "sourceCommitSha": "0881e61ba16003a1fe4579a8372dad2d63d2dcfb",
+          "licenseName": "Repository-specific declared terms; GitHub API NOASSERTION",
+          "licenseUrl": "https://github.com/geniuskey/etchbook/blob/0881e61ba16003a1fe4579a8372dad2d63d2dcfb/LICENSE.md",
+          "licenseObservation": "Pinned license guide and license files reviewed; source linked only. API reports NOASSERTION; individual third-party files remain separate.",
+          "sourceMappings": [
+            {
+              "sourcePath": "chapters/overview.html",
+              "url": "https://github.com/geniuskey/etchbook/blob/0881e61ba16003a1fe4579a8372dad2d63d2dcfb/chapters/overview.html"
+            },
+            {
+              "sourcePath": "chapters/profile.html",
+              "url": "https://github.com/geniuskey/etchbook/blob/0881e61ba16003a1fe4579a8372dad2d63d2dcfb/chapters/profile.html"
+            },
+            {
+              "sourcePath": "chapters/selectivity.html",
+              "url": "https://github.com/geniuskey/etchbook/blob/0881e61ba16003a1fe4579a8372dad2d63d2dcfb/chapters/selectivity.html"
+            },
+            {
+              "sourcePath": "chapters/endpoint.html",
+              "url": "https://github.com/geniuskey/etchbook/blob/0881e61ba16003a1fe4579a8372dad2d63d2dcfb/chapters/endpoint.html"
+            },
+            {
+              "sourcePath": "chapters/arde.html",
+              "url": "https://github.com/geniuskey/etchbook/blob/0881e61ba16003a1fe4579a8372dad2d63d2dcfb/chapters/arde.html"
+            },
+            {
+              "sourcePath": "chapters/har.html",
+              "url": "https://github.com/geniuskey/etchbook/blob/0881e61ba16003a1fe4579a8372dad2d63d2dcfb/chapters/har.html"
+            }
+          ],
+          "changesMade": "No prose, images, code, questions, datasets, or simulators copied.",
+          "destinationPath": "Relevant bilingual chapter citation links in content/en/chapters/ and content/ko/chapters/; consolidated references in content/en/references.html and content/ko/references.html."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "ProcessIntegrationBook chapter comparison/reference only; its audit documents original authored content.",
+          "sourceTitle": "TCADBook",
+          "sourceAuthor": "geniuskey (GitHub repository owner/publisher; individual author not inferred)",
+          "sourceRepository": "https://github.com/geniuskey/tcadbook",
+          "sourcePath": "chapters/overview.html",
+          "sourceCommitSha": "56d3c14f757a55caed574e720069cfdf2b7a2bf6",
+          "licenseName": "Repository-specific declared terms; GitHub API NOASSERTION",
+          "licenseUrl": "https://github.com/geniuskey/tcadbook/blob/56d3c14f757a55caed574e720069cfdf2b7a2bf6/LICENSE.md",
+          "licenseObservation": "Pinned license guide and license files reviewed; source linked only. API reports NOASSERTION; individual third-party files remain separate.",
+          "sourceMappings": [
+            {
+              "sourcePath": "chapters/overview.html",
+              "url": "https://github.com/geniuskey/tcadbook/blob/56d3c14f757a55caed574e720069cfdf2b7a2bf6/chapters/overview.html"
+            },
+            {
+              "sourcePath": "chapters/implant.html",
+              "url": "https://github.com/geniuskey/tcadbook/blob/56d3c14f757a55caed574e720069cfdf2b7a2bf6/chapters/implant.html"
+            },
+            {
+              "sourcePath": "chapters/diffusion.html",
+              "url": "https://github.com/geniuskey/tcadbook/blob/56d3c14f757a55caed574e720069cfdf2b7a2bf6/chapters/diffusion.html"
+            },
+            {
+              "sourcePath": "chapters/topography.html",
+              "url": "https://github.com/geniuskey/tcadbook/blob/56d3c14f757a55caed574e720069cfdf2b7a2bf6/chapters/topography.html"
+            },
+            {
+              "sourcePath": "chapters/calibration.html",
+              "url": "https://github.com/geniuskey/tcadbook/blob/56d3c14f757a55caed574e720069cfdf2b7a2bf6/chapters/calibration.html"
+            },
+            {
+              "sourcePath": "chapters/variability.html",
+              "url": "https://github.com/geniuskey/tcadbook/blob/56d3c14f757a55caed574e720069cfdf2b7a2bf6/chapters/variability.html"
+            }
+          ],
+          "changesMade": "No prose, images, code, questions, datasets, or simulators copied.",
+          "destinationPath": "Relevant bilingual chapter citation links in content/en/chapters/ and content/ko/chapters/; consolidated references in content/en/references.html and content/ko/references.html."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "ProcessIntegrationBook chapter comparison/reference only; its audit documents original authored content.",
+          "sourceTitle": "YieldBook",
+          "sourceAuthor": "geniuskey (GitHub repository owner/publisher; individual author not inferred)",
+          "sourceRepository": "https://github.com/geniuskey/yieldbook",
+          "sourcePath": "chapters/signature.html",
+          "sourceCommitSha": "2acd8844633274ebea91e808c4a22ed4035549b8",
+          "licenseName": "Repository-specific declared terms; GitHub API NOASSERTION",
+          "licenseUrl": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/LICENSE.md",
+          "licenseObservation": "Pinned license guide and license files reviewed; source linked only. API reports NOASSERTION; individual third-party files remain separate.",
+          "sourceMappings": [
+            {
+              "sourcePath": "chapters/signature.html",
+              "url": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/chapters/signature.html"
+            },
+            {
+              "sourcePath": "chapters/commonality.html",
+              "url": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/chapters/commonality.html"
+            },
+            {
+              "sourcePath": "chapters/statistics.html",
+              "url": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/chapters/statistics.html"
+            },
+            {
+              "sourcePath": "chapters/models.html",
+              "url": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/chapters/models.html"
+            },
+            {
+              "sourcePath": "chapters/learning.html",
+              "url": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/chapters/learning.html"
+            },
+            {
+              "sourcePath": "chapters/detective.html",
+              "url": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/chapters/detective.html"
+            }
+          ],
+          "changesMade": "No prose, images, code, questions, datasets, or simulators copied.",
+          "destinationPath": "Relevant bilingual chapter citation links in content/en/chapters/ and content/ko/chapters/; consolidated references in content/en/references.html and content/ko/references.html."
+        }
+      ],
+      "findings": [
+        {
+          "severity": "informational",
+          "summary": "Overlap/citation docs distinguish independent upstream books from original book content.",
+          "evidence": "docs/REFERENCES.md, docs/OVERLAP_AUDIT.md, docs/CITATION_AUDIT.md.",
+          "recommendedAction": "Keep exact revisions pinned when refreshing audit."
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "workId": "heavyvehiclebook",
+      "workName": "HeavyVehicleBook editorial pilot",
+      "workUrl": "https://github.com/frbread7/books",
+      "auditScope": "Read-only review of three bilingual drafts and rightsNotice in catalog/kids-family.json; pilot baseline d74288f.",
+      "reuseRecords": [
+        {
+          "classification": "original",
+          "summary": "Three bilingual stories are editorial previews with no prose reuse license; no matching child-facing construction-vehicle title was found in the inspected catalog.",
+          "sourcePath": "catalog/kids-family.json: three-trucks-and-garden-path, excavator-shape-garden, crane-big-small-up-down",
+          "destinationPath": "Kids & Family preview",
+          "rightsStatus": "Public draft; no prose license; determine before separate release",
+          "copyrightDistinction": "Root MIT software license does not grant reuse rights in story prose."
+        },
+        {
+          "classification": "original",
+          "summary": "Illustration art is rendered by an inline SVG renderer in portal code, not imported upstream artwork; recheck if extracted into a separate book.",
+          "sourcePath": "site/js/app.js family SVG renderer",
+          "sourceCommitSha": "d74288f224d450fb959452c459a49a83ed952dba",
+          "destinationPath": "Rendered Kids & Family pages",
+          "licenseName": "MIT software license",
+          "licenseUrl": "https://github.com/frbread7/books/blob/d74288f/LICENSE",
+          "rightsStatus": "Site software scope only; not a story-prose grant"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "P2",
+          "summary": "Pilot prose has no reuse license and remains unpublished until content and art rights are explicitly selected.",
+          "evidence": "catalog/kids-family.json rightsNotice separates story prose from software/SVG licensing.",
+          "recommendedAction": "Choose and document a book-level license and rights for prose/art before a separate publication."
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "reviewStatus": "follow-up-required"
+    }
+  ]
+}

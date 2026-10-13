@@ -10,9 +10,9 @@ import scaffold_book
 
 
 class ScaffoldBookTests(unittest.TestCase):
-    def arguments(self, output, production_url="https://example.test/book/"):
+    def arguments(self, output, production_url="https://example.test/book/", book_id="fabcontrolbook"):
         return [
-            "scaffold_book.py", "--id", "samplebook", "--title-en", "Sample Book", "--title-ko", "샘플 도서",
+            "scaffold_book.py", "--id", book_id, "--title-en", "Sample Book", "--title-ko", "샘플 도서",
             "--subtitle-en", "Engineering", "--subtitle-ko", "공학", "--description-en", "A sample book.",
             "--description-ko", "샘플 도서입니다.", "--repository-url", "https://github.com/example/samplebook",
             "--production-url", production_url, "--out", str(output)
@@ -50,7 +50,7 @@ class ScaffoldBookTests(unittest.TestCase):
             manifest = json.loads((output / "library-manifest.json").read_text(encoding="utf-8"))
             self.assertEqual(manifest["status"], "in-progress")
             self.assertTrue((output / "site/index.html").is_file())
-            self.assertTrue((output / "site/assets/covers/samplebook.svg").is_file())
+            self.assertTrue((output / "site/assets/covers/fabcontrolbook.svg").is_file())
             site_notice = output / "site/LICENSE-AND-ATTRIBUTION.md"
             self.assertTrue(site_notice.is_file())
             self.assertEqual(site_notice.read_text(encoding="utf-8"), (output / "LICENSE-AND-ATTRIBUTION.md").read_text(encoding="utf-8"))
@@ -59,6 +59,14 @@ class ScaffoldBookTests(unittest.TestCase):
             self.assertNotIn("path: .", workflow)
             self.assertEqual(workflow.count("pages: write"), 1)
             self.assertEqual(workflow.count("id-token: write"), 1)
+
+    def test_scaffold_requires_reviewed_differentiation_before_creating_files(self):
+        for book_id in ("unreviewedbook", "engineeringmathbook"):
+            with self.subTest(book_id=book_id), tempfile.TemporaryDirectory() as directory:
+                output = Path(directory) / book_id
+                with patch.object(sys, "argv", self.arguments(output, book_id=book_id)):
+                    self.assertEqual(scaffold_book.main(), 1)
+                self.assertFalse(output.exists())
 
 
 if __name__ == "__main__":

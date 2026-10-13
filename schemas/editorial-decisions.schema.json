@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://frbread7.github.io/books/schemas/editorial-decisions.schema.json",
+  "title": "Editorial differentiation assessments",
+  "type": "object",
+  "required": ["schemaVersion", "asOf", "decisions"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "asOf": { "type": "string", "format": "date" },
+    "decisions": { "type": "array", "items": { "$ref": "#/$defs/project" } }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["bookId", "observedSha", "sourceUrl", "sourcePaths"],
+      "properties": {
+        "bookId": { "type": "string" },
+        "observedSha": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "sourcePaths": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+      },
+      "additionalProperties": true
+    },
+    "project": {
+      "type": "object",
+      "required": ["projectId", "title", "branch", "outcome", "targetAudience", "overlapEvidence", "uniqueValue", "developmentStrategy", "reusePlan", "confidence", "unresolvedQuestions", "sourceRevisions", "reviewedAt", "reviewedAgainstCatalogSha"],
+      "properties": {
+        "projectId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "title": { "type": "string", "minLength": 1 },
+        "branch": { "enum": ["semiconductor", "mathematics", "kids-family"] },
+        "outcome": { "enum": ["reference-only", "companion-book", "adapt-and-extend", "original-deeper-treatment", "defer-or-cancel"] },
+        "targetAudience": { "type": "string", "minLength": 1 },
+        "overlapEvidence": { "type": "string", "minLength": 1 },
+        "uniqueValue": { "type": "string", "minLength": 1 },
+        "developmentStrategy": { "type": "string", "minLength": 1 },
+        "reusePlan": { "type": "array", "items": { "type": "string" } },
+        "confidence": { "enum": ["high", "medium", "low"] },
+        "unresolvedQuestions": { "type": "array", "items": { "type": "string" } },
+        "sourceRevisions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/source" } },
+        "reviewedAt": { "type": "string", "format": "date" },
+        "reviewedAgainstCatalogSha": { "type": "string", "pattern": "^[0-9a-f]{40}$" }
+      },
+      "additionalProperties": true
+    }
+  }
+}

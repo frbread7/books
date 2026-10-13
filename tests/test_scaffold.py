@@ -11,7 +11,7 @@ SCRIPT = ROOT / "tools" / "scaffold_book.py"
 
 class ScaffoldTests(unittest.TestCase):
     def arguments(self, out):
-        return [sys.executable, str(SCRIPT), "--id", "devicephysicsbook", "--title-en", "Device Physics", "--title-ko", "소자 물리", "--subtitle-en", "Semiconductor physics", "--subtitle-ko", "반도체 물리", "--description-en", "A foundations text.", "--description-ko", "기초 교재입니다.", "--repository-url", "https://github.com/frbread7/devicephysicsbook", "--production-url", "https://frbread7.github.io/devicephysicsbook/", "--out", str(out)]
+        return [sys.executable, str(SCRIPT), "--id", "fabcontrolbook", "--title-en", "Fab Control", "--title-ko", "팹 제어", "--subtitle-en", "Manufacturing process control", "--subtitle-ko", "제조 공정 제어", "--description-en", "A manufacturing process control text.", "--description-ko", "제조 공정 제어 교재입니다.", "--repository-url", "https://github.com/frbread7/fabcontrolbook", "--production-url", "https://frbread7.github.io/fabcontrolbook/", "--out", str(out)]
 
     def test_scaffold_creates_in_progress_separate_book(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -27,7 +27,7 @@ class ScaffoldTests(unittest.TestCase):
             self.assertNotIn("ubuntu-latest", workflow)
             self.assertNotIn("actions/checkout@v4", workflow)
             self.assertTrue((output / "site/index.html").is_file())
-            self.assertTrue((output / "site/assets/covers/devicephysicsbook.svg").is_file())
+            self.assertTrue((output / "site/assets/covers/fabcontrolbook.svg").is_file())
             site_notice = output / "site/LICENSE-AND-ATTRIBUTION.md"
             self.assertTrue(site_notice.is_file())
             self.assertEqual(site_notice.read_text(encoding="utf-8"), (output / "LICENSE-AND-ATTRIBUTION.md").read_text(encoding="utf-8"))

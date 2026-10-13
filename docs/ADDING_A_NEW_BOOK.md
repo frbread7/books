@@ -2,6 +2,32 @@
 
 Each textbook lives in its own repository and deploys independently. My Library stores and validates a manifest, generates discovery indexes, and links to the textbook; it does not copy chapters or deploy the book for you.
 
+## 0. Refresh references and define unique value
+
+The weekly monitor detects upstream source changes; it does not decide to reuse, defer, or publish content. **Immediately before substantial authoring**, run a read-only monitor refresh and inspect both the concise report and machine-readable deltas:
+
+```sh
+python3 tools/reference_intelligence.py monitor \
+  --baseline catalog/reference-intelligence/inventory.json \
+  --decisions catalog/reference-intelligence/editorial-decisions.json \
+  --output-dir /tmp/my-library-reference-preflight
+cat /tmp/my-library-reference-preflight/report.md
+python3 -m json.tool /tmp/my-library-reference-preflight/changes.json | less
+python3 -m json.tool /tmp/my-library-reference-preflight/observed-inventory.json | less
+```
+
+If a relevant source revision, chapter path, license, notice, or central catalog entry changed, inspect its linked diff and rights files before recording a decision. Refresh only the affected project's `sourceRevisions` from `observed-inventory.json` (full current SHA, pinned source URL, and paths present in that snapshot) and update `reviewedAgainstCatalogSha` when the central catalog changed. Do not blindly copy new SHAs: the monitor observes revisions but does not review or accept them. Once editorial review is complete, advance the checked-in reviewed inventory and decisions together; validate the target project against that refreshed inventory:
+
+```sh
+python3 tools/reference_intelligence.py review-project \
+  --project-id NEWBOOKID \
+  --inventory catalog/reference-intelligence/inventory.json \
+  --decisions catalog/reference-intelligence/editorial-decisions.json
+python3 tools/reference_intelligence.py validate
+```
+
+For a new ID, record its audience, unique value, overlap, development strategy, exact source commit SHAs/paths, reuse plan, and unresolved questions in `catalog/reference-intelligence/editorial-decisions.json`. Select an explicit editorial outcome. `docs/REFERENCE_REVIEW_TEMPLATE.md` provides the review record. `scaffold_book.py` checks that decision before creating files, and the Book Factory checks again when registering a new active book or promoting it to published. If any content, code, image, data, or other material may be reused, complete its file-level attribution mapping using `docs/COPYRIGHT_AND_PROVENANCE.md`.
+
 ## 1. Create the independent textbook
 
 From the parent directory that contains the `books/` checkout, scaffold a new repository. Substitute a unique ID, accurate metadata, repository URL, and production URL; choose every language that will actually be deployed.

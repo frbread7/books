@@ -1,0 +1,385 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-13",
+  "decisions": [
+    {
+      "projectId": "fabcontrolbook",
+      "title": "FabControlBook",
+      "branch": "semiconductor",
+      "outcome": "original-deeper-treatment",
+      "targetAudience": "Fab process-control, equipment, yield, and integration engineers.",
+      "overlapEvidence": "YieldBook statistics/signatures/classification/commonality and TestBook DC/limits chapters cover foundations, not an FDC/APC control-loop course.",
+      "uniqueValue": "Control plans, signal lineage, equipment/process monitoring, alarm quality, FDC/APC response, change control, false alarms, and evidence selection.",
+      "developmentStrategy": "Write original control engineering material with labeled synthetic series; link to YieldBook and TestBook for foundations.",
+      "reusePlan": [
+        "Reference-only by default; any adaptation requires exact path/SHA/license/notice/change records."
+      ],
+      "confidence": "high",
+      "unresolvedQuestions": [],
+      "sourceRevisions": [
+        {
+          "bookId": "yieldbook",
+          "observedSha": "2acd8844633274ebea91e808c4a22ed4035549b8",
+          "sourceUrl": "https://github.com/geniuskey/yieldbook/tree/2acd8844633274ebea91e808c4a22ed4035549b8",
+          "sourcePaths": [
+            "chapters/statistics.html",
+            "chapters/signature.html",
+            "chapters/classify.html",
+            "chapters/commonality.html"
+          ]
+        },
+        {
+          "bookId": "testbook",
+          "observedSha": "a69997b5bee01346d44c864bed2cc3304b8571e5",
+          "sourceUrl": "https://github.com/geniuskey/testbook/tree/a69997b5bee01346d44c864bed2cc3304b8571e5",
+          "sourcePaths": [
+            "chapters/limits.html",
+            "chapters/dc.html"
+          ]
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "reviewedAgainstCatalogSha": "f51e57c03c6bd42c6bccc976feb75126483ebdfd",
+      "myLibraryReferences": [
+        {
+          "workId": "watbook",
+          "repositoryUrl": "https://github.com/frbread7/watbook",
+          "sourceRevision": "63b0b0d14c2ea779b3314e8fef4a64a3e0c861da"
+        }
+      ]
+    },
+    {
+      "projectId": "thinfilmbook",
+      "title": "ThinFilmBook",
+      "branch": "semiconductor",
+      "outcome": "original-deeper-treatment",
+      "targetAudience": "Deposition, epitaxy, materials, and integration engineers.",
+      "overlapEvidence": "ProcessBook deposition is a broad CVD/ALD/PVD/epitaxy survey; DopingBook adds thermal-budget/metrology context, not a full interface/growth-physics course.",
+      "uniqueValue": "Deepen surface kinetics, nucleation, conformality, epitaxy, interfaces, stress, defects, and film/device consequences.",
+      "developmentStrategy": "Create original models/figures and validate each quantitative claim against public sources; link to ProcessBook and ProcessIntegrationBook.",
+      "reusePlan": [
+        "Reference-only unless particular licensed files are separately cleared."
+      ],
+      "confidence": "high",
+      "unresolvedQuestions": [],
+      "sourceRevisions": [
+        {
+          "bookId": "processbook",
+          "observedSha": "f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed",
+          "sourceUrl": "https://github.com/geniuskey/processbook/tree/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed",
+          "sourcePaths": [
+            "chapters/deposition.html",
+            "chapters/advanced.html",
+            "chapters/integration.html"
+          ]
+        },
+        {
+          "bookId": "dopingbook",
+          "observedSha": "944526d6c2bb790d5d8f1e08d2614e1c5de22c3c",
+          "sourceUrl": "https://github.com/geniuskey/dopingbook/tree/944526d6c2bb790d5d8f1e08d2614e1c5de22c3c",
+          "sourcePaths": [
+            "chapters/budget.html",
+            "chapters/metrology.html"
+          ]
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "reviewedAgainstCatalogSha": "f51e57c03c6bd42c6bccc976feb75126483ebdfd",
+      "myLibraryReferences": [
+        {
+          "workId": "processintegrationbook",
+          "repositoryUrl": "https://github.com/frbread7/processintegrationbook",
+          "sourceRevision": "7c1fbd44e4993b61c6eeb3fe6e11eaec1c213577"
+        }
+      ]
+    },
+    {
+      "projectId": "reliabilityengineeringbook",
+      "title": "ReliabilityEngineeringBook",
+      "branch": "semiconductor",
+      "outcome": "original-deeper-treatment",
+      "targetAudience": "Semiconductor device, process, product, and reliability engineers.",
+      "overlapEvidence": "FailureBook covers mechanisms/localization/root cause; TCADBook selected high-field effects; TestBook burn-in; DeviceBook device foundations. They do not form a unified mechanism-to-lifetime/qualification sequence.",
+      "uniqueValue": "Develop degradation physics, acceleration-model assumptions, censored lifetime data, uncertainty, qualification design, field-to-test limits, and technology context.",
+      "developmentStrategy": "Author original examples; link to FailureBook for FA and DeviceBook/TCADBook for physics. Label synthetic or uncalibrated models.",
+      "reusePlan": [
+        "Reference-only by default; record exact material and MIT notices before any code adaptation."
+      ],
+      "confidence": "high",
+      "unresolvedQuestions": [],
+      "sourceRevisions": [
+        {
+          "bookId": "failurebook",
+          "observedSha": "f8cae35a3637acb963c6156b6317b4bb124638e8",
+          "sourceUrl": "https://github.com/geniuskey/failurebook/tree/f8cae35a3637acb963c6156b6317b4bb124638e8",
+          "sourcePaths": [
+            "chapters/mechanisms.html",
+            "chapters/rootcause.html",
+            "chapters/test.html"
+          ]
+        },
+        {
+          "bookId": "tcadbook",
+          "observedSha": "56d3c14f757a55caed574e720069cfdf2b7a2bf6",
+          "sourceUrl": "https://github.com/geniuskey/tcadbook/tree/56d3c14f757a55caed574e720069cfdf2b7a2bf6",
+          "sourcePaths": [
+            "chapters/highfield.html",
+            "chapters/calibration.html"
+          ]
+        },
+        {
+          "bookId": "testbook",
+          "observedSha": "a69997b5bee01346d44c864bed2cc3304b8571e5",
+          "sourceUrl": "https://github.com/geniuskey/testbook/tree/a69997b5bee01346d44c864bed2cc3304b8571e5",
+          "sourcePaths": [
+            "chapters/burnin.html"
+          ]
+        },
+        {
+          "bookId": "devicebook",
+          "observedSha": "32f52a3961c2a3399659cd4279c0538391c34f97",
+          "sourceUrl": "https://github.com/geniuskey/devicebook/tree/32f52a3961c2a3399659cd4279c0538391c34f97",
+          "sourcePaths": [
+            "chapters/mosfet.html",
+            "chapters/pn.html"
+          ]
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "reviewedAgainstCatalogSha": "f51e57c03c6bd42c6bccc976feb75126483ebdfd",
+      "myLibraryReferences": [
+        {
+          "workId": "pmicbook",
+          "repositoryUrl": "https://github.com/frbread7/pmicbook",
+          "sourceRevision": "da37b183c559d35fcb7f6471c86c513b104a7020"
+        }
+      ]
+    },
+    {
+      "projectId": "algebrabook",
+      "title": "AlgebraBook",
+      "branch": "mathematics",
+      "outcome": "original-deeper-treatment",
+      "targetAudience": "Secondary learners who need a systematic first algebra course.",
+      "overlapEvidence": "MathBook is an applied collection with selected limits, linear algebra, complex numbers, probability, and optimization, not a first elementary algebra course. Linear algebra is a distinct subject.",
+      "uniqueValue": "Teach expressions, equations, inequalities, functions, graphs, systems, polynomials, and modeling progressively.",
+      "developmentStrategy": "Write an original course; keep elementary algebra distinct from linear and abstract algebra; link MathBook for later applications.",
+      "reusePlan": [
+        "Reference-only by default; no text, figures, questions, or code reused without file-level clearance."
+      ],
+      "confidence": "high",
+      "unresolvedQuestions": [],
+      "sourceRevisions": [
+        {
+          "bookId": "mathbook",
+          "observedSha": "ca108356c078b119f43aee56430cca7be10d2972",
+          "sourceUrl": "https://github.com/geniuskey/mathbook/tree/ca108356c078b119f43aee56430cca7be10d2972",
+          "sourcePaths": [
+            "chapters/limits.html",
+            "chapters/linalg.html",
+            "chapters/geometry.html",
+            "chapters/optimization.html"
+          ]
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "reviewedAgainstCatalogSha": "f51e57c03c6bd42c6bccc976feb75126483ebdfd",
+      "scopeBoundary": "Elementary algebra is distinct from linear algebra and abstract algebra."
+    },
+    {
+      "projectId": "calculusbook",
+      "title": "CalculusBook",
+      "branch": "mathematics",
+      "outcome": "original-deeper-treatment",
+      "targetAudience": "Advanced secondary and university science/engineering learners.",
+      "overlapEvidence": "MathBook covers limits, ODE, Fourier, optimization, and numerics as application chapters, not a systematic single/multivariable calculus course.",
+      "uniqueValue": "Build a progression through limits, derivatives, integrals, series, multivariable/vector calculus, and explicit modeling assumptions.",
+      "developmentStrategy": "Create original lessons/examples and checked visualization; refer to MathBook for applications and connections.",
+      "reusePlan": [
+        "Reference-only by default; do not copy prose, figures, questions, or code."
+      ],
+      "confidence": "high",
+      "unresolvedQuestions": [],
+      "sourceRevisions": [
+        {
+          "bookId": "mathbook",
+          "observedSha": "ca108356c078b119f43aee56430cca7be10d2972",
+          "sourceUrl": "https://github.com/geniuskey/mathbook/tree/ca108356c078b119f43aee56430cca7be10d2972",
+          "sourcePaths": [
+            "chapters/limits.html",
+            "chapters/ode.html",
+            "chapters/fourier.html",
+            "chapters/optimization.html",
+            "chapters/numerics.html"
+          ]
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "reviewedAgainstCatalogSha": "f51e57c03c6bd42c6bccc976feb75126483ebdfd"
+    },
+    {
+      "projectId": "engineeringmathbook",
+      "title": "EngineeringMathBook",
+      "branch": "mathematics",
+      "outcome": "defer-or-cancel",
+      "targetAudience": "Engineering students needing applied undergraduate mathematics.",
+      "overlapEvidence": "MathBook already spans complex values, linear algebra, Fourier, ODEs, probability, optimization, and numerics; My Library separately plans books in most of those areas.",
+      "uniqueValue": "A later bridge course might connect tools to engineering problems, but no bounded audience or exclusive outcomes currently distinguish it.",
+      "developmentStrategy": "Defer and use MathBook plus the focused planned sequence. Reconsider only if a distinct capstone course is evidenced.",
+      "reusePlan": [
+        "Use reference links only; do not scaffold/register until an updated review defines its unique purpose."
+      ],
+      "confidence": "high",
+      "unresolvedQuestions": [
+        "Would a cross-book capstone path serve this need better than another standalone textbook?"
+      ],
+      "sourceRevisions": [
+        {
+          "bookId": "mathbook",
+          "observedSha": "ca108356c078b119f43aee56430cca7be10d2972",
+          "sourceUrl": "https://github.com/geniuskey/mathbook/tree/ca108356c078b119f43aee56430cca7be10d2972",
+          "sourcePaths": [
+            "chapters/linalg.html",
+            "chapters/ode.html",
+            "chapters/probability.html",
+            "chapters/numerics.html",
+            "chapters/optimization.html"
+          ]
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "reviewedAgainstCatalogSha": "f51e57c03c6bd42c6bccc976feb75126483ebdfd"
+    },
+    {
+      "projectId": "heavyvehiclebook",
+      "title": "HeavyVehicleBook — Little Builders",
+      "branch": "kids-family",
+      "outcome": "companion-book",
+      "targetAudience": "Preschool children around 3–5 reading with a caregiver.",
+      "overlapEvidence": "Upstream CarBook is adult automotive engineering: 22 chapters and 140 simulator files on engine, dynamics, braking, EV, and ADAS. No preschool construction-vehicle book was found in the 43-record catalog.",
+      "uniqueValue": "A read-aloud story can weave in a few concepts such as colors, counting, shapes, size, vocabulary, and cause/effect.",
+      "developmentStrategy": "Write original bilingual stories/art and skippable interactions; connect existing concept IDs; cite vehicle facts.",
+      "reusePlan": [
+        "Do not adapt adult CarBook. The existing pilot prose has no reuse license; choose and document rights before publication."
+      ],
+      "confidence": "high",
+      "unresolvedQuestions": [],
+      "sourceRevisions": [
+        {
+          "bookId": "carbook",
+          "observedSha": "1c1f3f5c832360ac03079449863bda089e85fd29",
+          "sourceUrl": "https://github.com/geniuskey/carbook/tree/1c1f3f5c832360ac03079449863bda089e85fd29",
+          "sourcePaths": [
+            "chapters/overview.html",
+            "chapters/dynamics.html",
+            "chapters/body.html",
+            "chapters/engine.html"
+          ]
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "reviewedAgainstCatalogSha": "f51e57c03c6bd42c6bccc976feb75126483ebdfd"
+    },
+    {
+      "projectId": "carbook",
+      "title": "CarBook — Little Explorers",
+      "branch": "kids-family",
+      "outcome": "companion-book",
+      "targetAudience": "Preschool children and caregivers; distinct from the adult engineering title.",
+      "overlapEvidence": "Upstream CarBook (22 chapters, 140 simulator files) teaches automotive engineering, not preschool picture-book reading.",
+      "uniqueValue": "A child-centered story can explore movement, color, counting, shape, comparison, and Korean/English vocabulary without claiming professional depth.",
+      "developmentStrategy": "Create original story/art, clearly disambiguate title/cover/metadata, and link concepts to future study.",
+      "reusePlan": [
+        "Companion only; reference the engineering book by link, without adapting its text, figures, code, or simulators."
+      ],
+      "confidence": "high",
+      "unresolvedQuestions": [],
+      "sourceRevisions": [
+        {
+          "bookId": "carbook",
+          "observedSha": "1c1f3f5c832360ac03079449863bda089e85fd29",
+          "sourceUrl": "https://github.com/geniuskey/carbook/tree/1c1f3f5c832360ac03079449863bda089e85fd29",
+          "sourcePaths": [
+            "chapters/overview.html",
+            "chapters/dynamics.html",
+            "chapters/engine.html",
+            "chapters/sensors.html"
+          ]
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "reviewedAgainstCatalogSha": "f51e57c03c6bd42c6bccc976feb75126483ebdfd",
+      "disambiguation": "Not the existing geniuskey/CarBook engineering textbook."
+    },
+    {
+      "projectId": "dinosaurbook",
+      "title": "DinosaurBook — Little Explorers",
+      "branch": "kids-family",
+      "outcome": "companion-book",
+      "targetAudience": "Preschool and early-elementary children with an adult.",
+      "overlapEvidence": "No dinosaur/paleontology title occurs in the 43-entry catalog. BodyBook covers human physiology, not dinosaurs, fossils, or prehistoric life.",
+      "uniqueValue": "An original story could connect curiosity with fossil evidence, time, habitat, comparison, and scientific uncertainty, leading toward biology/Earth history.",
+      "developmentStrategy": "Create original story/art and fact-check species and timelines against public science/museum sources.",
+      "reusePlan": [
+        "No upstream text identified for reuse; cite facts and clear illustration rights before release."
+      ],
+      "confidence": "medium",
+      "unresolvedQuestions": [
+        "Which public museum/science sources should ground the first story?"
+      ],
+      "sourceRevisions": [
+        {
+          "bookId": "bodybook",
+          "observedSha": "2a7e5315b5f774f6a0f8b6351e78c87d76bf7021",
+          "sourceUrl": "https://github.com/geniuskey/bodybook/tree/2a7e5315b5f774f6a0f8b6351e78c87d76bf7021",
+          "sourcePaths": [
+            "chapters/overview.html",
+            "chapters/cell.html"
+          ]
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "reviewedAgainstCatalogSha": "f51e57c03c6bd42c6bccc976feb75126483ebdfd"
+    },
+    {
+      "projectId": "robotbook",
+      "title": "RobotBook — Little Explorers",
+      "branch": "kids-family",
+      "outcome": "companion-book",
+      "targetAudience": "Preschool children and caregivers.",
+      "overlapEvidence": "DigitalBook covers gates/state machines/HDL and timing; ComputerBook covers computing. Upstream backlog lists RobotBook only as an idea; neither is a preschool read-aloud book.",
+      "uniqueValue": "An original story may explore movement, patterns, sequences, and helpful instructions without claiming robots have human feelings or making reading a coding quiz.",
+      "developmentStrategy": "Create original prose/art with optional interactions; link to DigitalBook/ComputerBook for later study.",
+      "reusePlan": [
+        "Reference advanced texts by link only; no code, diagram, quiz, or UI adaptation."
+      ],
+      "confidence": "high",
+      "unresolvedQuestions": [
+        "Which vocabulary is age-appropriate without turning the story into a programming lesson?"
+      ],
+      "sourceRevisions": [
+        {
+          "bookId": "digitalbook",
+          "observedSha": "3bbeadd67c8f791d42cd181d3686f57b07d60827",
+          "sourceUrl": "https://github.com/geniuskey/digitalbook/tree/3bbeadd67c8f791d42cd181d3686f57b07d60827",
+          "sourcePaths": [
+            "chapters/boolean.html",
+            "chapters/fsm.html",
+            "chapters/hdl.html"
+          ]
+        },
+        {
+          "bookId": "computerbook",
+          "observedSha": "e2f68991156cdd4250a9d513706d763e68c03b42",
+          "sourceUrl": "https://github.com/geniuskey/computerbook/tree/e2f68991156cdd4250a9d513706d763e68c03b42",
+          "sourcePaths": [
+            "chapters/intro.html",
+            "chapters/cpu.html"
+          ]
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "reviewedAgainstCatalogSha": "f51e57c03c6bd42c6bccc976feb75126483ebdfd"
+    }
+  ]
+}

@@ -29,6 +29,71 @@ class BookFactoryTests(unittest.TestCase):
         self.assertEqual(result["chapterCount"], 25)
         self.assertEqual(len(result["experiments"]), 4)
 
+    def test_reference_review_gate_requires_differentiation_before_project_start(self):
+        decision = book_factory.validate_reference_project("fabcontrolbook")
+        self.assertEqual(decision["outcome"], "original-deeper-treatment")
+        with self.assertRaisesRegex(book_factory.ManifestError, "does not authorize a separate book project"):
+            book_factory.validate_reference_project("engineeringmathbook")
+        with self.assertRaisesRegex(book_factory.ManifestError, "add a reviewed editorial differentiation record"):
+            book_factory.validate_reference_project("unreviewedbook")
+
+    def test_planned_to_active_update_requires_differentiation_review(self):
+        with tempfile.TemporaryDirectory() as directory:
+            manifests = Path(directory) / "catalog" / "books"
+            manifests.mkdir(parents=True)
+            current = deepcopy(self.book)
+            current.update({"id": "samplebook", "slug": "samplebook", "status": "planned"})
+            current.pop("publicationEvidence")
+            target = manifests / "samplebook.json"
+            target.write_text(json.dumps(current), encoding="utf-8")
+            incoming_path = Path(directory) / "incoming.json"
+            incoming = deepcopy(current)
+            incoming["status"] = "in-progress"
+            incoming_path.write_text(json.dumps(incoming), encoding="utf-8")
+            with patch.object(book_factory, "MANIFESTS", manifests), patch.object(book_factory, "validate_reference_project", side_effect=book_factory.ManifestError("review required")) as gate:
+                with self.assertRaisesRegex(book_factory.ManifestError, "review required"):
+                    book_factory.register(incoming_path, update=True)
+                gate.assert_called_once_with("samplebook")
+
+    def test_published_provenance_gate_requires_review_and_cleared_rights(self):
+        book_factory.validate_published_provenance(self.book)
+        provenance = json.loads(book_factory.PROVENANCE_AUDIT.read_text(encoding="utf-8"))
+        pmic = next(work for work in provenance["works"] if work["workId"] == "pmicbook")
+        pmic["reuseRecords"][0]["classification"] = "license-uncertain"
+        pmic["reuseRecords"][0]["followUpRequired"] = "Verify the exact source file rights before release."
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "provenance.json"
+            path.write_text(json.dumps(provenance), encoding="utf-8")
+            with patch.object(book_factory, "PROVENANCE_AUDIT", path):
+                with self.assertRaisesRegex(book_factory.ManifestError, "unresolved license uncertainty"):
+                    book_factory.validate_published_provenance(self.book)
+
+    def test_published_provenance_gate_rejects_empty_assessment_list(self):
+        provenance = json.loads(book_factory.PROVENANCE_AUDIT.read_text(encoding="utf-8"))
+        pmic = next(work for work in provenance["works"] if work["workId"] == "pmicbook")
+        pmic["reuseRecords"] = []
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "provenance.json"
+            path.write_text(json.dumps(provenance), encoding="utf-8")
+            with patch.object(book_factory, "PROVENANCE_AUDIT", path):
+                with self.assertRaisesRegex(book_factory.ManifestError, "reuseRecords.*too short"):
+                    book_factory.validate_published_provenance(self.book)
+
+    def test_published_provenance_gate_rejects_incomplete_adaptation_and_follow_up_action(self):
+        for change, expected in (("notice", "requiredNotices"), ("action", "recommendedAction")):
+            provenance = json.loads(book_factory.PROVENANCE_AUDIT.read_text(encoding="utf-8"))
+            pmic = next(work for work in provenance["works"] if work["workId"] == "pmicbook")
+            if change == "notice":
+                pmic["reuseRecords"][0].pop("requiredNotices")
+            else:
+                next(finding for finding in pmic["findings"] if finding["severity"] == "P2")["recommendedAction"] = "   "
+            with self.subTest(change=change), tempfile.TemporaryDirectory() as directory:
+                path = Path(directory) / "provenance.json"
+                path.write_text(json.dumps(provenance), encoding="utf-8")
+                with patch.object(book_factory, "PROVENANCE_AUDIT", path):
+                    with self.assertRaisesRegex(book_factory.ManifestError, expected):
+                        book_factory.validate_published_provenance(self.book)
+
     def test_duplicate_chapter_is_rejected(self):
         self.book["chapters"].append(self.book["chapters"][0])
         self.book["chapterCount"] += 1
@@ -163,7 +228,7 @@ class BookFactoryTests(unittest.TestCase):
             new_record.pop("publicationEvidence")
             new_source = root / "samplebook.json"
             new_source.write_text(json.dumps(new_record), encoding="utf-8")
-            with patch.object(book_factory, "MANIFESTS", manifests), patch.object(book_factory, "DATA", data):
+            with patch.object(book_factory, "MANIFESTS", manifests), patch.object(book_factory, "DATA", data), patch.object(book_factory, "validate_reference_project"):
                 book_factory.register(new_source, update=False)
                 registered = json.loads((manifests / "samplebook.json").read_text(encoding="utf-8"))
                 self.assertEqual(registered["id"], "samplebook")

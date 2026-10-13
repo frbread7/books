@@ -47,12 +47,14 @@ Contributions to the portal follow [CONTRIBUTING.md](CONTRIBUTING.md).
 - schemas/learning-journey.schema.json — curriculum-source, stage, strand, and concept-map schema.
 - schemas/kids-family.schema.json — bilingual family theme, story draft, proposal, and source-note schema.
 - tools/book_factory.py — read-only validation, index generation, and safe register/update command.
+- tools/reference_intelligence.py — incremental, deterministic upstream source inventory and differentiation/provenance checks.
 - tools/verify_experiments.py — bounded live HTTPS checks for published experiment links and fragments.
 - book-starter/ and tools/scaffold_book.py — independent textbook starter.
 - tests/ — data/static checks and project-prefix Playwright journeys.
 
 See docs/PRODUCT_VISION.md, docs/ARCHITECTURE.md, docs/ROADMAP.md, docs/USER_MANUAL.md, docs/DEPLOYMENT.md, and docs/BOOK_FACTORY.md.
 For lifelong learning sources and specifications, see docs/LEARNING_JOURNEY.md, docs/CURRICULUM_SOURCES.md, docs/MATHEMATICS_ROADMAP.md, docs/CURIOSITYBOOK_SPEC.md, docs/KIDS_FAMILY_PORTAL_SPEC.md, and docs/HEAVYVEHICLEBOOK_PILOT.md.
+For upstream change monitoring, differentiation, and file-level rights handling, see docs/REFERENCE_INTELLIGENCE.md, docs/REFERENCE_OVERLAP_FRAMEWORK.md, docs/COPYRIGHT_AND_PROVENANCE.md, and docs/PROVENANCE_AUDIT.md.
 
 ## License and reference
 

@@ -89,3 +89,21 @@ The textbook repository stays separate and is not changed by this workflow.
 7. Commit and deploy My Library through its Actions workflow.
 
 The exact worked sequence is documented in docs/ADDING_A_NEW_BOOK.md.
+
+## Reference and provenance review gate
+
+Before beginning substantial new content, validate and inspect the recorded editorial decision:
+
+~~~sh
+python3 tools/reference_intelligence.py validate
+python3 tools/reference_intelligence.py monitor \
+  --baseline catalog/reference-intelligence/inventory.json \
+  --decisions catalog/reference-intelligence/editorial-decisions.json \
+  --output-dir /tmp/my-library-reference-preflight
+cat /tmp/my-library-reference-preflight/report.md
+python3 tools/reference_intelligence.py review-project --project-id fabcontrolbook
+~~~
+
+For a new project, inspect `observed-inventory.json` and the report before scaffolding. If a relevant source changed, inspect its exact diff and rights files, refresh that project's source SHA/URL/paths and catalog pin after editorial review, and validate against the refreshed reviewed inventory; do not blindly accept a monitor observation. Add an assessment to `catalog/reference-intelligence/editorial-decisions.json` before scaffolding. Record the target audience, unique value, outcome, reuse plan, and unresolved questions. `scaffold_book.py` enforces this local decision before creating files; the Book Factory checks it again when a planned/archived record becomes active and when an in-progress record becomes published. The outcome must authorize a separate book. A published registration must also have a non-empty provenance audit containing at least one explicit assessment; `original` records need source location, destination, and rights status; `third-party-material` records need source, creator, license, rights status, restrictions, required notices, destination, and notice location; CC BY/MIT adaptations require verified notice and translation-status records. GitHub sources require a pinned full SHA for adaptations/reference-only, while external non-Git sources may use stable HTTPS URLs. Unresolved P0/P1 findings and any `license-uncertain` reuse block publication. A recorded P2 follow-up may remain with a concrete action and transparent limitation.
+
+These checks validate the process and record shape. They do not certify that a license applies to a specific asset or provide legal advice. Apply the file-level process in `docs/COPYRIGHT_AND_PROVENANCE.md`; existing books remain in their own repositories.

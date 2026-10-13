@@ -13,11 +13,15 @@ from pathlib import Path
 from urllib.parse import unquote, urlparse
 
 from jsonschema import Draft202012Validator, FormatChecker
+import reference_intelligence as reference_gate
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFESTS = ROOT / "catalog" / "books"
 DATA = ROOT / "site" / "data"
 SCHEMA = ROOT / "schemas" / "book.schema.json"
+REFERENCE_INVENTORY = ROOT / "catalog" / "reference-intelligence" / "inventory.json"
+EDITORIAL_DECISIONS = ROOT / "catalog" / "reference-intelligence" / "editorial-decisions.json"
+PROVENANCE_AUDIT = ROOT / "catalog" / "reference-intelligence" / "provenance-audit.json"
 STATUSES = {"planned", "in-progress", "published", "archived"}
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
@@ -256,6 +260,34 @@ def validate_manifest(book):
     return book
 
 
+def validate_reference_project(project_id):
+    """Require a current, explicit differentiation decision before a new project is registered."""
+    try:
+        inventory = reference_gate.load_json(REFERENCE_INVENTORY)
+        decisions = reference_gate.load_json(EDITORIAL_DECISIONS)
+        return reference_gate.validate_project_gate(project_id, decisions, inventory)
+    except (reference_gate.ReferenceError, OSError, json.JSONDecodeError) as exc:
+        fail(f"reference/differentiation review gate: {exc}")
+
+
+def validate_published_provenance(book):
+    """Fail closed when a published catalog entry lacks reviewed rights/provenance records."""
+    try:
+        provenance = reference_gate.load_json(PROVENANCE_AUDIT)
+        reference_gate.validate_provenance_records(provenance)
+    except (reference_gate.ReferenceError, OSError, json.JSONDecodeError) as exc:
+        fail(f"publication provenance gate: {exc}")
+    record = next((work for work in provenance["works"] if work["workId"] == book["id"]), None)
+    if record is None:
+        fail(f"publication provenance gate: {book['id']} has no source/provenance audit record")
+    if record["reviewStatus"] not in {"reviewed", "follow-up-required"}:
+        fail(f"publication provenance gate: {book['id']} has unresolved review status")
+    if any(str(finding.get("severity", "")).upper() in {"P0", "P1"} for finding in record["findings"]):
+        fail(f"publication provenance gate: {book['id']} has an unresolved P0/P1 finding")
+    if any(source.get("classification") == "license-uncertain" for source in record["reuseRecords"]):
+        fail(f"publication provenance gate: {book['id']} has unresolved license uncertainty")
+
+
 def all_books():
     books = []
     ids, slugs = set(), set()
@@ -277,6 +309,8 @@ def all_books():
         unpublished = sorted(book_id for book_id in references if by_id[book_id]["status"] != "published")
         if unpublished:
             fail(f"{book['id']} references books that are not published: {', '.join(unpublished)}")
+        if book["status"] == "published":
+            validate_published_provenance(book)
     return books
 
 
@@ -680,6 +714,15 @@ def register(source: Path, update: bool):
     if update:
         if current.get("id") != incoming["id"]:
             fail("update cannot change a record's id")
+    needs_differentiation_review = (
+        incoming["status"] == "in-progress" and (not update or current.get("status") in {"planned", "archived"})
+    ) or (
+        incoming["status"] == "published" and (not update or current.get("status") != "published")
+    )
+    if needs_differentiation_review:
+        validate_reference_project(incoming["id"])
+    if incoming["status"] == "published":
+        validate_published_provenance(incoming)
     for other_path in MANIFESTS.glob("*.json"):
         if other_path == target:
             continue

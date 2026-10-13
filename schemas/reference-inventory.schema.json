@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://frbread7.github.io/books/schemas/reference-inventory.schema.json",
+  "title": "Observed upstream reference inventory",
+  "type": "object",
+  "required": ["schemaVersion", "upstream", "books"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "upstream": {
+      "type": "object",
+      "required": ["repository", "website", "catalogPath", "catalogHeadSha", "lastSuccessfulInspectionAt", "entryCount", "publishedRepositoryCount", "observedFactsOnly", "centralSourceFiles", "githubApiLicenseSpdx"],
+      "properties": {
+        "repository": { "const": "https://github.com/geniuskey/books" },
+        "website": { "type": "string", "format": "uri" },
+        "catalogPath": { "type": "string" },
+        "catalogHeadSha": { "$ref": "#/$defs/sha" },
+        "catalogCommitUrl": { "type": ["string", "null"], "format": "uri" },
+        "catalogCommittedAt": { "type": ["string", "null"], "format": "date-time" },
+        "lastSuccessfulInspectionAt": { "type": "string", "format": "date-time" },
+        "entryCount": { "type": "integer", "minimum": 0 },
+        "publishedRepositoryCount": { "type": "integer", "minimum": 0 },
+        "observedFactsOnly": { "const": true },
+        "githubApiLicenseSpdx": { "type": "string" },
+        "centralSourceFiles": {
+          "type": "object",
+          "required": ["data/books.json", "data/editorial-backlog.json"],
+          "properties": {
+            "data/books.json": { "$ref": "#/$defs/centralSource" },
+            "data/editorial-backlog.json": { "$ref": "#/$defs/centralSource" }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "books": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": { "$ref": "#/$defs/book" }
+    }
+  },
+  "$defs": {
+    "sha": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "centralSource": {
+      "type": "object",
+      "required": ["available", "kind", "blobSha", "sourceUrl"],
+      "properties": {
+        "available": { "type": "boolean" },
+        "kind": { "enum": ["catalog", "editorial-backlog", "license", "rights-notice"] },
+        "blobSha": { "type": ["string", "null"], "pattern": "^[0-9a-f]{40}$" },
+        "size": { "type": ["integer", "null"], "minimum": 0 },
+        "sourceUrl": { "type": ["string", "null"], "format": "uri" },
+        "reviewedOn": { "type": ["string", "null"], "format": "date" },
+        "entryCount": { "type": "integer", "minimum": 0 },
+        "entries": { "type": "array", "items": { "type": "object", "required": ["id", "title", "subject", "status", "disposition", "targets", "entrySha256"], "properties": { "entrySha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" } } } }
+      },
+      "additionalProperties": true
+    },
+    "book": {
+      "type": "object",
+      "required": ["id", "title", "status", "subject", "topics", "repositoryUrl", "websiteUrl", "catalogSourceUrl", "catalogObservedAt", "originalAuthorPublisher", "observedFactsOnly", "repository", "chapters", "simulatorSourcePaths"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "title": { "type": "string", "minLength": 1 },
+        "subtitle": { "type": "string" },
+        "description": { "type": "string" },
+        "status": { "enum": ["published", "planned", "writing", "unknown"] },
+        "subject": { "type": "string" },
+        "audience": { "type": ["string", "null"] },
+        "topics": { "type": "array", "items": { "type": "string" } },
+        "catalogChapterCount": { "type": ["integer", "null"], "minimum": 0 },
+        "catalogSimulatorCount": { "type": ["integer", "null"], "minimum": 0 },
+        "repositoryUrl": { "type": ["string", "null"], "format": "uri" },
+        "websiteUrl": { "type": ["string", "null"], "format": "uri" },
+        "catalogFeaturedExperiments": { "type": "array" },
+        "catalogSourceUrl": { "type": "string", "format": "uri" },
+        "catalogObservedAt": { "type": "string", "format": "date-time" },
+        "originalAuthorPublisher": { "type": "string" },
+        "observedFactsOnly": { "const": true },
+        "repository": { "type": ["object", "null"] },
+        "repositoryAvailability": { "type": "object" },
+        "chapters": { "type": "array", "items": { "type": "object", "required": ["path", "title", "titleSource", "blobSha", "sourceUrl"] } },
+        "simulatorSourcePaths": { "type": "array", "items": { "type": "string" } },
+        "license": { "type": ["object", "null"] },
+        "bookMetadata": { "type": ["object", "null"] },
+        "distinctiveContributionSummary": {}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

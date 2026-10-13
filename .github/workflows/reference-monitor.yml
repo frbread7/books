@@ -1,0 +1,61 @@
+name: Monitor upstream references
+
+on:
+  schedule:
+    - cron: "17 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reference-intelligence-main
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    # workflow_dispatch can choose arbitrary refs. Only execute the script on
+    # the protected default branch because it receives the issue-write token.
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: main
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install the existing validation dependency
+        run: python -m pip install -r requirements.txt
+      - name: Validate reviewed baseline and provenance records
+        run: python3 tools/reference_intelligence.py validate
+      - name: Compare changed upstream source revisions
+        id: monitor
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: >-
+          python3 tools/reference_intelligence.py monitor
+          --persist-issue
+          --owner frbread7
+          --repo books
+          --output-dir reference-report
+          --github-output "$GITHUB_OUTPUT"
+      - name: Preserve complete machine-readable comparison
+        if: always() && steps.monitor.outcome != 'skipped'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: reference-intelligence-report
+          path: reference-report/
+          if-no-files-found: ignore
+          retention-days: 30
+      - name: Add concise report to the Actions summary
+        if: always() && steps.monitor.outcome == 'success'
+        run: |
+          head -c 38000 reference-report/report.md >> "$GITHUB_STEP_SUMMARY"
+          printf '\n\nNew changes in this run: `%s`; unresolved since reviewed baseline: `%s`.\n' \
+            '${{ steps.monitor.outputs.new_change_count }}' \
+            '${{ steps.monitor.outputs.unreviewed_change_count }}' >> "$GITHUB_STEP_SUMMARY"

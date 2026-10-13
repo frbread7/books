@@ -33,3 +33,9 @@ Future RFIC or MEMS scope remains an editorial choice, not two commitments. Comp
 ## Review status
 
 A scaffold or in-progress registration is not publication. Internal reviewer-agent assessment is an engineering quality gate, not external certification, foundry approval, or laboratory validation. Numerical model labels must distinguish illustrative, analytically checked, numerically cross-checked, and externally reference-checked work. Synthetic examples must be labeled as synthetic.
+
+## Reference and provenance gate
+
+Before starting a new independent book, record an evidence-based comparison with relevant upstream and My Library books in `catalog/reference-intelligence/editorial-decisions.json`. Pin repository SHAs and chapter/source paths, and choose `reference-only`, `companion-book`, `adapt-and-extend`, `original-deeper-treatment`, or `defer-or-cancel`. A new active registration requires a decision that supports a separate project. Before a record may be published, `catalog/reference-intelligence/provenance-audit.json` must have a reviewed record with no unresolved P0/P1 and no `license-uncertain` reuse classification.
+
+See `docs/REFERENCE_INTELLIGENCE.md` for monitoring, `docs/REFERENCE_OVERLAP_FRAMEWORK.md` for differentiation judgments, and `docs/COPYRIGHT_AND_PROVENANCE.md` for the file-level reuse and notice requirements. These are internal quality controls, not legal certification.

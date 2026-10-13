@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://frbread7.github.io/books/schemas/provenance-audit.schema.json",
+  "title": "My Library source provenance audit",
+  "type": "object",
+  "required": ["schemaVersion", "asOf", "works"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "asOf": { "type": "string", "format": "date" },
+    "works": { "type": "array", "items": { "$ref": "#/$defs/work" } }
+  },
+  "$defs": {
+    "reuseRecord": {
+      "type": "object",
+      "required": ["classification", "summary"],
+      "properties": {
+        "classification": { "enum": ["original", "reference-only", "cc-by-4.0-adaptation", "mit-code-reuse", "third-party-material", "license-uncertain"] },
+        "summary": { "type": "string", "minLength": 1 },
+        "sourceTitle": { "type": "string" },
+        "sourceAuthor": { "type": "string" },
+        "sourceRepository": { "type": "string", "format": "uri" },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "sourcePath": { "type": "string" },
+        "sourceCommitSha": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "licenseName": { "type": "string" },
+        "licenseUrl": { "type": "string", "format": "uri" },
+        "rightsStatus": { "type": "string", "minLength": 1 },
+        "restrictions": { "type": "string", "minLength": 1 },
+        "noticeLocation": { "type": "string", "minLength": 1 },
+        "requiredNotices": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "changesMade": { "type": "string" },
+        "translationStatus": { "type": "string" },
+        "sourceMappings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["sourcePath"],
+            "properties": {
+              "sourcePath": { "type": "string", "minLength": 1 },
+              "url": { "type": "string", "format": "uri" }
+            },
+            "additionalProperties": true
+          }
+        },
+        "destinationPath": { "type": "string" },
+        "licenseObservation": { "type": "string" },
+        "followUpRequired": { "type": "string" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "classification": { "const": "original" } }, "required": ["classification"] },
+          "then": { "required": ["sourcePath", "destinationPath", "rightsStatus"] }
+        },
+        {
+          "if": { "properties": { "classification": { "const": "third-party-material" } }, "required": ["classification"] },
+          "then": {
+            "required": ["sourceTitle", "sourceAuthor", "sourcePath", "destinationPath", "licenseName", "licenseUrl", "rightsStatus", "restrictions", "noticeLocation", "requiredNotices"],
+            "anyOf": [{ "required": ["sourceUrl"] }, { "required": ["sourceRepository"] }]
+          }
+        },
+        {
+          "if": { "properties": { "classification": { "const": "reference-only" } }, "required": ["classification"] },
+          "then": {
+            "required": ["sourceTitle", "sourceAuthor", "sourcePath", "destinationPath", "licenseObservation"],
+            "anyOf": [{ "required": ["sourceUrl"] }, { "required": ["sourceRepository"] }]
+          }
+        },
+        {
+          "if": { "properties": { "classification": { "enum": ["cc-by-4.0-adaptation", "mit-code-reuse"] } }, "required": ["classification"] },
+          "then": {
+          "required": ["sourceTitle", "sourceAuthor", "sourcePath", "destinationPath", "licenseName", "licenseUrl", "changesMade", "requiredNotices", "translationStatus"],
+            "anyOf": [{ "required": ["sourceUrl"] }, { "required": ["sourceRepository"] }]
+          }
+        }
+      ],
+      "additionalProperties": true
+    },
+    "finding": {
+      "type": "object",
+      "required": ["severity", "summary", "evidence", "recommendedAction"],
+      "properties": {
+        "severity": { "enum": ["P0", "P1", "P2", "P3", "informational"] },
+        "summary": { "type": "string" },
+        "evidence": { "type": "string" },
+        "recommendedAction": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    },
+    "work": {
+      "type": "object",
+      "required": ["workId", "workName", "workUrl", "auditScope", "reuseRecords", "findings", "reviewedAt", "reviewStatus"],
+      "properties": {
+        "workId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "workName": { "type": "string" },
+        "workUrl": { "type": "string", "format": "uri" },
+        "auditScope": { "type": "string" },
+        "reuseRecords": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/reuseRecord" } },
+        "findings": { "type": "array", "items": { "$ref": "#/$defs/finding" } },
+        "reviewedAt": { "type": "string", "format": "date" },
+        "reviewStatus": { "enum": ["reviewed", "follow-up-required", "unresolved"] }
+      },
+      "additionalProperties": true
+    }
+  }
+}
