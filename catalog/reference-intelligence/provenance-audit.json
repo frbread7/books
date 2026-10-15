@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-10-13",
+  "asOf": "2026-10-15",
   "works": [
     {
       "workId": "pmicbook",
@@ -647,6 +647,103 @@
       ],
       "reviewedAt": "2026-10-13",
       "reviewStatus": "follow-up-required"
+    },
+    {
+      "workId": "fabcontrolbook",
+      "workName": "FabControlBook",
+      "workUrl": "https://github.com/frbread7/fabcontrolbook",
+      "auditScope": "Read-only review of FabControlBook v1.0.0 source revision 2dfb22bf86759c0e273ec95e4d394f7e3255a366, LICENSE.md and scoped license files, docs/REFERENCE_REVIEW.md, docs/PROVENANCE_AND_REVIEW.md, and cited reference metadata. The record reflects project declarations and reviewed source paths; it is not a legal opinion or contributor-title certification.",
+      "reuseRecords": [
+        {
+          "classification": "original",
+          "summary": "The project describes its bilingual educational prose, original diagrams, worked examples, questions, and generated synthetic datasets as newly authored for FabControlBook. No upstream expression or dataset was identified as copied or adapted in the reviewed provenance records.",
+          "sourcePath": "content/en/chapters/*.html; content/ko/chapters/*.html; content/*/lab.html; art/control-hierarchy.svg; synthetic models and examples",
+          "destinationPath": "FabControlBook v1.0.0 production site",
+          "rightsStatus": "The project declares CC BY 4.0 for educational material and attributes it to frbread7 and contributors. No contributor assignment or ownership evidence is included; this audit does not certify every contributor's ownership or authority to license a contribution."
+        },
+        {
+          "classification": "original",
+          "summary": "The project describes its site, simulator, model, build, and test code as original software, separately licensed from educational content.",
+          "sourcePath": "assets/js/*.mjs; assets/js/site.js; assets/css/site.css; tools/build_site.py; tests; workflow",
+          "destinationPath": "FabControlBook v1.0.0 production site and source repository",
+          "rightsStatus": "The project declares MIT for original software with attribution to frbread7 and contributors. No contributor assignment or ownership evidence is included; this audit does not certify every contributor's ownership or authority to license a contribution."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "Reviewed for differentiation and scope only; FabControlBook records no reuse of this chapter's prose, figures, code, or exercises.",
+          "sourceTitle": "YieldBook: Wafer-map statistical patterns",
+          "sourceAuthor": "geniuskey / YieldBook contributors",
+          "sourceRepository": "https://github.com/geniuskey/yieldbook",
+          "sourceUrl": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/chapters/statistics.html",
+          "sourcePath": "chapters/statistics.html",
+          "sourceCommitSha": "2acd8844633274ebea91e808c4a22ed4035549b8",
+          "destinationPath": "docs/REFERENCE_REVIEW.md and content/references.json (bibliographic link and scope note only)",
+          "licenseObservation": "At pinned source revision 2acd8844633274ebea91e808c4a22ed4035549b8, the repository LICENSE.md distinguishes educational material terms from software terms and notes third-party rights separately. The chapter is linked for reference only; this is not a reuse grant or a file-level rights determination for embedded third-party material."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "Reviewed for differentiation and scope only; FabControlBook records no reuse of this chapter's prose, figures, code, or exercises.",
+          "sourceTitle": "YieldBook: Equipment signatures",
+          "sourceAuthor": "geniuskey / YieldBook contributors",
+          "sourceRepository": "https://github.com/geniuskey/yieldbook",
+          "sourceUrl": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/chapters/signature.html",
+          "sourcePath": "chapters/signature.html",
+          "sourceCommitSha": "2acd8844633274ebea91e808c4a22ed4035549b8",
+          "destinationPath": "docs/REFERENCE_REVIEW.md and content/references.json (bibliographic link and scope note only)",
+          "licenseObservation": "At pinned source revision 2acd8844633274ebea91e808c4a22ed4035549b8, the repository LICENSE.md distinguishes educational material terms from software terms and notes third-party rights separately. The chapter is linked for reference only; this is not a reuse grant or a file-level rights determination for embedded third-party material."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "Reviewed for differentiation and scope only; FabControlBook records no reuse of this chapter's prose, figures, code, or exercises.",
+          "sourceTitle": "YieldBook: Detection, review, and classification",
+          "sourceAuthor": "geniuskey / YieldBook contributors",
+          "sourceRepository": "https://github.com/geniuskey/yieldbook",
+          "sourceUrl": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/chapters/classify.html",
+          "sourcePath": "chapters/classify.html",
+          "sourceCommitSha": "2acd8844633274ebea91e808c4a22ed4035549b8",
+          "destinationPath": "docs/REFERENCE_REVIEW.md and content/references.json (bibliographic link and scope note only)",
+          "licenseObservation": "At pinned source revision 2acd8844633274ebea91e808c4a22ed4035549b8, the repository LICENSE.md distinguishes educational material terms from software terms and notes third-party rights separately. The chapter is linked for reference only; this is not a reuse grant or a file-level rights determination for embedded third-party material."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "Reviewed for differentiation and scope only; FabControlBook records no reuse of this chapter's prose, figures, code, or exercises.",
+          "sourceTitle": "YieldBook: Commonality and root-cause analysis",
+          "sourceAuthor": "geniuskey / YieldBook contributors",
+          "sourceRepository": "https://github.com/geniuskey/yieldbook",
+          "sourceUrl": "https://github.com/geniuskey/yieldbook/blob/2acd8844633274ebea91e808c4a22ed4035549b8/chapters/commonality.html",
+          "sourcePath": "chapters/commonality.html",
+          "sourceCommitSha": "2acd8844633274ebea91e808c4a22ed4035549b8",
+          "destinationPath": "docs/REFERENCE_REVIEW.md and content/references.json (bibliographic link and scope note only)",
+          "licenseObservation": "At pinned source revision 2acd8844633274ebea91e808c4a22ed4035549b8, the repository LICENSE.md distinguishes educational material terms from software terms and notes third-party rights separately. The chapter is linked for reference only; this is not a reuse grant or a file-level rights determination for embedded third-party material."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "Reviewed for differentiation and scope only; FabControlBook records no reuse of this chapter's prose, figures, code, or exercises.",
+          "sourceTitle": "TestBook: Limits, characterization, and guardbands",
+          "sourceAuthor": "geniuskey / TestBook contributors",
+          "sourceRepository": "https://github.com/geniuskey/testbook",
+          "sourceUrl": "https://github.com/geniuskey/testbook/blob/a69997b5bee01346d44c864bed2cc3304b8571e5/chapters/limits.html",
+          "sourcePath": "chapters/limits.html",
+          "sourceCommitSha": "a69997b5bee01346d44c864bed2cc3304b8571e5",
+          "destinationPath": "docs/REFERENCE_REVIEW.md and content/references.json (bibliographic link and scope note only)",
+          "licenseObservation": "At pinned source revision a69997b5bee01346d44c864bed2cc3304b8571e5, the repository LICENSE.md distinguishes educational material terms from software terms and notes third-party rights separately. The chapter is linked for reference only; this is not a reuse grant or a file-level rights determination for embedded third-party material."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "Reviewed for differentiation and scope only; FabControlBook records no reuse of this chapter's prose, figures, code, or exercises.",
+          "sourceTitle": "TestBook: DC and parametric testing",
+          "sourceAuthor": "geniuskey / TestBook contributors",
+          "sourceRepository": "https://github.com/geniuskey/testbook",
+          "sourceUrl": "https://github.com/geniuskey/testbook/blob/a69997b5bee01346d44c864bed2cc3304b8571e5/chapters/dc.html",
+          "sourcePath": "chapters/dc.html",
+          "sourceCommitSha": "a69997b5bee01346d44c864bed2cc3304b8571e5",
+          "destinationPath": "docs/REFERENCE_REVIEW.md and content/references.json (bibliographic link and scope note only)",
+          "licenseObservation": "At pinned source revision a69997b5bee01346d44c864bed2cc3304b8571e5, the repository LICENSE.md distinguishes educational material terms from software terms and notes third-party rights separately. The chapter is linked for reference only; this is not a reuse grant or a file-level rights determination for embedded third-party material."
+        }
+      ],
+      "findings": [],
+      "reviewedAt": "2026-10-15",
+      "reviewStatus": "reviewed"
     }
   ]
 }

@@ -1,4 +1,5 @@
 import json
+import re
 import sys
 import unittest
 from copy import deepcopy
@@ -14,6 +15,7 @@ class LearningJourneyTests(unittest.TestCase):
         self.books = book_factory.all_books()
         self.categories = json.loads((ROOT / "catalog/categories.json").read_text(encoding="utf-8"))["categories"]
         self.roadmap = json.loads((ROOT / "catalog/roadmap.json").read_text(encoding="utf-8"))
+        self.learning_paths = json.loads((ROOT / "catalog/learning-paths.json").read_text(encoding="utf-8"))["paths"]
         self.journey = json.loads((ROOT / "catalog/learning-journey.json").read_text(encoding="utf-8"))
 
     def validate(self, journey=None, roadmap=None, categories=None):
@@ -28,7 +30,7 @@ class LearningJourneyTests(unittest.TestCase):
         self.assertTrue(all(stage["guidanceOnly"] for stage in self.journey["stages"]))
         self.assertTrue(all(set(stage["label"]) == {"en", "ko"} and set(stage["description"]) == {"en", "ko"} for stage in self.journey["stages"]))
         self.assertTrue(all(set(strand["label"]) == {"en", "ko"} and set(strand["description"]) == {"en", "ko"} for strand in self.journey["strands"]))
-        self.assertEqual(sum(book["status"] == "published" for book in self.books), 3)
+        self.assertEqual(sum(book["status"] == "published" for book in self.books), 4)
         self.assertEqual(len(self.roadmap["mathematicsBooks"]), 7)
         self.assertEqual([project["id"] for project in self.roadmap["familyProjects"]], ["curiositybook"])
         self.assertTrue(all(book["status"] == "planned" for book in self.roadmap["mathematicsBooks"] + self.roadmap["familyProjects"]))
@@ -160,8 +162,26 @@ class LearningJourneyTests(unittest.TestCase):
             self.assertEqual(experiment["verification"]["sourceRevision"], integration["publicationEvidence"]["productionRevision"])
         self.assertNotIn("processintegrationbook", {book["id"] for book in self.roadmap["books"]})
         fabcontrol = next(book for book in self.books if book["id"] == "fabcontrolbook")
-        self.assertEqual(fabcontrol["status"], "in-progress")
+        self.assertEqual(fabcontrol["status"], "published")
+        self.assertRegex(fabcontrol["version"], r"^\d+\.\d+\.\d+$")
+        self.assertEqual(fabcontrol["chapterCount"], 14)
+        production_revision = fabcontrol["publicationEvidence"]["productionRevision"]
+        self.assertRegex(production_revision, r"^[0-9a-f]{40}$")
+        self.assertTrue(fabcontrol["publicationEvidence"]["releaseUrl"].endswith(f"/v{fabcontrol['version']}"))
+        for experiment in fabcontrol["experiments"]:
+            self.assertEqual(experiment["verification"]["sourceRevision"], fabcontrol["publicationEvidence"]["productionRevision"])
+            self.assertEqual(experiment["verification"]["httpStatus"], 200)
+            self.assertIs(experiment["verification"]["fragmentFound"], True)
         self.assertNotIn("fabcontrolbook", {book["id"] for book in self.roadmap["books"]})
+        semiconductor = next(category for category in self.categories if category["id"] == "semiconductor")
+        control_map = next(node for node in semiconductor["map"] if node["id"] == "manufacturing-control")
+        self.assertEqual({item["chapterId"] for item in control_map["connections"]}, {
+            "c01-control-architecture", "c04-spc-rational-subgroups", "c06-fdc-trace-segmentation",
+            "c09-run-to-run-apc", "c12-alarm-management-disposition", "c14-verification-change-governance",
+        })
+        control_path = next(path for path in self.learning_paths if path["id"] == "measurement-to-manufacturing-control")
+        self.assertEqual([step["bookId"] for step in control_path["steps"]], ["watbook"] + ["fabcontrolbook"] * 7)
+        self.assertEqual(control_path["steps"][-1]["chapterId"], "c14-verification-change-governance")
         semiconductor_sequence = [
             (book["id"], book["priority"])
             for book in sorted(self.roadmap["books"], key=lambda item: item["priority"])

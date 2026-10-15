@@ -77,4 +77,4 @@ The snapshot update should be committed with the reviewed assessment changes and
 
 ## Boundaries
 
-The three My Library publications remain independent repositories. This system only reads their existing provenance documentation for the audit in [PROVENANCE_AUDIT.md](PROVENANCE_AUDIT.md); it does not modify those repositories. The central portal's published count is derived only from its own validated manifests, never from upstream reference counts.
+The four My Library publications remain independent repositories. This system only reads their existing provenance documentation for the audit in [PROVENANCE_AUDIT.md](PROVENANCE_AUDIT.md); it does not modify those repositories. The central portal's published count is derived only from its own validated manifests, never from upstream reference counts.

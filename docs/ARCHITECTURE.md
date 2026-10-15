@@ -11,7 +11,7 @@ Canonical and Open Graph URLs are set at runtime; book details retain a normaliz
 ## Sources of truth
 
 - catalog/books/<id>.json — normalized records for explicitly registered books.
-- catalog/categories.json — extensible categories and published knowledge-map connections.
+- catalog/categories.json — extensible categories and published knowledge-map connections. Map node labels and topic tags support bilingual `{en, ko}` values; legacy single-language strings remain valid where appropriate.
 - catalog/roadmap.json — future editorial proposals, separate from the published catalog.
 - The seven proposed mathematics titles in catalog/roadmap.json have a typed prerequisiteIds graph. These suggested-preparation edges are validated for known IDs and acyclicity, then rendered as roadmap links; they do not create book records or gates.
 - catalog/learning-paths.json — ordered references to published book and chapter IDs.

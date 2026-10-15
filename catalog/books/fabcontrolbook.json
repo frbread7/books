@@ -24,7 +24,7 @@
     "process monitoring",
     "alarm management"
   ],
-  "status": "in-progress",
+  "status": "published",
   "repositoryUrl": "https://github.com/frbread7/fabcontrolbook",
   "productionUrl": "https://frbread7.github.io/fabcontrolbook/",
   "languageUrls": {
@@ -35,7 +35,7 @@
     "en",
     "ko"
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "lastUpdated": "2026-10-15",
   "chapterCount": 14,
   "chapters": [
@@ -310,7 +310,7 @@
         "httpStatus": 200,
         "fragmentFound": true,
         "contentSha256": "bf87ee2225eb2cf2649ff48b95c642e51ff67a334e1e2431719b4bcd5a405620",
-        "sourceRevision": "2dfb22bf86759c0e273ec95e4d394f7e3255a366",
+        "sourceRevision": "49828d6970e50a54cc1d2082d33f28dd6539a2c4",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
         "evidence": "Live HTTPS response; HTTP 200; fragment #spc-performance present in HTML; SHA-256 recorded."
       }
@@ -333,7 +333,7 @@
         "httpStatus": 200,
         "fragmentFound": true,
         "contentSha256": "bf87ee2225eb2cf2649ff48b95c642e51ff67a334e1e2431719b4bcd5a405620",
-        "sourceRevision": "2dfb22bf86759c0e273ec95e4d394f7e3255a366",
+        "sourceRevision": "49828d6970e50a54cc1d2082d33f28dd6539a2c4",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
         "evidence": "Live HTTPS response; HTTP 200; fragment #fdc-intelligence present in HTML; SHA-256 recorded."
       }
@@ -356,7 +356,7 @@
         "httpStatus": 200,
         "fragmentFound": true,
         "contentSha256": "bf87ee2225eb2cf2649ff48b95c642e51ff67a334e1e2431719b4bcd5a405620",
-        "sourceRevision": "2dfb22bf86759c0e273ec95e4d394f7e3255a366",
+        "sourceRevision": "49828d6970e50a54cc1d2082d33f28dd6539a2c4",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
         "evidence": "Live HTTPS response; HTTP 200; fragment #r2r-control present in HTML; SHA-256 recorded."
       }
@@ -379,7 +379,7 @@
         "httpStatus": 200,
         "fragmentFound": true,
         "contentSha256": "bf87ee2225eb2cf2649ff48b95c642e51ff67a334e1e2431719b4bcd5a405620",
-        "sourceRevision": "2dfb22bf86759c0e273ec95e4d394f7e3255a366",
+        "sourceRevision": "49828d6970e50a54cc1d2082d33f28dd6539a2c4",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
         "evidence": "Live HTTPS response; HTTP 200; fragment #alarm-strategy present in HTML; SHA-256 recorded."
       }
@@ -401,5 +401,14 @@
     "accent": "#bf5836",
     "accentSoft": "#f5e3d8",
     "motif": "control hierarchy, signal traces, and feedback loop"
+  },
+  "publicationEvidence": {
+    "releaseUrl": "https://github.com/frbread7/fabcontrolbook/releases/tag/v1.0.1",
+    "releasePublishedAt": "2026-10-15",
+    "productionRevision": "49828d6970e50a54cc1d2082d33f28dd6539a2c4",
+    "contentReview": "FabControlBook v1.0.1 is a documentation and release-record correction; technical content is unchanged from v1.0.0. The textbook passed independent internal architecture, semiconductor-domain, numerical-correctness, bilingual editorial, accessibility/QA, requirements, security/provenance, and documentation reviews. Actionable P0/P1/P2 findings were resolved and targeted re-reviews passed. The content comprises 14 substantive English/Korean chapter pairs and four synthetic interactive labs. Validation is analytical/deterministic only; no silicon, production-fab, external professional, contributor-rights, or legal certification is claimed. See the release notes and textbook docs/TECHNICAL_REVIEW.md and docs/PROVENANCE_AND_REVIEW.md.",
+    "siteVerification": "GitHub Actions run 38670303500 succeeded and GitHub Pages deployment 7082124894 published this exact productionRevision at https://frbread7.github.io/fabcontrolbook/. All 44 generated production resources returned HTTP 200: 36 HTML routes and eight non-HTML resources (three license/attribution documents, two SVGs, CSS, JavaScript, and the model module). Production Playwright passed 12/12 journeys across desktop, tablet, and mobile against this revision. https://github.com/frbread7/fabcontrolbook/actions/runs/38670303500",
+    "chapterVerification": "The production sweep returned HTTP 200 for all 36 HTML routes, including all 28 English/Korean chapter routes, language entry pages, laboratory, references, and license/provenance pages. Production Playwright passed 12/12 journeys across desktop, tablet, and mobile and exercised bilingual chapter navigation and the four lab anchors.",
+    "experimentVerification": "All four registered experiment URLs and exact fragments were checked on the live production site on 2026-10-15: HTTP 200, fragmentFound=true, response SHA-256 recorded, and sourceRevision equals the successful Pages deployment SHA. Structured results are recorded on each experiment entry and were produced by tools/verify_experiments.py."
   }
 }

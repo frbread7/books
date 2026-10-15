@@ -35,7 +35,7 @@ class KidsFamilyTests(unittest.TestCase):
         self.assertEqual(self.data["pilot"]["publicationStatus"], "unpublished")
         self.assertNotIn("heavyvehiclebook", {book["id"] for book in self.books})
         self.assertFalse(any(item["id"] == "heavyvehiclebook" for group in ("books", "mathematicsBooks", "familyProjects") for item in self.roadmap[group]))
-        self.assertEqual([book["id"] for book in self.books if book["status"] == "published"], ["pmicbook", "processintegrationbook", "watbook"])
+        self.assertEqual([book["id"] for book in self.books if book["status"] == "published"], ["fabcontrolbook", "pmicbook", "processintegrationbook", "watbook"])
         self.assertEqual(len(self.roadmap["mathematicsBooks"]), 7)
         self.assertEqual([item["id"] for item in self.roadmap["familyProjects"]], ["curiositybook"])
         self.assertEqual(len(self.journey["concepts"]), 66)

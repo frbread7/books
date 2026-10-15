@@ -243,6 +243,87 @@
           }
         }
       ]
+    },
+    {
+      "id": "measurement-to-manufacturing-control",
+      "title": {
+        "en": "From wafer measurements to manufacturing control",
+        "ko": "웨이퍼 측정에서 제조 제어까지"
+      },
+      "audience": {
+        "en": "Readers connecting wafer-level measurement evidence to fab monitoring and control systems.",
+        "ko": "웨이퍼 수준 측정 증거를 팹 모니터링 및 제어 시스템과 연결하려는 독자."
+      },
+      "outcome": {
+        "en": "Trace measurement context into process monitoring, fault detection, run-to-run control, alarm disposition, and change governance.",
+        "ko": "측정 맥락에서 공정 모니터링, 고장 감지, 런투런 제어, 알람 판정, 변경 거버넌스까지 추적합니다."
+      },
+      "steps": [
+        {
+          "bookId": "watbook",
+          "chapterId": "c01-measurement-to-decision",
+          "why": {
+            "en": "Begin with what wafer-level measurements can support and where their decision limits lie.",
+            "ko": "웨이퍼 수준 측정이 뒷받침할 수 있는 내용과 의사결정 한계를 먼저 살펴봅니다."
+          }
+        },
+        {
+          "bookId": "fabcontrolbook",
+          "chapterId": "c01-control-architecture",
+          "why": {
+            "en": "Place measurements, equipment signals, and engineering responses in a control-system architecture.",
+            "ko": "측정값, 장비 신호, 엔지니어링 대응을 제어 시스템 아키텍처에 배치합니다."
+          }
+        },
+        {
+          "bookId": "fabcontrolbook",
+          "chapterId": "c02-sensor-lineage",
+          "why": {
+            "en": "Preserve wafer, lot, chamber, recipe, and measurement context through the data lineage.",
+            "ko": "데이터 계보에서 웨이퍼·로트·챔버·레시피·측정 맥락을 보존합니다."
+          }
+        },
+        {
+          "bookId": "fabcontrolbook",
+          "chapterId": "c04-spc-rational-subgroups",
+          "why": {
+            "en": "Choose rational subgrouping and control charts that match the sampling process.",
+            "ko": "샘플링 방식에 맞는 합리적 부분군과 관리도를 선택합니다."
+          }
+        },
+        {
+          "bookId": "fabcontrolbook",
+          "chapterId": "c06-fdc-trace-segmentation",
+          "why": {
+            "en": "Turn contextualized equipment traces into phase-aware features for review.",
+            "ko": "맥락이 있는 장비 트레이스를 단계별 특징으로 변환해 검토합니다."
+          }
+        },
+        {
+          "bookId": "fabcontrolbook",
+          "chapterId": "c09-run-to-run-apc",
+          "why": {
+            "en": "Study how delayed measurements and controller updates affect run-to-run behavior.",
+            "ko": "지연된 측정과 제어기 업데이트가 런투런 동작에 미치는 영향을 살펴봅니다."
+          }
+        },
+        {
+          "bookId": "fabcontrolbook",
+          "chapterId": "c12-alarm-management-disposition",
+          "why": {
+            "en": "Connect alarm thresholds and persistence to an explicit engineering disposition.",
+            "ko": "알람 임계값과 지속 조건을 명시적인 엔지니어링 판정에 연결합니다."
+          }
+        },
+        {
+          "bookId": "fabcontrolbook",
+          "chapterId": "c14-verification-change-governance",
+          "why": {
+            "en": "Close with evidence-based reverification, revalidation, and controlled change governance.",
+            "ko": "증거 기반 재검증·재유효성 확인과 통제된 변경 거버넌스로 마무리합니다."
+          }
+        }
+      ]
     }
   ]
 }

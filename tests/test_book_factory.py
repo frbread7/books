@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "catalog" / "books" / "pmicbook.json"
 WAT_MANIFEST = ROOT / "catalog" / "books" / "watbook.json"
 PI_MANIFEST = ROOT / "catalog" / "books" / "processintegrationbook.json"
+FAB_MANIFEST = ROOT / "catalog" / "books" / "fabcontrolbook.json"
 
 
 class BookFactoryTests(unittest.TestCase):
@@ -21,6 +22,7 @@ class BookFactoryTests(unittest.TestCase):
         self.book = json.loads(MANIFEST.read_text(encoding="utf-8"))
         self.wat_book = json.loads(WAT_MANIFEST.read_text(encoding="utf-8"))
         self.pi_book = json.loads(PI_MANIFEST.read_text(encoding="utf-8"))
+        self.fab_book = json.loads(FAB_MANIFEST.read_text(encoding="utf-8"))
 
     def test_published_pmic_manifest_has_verified_release_and_complete_index(self):
         result = book_factory.validate_manifest(self.book)
@@ -219,6 +221,7 @@ class BookFactoryTests(unittest.TestCase):
             shutil.copyfile(MANIFEST, original)
             shutil.copyfile(WAT_MANIFEST, manifests / "watbook.json")
             shutil.copyfile(PI_MANIFEST, manifests / "processintegrationbook.json")
+            shutil.copyfile(FAB_MANIFEST, manifests / "fabcontrolbook.json")
             before = original.read_bytes()
             with patch.object(book_factory, "MANIFESTS", manifests), patch.object(book_factory, "DATA", data):
                 with self.assertRaisesRegex(book_factory.ManifestError, "already exists"):
@@ -237,6 +240,7 @@ class BookFactoryTests(unittest.TestCase):
             (manifests / "pmicbook.json").write_text(json.dumps(base_record), encoding="utf-8")
             (manifests / "watbook.json").write_text(json.dumps(self.wat_book), encoding="utf-8")
             (manifests / "processintegrationbook.json").write_text(json.dumps(self.pi_book), encoding="utf-8")
+            (manifests / "fabcontrolbook.json").write_text(json.dumps(self.fab_book), encoding="utf-8")
             new_record = deepcopy(self.book)
             new_record["id"] = "samplebook"
             new_record["slug"] = "samplebook"
@@ -249,7 +253,7 @@ class BookFactoryTests(unittest.TestCase):
                 registered = json.loads((manifests / "samplebook.json").read_text(encoding="utf-8"))
                 self.assertEqual(registered["id"], "samplebook")
                 generated = json.loads((data / "books.json").read_text(encoding="utf-8"))
-                self.assertEqual([book["id"] for book in generated], ["pmicbook", "processintegrationbook", "samplebook", "watbook"])
+                self.assertEqual([book["id"] for book in generated], ["fabcontrolbook", "pmicbook", "processintegrationbook", "samplebook", "watbook"])
 
                 changed = deepcopy(new_record)
                 changed["description"]["en"] = "Updated description for a safe metadata update."
@@ -273,15 +277,29 @@ class BookFactoryTests(unittest.TestCase):
         with self.assertRaisesRegex(book_factory.ManifestError, "connections must be a list"):
             book_factory.validate_discovery_indexes(books, broken)
 
+    def test_discovery_validator_accepts_and_requires_bilingual_map_topics(self):
+        books = [self.book, self.wat_book, self.pi_book, self.fab_book]
+        indexes = {
+            name: json.loads((ROOT / "catalog" / f"{filename}.json").read_text(encoding="utf-8"))
+            for name, filename in (("categories", "categories"), ("roadmap", "roadmap"), ("learning-paths", "learning-paths"), ("learning-journey", "learning-journey"), ("kids-family", "kids-family"))
+        }
+        book_factory.validate_discovery_indexes(books, indexes)
+
+        broken = deepcopy(indexes)
+        control = next(node for node in broken["categories"]["categories"][0]["map"] if node["id"] == "manufacturing-control")
+        control["topics"][0] = {"en": "SPC"}
+        with self.assertRaisesRegex(book_factory.ManifestError, "topic must provide both en and ko values"):
+            book_factory.validate_discovery_indexes(books, broken)
+
     def test_check_indexes_detects_catalog_drift_without_mutating_generated_data(self):
         with tempfile.TemporaryDirectory() as directory:
             data = Path(directory) / "data"
-            with patch.object(book_factory, "DATA", data), patch.object(book_factory, "all_books", return_value=[deepcopy(self.book), deepcopy(self.pi_book), deepcopy(self.wat_book)]):
+            with patch.object(book_factory, "DATA", data), patch.object(book_factory, "all_books", return_value=[deepcopy(self.book), deepcopy(self.pi_book), deepcopy(self.wat_book), deepcopy(self.fab_book)]):
                 book_factory.generate()
                 before = (data / "books.json").read_bytes()
                 changed = deepcopy(self.book)
                 changed["description"]["en"] += " Changed in canonical input."
-                with patch.object(book_factory, "all_books", return_value=[changed, deepcopy(self.pi_book), deepcopy(self.wat_book)]):
+                with patch.object(book_factory, "all_books", return_value=[changed, deepcopy(self.pi_book), deepcopy(self.wat_book), deepcopy(self.fab_book)]):
                     with self.assertRaisesRegex(book_factory.ManifestError, "stale or missing generated indexes.*books.json"):
                         book_factory.check_indexes()
                 self.assertEqual((data / "books.json").read_bytes(), before)
@@ -301,12 +319,12 @@ class BookFactoryTests(unittest.TestCase):
         })
         with tempfile.TemporaryDirectory() as directory:
             data = Path(directory) / "data"
-            expected_books = [self.book, self.pi_book, self.wat_book, second]
+            expected_books = [self.book, self.pi_book, self.wat_book, self.fab_book, second]
             with patch.object(book_factory, "DATA", data), patch.object(book_factory, "all_books", return_value=expected_books):
                 book_factory.generate()
                 indexed = json.loads((data / "books.json").read_text(encoding="utf-8"))
         published = [book for book in indexed if book["status"] == "published"]
-        self.assertEqual({book["id"] for book in published}, {"pmicbook", "watbook", "processintegrationbook", "fixturebook"})
+        self.assertEqual({book["id"] for book in published}, {"pmicbook", "watbook", "processintegrationbook", "fabcontrolbook", "fixturebook"})
         self.assertEqual(sum(book["chapterCount"] for book in published), sum(book["chapterCount"] for book in expected_books))
         self.assertEqual(sum(len(book["experiments"]) for book in published), sum(len(book["experiments"]) for book in expected_books))
         self.assertEqual(next(book for book in published if book["id"] == "pmicbook")["chapterCount"], 25)

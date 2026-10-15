@@ -6,7 +6,7 @@ My Library is a personal, carefully curated entry point to independently publish
 
 - English-default interface with complete Korean navigation and control labels.
 - Semiconductor engineering as the first subject area, with room for electronics, computing, AI, and practical knowledge.
-- PMICBook, WATBook, and ProcessIntegrationBook as published titles, represented by verified release metadata, language entry points, chapter indexes, and experiments.
+- PMICBook, WATBook, ProcessIntegrationBook, and FabControlBook as four published titles, represented by verified release metadata, language entry points, chapter indexes, and experiments.
 - An interactive bookshelf, searchable catalog, subject map, editorial roadmap, verified reading paths, and experiment explorer.
 - A bilingual Mathematics roadmap and stage/strand Learning Journey that keeps curriculum concepts and planned titles separate from books.
 - A Korean-first CuriosityBook picture-book pilot: enjoyable parent-child read-aloud stories with sparse optional story interactions, uninterrupted reading, and complementary printable/offline editions. CuriosityBook remains a planned project; no child profiles or tracking.

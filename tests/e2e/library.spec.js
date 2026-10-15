@@ -119,6 +119,58 @@ test("ProcessIntegrationBook is published across its bilingual detail, map, path
     .toEqual(integration.experiments.map(experiment => experiment.url));
 });
 
+test("FabControlBook is published across bilingual chapters, manufacturing-control map, learning path, and labs", async ({ page }) => {
+  const fabcontrol = catalogBooks.find(book => book.id === "fabcontrolbook");
+  expect(fabcontrol).toBeTruthy();
+  expect(fabcontrol.status).toBe("published");
+  expect(fabcontrol.version).toMatch(/^\d+\.\d+\.\d+$/);
+  expect(fabcontrol.publicationEvidence.releaseUrl).toBe(`https://github.com/frbread7/fabcontrolbook/releases/tag/v${fabcontrol.version}`);
+  expect(fabcontrol.publicationEvidence.productionRevision).toMatch(/^[0-9a-f]{40}$/);
+  expect(catalogRoadmap.books.some(book => book.id === fabcontrol.id)).toBe(false);
+
+  await page.goto("book.html?slug=fabcontrolbook");
+  await expect(page.locator("h1")).toHaveText("FabControlBook");
+  await expect(page.locator(".chapter-list li")).toHaveCount(14);
+  await expect(page.locator(".mini-experiment")).toHaveCount(4);
+  await expect(page.locator(".book-facts dd").nth(0)).toHaveText(fabcontrol.version);
+  expect(await page.locator(".chapter-list a").evaluateAll(links => links.map(link => link.href)))
+    .toEqual(fabcontrol.chapters.map(chapter => chapter.urls.en));
+  expect(await page.locator(".mini-experiment").evaluateAll(links => links.map(link => link.href)))
+    .toEqual(fabcontrol.experiments.map(experiment => experiment.url));
+  await page.goto("categories.html?id=semiconductor");
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  const controlMapEn = page.locator(".map-node").filter({ hasText: "Manufacturing monitoring & control" });
+  await expect(controlMapEn.locator("a")).toHaveCount(6);
+  await expect(controlMapEn).toContainText("equipment monitoring");
+  await page.goto("paths.html");
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  const controlPathEn = page.locator(".path-card").filter({ has: page.getByRole("heading", { name: "From wafer measurements to manufacturing control" }) });
+  await expect(controlPathEn.locator(".path-step")).toHaveCount(8);
+  await expect(controlPathEn).toContainText("FabControlBook");
+  await page.goto("book.html?slug=fabcontrolbook");
+  await page.getByRole("button", { name: "Switch language" }).click();
+  await expect(page.locator("html")).toHaveAttribute("lang", "ko");
+  expect(await page.locator(".chapter-list a").evaluateAll(links => links.map(link => link.href)))
+    .toEqual(fabcontrol.chapters.map(chapter => chapter.urls.ko));
+
+  await page.goto("categories.html?id=semiconductor");
+  await expect(page.locator("html")).toHaveAttribute("lang", "ko");
+  const controlMap = page.locator(".map-node").filter({ hasText: "제조 모니터링·제어" });
+  await expect(controlMap.locator("a")).toHaveCount(6);
+  await expect(controlMap).toContainText("장비 모니터링");
+  await page.goto("paths.html");
+  await expect(page.locator("html")).toHaveAttribute("lang", "ko");
+  const controlPath = page.locator(".path-card").filter({ has: page.getByRole("heading", { name: "웨이퍼 측정에서 제조 제어까지" }) });
+  await expect(controlPath.locator(".path-step")).toHaveCount(8);
+  await expect(controlPath).toContainText("FabControlBook");
+  await page.goto("experiments.html");
+  await expect(page.locator("html")).toHaveAttribute("lang", "ko");
+  const experiments = page.locator(".experiment-card").filter({ hasText: "FabControlBook" });
+  await expect(experiments).toHaveCount(4);
+  expect(await experiments.locator("a").evaluateAll(links => links.map(link => link.href)))
+    .toEqual(fabcontrol.experiments.map(experiment => experiment.url));
+});
+
 test("search and filters work and keep unstarted roadmap ideas out of the catalog", async ({ page }) => {
   await page.goto("library.html");
   await expect(page.locator(".book-card")).toHaveCount(catalogBooks.length);
@@ -147,7 +199,8 @@ test("subjects, paths and experiment discovery use published content only", asyn
   expect(await page.locator(".path-step a").count()).toBeGreaterThan(8);
   await page.goto("experiments.html");
   await expect(page.locator(".experiment-card")).toHaveCount(publishedExperimentCount);
-  await expect(page.locator(".experiment-card a").first()).toHaveAttribute("href", "https://frbread7.github.io/pmicbook/chapters/fundamentals.html#pm-fund-sim");
+  await expect(page.locator(".experiment-card").filter({ hasText: "PMICBook" }).locator("a").first())
+    .toHaveAttribute("href", "https://frbread7.github.io/pmicbook/chapters/fundamentals.html#pm-fund-sim");
   await page.goto("categories.html?id=mathematics");
   await expect(page.locator(".knowledge-section")).toContainText("This subject has no published books yet.");
   await expect(page.locator(".knowledge-section .empty-state a")).toHaveAttribute("href", /learning-journey\.html\?strand=mathematics$/);

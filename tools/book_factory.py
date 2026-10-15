@@ -608,8 +608,14 @@ def validate_discovery_indexes(books, indexes):
                 fail(f"{category['id']} map nodes must have unique IDs")
             seen_nodes.add(node["id"])
             localized(node.get("label"), f"{category['id']}/{node['id']} label")
-            if not isinstance(node.get("topics"), list) or any(not isinstance(topic, str) or not topic.strip() for topic in node["topics"]):
-                fail(f"{category['id']}/{node['id']} topics must be a list of non-empty strings")
+            if not isinstance(node.get("topics"), list) or not node["topics"]:
+                fail(f"{category['id']}/{node['id']} topics must be a non-empty list")
+            for topic in node["topics"]:
+                if isinstance(topic, str):
+                    if not topic.strip():
+                        fail(f"{category['id']}/{node['id']} topics must be non-empty strings or bilingual labels")
+                else:
+                    localized(topic, f"{category['id']}/{node['id']} topic")
             if not isinstance(node.get("connections"), list):
                 fail(f"{category['id']}/{node['id']} connections must be a list")
             for connection in node.get("connections", []):

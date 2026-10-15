@@ -55,6 +55,7 @@ jobs:
           from concurrent.futures import ThreadPoolExecutor
           import json
           import os
+          import re
           import time
           from urllib.parse import urljoin, urlparse
           from urllib.request import urlopen
@@ -64,11 +65,15 @@ jobs:
           if parsed.scheme != "https" or parsed.netloc != "frbread7.github.io" or parsed.path != "/books/":
               raise SystemExit(f"Unexpected Pages deployment URL: {base}")
           integration_site = "https://frbread7.github.io/processintegrationbook/"
+          fabcontrol_site = "https://frbread7.github.io/fabcontrolbook/"
           paths = [
               "",
               "data/books.json",
+              "data/categories.json",
+              "data/learning-paths.json",
               "book.html?slug=watbook",
               "book.html?slug=processintegrationbook",
+              "book.html?slug=fabcontrolbook",
               "learning-journey.html",
               "kids-family.html",
               "data/learning-journey.json",
@@ -78,10 +83,16 @@ jobs:
               "js/app.js",
               "assets/covers/watbook.svg",
               "assets/covers/processintegrationbook.svg",
+              "assets/covers/fabcontrolbook.svg",
               integration_site,
               integration_site + "ko/",
               integration_site + "chapters/c01-integration-as-decision.html",
               integration_site + "ko/chapters/c01-integration-as-decision.html",
+              fabcontrol_site,
+              fabcontrol_site + "ko/",
+              fabcontrol_site + "chapters/01-control-architecture.html",
+              fabcontrol_site + "ko/chapters/01-control-architecture.html",
+              fabcontrol_site + "lab.html",
           ]
 
           def fetch(path):
@@ -99,7 +110,7 @@ jobs:
                   results = list(pool.map(fetch, paths))
               last_errors = []
               for url, status, final_url, body, error in results:
-                  allowed_root = base if url.startswith(base) else integration_site if url.startswith(integration_site) else None
+                  allowed_root = base if url.startswith(base) else integration_site if url.startswith(integration_site) else fabcontrol_site if url.startswith(fabcontrol_site) else None
                   if error:
                       last_errors.append(f"{url}: {error}")
                   elif status != 200 or not body:
@@ -112,8 +123,11 @@ jobs:
                       except (UnicodeDecodeError, json.JSONDecodeError) as exc:
                           last_errors.append(f"{url}: invalid JSON: {exc}")
                       else:
-                          if not any(book.get("id") == "watbook" and book.get("status") == "published" for book in books):
-                              last_errors.append(f"{url}: published WATBook record missing")
+                          published_ids = {book.get("id") for book in books if book.get("status") == "published"}
+                          if published_ids != {"pmicbook", "watbook", "processintegrationbook", "fabcontrolbook"}:
+                              last_errors.append(f"{url}: expected exactly the four independently published library books")
+                          if sum(len(book.get("experiments", [])) for book in books if book.get("status") == "published") != 17:
+                              last_errors.append(f"{url}: published experiment count should be 17")
                           integration = next((book for book in books if book.get("id") == "processintegrationbook"), None)
                           if integration is None or integration.get("status") != "published":
                               last_errors.append(f"{url}: published ProcessIntegrationBook record missing")
@@ -124,6 +138,42 @@ jobs:
                               chapter = next((item for item in integration.get("chapters", []) if item.get("id") == "c01-integration-as-decision"), None)
                               if chapter is None or chapter.get("urls", {}).get("en") != integration_site + "chapters/c01-integration-as-decision.html" or chapter.get("urls", {}).get("ko") != integration_site + "ko/chapters/c01-integration-as-decision.html":
                                   last_errors.append(f"{url}: ProcessIntegrationBook chapter URLs are missing or incorrect")
+                          fabcontrol = next((book for book in books if book.get("id") == "fabcontrolbook"), None)
+                          if fabcontrol is None or fabcontrol.get("status") != "published" or not re.fullmatch(r"\d+\.\d+\.\d+", fabcontrol.get("version", "")):
+                              last_errors.append(f"{url}: published FabControlBook record with a semantic version is missing")
+                          else:
+                              evidence = fabcontrol.get("publicationEvidence", {})
+                              if fabcontrol.get("productionUrl") != fabcontrol_site or evidence.get("releaseUrl") != f"https://github.com/frbread7/fabcontrolbook/releases/tag/v{fabcontrol['version']}":
+                                  last_errors.append(f"{url}: FabControlBook production or release URL is incorrect")
+                              language_urls = fabcontrol.get("languageUrls", {})
+                              if language_urls.get("en") != fabcontrol_site or language_urls.get("ko") != fabcontrol_site + "ko/":
+                                  last_errors.append(f"{url}: FabControlBook language entry URLs are missing or incorrect")
+                              chapter = next((item for item in fabcontrol.get("chapters", []) if item.get("id") == "c01-control-architecture"), None)
+                              if chapter is None or chapter.get("urls", {}).get("en") != fabcontrol_site + "chapters/01-control-architecture.html" or chapter.get("urls", {}).get("ko") != fabcontrol_site + "ko/chapters/01-control-architecture.html":
+                                  last_errors.append(f"{url}: FabControlBook bilingual chapter URLs are missing or incorrect")
+                              revision = evidence.get("productionRevision", "")
+                              experiments = fabcontrol.get("experiments", [])
+                              if len(experiments) != 4 or not re.fullmatch(r"[0-9a-f]{40}", revision) or any(experiment.get("verification", {}).get("sourceRevision") != revision or experiment.get("verification", {}).get("httpStatus") != 200 or experiment.get("verification", {}).get("fragmentFound") is not True for experiment in experiments):
+                                  last_errors.append(f"{url}: FabControlBook experiment or deployment revision evidence is incomplete")
+                  elif url.endswith("data/categories.json"):
+                      try:
+                          categories = json.loads(body).get("categories", [])
+                      except (UnicodeDecodeError, json.JSONDecodeError, AttributeError) as exc:
+                          last_errors.append(f"{url}: invalid category JSON: {exc}")
+                      else:
+                          semiconductor = next((category for category in categories if category.get("id") == "semiconductor"), {})
+                          control = next((node for node in semiconductor.get("map", []) if node.get("id") == "manufacturing-control"), None)
+                          if control is None or control.get("label", {}).get("ko") != "제조 모니터링·제어" or not control.get("topics") or any(not isinstance(topic, dict) or not topic.get("en") or not topic.get("ko") for topic in control["topics"]):
+                              last_errors.append(f"{url}: bilingual FabControlBook map labels/topics are missing")
+                  elif url.endswith("data/learning-paths.json"):
+                      try:
+                          paths_data = json.loads(body).get("paths", [])
+                      except (UnicodeDecodeError, json.JSONDecodeError, AttributeError) as exc:
+                          last_errors.append(f"{url}: invalid learning-path JSON: {exc}")
+                      else:
+                          control_path = next((item for item in paths_data if item.get("id") == "measurement-to-manufacturing-control"), None)
+                          if control_path is None or len(control_path.get("steps", [])) != 8 or not any(step.get("bookId") == "fabcontrolbook" for step in control_path["steps"]):
+                              last_errors.append(f"{url}: WAT-to-FabControl bilingual learning path is missing or incomplete")
                   elif url.endswith("data/learning-journey.json"):
                       try:
                           journey = json.loads(body)
@@ -151,7 +201,7 @@ jobs:
                           math_books = roadmap.get("mathematicsBooks", [])
                           if len(math_books) != 7 or any(item.get("status") != "planned" for item in math_books):
                               last_errors.append(f"{url}: expected seven planned mathematics proposals")
-                  elif url.endswith(("assets/covers/watbook.svg", "assets/covers/processintegrationbook.svg")) and b"<svg" not in body[:512]:
+                  elif url.endswith(("assets/covers/watbook.svg", "assets/covers/processintegrationbook.svg", "assets/covers/fabcontrolbook.svg")) and b"<svg" not in body[:512]:
                       last_errors.append(f"{url}: book cover is not SVG content")
               if not last_errors:
                   print(f"Pages smoke passed on attempt {attempt}: {len(paths)} routes/assets at {base}")

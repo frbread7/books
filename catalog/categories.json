@@ -201,6 +201,47 @@
           ]
         },
         {
+          "id": "manufacturing-control",
+          "label": {
+            "en": "Manufacturing monitoring & control",
+            "ko": "제조 모니터링·제어"
+          },
+          "topics": [
+            { "en": "SPC", "ko": "통계적 공정 관리(SPC)" },
+            { "en": "FDC", "ko": "고장 감지 및 분류(FDC)" },
+            { "en": "APC", "ko": "첨단 공정 제어(APC)" },
+            { "en": "run-to-run control", "ko": "런투런 제어" },
+            { "en": "equipment monitoring", "ko": "장비 모니터링" },
+            { "en": "alarm management", "ko": "알람 관리" }
+          ],
+          "connections": [
+            {
+              "bookId": "fabcontrolbook",
+              "chapterId": "c01-control-architecture"
+            },
+            {
+              "bookId": "fabcontrolbook",
+              "chapterId": "c04-spc-rational-subgroups"
+            },
+            {
+              "bookId": "fabcontrolbook",
+              "chapterId": "c06-fdc-trace-segmentation"
+            },
+            {
+              "bookId": "fabcontrolbook",
+              "chapterId": "c09-run-to-run-apc"
+            },
+            {
+              "bookId": "fabcontrolbook",
+              "chapterId": "c12-alarm-management-disposition"
+            },
+            {
+              "bookId": "fabcontrolbook",
+              "chapterId": "c14-verification-change-governance"
+            }
+          ]
+        },
+        {
           "id": "reliability",
           "label": {
             "en": "Reliability & failure analysis",
