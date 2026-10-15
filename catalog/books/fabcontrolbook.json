@@ -35,7 +35,7 @@
     "en",
     "ko"
   ],
-  "version": "0.1.0",
+  "version": "1.0.0",
   "lastUpdated": "2026-10-15",
   "chapterCount": 14,
   "chapters": [
@@ -303,6 +303,16 @@
       "kind": {
         "en": "Detection comparison",
         "ko": "검출 비교"
+      },
+      "verification": {
+        "checkedAt": "2026-10-15",
+        "checkedUrl": "https://frbread7.github.io/fabcontrolbook/lab.html#spc-performance",
+        "httpStatus": 200,
+        "fragmentFound": true,
+        "contentSha256": "bf87ee2225eb2cf2649ff48b95c642e51ff67a334e1e2431719b4bcd5a405620",
+        "sourceRevision": "2dfb22bf86759c0e273ec95e4d394f7e3255a366",
+        "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+        "evidence": "Live HTTPS response; HTTP 200; fragment #spc-performance present in HTML; SHA-256 recorded."
       }
     },
     {
@@ -316,6 +326,16 @@
       "kind": {
         "en": "Signal-feature explorer",
         "ko": "신호 특징 탐색"
+      },
+      "verification": {
+        "checkedAt": "2026-10-15",
+        "checkedUrl": "https://frbread7.github.io/fabcontrolbook/lab.html#fdc-intelligence",
+        "httpStatus": 200,
+        "fragmentFound": true,
+        "contentSha256": "bf87ee2225eb2cf2649ff48b95c642e51ff67a334e1e2431719b4bcd5a405620",
+        "sourceRevision": "2dfb22bf86759c0e273ec95e4d394f7e3255a366",
+        "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+        "evidence": "Live HTTPS response; HTTP 200; fragment #fdc-intelligence present in HTML; SHA-256 recorded."
       }
     },
     {
@@ -329,6 +349,16 @@
       "kind": {
         "en": "Control simulation",
         "ko": "제어 시뮬레이션"
+      },
+      "verification": {
+        "checkedAt": "2026-10-15",
+        "checkedUrl": "https://frbread7.github.io/fabcontrolbook/lab.html#r2r-control",
+        "httpStatus": 200,
+        "fragmentFound": true,
+        "contentSha256": "bf87ee2225eb2cf2649ff48b95c642e51ff67a334e1e2431719b4bcd5a405620",
+        "sourceRevision": "2dfb22bf86759c0e273ec95e4d394f7e3255a366",
+        "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+        "evidence": "Live HTTPS response; HTTP 200; fragment #r2r-control present in HTML; SHA-256 recorded."
       }
     },
     {
@@ -342,6 +372,16 @@
       "kind": {
         "en": "Alarm-policy simulator",
         "ko": "알람 정책 시뮬레이터"
+      },
+      "verification": {
+        "checkedAt": "2026-10-15",
+        "checkedUrl": "https://frbread7.github.io/fabcontrolbook/lab.html#alarm-strategy",
+        "httpStatus": 200,
+        "fragmentFound": true,
+        "contentSha256": "bf87ee2225eb2cf2649ff48b95c642e51ff67a334e1e2431719b4bcd5a405620",
+        "sourceRevision": "2dfb22bf86759c0e273ec95e4d394f7e3255a366",
+        "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+        "evidence": "Live HTTPS response; HTTP 200; fragment #alarm-strategy present in HTML; SHA-256 recorded."
       }
     }
   ],
