@@ -31,6 +31,12 @@ Each current assessment pins source repository revisions and relevant chapter pa
 
 All comparisons use source revision pins in the JSON file; the linked chapter paths, exact SHAs, confidence, unresolved questions, and reuse strategies are the canonical detail. No proposal has been automatically approved or rejected by an upstream title match.
 
+### ThinFilmBook review refresh — 2026-10-15
+
+The reference monitor found a central-catalog update from `f51e57c03c6bd42c6bccc976feb75126483ebdfd` to `cf5501d42f68eda71f2c9866a62d4d3de3f225e1`. The exact catalog diff adds six ArtBook entries and an art field; it does not change semiconductor titles or outcomes. The other observed source changes are confined to AIBook metadata, chapters, and shared runtime; no current editorial assessment references AIBook. ProcessBook `f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed` and DopingBook `944526d6c2bb790d5d8f1e08d2614e1c5de22c3c`, including ThinFilmBook's pinned paths, are unchanged. The reviewed inventory and ThinFilmBook catalog pin were advanced together. ThinFilmBook remains `original-deeper-treatment`, with reference-only reuse.
+
+FabControlBook's comparison remains pinned to the current YieldBook and TestBook revisions and chapter paths. The catalog diff adds no manufacturing-control material, so its recorded review date and catalog SHA were advanced without changing its outcome or source pins. EngineeringMathBook remains deferred; the new art entries do not change its MathBook-based overlap evidence, so its review date and catalog SHA were also refreshed without changing its outcome or source pins.
+
 ## Cross-branch interpretation
 
 - Semiconductor books should link to common device, module, measurement, yield, and failure foundations rather than repeating them without a reason.

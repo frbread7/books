@@ -109,10 +109,10 @@ def validate_manifest(book):
         first = errors[0]
         location = ".".join(str(part) for part in first.absolute_path) or "$"
         fail(f"schema validation at {location}: {first.message}")
-    required = {"schemaVersion", "id", "slug", "title", "subtitle", "description", "category", "tags", "status", "repositoryUrl", "productionUrl", "languages", "version", "lastUpdated", "chapterCount", "chapters", "experiments", "prerequisites", "relatedBooks", "attribution", "cover", "theme"}
+    required = {"schemaVersion", "id", "slug", "title", "subtitle", "description", "category", "tags", "status", "languages", "version", "lastUpdated", "chapterCount", "chapters", "experiments", "prerequisites", "relatedBooks", "attribution", "cover", "theme"}
     if not isinstance(book, dict):
         fail("manifest root must be an object")
-    allowed = required | {"languageUrls", "publicationEvidence"}
+    allowed = required | {"repositoryUrl", "productionUrl", "languageUrls", "publicationEvidence"}
     extra = sorted(set(book) - allowed)
     if extra:
         fail("unknown fields: " + ", ".join(extra))
@@ -141,8 +141,14 @@ def validate_manifest(book):
     if len(set(book["languages"])) != len(book["languages"]):
         fail("languages contains duplicates")
     for field in ("repositoryUrl", "productionUrl"):
+        if field not in book:
+            if book["status"] != "in-progress":
+                fail(f"{field} is required unless status is in-progress")
+            continue
         check_url(book[field], field)
     if "languageUrls" in book:
+        if "productionUrl" not in book:
+            fail("languageUrls requires productionUrl")
         if not isinstance(book["languageUrls"], dict) or not book["languageUrls"] or set(book["languageUrls"]) - set(book["languages"]):
             fail("languageUrls must map only deployed languages")
         for lang, url in book["languageUrls"].items():
@@ -182,10 +188,11 @@ def validate_manifest(book):
             fail(f"chapter {chapter['id']} URLs must match the book's available languages")
         for lang, url in chapter["urls"].items():
             check_url(url, f"chapter {chapter['id']} {lang} URL")
-            if urlparse(url).netloc != urlparse(book["productionUrl"]).netloc:
-                fail(f"chapter {chapter['id']} URL must use the book production host")
-            if not path_is_within_production(urlparse(url).path, urlparse(book["productionUrl"]).path):
-                fail(f"chapter {chapter['id']} URL must remain under the production path")
+            if "productionUrl" in book:
+                if urlparse(url).netloc != urlparse(book["productionUrl"]).netloc:
+                    fail(f"chapter {chapter['id']} URL must use the book production host")
+                if not path_is_within_production(urlparse(url).path, urlparse(book["productionUrl"]).path):
+                    fail(f"chapter {chapter['id']} URL must remain under the production path")
         if not isinstance(chapter["topics"], list) or any(not isinstance(t, str) for t in chapter["topics"]):
             fail(f"chapter {chapter['id']} topics must be a string list")
     if not isinstance(book["experiments"], list):
@@ -202,9 +209,9 @@ def validate_manifest(book):
         if item["chapterId"] not in chapter_ids:
             fail(f"experiment {item['id']} references unknown chapter {item['chapterId']}")
         check_url(item["url"], f"experiment {item['id']} URL")
-        if urlparse(item["url"]).netloc != urlparse(book["productionUrl"]).netloc or not urlparse(item["url"]).fragment:
+        if ("productionUrl" in book and urlparse(item["url"]).netloc != urlparse(book["productionUrl"]).netloc) or not urlparse(item["url"]).fragment:
             fail(f"experiment {item['id']} must use the book host and include an anchor")
-        if not path_is_within_production(urlparse(item["url"]).path, urlparse(book["productionUrl"]).path):
+        if "productionUrl" in book and not path_is_within_production(urlparse(item["url"]).path, urlparse(book["productionUrl"]).path):
             fail(f"experiment {item['id']} URL must remain under the production path")
         verification = item.get("verification")
         if verification is not None:
@@ -215,6 +222,8 @@ def validate_manifest(book):
             except (ValueError, TypeError):
                 fail(f"experiment {item['id']} verification.checkedAt must be an ISO date")
             check_url(verification["checkedUrl"], f"experiment {item['id']} verification.checkedUrl")
+            if "productionUrl" not in book:
+                fail(f"experiment {item['id']} verification requires productionUrl")
             if urlparse(verification["checkedUrl"]).netloc != urlparse(book["productionUrl"]).netloc or not path_is_within_production(urlparse(verification["checkedUrl"]).path, urlparse(book["productionUrl"]).path):
                 fail(f"experiment {item['id']} verification.checkedUrl must remain under the production host and path")
             if verification["checkedUrl"] != item["url"] or verification.get("httpStatus") != 200 or verification.get("fragmentFound") is not True:

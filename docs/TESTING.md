@@ -19,7 +19,7 @@ npm run test:e2e starts tests/serve.py, which serves the exact site artifact ben
 - ProcessIntegrationBook's bilingual detail, map/path links, and three experiments.
 - Search, empty results, reset, and planned-status filtering.
 - Subject knowledge maps, Learning Journey stage/strand selection, concept relations, material-status honesty, legacy learning paths, and experiment discovery.
-- A synthetic second published book, aggregate statistics, and a registered in-progress detail state with no false reading link.
+- A synthetic second published book, aggregate statistics, and a registered in-progress detail with no top-level public destinations or external actions.
 - A nested unknown route with project-base stylesheet, script, JSON, and navigation resolution.
 - English/Korean controls and saved theme preference.
 - Main views, image alternative-text attributes, keyboard skip-link focus styling, named links, and horizontal overflow.

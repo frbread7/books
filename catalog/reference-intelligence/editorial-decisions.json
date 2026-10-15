@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-10-13",
+  "asOf": "2026-10-15",
   "decisions": [
     {
       "projectId": "fabcontrolbook",
@@ -38,8 +38,8 @@
           ]
         }
       ],
-      "reviewedAt": "2026-10-13",
-      "reviewedAgainstCatalogSha": "f51e57c03c6bd42c6bccc976feb75126483ebdfd",
+      "reviewedAt": "2026-10-15",
+      "reviewedAgainstCatalogSha": "cf5501d42f68eda71f2c9866a62d4d3de3f225e1",
       "myLibraryReferences": [
         {
           "workId": "watbook",
@@ -83,8 +83,8 @@
           ]
         }
       ],
-      "reviewedAt": "2026-10-13",
-      "reviewedAgainstCatalogSha": "f51e57c03c6bd42c6bccc976feb75126483ebdfd",
+      "reviewedAt": "2026-10-15",
+      "reviewedAgainstCatalogSha": "cf5501d42f68eda71f2c9866a62d4d3de3f225e1",
       "myLibraryReferences": [
         {
           "workId": "processintegrationbook",
@@ -247,8 +247,8 @@
           ]
         }
       ],
-      "reviewedAt": "2026-10-13",
-      "reviewedAgainstCatalogSha": "f51e57c03c6bd42c6bccc976feb75126483ebdfd"
+      "reviewedAt": "2026-10-15",
+      "reviewedAgainstCatalogSha": "cf5501d42f68eda71f2c9866a62d4d3de3f225e1"
     },
     {
       "projectId": "heavyvehiclebook",

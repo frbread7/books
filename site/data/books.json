@@ -1357,6 +1357,293 @@
   },
   {
     "schemaVersion": 1,
+    "id": "thinfilmbook",
+    "slug": "thinfilmbook",
+    "title": {
+      "en": "ThinFilmBook",
+      "ko": "ThinFilmBook"
+    },
+    "subtitle": {
+      "en": "Advanced deposition, epitaxy, interfaces, and thin-film engineering",
+      "ko": "첨단 증착·에피택시·계면·박막 엔지니어링"
+    },
+    "description": {
+      "en": "A quantitative engineering textbook on thin-film growth, surface reactions, interfaces, characterization, and integration. This local candidate is not a released or fab-calibrated process guide.",
+      "ko": "박막 성장, 표면 반응, 계면, 특성 분석과 공정 통합을 정량적으로 다루는 엔지니어링 교재입니다. 이 로컬 후보는 출시되거나 팹 공정으로 보정된 가이드가 아닙니다."
+    },
+    "category": "semiconductor",
+    "tags": [
+      "thin-film growth",
+      "PVD",
+      "CVD",
+      "ALD",
+      "epitaxy",
+      "interfaces",
+      "film stress",
+      "thin-film metrology",
+      "process integration"
+    ],
+    "status": "in-progress",
+    "languages": [
+      "en",
+      "ko"
+    ],
+    "version": "0.1.0",
+    "lastUpdated": "2026-10-15",
+    "chapterCount": 12,
+    "chapters": [
+      {
+        "id": "c01-film-objectives",
+        "number": 1,
+        "title": {
+          "en": "What a Film Must Do",
+          "ko": "박막의 기능과 설계 목표"
+        },
+        "urls": {
+          "en": "https://frbread7.github.io/thinfilmbook/chapters/01-film-objectives.html",
+          "ko": "https://frbread7.github.io/thinfilmbook/ko/chapters/01-film-objectives.html"
+        },
+        "topics": [
+          "g1",
+          "thin-film-engineering"
+        ]
+      },
+      {
+        "id": "c02-growth-thermodynamics",
+        "number": 2,
+        "title": {
+          "en": "Thermodynamic Drivers of Film Growth",
+          "ko": "박막 성장의 열역학적 구동력"
+        },
+        "urls": {
+          "en": "https://frbread7.github.io/thinfilmbook/chapters/02-growth-thermodynamics.html",
+          "ko": "https://frbread7.github.io/thinfilmbook/ko/chapters/02-growth-thermodynamics.html"
+        },
+        "topics": [
+          "g1",
+          "thin-film-engineering"
+        ]
+      },
+      {
+        "id": "c03-surface-kinetics",
+        "number": 3,
+        "title": {
+          "en": "Surface Kinetics during Deposition",
+          "ko": "증착 중 표면 동역학"
+        },
+        "urls": {
+          "en": "https://frbread7.github.io/thinfilmbook/chapters/03-surface-kinetics.html",
+          "ko": "https://frbread7.github.io/thinfilmbook/ko/chapters/03-surface-kinetics.html"
+        },
+        "topics": [
+          "g2",
+          "thin-film-engineering"
+        ]
+      },
+      {
+        "id": "c04-nucleation-coalescence",
+        "number": 4,
+        "title": {
+          "en": "From Nuclei to a Connected Film",
+          "ko": "핵생성에서 연결된 박막까지"
+        },
+        "urls": {
+          "en": "https://frbread7.github.io/thinfilmbook/chapters/04-nucleation-coalescence.html",
+          "ko": "https://frbread7.github.io/thinfilmbook/ko/chapters/04-nucleation-coalescence.html"
+        },
+        "topics": [
+          "g2",
+          "thin-film-engineering"
+        ]
+      },
+      {
+        "id": "c05-pvd",
+        "number": 5,
+        "title": {
+          "en": "Physical Vapor Deposition: Evaporation and Sputtering",
+          "ko": "물리적 기상 증착: 증발과 스퍼터링"
+        },
+        "urls": {
+          "en": "https://frbread7.github.io/thinfilmbook/chapters/05-pvd.html",
+          "ko": "https://frbread7.github.io/thinfilmbook/ko/chapters/05-pvd.html"
+        },
+        "topics": [
+          "g3",
+          "thin-film-engineering"
+        ]
+      },
+      {
+        "id": "c06-cvd",
+        "number": 6,
+        "title": {
+          "en": "Chemical Vapor Deposition: Transport and Reaction",
+          "ko": "화학 기상 증착: 수송과 반응"
+        },
+        "urls": {
+          "en": "https://frbread7.github.io/thinfilmbook/chapters/06-cvd.html",
+          "ko": "https://frbread7.github.io/thinfilmbook/ko/chapters/06-cvd.html"
+        },
+        "topics": [
+          "g3",
+          "thin-film-engineering"
+        ]
+      },
+      {
+        "id": "c07-ald",
+        "number": 7,
+        "title": {
+          "en": "Atomic Layer Deposition: Cycles and Conformality",
+          "ko": "원자층 증착: 사이클과 등각성"
+        },
+        "urls": {
+          "en": "https://frbread7.github.io/thinfilmbook/chapters/07-ald.html",
+          "ko": "https://frbread7.github.io/thinfilmbook/ko/chapters/07-ald.html"
+        },
+        "topics": [
+          "g3",
+          "thin-film-engineering"
+        ]
+      },
+      {
+        "id": "c08-epitaxy",
+        "number": 8,
+        "title": {
+          "en": "Epitaxy: Registry, Strain, and Defects",
+          "ko": "에피택시: 격자 정합, 변형률, 결함"
+        },
+        "urls": {
+          "en": "https://frbread7.github.io/thinfilmbook/chapters/08-epitaxy.html",
+          "ko": "https://frbread7.github.io/thinfilmbook/ko/chapters/08-epitaxy.html"
+        },
+        "topics": [
+          "g4",
+          "thin-film-engineering"
+        ]
+      },
+      {
+        "id": "c09",
+        "number": 9,
+        "title": {
+          "en": "Interfaces, Interdiffusion, and Phase Development",
+          "ko": "계면, 상호확산 및 상 발달"
+        },
+        "urls": {
+          "en": "https://frbread7.github.io/thinfilmbook/chapters/interfaces.html",
+          "ko": "https://frbread7.github.io/thinfilmbook/ko/chapters/interfaces.html"
+        },
+        "topics": [
+          "g5",
+          "thin-film-engineering"
+        ]
+      },
+      {
+        "id": "c10",
+        "number": 10,
+        "title": {
+          "en": "Film Stress, Adhesion, and Delamination",
+          "ko": "박막 응력, 접착 및 박리"
+        },
+        "urls": {
+          "en": "https://frbread7.github.io/thinfilmbook/chapters/stress-adhesion.html",
+          "ko": "https://frbread7.github.io/thinfilmbook/ko/chapters/stress-adhesion.html"
+        },
+        "topics": [
+          "g5",
+          "thin-film-engineering"
+        ]
+      },
+      {
+        "id": "c11",
+        "number": 11,
+        "title": {
+          "en": "Thin-Film Metrology and Measurement Models",
+          "ko": "박막 계측과 측정 모델"
+        },
+        "urls": {
+          "en": "https://frbread7.github.io/thinfilmbook/chapters/metrology.html",
+          "ko": "https://frbread7.github.io/thinfilmbook/ko/chapters/metrology.html"
+        },
+        "topics": [
+          "g6",
+          "thin-film-engineering"
+        ]
+      },
+      {
+        "id": "c12",
+        "number": 12,
+        "title": {
+          "en": "From Material Targets to Process Integration",
+          "ko": "재료 목표에서 공정 통합까지"
+        },
+        "urls": {
+          "en": "https://frbread7.github.io/thinfilmbook/chapters/integration.html",
+          "ko": "https://frbread7.github.io/thinfilmbook/ko/chapters/integration.html"
+        },
+        "topics": [
+          "g6",
+          "thin-film-engineering"
+        ]
+      }
+    ],
+    "experiments": [
+      {
+        "id": "ald-conformality",
+        "chapterId": "c07-ald",
+        "title": {
+          "en": "ALD conformality explorer",
+          "ko": "ALD 피복성 탐색기"
+        },
+        "kind": {
+          "en": "Idealized 1-D transport and saturation model",
+          "ko": "이상화된 1차원 수송·포화 모델"
+        },
+        "url": "https://frbread7.github.io/thinfilmbook/lab.html#ald-conformality"
+      },
+      {
+        "id": "cvd-resistances",
+        "chapterId": "c06-cvd",
+        "title": {
+          "en": "CVD rate-limitation explorer",
+          "ko": "CVD 속도 제한 요인 탐색기"
+        },
+        "kind": {
+          "en": "Series mass-transfer and reaction resistance",
+          "ko": "직렬 물질전달·반응 저항"
+        },
+        "url": "https://frbread7.github.io/thinfilmbook/lab.html#cvd-resistances"
+      },
+      {
+        "id": "stoney-stress",
+        "chapterId": "c10",
+        "title": {
+          "en": "Curvature-to-stress estimator",
+          "ko": "곡률-응력 추정기"
+        },
+        "kind": {
+          "en": "Isotropic Stoney-equation estimate",
+          "ko": "등방성 Stoney 방정식 추정"
+        },
+        "url": "https://frbread7.github.io/thinfilmbook/lab.html#stoney-stress"
+      }
+    ],
+    "prerequisites": [],
+    "relatedBooks": [
+      "processintegrationbook"
+    ],
+    "attribution": {
+      "license": "CC BY 4.0 for original educational prose, diagrams, illustrative examples, and cover artwork; MIT for original code. See LICENSE-AND-ATTRIBUTION.md.",
+      "repositoryUrl": "https://github.com/frbread7/thinfilmbook",
+      "notes": "Original ThinFilmBook content, cover artwork, and favicon; cited publications are linked as references and are not reproduced. The chapter and lab routes and attribution repository URL are prospective, unverified locations only; no public repository or site exists. This local in-progress candidate has no release or production verification evidence."
+    },
+    "cover": "assets/covers/thinfilmbook.svg",
+    "theme": {
+      "accent": "#a74424",
+      "accentSoft": "#f5e3d8",
+      "motif": "layered interfaces, surface growth, and stress"
+    }
+  },
+  {
+    "schemaVersion": 1,
     "id": "watbook",
     "slug": "watbook",
     "title": {

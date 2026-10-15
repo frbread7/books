@@ -13,8 +13,6 @@
     "category",
     "tags",
     "status",
-    "repositoryUrl",
-    "productionUrl",
     "languages",
     "version",
     "lastUpdated",
@@ -347,6 +345,36 @@
   },
   "additionalProperties": false,
   "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "in-progress"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "else": {
+        "required": [
+          "repositoryUrl",
+          "productionUrl"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "languageUrls"
+        ]
+      },
+      "then": {
+        "required": [
+          "productionUrl"
+        ]
+      }
+    },
     {
       "if": {
         "properties": {

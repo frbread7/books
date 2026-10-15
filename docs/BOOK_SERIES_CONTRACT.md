@@ -12,9 +12,10 @@
 ## Manifest rules
 
 - Use a stable unique lowercase ID/slug and a matching `catalog/books/<id>.json` filename.
-- Provide bilingual catalog metadata; `languages` must reflect editions that actually exist on the book's production site.
-- `chapterCount` must equal the chapter index; chapter IDs/numbers are unique and URLs point to real pages on the declared production host.
-- Experiments point to existing chapters and real anchors. A published experiment includes successful live URL, fragment, response-hash, and deployed-revision evidence.
+- Provide bilingual catalog metadata. For `published` books, `languages` must reflect editions available on the production site.
+- Top-level `repositoryUrl` and `productionUrl` are public destinations. They may be omitted only for `in-progress` records before those destinations exist; published records, and planned or archived records, must provide both. `languageUrls` requires `productionUrl`. The portal shows no repository or site action for an in-progress record when those destinations are absent. The nested `attribution.repositoryUrl` records attribution/source provenance; an in-progress book may keep a proposed URL there, but it is not a verified public destination or a portal action when the top-level `repositoryUrl` is absent.
+- `chapterCount` must equal the chapter index; chapter IDs/numbers are unique. Chapter URLs use HTTPS and, when `productionUrl` exists, remain under its host and path. Without `productionUrl`, in-progress chapter URLs are prospective, unverified route metadata and are not linked by the portal detail page.
+- Experiment metadata points to existing chapters and contains an anchor. With no `productionUrl`, in-progress experiment routes are prospective and unverified; a published experiment must point to a live anchor and include successful URL, fragment, response-hash, and deployed-revision evidence.
 - Prerequisites and related IDs reference registered books. Use empty lists if no published relationship is supported.
 - Covers are original portal assets; colors and metadata pass the schema and semantic checks.
 - A proposal is `planned` in `catalog/roadmap.json`. As soon as work is registered, it is `in-progress` in `catalog/books/` and removed from the roadmap. Do not list one ID in both places.

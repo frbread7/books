@@ -84,7 +84,7 @@ test("ProcessIntegrationBook is published across its bilingual detail, map, path
   expect(integration.status).toBe("published");
   expect(integration.publicationEvidence.productionRevision).toMatch(/^[0-9a-f]{40}$/);
   expect(catalogRoadmap.books.some(book => book.id === integration.id)).toBe(false);
-  expect(catalogRoadmap.books[0].id).toBe("thinfilmbook");
+  expect(catalogRoadmap.books[0].id).toBe("reliabilityengineeringbook");
 
   await page.goto("book.html?slug=processintegrationbook");
   await expect(page.locator("h1")).toHaveText("ProcessIntegrationBook");
@@ -477,6 +477,11 @@ test("mathematics roadmap exposes planned textbook preparation links", async ({ 
 });
 
 test("catalog expansion updates aggregate counts and registered drafts have an honest status page", async ({ page }) => {
+  const thinfilm = catalogBooks.find(book => book.id === "thinfilmbook");
+  expect(thinfilm.status).toBe("in-progress");
+  expect(thinfilm.repositoryUrl).toBeUndefined();
+  expect(thinfilm.productionUrl).toBeUndefined();
+  expect(thinfilm.languageUrls).toBeUndefined();
   const pmicbook = catalogBooks.find(book => book.id === "pmicbook");
   const secondPublished = structuredClone(pmicbook);
   Object.assign(secondPublished, {
@@ -492,9 +497,11 @@ test("catalog expansion updates aggregate counts and registered drafts have an h
   const draft = structuredClone(secondPublished);
   Object.assign(draft, {
     id: "futurefixture", slug: "futurefixture", title: { en: "Future Fixture", ko: "미래 픽스처" },
-    status: "in-progress", chapterCount: 0, chapters: [], productionUrl: "https://example.test/futurefixture/",
-    languageUrls: { en: "https://example.test/futurefixture/" }, repositoryUrl: "https://github.com/example/futurefixture"
+    status: "in-progress", chapterCount: 0, chapters: []
   });
+  delete draft.repositoryUrl;
+  delete draft.productionUrl;
+  delete draft.languageUrls;
   delete draft.publicationEvidence;
   const fixture = [...catalogBooks, secondPublished, draft];
   await page.route("**/books/data/books.json", route => route.fulfill({ contentType: "application/json", body: JSON.stringify(fixture) }));
@@ -512,11 +519,16 @@ test("catalog expansion updates aggregate counts and registered drafts have an h
   await expect(page.locator(".unavailable-note")).toContainText("In progress");
   await expect(page.locator(".book-progress-detail")).toHaveAttribute("data-book-status", "in-progress");
   await expect(page.locator(".book-progress-detail .detail-description")).toContainText("catalog expansion");
-  await expect(page.locator(".progress-repository")).toHaveAttribute("href", "https://github.com/example/futurefixture");
-  await expect(page.locator(".detail-actions a")).toHaveCount(2);
+  await expect(page.locator(".progress-repository")).toHaveCount(0);
+  await expect(page.locator(".book-progress-detail a[href^=\"https://\"]")).toHaveCount(0);
+  await expect(page.locator(".detail-actions a")).toHaveCount(1);
   await expect(page.locator(".detail-actions a").filter({ hasText: "Open the textbook" })).toHaveCount(0);
-  await expect(page.locator(`.detail-actions a[href="${draft.productionUrl}"]`)).toHaveCount(0);
   await expect(page.locator(".chapter-list, .mini-experiment")).toHaveCount(0);
+
+  await page.goto("book.html?slug=thinfilmbook");
+  await expect(page.locator(".book-progress-detail")).toHaveAttribute("data-book-status", "in-progress");
+  await expect(page.locator("h1")).toHaveText("ThinFilmBook");
+  await expect(page.locator(".book-progress-detail a[href^=\"https://\"]")).toHaveCount(0);
 });
 
 test("language and theme controls change state and persist", async ({ page }) => {

@@ -4,12 +4,12 @@
     "repository": "https://github.com/geniuskey/books",
     "website": "https://books.euiyun.com/",
     "catalogPath": "data/books.json",
-    "catalogHeadSha": "f51e57c03c6bd42c6bccc976feb75126483ebdfd",
-    "catalogCommitUrl": "https://github.com/geniuskey/books/commit/f51e57c03c6bd42c6bccc976feb75126483ebdfd",
-    "catalogCommittedAt": "2026-10-10T13:53:10Z",
-    "lastSuccessfulInspectionAt": "2026-10-13T11:13:52Z",
-    "entryCount": 43,
-    "publishedRepositoryCount": 37,
+    "catalogHeadSha": "cf5501d42f68eda71f2c9866a62d4d3de3f225e1",
+    "catalogCommitUrl": "https://github.com/geniuskey/books/commit/cf5501d42f68eda71f2c9866a62d4d3de3f225e1",
+    "catalogCommittedAt": "2026-10-15T04:07:25Z",
+    "lastSuccessfulInspectionAt": "2026-10-15T06:56:04Z",
+    "entryCount": 49,
+    "publishedRepositoryCount": 39,
     "observedFactsOnly": true,
     "centralSourceFiles": {
       "LICENSE-CC-BY-4.0": {
@@ -17,35 +17,35 @@
         "kind": "license",
         "blobSha": "da6ab6cc8f333d7e89a99812866df8f24374d47c",
         "size": 18657,
-        "sourceUrl": "https://github.com/geniuskey/books/blob/f51e57c03c6bd42c6bccc976feb75126483ebdfd/LICENSE-CC-BY-4.0"
+        "sourceUrl": "https://github.com/geniuskey/books/blob/cf5501d42f68eda71f2c9866a62d4d3de3f225e1/LICENSE-CC-BY-4.0"
       },
       "LICENSE-MIT": {
         "available": true,
         "kind": "license",
         "blobSha": "e432d93128803d41a29388e37d3ad0e840ed9fb0",
         "size": 1096,
-        "sourceUrl": "https://github.com/geniuskey/books/blob/f51e57c03c6bd42c6bccc976feb75126483ebdfd/LICENSE-MIT"
+        "sourceUrl": "https://github.com/geniuskey/books/blob/cf5501d42f68eda71f2c9866a62d4d3de3f225e1/LICENSE-MIT"
       },
       "LICENSE.md": {
         "available": true,
         "kind": "license",
         "blobSha": "2de9695734eeae9eee84d19da43071f86c4740e6",
         "size": 2143,
-        "sourceUrl": "https://github.com/geniuskey/books/blob/f51e57c03c6bd42c6bccc976feb75126483ebdfd/LICENSE.md"
+        "sourceUrl": "https://github.com/geniuskey/books/blob/cf5501d42f68eda71f2c9866a62d4d3de3f225e1/LICENSE.md"
       },
       "data/books.json": {
         "available": true,
         "kind": "catalog",
-        "blobSha": "f01915dee1f5096cc6bdcf0e6efd58127d92b6ca",
-        "size": 64516,
-        "sourceUrl": "https://github.com/geniuskey/books/blob/f51e57c03c6bd42c6bccc976feb75126483ebdfd/data/books.json"
+        "blobSha": "528d621764adf6b2a5f883734bacc77056fb4f45",
+        "size": 70922,
+        "sourceUrl": "https://github.com/geniuskey/books/blob/cf5501d42f68eda71f2c9866a62d4d3de3f225e1/data/books.json"
       },
       "data/editorial-backlog.json": {
         "available": true,
         "kind": "editorial-backlog",
         "blobSha": "795c6d39e1a78ba0174d958b27a8dbb1e8811c74",
         "size": 21115,
-        "sourceUrl": "https://github.com/geniuskey/books/blob/f51e57c03c6bd42c6bccc976feb75126483ebdfd/data/editorial-backlog.json",
+        "sourceUrl": "https://github.com/geniuskey/books/blob/cf5501d42f68eda71f2c9866a62d4d3de3f225e1/data/editorial-backlog.json",
         "reviewedOn": "2026-10-05",
         "entryCount": 33,
         "entries": [
@@ -416,7 +416,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -424,11 +424,11 @@
         "repositoryUrl": "https://github.com/geniuskey/aibook",
         "defaultBranch": "main",
         "githubApiLicenseSpdx": "NOASSERTION",
-        "headSha": "8f32da294bdb1bf4256b6108dc6ce49931d6949e",
-        "headCommittedAt": "2026-10-10T14:22:25Z",
-        "headCommitMessage": "Correct sampling, floating-point quantization and training explanations",
-        "commitUrl": "https://github.com/geniuskey/aibook/commit/8f32da294bdb1bf4256b6108dc6ce49931d6949e",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "headSha": "06f5ef753a16f665cadc090ab41d48004ce865e6",
+        "headCommittedAt": "2026-10-14T12:59:25Z",
+        "headCommitMessage": "Merge pull request #1 from geniuskey/ccr-6a552121-kgbkru",
+        "commitUrl": "https://github.com/geniuskey/aibook/commit/06f5ef753a16f665cadc090ab41d48004ce865e6",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -447,9 +447,9 @@
             "size": 2848
           },
           "README.md": {
-            "blobSha": "eb43ac7db9cde2c8b1a22702f2e6452b75319294",
+            "blobSha": "233e9b6a52d406470ff18885c0fd2fbc197a5cf2",
             "kind": "book-metadata",
-            "size": 4149
+            "size": 5322
           },
           "book.json": {
             "blobSha": "762b82da18aed32411b1f983ecf7cf138f72e5c0",
@@ -460,6 +460,11 @@
             "blobSha": "7689839f0d87e8b8ab8f6bf02012defd59079e0f",
             "kind": "chapter",
             "size": 149275
+          },
+          "chapters/aisystem.html": {
+            "blobSha": "8fce5ec975d52d2897ff289ad54198ac6f149e2c",
+            "kind": "chapter",
+            "size": 209637
           },
           "chapters/attention.html": {
             "blobSha": "45a9c8bdf82963214440d7f3d606c27becfd391e",
@@ -482,19 +487,39 @@
             "size": 167726
           },
           "chapters/glossary.html": {
-            "blobSha": "0d2e89fdef6b3af3d70a42e34c015f72dec939c4",
+            "blobSha": "00fc86ba89ad34153598eae3bf0f3befbef6561f",
             "kind": "chapter",
-            "size": 84789
+            "size": 125472
           },
           "chapters/llm.html": {
             "blobSha": "6f7730f6b35a26b7d0b557ca5c85eac93ce4ec3c",
             "kind": "chapter",
             "size": 177516
           },
+          "chapters/ml.html": {
+            "blobSha": "d9ff53ccc27d2e1d1941e87c90e6d26803555360",
+            "kind": "chapter",
+            "size": 152184
+          },
+          "chapters/multimodal.html": {
+            "blobSha": "9f0fb5780f42dc67e976dae2ba3b0ca8890820d2",
+            "kind": "chapter",
+            "size": 160188
+          },
           "chapters/neuron.html": {
             "blobSha": "5c91463693b21a7a77ed4a47d280191d1a49a97e",
             "kind": "chapter",
             "size": 113415
+          },
+          "chapters/practice.html": {
+            "blobSha": "2544263b8d04378e00be7c20a262b17b41d8c2e4",
+            "kind": "chapter",
+            "size": 171805
+          },
+          "chapters/prompt.html": {
+            "blobSha": "7177a0d70c829b0adf3e294e70f7def8dc471189",
+            "kind": "chapter",
+            "size": 148629
           },
           "chapters/quantization.html": {
             "blobSha": "c85fa7acf0b1be9cb75debf4b2e72f252a90a5ae",
@@ -521,17 +546,32 @@
             "kind": "chapter",
             "size": 121814
           },
+          "css/style.css": {
+            "blobSha": "ce5a5df649d7c6d366d1bb24cb7c3aebcb5639d5",
+            "kind": "shared-runtime",
+            "size": 30735
+          },
           "index.html": {
-            "blobSha": "accf49473e0ba1c1b03b9073e78aa125f726fa08",
+            "blobSha": "828a1735afb5c408ba7b61d2687cfe58f347aebb",
             "kind": "book-metadata",
-            "size": 29016
+            "size": 30333
+          },
+          "js/common.js": {
+            "blobSha": "d30d2ae502005b3056ecddcdd7e1c98928ed09f1",
+            "kind": "shared-runtime",
+            "size": 45149
+          },
+          "tools/og.py": {
+            "blobSha": "2d8b2a8adaa6f84b686f2696a6448a99e0414341",
+            "kind": "shared-runtime",
+            "size": 1058
           }
         }
       },
       "repositoryAvailability": {
         "fullName": "geniuskey/aibook",
         "available": true,
-        "checkedAt": "2026-10-13T10:48:15Z"
+        "checkedAt": "2026-10-15T06:56:04Z"
       },
       "chapters": [
         {
@@ -540,6 +580,13 @@
           "titleSource": "html-heading-or-title",
           "blobSha": "7689839f0d87e8b8ab8f6bf02012defd59079e0f",
           "sourceUrl": "https://github.com/geniuskey/aibook/blob/8f32da294bdb1bf4256b6108dc6ce49931d6949e/chapters/agent.html"
+        },
+        {
+          "path": "chapters/aisystem.html",
+          "title": "AI 시스템 설계: 워크플로, 에이전트, 가드레일",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "8fce5ec975d52d2897ff289ad54198ac6f149e2c",
+          "sourceUrl": "https://github.com/geniuskey/aibook/blob/06f5ef753a16f665cadc090ab41d48004ce865e6/chapters/aisystem.html"
         },
         {
           "path": "chapters/attention.html",
@@ -571,10 +618,10 @@
         },
         {
           "path": "chapters/glossary.html",
-          "title": "용어집 & 종합 퀴즈 · AIBook",
+          "title": "용어집 · 커리큘럼 맵 · 종합 퀴즈",
           "titleSource": "html-heading-or-title",
-          "blobSha": "0d2e89fdef6b3af3d70a42e34c015f72dec939c4",
-          "sourceUrl": "https://github.com/geniuskey/aibook/blob/8f32da294bdb1bf4256b6108dc6ce49931d6949e/chapters/glossary.html"
+          "blobSha": "00fc86ba89ad34153598eae3bf0f3befbef6561f",
+          "sourceUrl": "https://github.com/geniuskey/aibook/blob/06f5ef753a16f665cadc090ab41d48004ce865e6/chapters/glossary.html"
         },
         {
           "path": "chapters/llm.html",
@@ -584,11 +631,39 @@
           "sourceUrl": "https://github.com/geniuskey/aibook/blob/8f32da294bdb1bf4256b6108dc6ce49931d6949e/chapters/llm.html"
         },
         {
+          "path": "chapters/ml.html",
+          "title": "머신러닝 기초: 데이터에서 규칙을 배운다",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "d9ff53ccc27d2e1d1941e87c90e6d26803555360",
+          "sourceUrl": "https://github.com/geniuskey/aibook/blob/06f5ef753a16f665cadc090ab41d48004ce865e6/chapters/ml.html"
+        },
+        {
+          "path": "chapters/multimodal.html",
+          "title": "멀티모달과 최신 AI 기술",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "9f0fb5780f42dc67e976dae2ba3b0ca8890820d2",
+          "sourceUrl": "https://github.com/geniuskey/aibook/blob/06f5ef753a16f665cadc090ab41d48004ce865e6/chapters/multimodal.html"
+        },
+        {
           "path": "chapters/neuron.html",
           "title": "뉴런과 신경망",
           "titleSource": "html-heading-or-title",
           "blobSha": "5c91463693b21a7a77ed4a47d280191d1a49a97e",
           "sourceUrl": "https://github.com/geniuskey/aibook/blob/8f32da294bdb1bf4256b6108dc6ce49931d6949e/chapters/neuron.html"
+        },
+        {
+          "path": "chapters/practice.html",
+          "title": "실전 AI 활용 역량: 문제 정의에서 검증까지",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "2544263b8d04378e00be7c20a262b17b41d8c2e4",
+          "sourceUrl": "https://github.com/geniuskey/aibook/blob/06f5ef753a16f665cadc090ab41d48004ce865e6/chapters/practice.html"
+        },
+        {
+          "path": "chapters/prompt.html",
+          "title": "프롬프트 엔지니어링",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "7177a0d70c829b0adf3e294e70f7def8dc471189",
+          "sourceUrl": "https://github.com/geniuskey/aibook/blob/06f5ef753a16f665cadc090ab41d48004ce865e6/chapters/prompt.html"
         },
         {
           "path": "chapters/quantization.html",
@@ -681,7 +756,7 @@
         "noticePaths": [],
         "automatedSummary": "LICENSE.md and separate MIT/CC BY 4.0 files are present; file-purpose scope and third-party exclusions require reading the source notice.",
         "rightsDetermination": "not-automatically-determined",
-        "sourceCommitSha": "8f32da294bdb1bf4256b6108dc6ce49931d6949e"
+        "sourceCommitSha": "06f5ef753a16f665cadc090ab41d48004ce865e6"
       },
       "bookMetadata": {
         "id": "aibook",
@@ -702,7 +777,7 @@
           "RAG·에이전트"
         ],
         "centralCatalogChapterCount": 13,
-        "indexedChapterPathCount": 13,
+        "indexedChapterPathCount": 18,
         "centralCatalogSimulatorCount": 100,
         "featuredActivities": [
           {
@@ -758,7 +833,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -770,7 +845,7 @@
         "headCommittedAt": "2026-10-10T17:11:02Z",
         "headCommitMessage": "Compute exact SAR code widths for missing code detection",
         "commitUrl": "https://github.com/geniuskey/analogbook/commit/0440a0100a809e704be5e2cb67fd1c973551d2ba",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -1157,6 +1232,1300 @@
       }
     },
     {
+      "id": "artbook-color",
+      "title": "ArtBook 색채",
+      "subtitle": "미술·디자인 색채 교과서",
+      "topicBasedSummary": "Topics listed in the upstream catalog: 빛과 지각; 색 모델; 혼색; 색상환과 조화; 명도·채도·대비; 접근성; 팔레트",
+      "status": "published",
+      "subject": "art",
+      "audience": "입문",
+      "topics": [
+        "빛과 지각",
+        "색 모델",
+        "혼색",
+        "색상환과 조화",
+        "명도·채도·대비",
+        "접근성",
+        "팔레트"
+      ],
+      "catalogChapterCount": 17,
+      "catalogSimulatorCount": 108,
+      "repositoryUrl": "https://github.com/geniuskey/artbook",
+      "websiteUrl": "https://artbook.euiyun.com/color/",
+      "catalogFeaturedExperiments": [
+        {
+          "title": "한 색을 두 색으로",
+          "sourcePath": "chapters/relativity.html",
+          "fragment": "sim-one",
+          "sourceUrl": "https://artbook.euiyun.com/color/"
+        },
+        {
+          "title": "세 물감의 색 지도",
+          "sourcePath": "chapters/mixing.html",
+          "fragment": "sim-mi-gamut",
+          "sourceUrl": "https://artbook.euiyun.com/color/"
+        }
+      ],
+      "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
+      "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
+      "observedFactsOnly": true,
+      "repository": {
+        "fullName": "geniuskey/artbook",
+        "repositoryUrl": "https://github.com/geniuskey/artbook",
+        "defaultBranch": "main",
+        "githubApiLicenseSpdx": "NOASSERTION",
+        "headSha": "a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7",
+        "headCommittedAt": "2026-10-15T04:04:20Z",
+        "headCommitMessage": "Publish CompositionBook: 15 chapters, 95 simulators",
+        "commitUrl": "https://github.com/geniuskey/artbook/commit/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7",
+        "checkedAt": "2026-10-15T06:56:04Z",
+        "treeTruncated": false,
+        "relevantSourceFiles": {
+          "LICENSE-CC-BY-4.0": {
+            "blobSha": "da6ab6cc8f333d7e89a99812866df8f24374d47c",
+            "kind": "license",
+            "size": 18657
+          },
+          "LICENSE-MIT": {
+            "blobSha": "b7f176d163fd029a6f9ce5bdf0b88fa5a920e6b7",
+            "kind": "license",
+            "size": 1167
+          },
+          "LICENSE.md": {
+            "blobSha": "ea8ac9ee18bd30d9b55816d49243fb97920dd941",
+            "kind": "license",
+            "size": 3297
+          },
+          "README.md": {
+            "blobSha": "003ae9ab04194b035b40a2813c56b9e16d0d3f7f",
+            "kind": "book-metadata",
+            "size": 11757
+          },
+          "book.json": {
+            "blobSha": "ce6cf0fa3d9038320b77d07942ef9dd84cbff942",
+            "kind": "book-metadata",
+            "size": 593
+          },
+          "color/chapters/access.html": {
+            "blobSha": "a01951f7a494ca461eab39cd1cb6291819afcb43",
+            "kind": "chapter",
+            "size": 72015
+          },
+          "color/chapters/chroma.html": {
+            "blobSha": "5eb629282cef2ec63aac7a9b933020f0b2a196ca",
+            "kind": "chapter",
+            "size": 80504
+          },
+          "color/chapters/contrast.html": {
+            "blobSha": "384fe605c9c3e19205952e7d00189e4cd7e430f8",
+            "kind": "chapter",
+            "size": 95965
+          },
+          "color/chapters/glossary.html": {
+            "blobSha": "be6d2d0a51b68966b2981df90a927c0facdfac49",
+            "kind": "chapter",
+            "size": 53819
+          },
+          "color/chapters/lab.html": {
+            "blobSha": "af764962e4600534a6fef1397b9cc8f3f5b31412",
+            "kind": "chapter",
+            "size": 141619
+          },
+          "color/chapters/light.html": {
+            "blobSha": "69b331e6343816f58fd60ea9a3dd2663a7886ea0",
+            "kind": "chapter",
+            "size": 91334
+          },
+          "color/chapters/meaning.html": {
+            "blobSha": "3e3f07492003124efaa9d5e84c35ad3a476b89e9",
+            "kind": "chapter",
+            "size": 94478
+          },
+          "color/chapters/mixing.html": {
+            "blobSha": "84a63ada27b736658569404d4157f820b68b85b7",
+            "kind": "chapter",
+            "size": 95411
+          },
+          "color/chapters/models.html": {
+            "blobSha": "ebf04582e22154491083349ef18e40a54b4f4b9d",
+            "kind": "chapter",
+            "size": 89891
+          },
+          "color/chapters/overview.html": {
+            "blobSha": "53b91ef28097899d62177e1622aaa98dcc198a40",
+            "kind": "chapter",
+            "size": 83887
+          },
+          "color/chapters/painting.html": {
+            "blobSha": "7e8e7806a19ae6605d4dab67fac0da50cd3bcb4e",
+            "kind": "chapter",
+            "size": 82297
+          },
+          "color/chapters/palette.html": {
+            "blobSha": "df2e3d0b324853efcc9ba75b10551166abe11c87",
+            "kind": "chapter",
+            "size": 112304
+          },
+          "color/chapters/print.html": {
+            "blobSha": "1f5c3f829806aae4a50c234c42509e2262307107",
+            "kind": "chapter",
+            "size": 93992
+          },
+          "color/chapters/relativity.html": {
+            "blobSha": "eaf73cbc7617b97ef3017383e20b769dcde23b83",
+            "kind": "chapter",
+            "size": 80355
+          },
+          "color/chapters/temperature.html": {
+            "blobSha": "32388b48073ca6cf379d14a3ecae189e4212bc38",
+            "kind": "chapter",
+            "size": 104033
+          },
+          "color/chapters/value.html": {
+            "blobSha": "6d37f7f9792eb3de4322844b7273baddb4b79be9",
+            "kind": "chapter",
+            "size": 98927
+          },
+          "color/chapters/wheel.html": {
+            "blobSha": "e816b13abde177da5d2f171ae018c3cd22512278",
+            "kind": "chapter",
+            "size": 75930
+          },
+          "composition/chapters/balance.html": {
+            "blobSha": "f1d70911b715b463166b66e67e43f875139c7268",
+            "kind": "chapter",
+            "size": 92324
+          },
+          "composition/chapters/depth.html": {
+            "blobSha": "302e3f3b892d91c0b942f374d1d72aa0a1723889",
+            "kind": "chapter",
+            "size": 89558
+          },
+          "composition/chapters/elements.html": {
+            "blobSha": "9add1eefb3803ca3770f512e2386e1c2008bc083",
+            "kind": "chapter",
+            "size": 75812
+          },
+          "composition/chapters/eye.html": {
+            "blobSha": "033029223fa8813ae9d86d81d517a344f765eb04",
+            "kind": "chapter",
+            "size": 109780
+          },
+          "composition/chapters/frame.html": {
+            "blobSha": "f47483d00164a053082007a3a4ba99ce63026708",
+            "kind": "chapter",
+            "size": 109578
+          },
+          "composition/chapters/gestalt.html": {
+            "blobSha": "da830fb057d502fbb4d48432e314af4959e98fa3",
+            "kind": "chapter",
+            "size": 87765
+          },
+          "composition/chapters/glossary.html": {
+            "blobSha": "3cfe30856d5555629eb59ebcbf47d966f7f49652",
+            "kind": "chapter",
+            "size": 58048
+          },
+          "composition/chapters/lab.html": {
+            "blobSha": "f028a27f757b72d20ee1e048f70e0a74f63592a2",
+            "kind": "chapter",
+            "size": 118056
+          },
+          "composition/chapters/layout.html": {
+            "blobSha": "1b35e75c3aba997625f34c36f0b4ac9fbb4e37af",
+            "kind": "chapter",
+            "size": 105531
+          },
+          "composition/chapters/overview.html": {
+            "blobSha": "3bd7aa6249f7b36f54e89efb2b38033e03d6d460",
+            "kind": "chapter",
+            "size": 91898
+          },
+          "composition/chapters/proportion.html": {
+            "blobSha": "165aad6785c52ef9d0bab93aa502c8e5c911697d",
+            "kind": "chapter",
+            "size": 95399
+          },
+          "composition/chapters/reading.html": {
+            "blobSha": "3d2f5c9f01ba794608b7684f1c3aa94eec11030c",
+            "kind": "chapter",
+            "size": 112367
+          },
+          "composition/chapters/rhythm.html": {
+            "blobSha": "e54fa9e9d1d0242084acc71514ebefb90da71dc7",
+            "kind": "chapter",
+            "size": 75910
+          },
+          "composition/chapters/shape.html": {
+            "blobSha": "0977e1a8f82fc1aeed63afdfd08b21d1020f0c15",
+            "kind": "chapter",
+            "size": 107940
+          },
+          "composition/chapters/space.html": {
+            "blobSha": "9fb631209d39b65ccb98fd5397fbc9cfb55111ca",
+            "kind": "chapter",
+            "size": 80377
+          },
+          "index.html": {
+            "blobSha": "a8dfe96bcb10674fc90c236e6c6b1defad86a7d8",
+            "kind": "book-metadata",
+            "size": 12949
+          },
+          "tools/book_home.py": {
+            "blobSha": "e617103d827fe5d98dfa1fb85663f71c89b9ea5a",
+            "kind": "shared-runtime",
+            "size": 11557
+          },
+          "tools/check.py": {
+            "blobSha": "51876765e587a4d52186ed21c286ff7b8aa52ede",
+            "kind": "shared-runtime",
+            "size": 9460
+          },
+          "tools/head.py": {
+            "blobSha": "0fcebb2b644cd84f15b2e3916217c1fa828c88a5",
+            "kind": "shared-runtime",
+            "size": 7115
+          },
+          "tools/og.py": {
+            "blobSha": "43d0efa94b1ef932a9fa1fc2a71cd2561ddde817",
+            "kind": "shared-runtime",
+            "size": 1189
+          }
+        }
+      },
+      "repositoryAvailability": {
+        "fullName": "geniuskey/artbook",
+        "available": true,
+        "checkedAt": "2026-10-15T06:56:04Z"
+      },
+      "chapters": [
+        {
+          "path": "color/chapters/access.html",
+          "title": "모두를 위한 색",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "a01951f7a494ca461eab39cd1cb6291819afcb43",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/access.html"
+        },
+        {
+          "path": "color/chapters/chroma.html",
+          "title": "채도와 톤",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "5eb629282cef2ec63aac7a9b933020f0b2a196ca",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/chroma.html"
+        },
+        {
+          "path": "color/chapters/contrast.html",
+          "title": "대비",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "384fe605c9c3e19205952e7d00189e4cd7e430f8",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/contrast.html"
+        },
+        {
+          "path": "color/chapters/glossary.html",
+          "title": "용어집 & 종합 퀴즈",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "be6d2d0a51b68966b2981df90a927c0facdfac49",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/glossary.html"
+        },
+        {
+          "path": "color/chapters/lab.html",
+          "title": "색 실험실",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "af764962e4600534a6fef1397b9cc8f3f5b31412",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/lab.html"
+        },
+        {
+          "path": "color/chapters/light.html",
+          "title": "빛과 눈",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "69b331e6343816f58fd60ea9a3dd2663a7886ea0",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/light.html"
+        },
+        {
+          "path": "color/chapters/meaning.html",
+          "title": "색의 의미와 문화",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "3e3f07492003124efaa9d5e84c35ad3a476b89e9",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/meaning.html"
+        },
+        {
+          "path": "color/chapters/mixing.html",
+          "title": "섞기",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "84a63ada27b736658569404d4157f820b68b85b7",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/mixing.html"
+        },
+        {
+          "path": "color/chapters/models.html",
+          "title": "색을 숫자로",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "ebf04582e22154491083349ef18e40a54b4f4b9d",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/models.html"
+        },
+        {
+          "path": "color/chapters/overview.html",
+          "title": "색의 지도",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "53b91ef28097899d62177e1622aaa98dcc198a40",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/overview.html"
+        },
+        {
+          "path": "color/chapters/painting.html",
+          "title": "그림 속 색",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "7e8e7806a19ae6605d4dab67fac0da50cd3bcb4e",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/painting.html"
+        },
+        {
+          "path": "color/chapters/palette.html",
+          "title": "팔레트 만들기",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "df2e3d0b324853efcc9ba75b10551166abe11c87",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/palette.html"
+        },
+        {
+          "path": "color/chapters/print.html",
+          "title": "화면과 인쇄",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "1f5c3f829806aae4a50c234c42509e2262307107",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/print.html"
+        },
+        {
+          "path": "color/chapters/relativity.html",
+          "title": "색은 상대적이다",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "eaf73cbc7617b97ef3017383e20b769dcde23b83",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/relativity.html"
+        },
+        {
+          "path": "color/chapters/temperature.html",
+          "title": "빛의 색과 그림자의 색",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "32388b48073ca6cf379d14a3ecae189e4212bc38",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/temperature.html"
+        },
+        {
+          "path": "color/chapters/value.html",
+          "title": "명도가 먼저다",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "6d37f7f9792eb3de4322844b7273baddb4b79be9",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/value.html"
+        },
+        {
+          "path": "color/chapters/wheel.html",
+          "title": "색상환과 조화",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "e816b13abde177da5d2f171ae018c3cd22512278",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/wheel.html"
+        },
+        {
+          "path": "composition/chapters/balance.html",
+          "title": "균형",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "f1d70911b715b463166b66e67e43f875139c7268",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/balance.html"
+        },
+        {
+          "path": "composition/chapters/depth.html",
+          "title": "평면 위의 깊이",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "302e3f3b892d91c0b942f374d1d72aa0a1723889",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/depth.html"
+        },
+        {
+          "path": "composition/chapters/elements.html",
+          "title": "점·선·면",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "9add1eefb3803ca3770f512e2386e1c2008bc083",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/elements.html"
+        },
+        {
+          "path": "composition/chapters/eye.html",
+          "title": "시선의 흐름",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "033029223fa8813ae9d86d81d517a344f765eb04",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/eye.html"
+        },
+        {
+          "path": "composition/chapters/frame.html",
+          "title": "프레임과 자르기",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "f47483d00164a053082007a3a4ba99ce63026708",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/frame.html"
+        },
+        {
+          "path": "composition/chapters/gestalt.html",
+          "title": "묶여 보이는 법칙",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "da830fb057d502fbb4d48432e314af4959e98fa3",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/gestalt.html"
+        },
+        {
+          "path": "composition/chapters/glossary.html",
+          "title": "용어집 & 종합 퀴즈",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "3cfe30856d5555629eb59ebcbf47d966f7f49652",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/glossary.html"
+        },
+        {
+          "path": "composition/chapters/lab.html",
+          "title": "구도 실험실",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "f028a27f757b72d20ee1e048f70e0a74f63592a2",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/lab.html"
+        },
+        {
+          "path": "composition/chapters/layout.html",
+          "title": "지면과 화면 구성",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "1b35e75c3aba997625f34c36f0b4ac9fbb4e37af",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/layout.html"
+        },
+        {
+          "path": "composition/chapters/overview.html",
+          "title": "구도의 지도",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "3bd7aa6249f7b36f54e89efb2b38033e03d6d460",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/overview.html"
+        },
+        {
+          "path": "composition/chapters/proportion.html",
+          "title": "비례: 3분할과 황금비",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "165aad6785c52ef9d0bab93aa502c8e5c911697d",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/proportion.html"
+        },
+        {
+          "path": "composition/chapters/reading.html",
+          "title": "명작의 구도 읽기",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "3d2f5c9f01ba794608b7684f1c3aa94eec11030c",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/reading.html"
+        },
+        {
+          "path": "composition/chapters/rhythm.html",
+          "title": "리듬과 반복",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "e54fa9e9d1d0242084acc71514ebefb90da71dc7",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/rhythm.html"
+        },
+        {
+          "path": "composition/chapters/shape.html",
+          "title": "형과 바탕",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "0977e1a8f82fc1aeed63afdfd08b21d1020f0c15",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/shape.html"
+        },
+        {
+          "path": "composition/chapters/space.html",
+          "title": "여백과 밀도",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "9fb631209d39b65ccb98fd5397fbc9cfb55111ca",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/space.html"
+        }
+      ],
+      "simulatorSourcePaths": [],
+      "license": {
+        "githubApiLicenseSpdx": "NOASSERTION",
+        "githubApiLicenseUrl": null,
+        "declaredFiles": [
+          {
+            "path": "LICENSE-CC-BY-4.0",
+            "url": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/LICENSE-CC-BY-4.0",
+            "blobSha": "da6ab6cc8f333d7e89a99812866df8f24374d47c",
+            "sha256OfReadPrefix": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+            "readBytesCapped": false
+          },
+          {
+            "path": "LICENSE-MIT",
+            "url": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/LICENSE-MIT",
+            "blobSha": "b7f176d163fd029a6f9ce5bdf0b88fa5a920e6b7",
+            "sha256OfReadPrefix": "044eb838fd167a027f9bec8adfbd083b228a92b2007c6c7e880bbc1672274b97",
+            "readBytesCapped": false
+          },
+          {
+            "path": "LICENSE.md",
+            "url": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/LICENSE.md",
+            "blobSha": "ea8ac9ee18bd30d9b55816d49243fb97920dd941",
+            "sha256OfReadPrefix": "6e41c718e0b6dd097653c47f21302a0ec2101749d392f0756ea289beb0102dfd",
+            "readBytesCapped": false
+          }
+        ],
+        "observedTermsOnly": [
+          {
+            "path": "LICENSE-CC-BY-4.0",
+            "observedTerms": [
+              "mit",
+              "mit",
+              "mit",
+              "mit",
+              "mit",
+              "Creative Commons Attribution 4.0"
+            ]
+          },
+          {
+            "path": "LICENSE-MIT",
+            "observedTerms": [
+              "MIT",
+              "mit",
+              "mit",
+              "MIT"
+            ]
+          },
+          {
+            "path": "LICENSE.md",
+            "observedTerms": [
+              "MIT",
+              "MIT",
+              "MIT",
+              "MIT",
+              "MIT",
+              "CC BY 4.0",
+              "CC-BY-4.0",
+              "CC BY 4.0"
+            ]
+          }
+        ],
+        "noticePaths": [],
+        "automatedSummary": "LICENSE.md and separate MIT/CC BY 4.0 files are present; file-purpose scope and third-party exclusions require reading the source notice.",
+        "rightsDetermination": "not-automatically-determined",
+        "sourceCommitSha": "a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7"
+      },
+      "bookMetadata": {
+        "id": "artbook",
+        "title": "ArtBook",
+        "url": "https://artbook.euiyun.com/",
+        "repo": "https://github.com/geniuskey/artbook",
+        "field": "art",
+        "status": "writing",
+        "domain": "artbook.euiyun.com"
+      },
+      "distinctiveContributionSummary": {
+        "summary": "Topics listed in the upstream catalog: 빛과 지각; 색 모델; 혼색; 색상환과 조화; 명도·채도·대비; 접근성; 팔레트",
+        "topicsFromCatalog": [
+          "빛과 지각",
+          "색 모델",
+          "혼색",
+          "색상환과 조화",
+          "명도·채도·대비",
+          "접근성",
+          "팔레트"
+        ],
+        "centralCatalogChapterCount": 17,
+        "indexedChapterPathCount": 32,
+        "centralCatalogSimulatorCount": 108,
+        "featuredActivities": [
+          {
+            "title": "한 색을 두 색으로",
+            "sourcePath": "chapters/relativity.html",
+            "fragment": "sim-one",
+            "sourceUrl": "https://artbook.euiyun.com/color/"
+          },
+          {
+            "title": "세 물감의 색 지도",
+            "sourcePath": "chapters/mixing.html",
+            "fragment": "sim-mi-gamut",
+            "sourceUrl": "https://artbook.euiyun.com/color/"
+          }
+        ],
+        "evidenceSource": "upstream central metadata and repository chapter/source path index; editorial synthesis not performed automatically"
+      }
+    },
+    {
+      "id": "artbook-composition",
+      "title": "ArtBook 구도",
+      "subtitle": "형태와 구도",
+      "topicBasedSummary": "Topics listed in the upstream catalog: 점·선·면; 형과 바탕; 게슈탈트; 시선의 흐름; 균형과 리듬; 3분할·황금비; 여백과 자르기",
+      "status": "published",
+      "subject": "art",
+      "audience": "입문",
+      "topics": [
+        "점·선·면",
+        "형과 바탕",
+        "게슈탈트",
+        "시선의 흐름",
+        "균형과 리듬",
+        "3분할·황금비",
+        "여백과 자르기"
+      ],
+      "catalogChapterCount": 15,
+      "catalogSimulatorCount": 95,
+      "repositoryUrl": "https://github.com/geniuskey/artbook",
+      "websiteUrl": "https://artbook.euiyun.com/composition/",
+      "catalogFeaturedExperiments": [
+        {
+          "title": "명작 위에 격자 대 보기",
+          "sourcePath": "chapters/proportion.html",
+          "fragment": "sim-pf",
+          "sourceUrl": "https://artbook.euiyun.com/composition/"
+        },
+        {
+          "title": "명작 위의 자르기 상자",
+          "sourcePath": "chapters/frame.html",
+          "fragment": "sim-crop",
+          "sourceUrl": "https://artbook.euiyun.com/composition/"
+        }
+      ],
+      "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
+      "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
+      "observedFactsOnly": true,
+      "repository": {
+        "fullName": "geniuskey/artbook",
+        "repositoryUrl": "https://github.com/geniuskey/artbook",
+        "defaultBranch": "main",
+        "githubApiLicenseSpdx": "NOASSERTION",
+        "headSha": "a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7",
+        "headCommittedAt": "2026-10-15T04:04:20Z",
+        "headCommitMessage": "Publish CompositionBook: 15 chapters, 95 simulators",
+        "commitUrl": "https://github.com/geniuskey/artbook/commit/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7",
+        "checkedAt": "2026-10-15T06:56:04Z",
+        "treeTruncated": false,
+        "relevantSourceFiles": {
+          "LICENSE-CC-BY-4.0": {
+            "blobSha": "da6ab6cc8f333d7e89a99812866df8f24374d47c",
+            "kind": "license",
+            "size": 18657
+          },
+          "LICENSE-MIT": {
+            "blobSha": "b7f176d163fd029a6f9ce5bdf0b88fa5a920e6b7",
+            "kind": "license",
+            "size": 1167
+          },
+          "LICENSE.md": {
+            "blobSha": "ea8ac9ee18bd30d9b55816d49243fb97920dd941",
+            "kind": "license",
+            "size": 3297
+          },
+          "README.md": {
+            "blobSha": "003ae9ab04194b035b40a2813c56b9e16d0d3f7f",
+            "kind": "book-metadata",
+            "size": 11757
+          },
+          "book.json": {
+            "blobSha": "ce6cf0fa3d9038320b77d07942ef9dd84cbff942",
+            "kind": "book-metadata",
+            "size": 593
+          },
+          "color/chapters/access.html": {
+            "blobSha": "a01951f7a494ca461eab39cd1cb6291819afcb43",
+            "kind": "chapter",
+            "size": 72015
+          },
+          "color/chapters/chroma.html": {
+            "blobSha": "5eb629282cef2ec63aac7a9b933020f0b2a196ca",
+            "kind": "chapter",
+            "size": 80504
+          },
+          "color/chapters/contrast.html": {
+            "blobSha": "384fe605c9c3e19205952e7d00189e4cd7e430f8",
+            "kind": "chapter",
+            "size": 95965
+          },
+          "color/chapters/glossary.html": {
+            "blobSha": "be6d2d0a51b68966b2981df90a927c0facdfac49",
+            "kind": "chapter",
+            "size": 53819
+          },
+          "color/chapters/lab.html": {
+            "blobSha": "af764962e4600534a6fef1397b9cc8f3f5b31412",
+            "kind": "chapter",
+            "size": 141619
+          },
+          "color/chapters/light.html": {
+            "blobSha": "69b331e6343816f58fd60ea9a3dd2663a7886ea0",
+            "kind": "chapter",
+            "size": 91334
+          },
+          "color/chapters/meaning.html": {
+            "blobSha": "3e3f07492003124efaa9d5e84c35ad3a476b89e9",
+            "kind": "chapter",
+            "size": 94478
+          },
+          "color/chapters/mixing.html": {
+            "blobSha": "84a63ada27b736658569404d4157f820b68b85b7",
+            "kind": "chapter",
+            "size": 95411
+          },
+          "color/chapters/models.html": {
+            "blobSha": "ebf04582e22154491083349ef18e40a54b4f4b9d",
+            "kind": "chapter",
+            "size": 89891
+          },
+          "color/chapters/overview.html": {
+            "blobSha": "53b91ef28097899d62177e1622aaa98dcc198a40",
+            "kind": "chapter",
+            "size": 83887
+          },
+          "color/chapters/painting.html": {
+            "blobSha": "7e8e7806a19ae6605d4dab67fac0da50cd3bcb4e",
+            "kind": "chapter",
+            "size": 82297
+          },
+          "color/chapters/palette.html": {
+            "blobSha": "df2e3d0b324853efcc9ba75b10551166abe11c87",
+            "kind": "chapter",
+            "size": 112304
+          },
+          "color/chapters/print.html": {
+            "blobSha": "1f5c3f829806aae4a50c234c42509e2262307107",
+            "kind": "chapter",
+            "size": 93992
+          },
+          "color/chapters/relativity.html": {
+            "blobSha": "eaf73cbc7617b97ef3017383e20b769dcde23b83",
+            "kind": "chapter",
+            "size": 80355
+          },
+          "color/chapters/temperature.html": {
+            "blobSha": "32388b48073ca6cf379d14a3ecae189e4212bc38",
+            "kind": "chapter",
+            "size": 104033
+          },
+          "color/chapters/value.html": {
+            "blobSha": "6d37f7f9792eb3de4322844b7273baddb4b79be9",
+            "kind": "chapter",
+            "size": 98927
+          },
+          "color/chapters/wheel.html": {
+            "blobSha": "e816b13abde177da5d2f171ae018c3cd22512278",
+            "kind": "chapter",
+            "size": 75930
+          },
+          "composition/chapters/balance.html": {
+            "blobSha": "f1d70911b715b463166b66e67e43f875139c7268",
+            "kind": "chapter",
+            "size": 92324
+          },
+          "composition/chapters/depth.html": {
+            "blobSha": "302e3f3b892d91c0b942f374d1d72aa0a1723889",
+            "kind": "chapter",
+            "size": 89558
+          },
+          "composition/chapters/elements.html": {
+            "blobSha": "9add1eefb3803ca3770f512e2386e1c2008bc083",
+            "kind": "chapter",
+            "size": 75812
+          },
+          "composition/chapters/eye.html": {
+            "blobSha": "033029223fa8813ae9d86d81d517a344f765eb04",
+            "kind": "chapter",
+            "size": 109780
+          },
+          "composition/chapters/frame.html": {
+            "blobSha": "f47483d00164a053082007a3a4ba99ce63026708",
+            "kind": "chapter",
+            "size": 109578
+          },
+          "composition/chapters/gestalt.html": {
+            "blobSha": "da830fb057d502fbb4d48432e314af4959e98fa3",
+            "kind": "chapter",
+            "size": 87765
+          },
+          "composition/chapters/glossary.html": {
+            "blobSha": "3cfe30856d5555629eb59ebcbf47d966f7f49652",
+            "kind": "chapter",
+            "size": 58048
+          },
+          "composition/chapters/lab.html": {
+            "blobSha": "f028a27f757b72d20ee1e048f70e0a74f63592a2",
+            "kind": "chapter",
+            "size": 118056
+          },
+          "composition/chapters/layout.html": {
+            "blobSha": "1b35e75c3aba997625f34c36f0b4ac9fbb4e37af",
+            "kind": "chapter",
+            "size": 105531
+          },
+          "composition/chapters/overview.html": {
+            "blobSha": "3bd7aa6249f7b36f54e89efb2b38033e03d6d460",
+            "kind": "chapter",
+            "size": 91898
+          },
+          "composition/chapters/proportion.html": {
+            "blobSha": "165aad6785c52ef9d0bab93aa502c8e5c911697d",
+            "kind": "chapter",
+            "size": 95399
+          },
+          "composition/chapters/reading.html": {
+            "blobSha": "3d2f5c9f01ba794608b7684f1c3aa94eec11030c",
+            "kind": "chapter",
+            "size": 112367
+          },
+          "composition/chapters/rhythm.html": {
+            "blobSha": "e54fa9e9d1d0242084acc71514ebefb90da71dc7",
+            "kind": "chapter",
+            "size": 75910
+          },
+          "composition/chapters/shape.html": {
+            "blobSha": "0977e1a8f82fc1aeed63afdfd08b21d1020f0c15",
+            "kind": "chapter",
+            "size": 107940
+          },
+          "composition/chapters/space.html": {
+            "blobSha": "9fb631209d39b65ccb98fd5397fbc9cfb55111ca",
+            "kind": "chapter",
+            "size": 80377
+          },
+          "index.html": {
+            "blobSha": "a8dfe96bcb10674fc90c236e6c6b1defad86a7d8",
+            "kind": "book-metadata",
+            "size": 12949
+          },
+          "tools/book_home.py": {
+            "blobSha": "e617103d827fe5d98dfa1fb85663f71c89b9ea5a",
+            "kind": "shared-runtime",
+            "size": 11557
+          },
+          "tools/check.py": {
+            "blobSha": "51876765e587a4d52186ed21c286ff7b8aa52ede",
+            "kind": "shared-runtime",
+            "size": 9460
+          },
+          "tools/head.py": {
+            "blobSha": "0fcebb2b644cd84f15b2e3916217c1fa828c88a5",
+            "kind": "shared-runtime",
+            "size": 7115
+          },
+          "tools/og.py": {
+            "blobSha": "43d0efa94b1ef932a9fa1fc2a71cd2561ddde817",
+            "kind": "shared-runtime",
+            "size": 1189
+          }
+        }
+      },
+      "repositoryAvailability": {
+        "fullName": "geniuskey/artbook",
+        "available": true,
+        "checkedAt": "2026-10-15T06:56:04Z"
+      },
+      "chapters": [
+        {
+          "path": "color/chapters/access.html",
+          "title": "모두를 위한 색",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "a01951f7a494ca461eab39cd1cb6291819afcb43",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/access.html"
+        },
+        {
+          "path": "color/chapters/chroma.html",
+          "title": "채도와 톤",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "5eb629282cef2ec63aac7a9b933020f0b2a196ca",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/chroma.html"
+        },
+        {
+          "path": "color/chapters/contrast.html",
+          "title": "대비",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "384fe605c9c3e19205952e7d00189e4cd7e430f8",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/contrast.html"
+        },
+        {
+          "path": "color/chapters/glossary.html",
+          "title": "용어집 & 종합 퀴즈",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "be6d2d0a51b68966b2981df90a927c0facdfac49",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/glossary.html"
+        },
+        {
+          "path": "color/chapters/lab.html",
+          "title": "색 실험실",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "af764962e4600534a6fef1397b9cc8f3f5b31412",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/lab.html"
+        },
+        {
+          "path": "color/chapters/light.html",
+          "title": "빛과 눈",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "69b331e6343816f58fd60ea9a3dd2663a7886ea0",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/light.html"
+        },
+        {
+          "path": "color/chapters/meaning.html",
+          "title": "색의 의미와 문화",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "3e3f07492003124efaa9d5e84c35ad3a476b89e9",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/meaning.html"
+        },
+        {
+          "path": "color/chapters/mixing.html",
+          "title": "섞기",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "84a63ada27b736658569404d4157f820b68b85b7",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/mixing.html"
+        },
+        {
+          "path": "color/chapters/models.html",
+          "title": "색을 숫자로",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "ebf04582e22154491083349ef18e40a54b4f4b9d",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/models.html"
+        },
+        {
+          "path": "color/chapters/overview.html",
+          "title": "색의 지도",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "53b91ef28097899d62177e1622aaa98dcc198a40",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/overview.html"
+        },
+        {
+          "path": "color/chapters/painting.html",
+          "title": "그림 속 색",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "7e8e7806a19ae6605d4dab67fac0da50cd3bcb4e",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/painting.html"
+        },
+        {
+          "path": "color/chapters/palette.html",
+          "title": "팔레트 만들기",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "df2e3d0b324853efcc9ba75b10551166abe11c87",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/palette.html"
+        },
+        {
+          "path": "color/chapters/print.html",
+          "title": "화면과 인쇄",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "1f5c3f829806aae4a50c234c42509e2262307107",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/print.html"
+        },
+        {
+          "path": "color/chapters/relativity.html",
+          "title": "색은 상대적이다",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "eaf73cbc7617b97ef3017383e20b769dcde23b83",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/relativity.html"
+        },
+        {
+          "path": "color/chapters/temperature.html",
+          "title": "빛의 색과 그림자의 색",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "32388b48073ca6cf379d14a3ecae189e4212bc38",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/temperature.html"
+        },
+        {
+          "path": "color/chapters/value.html",
+          "title": "명도가 먼저다",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "6d37f7f9792eb3de4322844b7273baddb4b79be9",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/value.html"
+        },
+        {
+          "path": "color/chapters/wheel.html",
+          "title": "색상환과 조화",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "e816b13abde177da5d2f171ae018c3cd22512278",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/color/chapters/wheel.html"
+        },
+        {
+          "path": "composition/chapters/balance.html",
+          "title": "균형",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "f1d70911b715b463166b66e67e43f875139c7268",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/balance.html"
+        },
+        {
+          "path": "composition/chapters/depth.html",
+          "title": "평면 위의 깊이",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "302e3f3b892d91c0b942f374d1d72aa0a1723889",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/depth.html"
+        },
+        {
+          "path": "composition/chapters/elements.html",
+          "title": "점·선·면",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "9add1eefb3803ca3770f512e2386e1c2008bc083",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/elements.html"
+        },
+        {
+          "path": "composition/chapters/eye.html",
+          "title": "시선의 흐름",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "033029223fa8813ae9d86d81d517a344f765eb04",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/eye.html"
+        },
+        {
+          "path": "composition/chapters/frame.html",
+          "title": "프레임과 자르기",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "f47483d00164a053082007a3a4ba99ce63026708",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/frame.html"
+        },
+        {
+          "path": "composition/chapters/gestalt.html",
+          "title": "묶여 보이는 법칙",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "da830fb057d502fbb4d48432e314af4959e98fa3",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/gestalt.html"
+        },
+        {
+          "path": "composition/chapters/glossary.html",
+          "title": "용어집 & 종합 퀴즈",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "3cfe30856d5555629eb59ebcbf47d966f7f49652",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/glossary.html"
+        },
+        {
+          "path": "composition/chapters/lab.html",
+          "title": "구도 실험실",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "f028a27f757b72d20ee1e048f70e0a74f63592a2",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/lab.html"
+        },
+        {
+          "path": "composition/chapters/layout.html",
+          "title": "지면과 화면 구성",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "1b35e75c3aba997625f34c36f0b4ac9fbb4e37af",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/layout.html"
+        },
+        {
+          "path": "composition/chapters/overview.html",
+          "title": "구도의 지도",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "3bd7aa6249f7b36f54e89efb2b38033e03d6d460",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/overview.html"
+        },
+        {
+          "path": "composition/chapters/proportion.html",
+          "title": "비례: 3분할과 황금비",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "165aad6785c52ef9d0bab93aa502c8e5c911697d",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/proportion.html"
+        },
+        {
+          "path": "composition/chapters/reading.html",
+          "title": "명작의 구도 읽기",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "3d2f5c9f01ba794608b7684f1c3aa94eec11030c",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/reading.html"
+        },
+        {
+          "path": "composition/chapters/rhythm.html",
+          "title": "리듬과 반복",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "e54fa9e9d1d0242084acc71514ebefb90da71dc7",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/rhythm.html"
+        },
+        {
+          "path": "composition/chapters/shape.html",
+          "title": "형과 바탕",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "0977e1a8f82fc1aeed63afdfd08b21d1020f0c15",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/shape.html"
+        },
+        {
+          "path": "composition/chapters/space.html",
+          "title": "여백과 밀도",
+          "titleSource": "html-heading-or-title",
+          "blobSha": "9fb631209d39b65ccb98fd5397fbc9cfb55111ca",
+          "sourceUrl": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/composition/chapters/space.html"
+        }
+      ],
+      "simulatorSourcePaths": [],
+      "license": {
+        "githubApiLicenseSpdx": "NOASSERTION",
+        "githubApiLicenseUrl": null,
+        "declaredFiles": [
+          {
+            "path": "LICENSE-CC-BY-4.0",
+            "url": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/LICENSE-CC-BY-4.0",
+            "blobSha": "da6ab6cc8f333d7e89a99812866df8f24374d47c",
+            "sha256OfReadPrefix": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+            "readBytesCapped": false
+          },
+          {
+            "path": "LICENSE-MIT",
+            "url": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/LICENSE-MIT",
+            "blobSha": "b7f176d163fd029a6f9ce5bdf0b88fa5a920e6b7",
+            "sha256OfReadPrefix": "044eb838fd167a027f9bec8adfbd083b228a92b2007c6c7e880bbc1672274b97",
+            "readBytesCapped": false
+          },
+          {
+            "path": "LICENSE.md",
+            "url": "https://github.com/geniuskey/artbook/blob/a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7/LICENSE.md",
+            "blobSha": "ea8ac9ee18bd30d9b55816d49243fb97920dd941",
+            "sha256OfReadPrefix": "6e41c718e0b6dd097653c47f21302a0ec2101749d392f0756ea289beb0102dfd",
+            "readBytesCapped": false
+          }
+        ],
+        "observedTermsOnly": [
+          {
+            "path": "LICENSE-CC-BY-4.0",
+            "observedTerms": [
+              "mit",
+              "mit",
+              "mit",
+              "mit",
+              "mit",
+              "Creative Commons Attribution 4.0"
+            ]
+          },
+          {
+            "path": "LICENSE-MIT",
+            "observedTerms": [
+              "MIT",
+              "mit",
+              "mit",
+              "MIT"
+            ]
+          },
+          {
+            "path": "LICENSE.md",
+            "observedTerms": [
+              "MIT",
+              "MIT",
+              "MIT",
+              "MIT",
+              "MIT",
+              "CC BY 4.0",
+              "CC-BY-4.0",
+              "CC BY 4.0"
+            ]
+          }
+        ],
+        "noticePaths": [],
+        "automatedSummary": "LICENSE.md and separate MIT/CC BY 4.0 files are present; file-purpose scope and third-party exclusions require reading the source notice.",
+        "rightsDetermination": "not-automatically-determined",
+        "sourceCommitSha": "a0b61bd3f6fb277d8cc7ffff0bb34ae7e115c1c7"
+      },
+      "bookMetadata": {
+        "id": "artbook",
+        "title": "ArtBook",
+        "url": "https://artbook.euiyun.com/",
+        "repo": "https://github.com/geniuskey/artbook",
+        "field": "art",
+        "status": "writing",
+        "domain": "artbook.euiyun.com"
+      },
+      "distinctiveContributionSummary": {
+        "summary": "Topics listed in the upstream catalog: 점·선·면; 형과 바탕; 게슈탈트; 시선의 흐름; 균형과 리듬; 3분할·황금비; 여백과 자르기",
+        "topicsFromCatalog": [
+          "점·선·면",
+          "형과 바탕",
+          "게슈탈트",
+          "시선의 흐름",
+          "균형과 리듬",
+          "3분할·황금비",
+          "여백과 자르기"
+        ],
+        "centralCatalogChapterCount": 15,
+        "indexedChapterPathCount": 32,
+        "centralCatalogSimulatorCount": 95,
+        "featuredActivities": [
+          {
+            "title": "명작 위에 격자 대 보기",
+            "sourcePath": "chapters/proportion.html",
+            "fragment": "sim-pf",
+            "sourceUrl": "https://artbook.euiyun.com/composition/"
+          },
+          {
+            "title": "명작 위의 자르기 상자",
+            "sourcePath": "chapters/frame.html",
+            "fragment": "sim-crop",
+            "sourceUrl": "https://artbook.euiyun.com/composition/"
+          }
+        ],
+        "evidenceSource": "upstream central metadata and repository chapter/source path index; editorial synthesis not performed automatically"
+      }
+    },
+    {
+      "id": "artbook-drawing",
+      "title": "ArtBook 드로잉",
+      "subtitle": "투시·빛·비례",
+      "topicBasedSummary": "Topics listed in the upstream catalog: ",
+      "status": "planned",
+      "subject": "art",
+      "audience": null,
+      "topics": [],
+      "catalogChapterCount": null,
+      "catalogSimulatorCount": null,
+      "repositoryUrl": "https://github.com/geniuskey/artbook",
+      "websiteUrl": null,
+      "catalogFeaturedExperiments": [],
+      "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
+      "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
+      "observedFactsOnly": true,
+      "repository": null,
+      "chapters": [],
+      "simulatorSourcePaths": [],
+      "distinctiveContributionSummary": "Topics listed in the upstream catalog: "
+    },
+    {
+      "id": "artbook-history",
+      "title": "ArtBook 미술사",
+      "subtitle": "색·구도·기법으로 읽는 미술사",
+      "topicBasedSummary": "Topics listed in the upstream catalog: ",
+      "status": "planned",
+      "subject": "art",
+      "audience": null,
+      "topics": [],
+      "catalogChapterCount": null,
+      "catalogSimulatorCount": null,
+      "repositoryUrl": "https://github.com/geniuskey/artbook",
+      "websiteUrl": null,
+      "catalogFeaturedExperiments": [],
+      "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
+      "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
+      "observedFactsOnly": true,
+      "repository": null,
+      "chapters": [],
+      "simulatorSourcePaths": [],
+      "distinctiveContributionSummary": "Topics listed in the upstream catalog: "
+    },
+    {
+      "id": "artbook-image",
+      "title": "ArtBook 이미지",
+      "subtitle": "사진과 디지털 이미지",
+      "topicBasedSummary": "Topics listed in the upstream catalog: ",
+      "status": "planned",
+      "subject": "art",
+      "audience": null,
+      "topics": [],
+      "catalogChapterCount": null,
+      "catalogSimulatorCount": null,
+      "repositoryUrl": "https://github.com/geniuskey/artbook",
+      "websiteUrl": null,
+      "catalogFeaturedExperiments": [],
+      "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
+      "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
+      "observedFactsOnly": true,
+      "repository": null,
+      "chapters": [],
+      "simulatorSourcePaths": [],
+      "distinctiveContributionSummary": "Topics listed in the upstream catalog: "
+    },
+    {
+      "id": "artbook-type",
+      "title": "ArtBook 타이포",
+      "subtitle": "타이포그래피",
+      "topicBasedSummary": "Topics listed in the upstream catalog: ",
+      "status": "planned",
+      "subject": "art",
+      "audience": null,
+      "topics": [],
+      "catalogChapterCount": null,
+      "catalogSimulatorCount": null,
+      "repositoryUrl": "https://github.com/geniuskey/artbook",
+      "websiteUrl": null,
+      "catalogFeaturedExperiments": [],
+      "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
+      "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
+      "observedFactsOnly": true,
+      "repository": null,
+      "chapters": [],
+      "simulatorSourcePaths": [],
+      "distinctiveContributionSummary": "Topics listed in the upstream catalog: "
+    },
+    {
       "id": "axbook",
       "title": "AXBook",
       "subtitle": "제조업 AI 전환 교과서",
@@ -1190,7 +2559,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -1202,7 +2571,7 @@
         "headCommittedAt": "2026-10-10T14:30:47Z",
         "headCommitMessage": "Correct small-sample confidence intervals and WECO signals",
         "commitUrl": "https://github.com/geniuskey/axbook/commit/5e295d3c006f06fbcb6e995af7dc5e34946d7d6f",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -1617,7 +2986,7 @@
       "websiteUrl": "https://bodybook.euiyun.com/",
       "catalogFeaturedExperiments": [],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -1629,7 +2998,7 @@
         "headCommittedAt": "2026-10-10T14:28:26Z",
         "headCommitMessage": "Correct blood pressure, kidney and glucose model interpretation",
         "commitUrl": "https://github.com/geniuskey/bodybook/commit/2a7e5315b5f774f6a0f8b6351e78c87d76bf7021",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -2060,7 +3429,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -2072,7 +3441,7 @@
         "headCommittedAt": "2026-10-10T13:12:31Z",
         "headCommitMessage": "Fix fact-check findings in models and explanations",
         "commitUrl": "https://github.com/geniuskey/camerabook/commit/82702caf8631ce6c3eee9412bdff018bf234efab",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -2449,7 +3818,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -2461,7 +3830,7 @@
         "headCommittedAt": "2026-10-10T14:40:35Z",
         "headCommitMessage": "Correct HIC integration and CAN error explanations",
         "commitUrl": "https://github.com/geniuskey/carbook/commit/1c1f3f5c832360ac03079449863bda089e85fd29",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -2884,7 +4253,7 @@
       "websiteUrl": "https://chipindustrybook.euiyun.com/",
       "catalogFeaturedExperiments": [],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -2896,7 +4265,7 @@
         "headCommittedAt": "2026-10-10T14:25:10Z",
         "headCommitMessage": "Correct yield boundaries, units and HHI interpretation",
         "commitUrl": "https://github.com/geniuskey/chipindustrybook/commit/887f28d291917eb75c13a6a293264234d7c0ea76",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -3264,7 +4633,7 @@
       "websiteUrl": "https://colorbook.euiyun.com/",
       "catalogFeaturedExperiments": [],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -3276,7 +4645,7 @@
         "headCommittedAt": "2026-10-10T14:07:25Z",
         "headCommitMessage": "Correct CRI validity, color standards and encoding explanations",
         "commitUrl": "https://github.com/geniuskey/colorbook/commit/34f43528088c6a50d5aaac62a1b9d3a4489762a0",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -3694,7 +5063,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -3706,7 +5075,7 @@
         "headCommittedAt": "2026-10-10T14:11:45Z",
         "headCommitMessage": "Correct computing explanations and preserve flash data during GC",
         "commitUrl": "https://github.com/geniuskey/computerbook/commit/e2f68991156cdd4250a9d513706d763e68c03b42",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -4134,7 +5503,7 @@
       "websiteUrl": null,
       "catalogFeaturedExperiments": [],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": null,
@@ -4178,7 +5547,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -4190,7 +5559,7 @@
         "headCommittedAt": "2026-10-10T13:13:11Z",
         "headCommitMessage": "Fix fact-check findings in models and explanations",
         "commitUrl": "https://github.com/geniuskey/designbook/commit/b30186eeba0cc6e61cd06b57be565355a949ba25",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -4558,7 +5927,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -4570,7 +5939,7 @@
         "headCommittedAt": "2026-10-10T13:12:31Z",
         "headCommitMessage": "Fix fact-check findings in models and explanations",
         "commitUrl": "https://github.com/geniuskey/devicebook/commit/32f52a3961c2a3399659cd4279c0538391c34f97",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -4915,7 +6284,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -4927,7 +6296,7 @@
         "headCommittedAt": "2026-10-10T13:53:07Z",
         "headCommitMessage": "시리즈 공통 요소: 애널리틱스 비컨, 전체 책장·독자 의견 링크",
         "commitUrl": "https://github.com/geniuskey/digitalbook/commit/3bbeadd67c8f791d42cd181d3686f57b07d60827",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -5326,7 +6695,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -5338,7 +6707,7 @@
         "headCommittedAt": "2026-10-10T14:15:25Z",
         "headCommitMessage": "Correct OLED extraction and PWM flicker calculations",
         "commitUrl": "https://github.com/geniuskey/displaybook/commit/7040b2bc2b49a03a1f76757452f27adb574809b9",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -5739,7 +7108,7 @@
       "websiteUrl": "https://dopingbook.euiyun.com/",
       "catalogFeaturedExperiments": [],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -5751,7 +7120,7 @@
         "headCommittedAt": "2026-10-10T13:12:39Z",
         "headCommitMessage": "Fix fact-check findings in models and explanations",
         "commitUrl": "https://github.com/geniuskey/dopingbook/commit/944526d6c2bb790d5d8f1e08d2614e1c5de22c3c",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -6114,7 +7483,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -6126,7 +7495,7 @@
         "headCommittedAt": "2026-10-10T14:40:35Z",
         "headCommitMessage": "Correct FX hedge, GNI and cycle explanations",
         "commitUrl": "https://github.com/geniuskey/economicsbook/commit/19d716015a447c6cf78d61d66d3bb2771ca582bd",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -6458,7 +7827,7 @@
       "websiteUrl": null,
       "catalogFeaturedExperiments": [],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": null,
@@ -6504,7 +7873,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -6516,7 +7885,7 @@
         "headCommittedAt": "2026-10-10T14:30:06Z",
         "headCommitMessage": "Correct brokerage fee boundaries and credit-loan DSR",
         "commitUrl": "https://github.com/geniuskey/estatebook/commit/527f29a2a56f2fb23e3f1b2e565556050f6fa56d",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -6955,7 +8324,7 @@
       "websiteUrl": "https://etchbook.euiyun.com/",
       "catalogFeaturedExperiments": [],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -6967,7 +8336,7 @@
         "headCommittedAt": "2026-10-10T13:12:31Z",
         "headCommitMessage": "Fix fact-check findings in models and explanations",
         "commitUrl": "https://github.com/geniuskey/etchbook/commit/0881e61ba16003a1fe4579a8372dad2d63d2dcfb",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -7344,7 +8713,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -7356,7 +8725,7 @@
         "headCommittedAt": "2026-10-10T13:22:16Z",
         "headCommitMessage": "Correct failure analysis probabilities and diagnostic conditions",
         "commitUrl": "https://github.com/geniuskey/failurebook/commit/f8cae35a3637acb963c6156b6317b4bb124638e8",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -7727,7 +9096,7 @@
       "websiteUrl": null,
       "catalogFeaturedExperiments": [],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": null,
@@ -7772,7 +9141,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -7784,7 +9153,7 @@
         "headCommittedAt": "2026-10-10T13:12:39Z",
         "headCommitMessage": "Fix fact-check findings in models and explanations",
         "commitUrl": "https://github.com/geniuskey/insurebook/commit/d6a74be02d14a375cda9ef34544183a282e51808",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -8213,7 +9582,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -8225,7 +9594,7 @@
         "headCommittedAt": "2026-10-10T16:37:08Z",
         "headCommitMessage": "Clarify shot noise and rare defect approximations",
         "commitUrl": "https://github.com/geniuskey/lithobook/commit/5a4fa0a5b79f3d5581af140caa0e7831ccf88a05",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -8655,7 +10024,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -8667,7 +10036,7 @@
         "headCommittedAt": "2026-10-10T13:12:39Z",
         "headCommitMessage": "Fix fact-check findings in models and explanations",
         "commitUrl": "https://github.com/geniuskey/mathbook/commit/ca108356c078b119f43aee56430cca7be10d2972",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -8996,7 +10365,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -9008,7 +10377,7 @@
         "headCommittedAt": "2026-10-10T13:12:31Z",
         "headCommitMessage": "Fix fact-check findings in models and explanations",
         "commitUrl": "https://github.com/geniuskey/memorybook/commit/5304ba8142d456acbac758a368d7d1e7a9b509be",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -9378,7 +10747,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -9390,7 +10759,7 @@
         "headCommittedAt": "2026-10-10T14:34:51Z",
         "headCommitMessage": "Apply pension base truncation and exact long-term-care ratio",
         "commitUrl": "https://github.com/geniuskey/moneybook/commit/032081b1ecef42c000ea2f790293207091003b03",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -9833,7 +11202,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -9845,7 +11214,7 @@
         "headCommittedAt": "2026-10-10T13:13:11Z",
         "headCommitMessage": "Fix fact-check findings in models and explanations",
         "commitUrl": "https://github.com/geniuskey/musicbook/commit/291e9c74e7b5c5f86a465f21db06d3bdef078a22",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -10234,7 +11603,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -10246,7 +11615,7 @@
         "headCommittedAt": "2026-10-10T14:09:07Z",
         "headCommitMessage": "Fix network BER, optical links and queue processing models",
         "commitUrl": "https://github.com/geniuskey/networkbook/commit/a70f8c68c65761b863a3396e3fe1742247d7098c",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -10718,7 +12087,7 @@
       "websiteUrl": "https://opticsbook.euiyun.com/",
       "catalogFeaturedExperiments": [],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -10730,7 +12099,7 @@
         "headCommittedAt": "2026-10-10T14:06:37Z",
         "headCommitMessage": "Fix square-wave contrast aliasing and defocus phase guidance",
         "commitUrl": "https://github.com/geniuskey/opticsbook/commit/7e0951d9fc38d571a5364be1b1563dbf83192bf1",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -11105,7 +12474,7 @@
       "websiteUrl": null,
       "catalogFeaturedExperiments": [],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": null,
@@ -11149,7 +12518,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -11161,7 +12530,7 @@
         "headCommittedAt": "2026-10-10T13:12:31Z",
         "headCommitMessage": "Fix fact-check findings in models and explanations",
         "commitUrl": "https://github.com/geniuskey/packagingbook/commit/b69b80d058ed3476c7f7a53a9c5ab7ce562c6044",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -11561,7 +12930,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -11573,7 +12942,7 @@
         "headCommittedAt": "2026-10-10T14:33:06Z",
         "headCommitMessage": "Connect DCR input to resistance and clarify mechanical sensor formulas",
         "commitUrl": "https://github.com/geniuskey/phonebook/commit/b4984f4eaa43bdd96900683afa7e08e8d03119f9",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -11895,7 +13264,7 @@
       "websiteUrl": null,
       "catalogFeaturedExperiments": [],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": null,
@@ -11938,7 +13307,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -11950,7 +13319,7 @@
         "headCommittedAt": "2026-10-10T17:13:08Z",
         "headCommitMessage": "Preserve CMP removal and correct SPC alarm conditions",
         "commitUrl": "https://github.com/geniuskey/processbook/commit/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -12314,7 +13683,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -12326,7 +13695,7 @@
         "headCommittedAt": "2026-10-10T16:36:22Z",
         "headCommitMessage": "Correct TDI blur integration and detector noise assumptions",
         "commitUrl": "https://github.com/geniuskey/sensorbook/commit/a402db5bbc2c7f715c9de6c355e60b110581909d",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -12728,7 +14097,7 @@
       "websiteUrl": "https://shipbook.euiyun.com/",
       "catalogFeaturedExperiments": [],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -12740,7 +14109,7 @@
         "headCommittedAt": "2026-10-10T14:28:26Z",
         "headCommitMessage": "Distinguish initial neutral stability from finite-angle restoring moment",
         "commitUrl": "https://github.com/geniuskey/shipbook/commit/f2e094d54def59b30f188a53aed1477847288f0e",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -13165,7 +14534,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -13177,7 +14546,7 @@
         "headCommittedAt": "2026-10-10T13:23:46Z",
         "headCommitMessage": "Correct SoC timing, systolic schedules and architecture explanations",
         "commitUrl": "https://github.com/geniuskey/socbook/commit/5abd248a098586b653625543cd2192dfebaafef2",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -13567,7 +14936,7 @@
       "websiteUrl": null,
       "catalogFeaturedExperiments": [],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": null,
@@ -13597,7 +14966,7 @@
       "websiteUrl": "https://stockbook.euiyun.com/",
       "catalogFeaturedExperiments": [],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -13609,7 +14978,7 @@
         "headCommittedAt": "2026-10-10T16:35:23Z",
         "headCommitMessage": "Update SEC fees, high dividend tax and zero volatility pricing",
         "commitUrl": "https://github.com/geniuskey/stockbook/commit/90b235f6fe36b6e83de06fc94ec5e5b237d5dbd5",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -14078,7 +15447,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -14090,7 +15459,7 @@
         "headCommittedAt": "2026-10-10T14:24:40Z",
         "headCommitMessage": "Correct insurance rounding and tax eligibility calculations",
         "commitUrl": "https://github.com/geniuskey/taxbook/commit/ba477b0afa49498fba03d7c63a70c6c53d43b64d",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -14471,7 +15840,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -14483,7 +15852,7 @@
         "headCommittedAt": "2026-10-10T13:12:39Z",
         "headCommitMessage": "Fix fact-check findings in models and explanations",
         "commitUrl": "https://github.com/geniuskey/tcadbook/commit/56d3c14f757a55caed574e720069cfdf2b7a2bf6",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -14875,7 +16244,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -14887,7 +16256,7 @@
         "headCommittedAt": "2026-10-10T17:11:29Z",
         "headCommitMessage": "Reset reliability trials and use censored device hours",
         "commitUrl": "https://github.com/geniuskey/testbook/commit/a69997b5bee01346d44c864bed2cc3304b8571e5",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {
@@ -15255,7 +16624,7 @@
         }
       ],
       "catalogSourceUrl": "https://github.com/geniuskey/books/blob/main/data/books.json",
-      "catalogObservedAt": "2026-10-13T11:13:52Z",
+      "catalogObservedAt": "2026-10-15T06:56:04Z",
       "originalAuthorPublisher": "geniuskey (GitHub account/repository publisher; individual authorship is not inferred)",
       "observedFactsOnly": true,
       "repository": {
@@ -15267,7 +16636,7 @@
         "headCommittedAt": "2026-10-10T13:24:26Z",
         "headCommitMessage": "Correct process models and fact-check explanations",
         "commitUrl": "https://github.com/geniuskey/yieldbook/commit/2acd8844633274ebea91e808c4a22ed4035549b8",
-        "checkedAt": "2026-10-13T11:13:52Z",
+        "checkedAt": "2026-10-15T06:56:04Z",
         "treeTruncated": false,
         "relevantSourceFiles": {
           "LICENSE-CC-BY-4.0": {

@@ -135,6 +135,33 @@ class BookFactoryTests(unittest.TestCase):
         with self.assertRaisesRegex(book_factory.ManifestError, "schema validation at (chapterCount|chapters)"):
             book_factory.validate_manifest(published)
 
+    def test_only_in_progress_manifests_may_omit_public_destination_urls(self):
+        draft = deepcopy(self.book)
+        draft.update({"status": "in-progress"})
+        draft.pop("publicationEvidence")
+        draft.pop("repositoryUrl")
+        draft.pop("productionUrl")
+        draft.pop("languageUrls")
+        for experiment in draft["experiments"]:
+            experiment.pop("verification", None)
+        self.assertEqual(book_factory.validate_manifest(draft)["status"], "in-progress")
+
+        for status in ("planned", "archived", "published"):
+            for field in ("repositoryUrl", "productionUrl"):
+                with self.subTest(status=status, missing=field):
+                    missing_urls = deepcopy(self.book)
+                    missing_urls["status"] = status
+                    if status != "published":
+                        missing_urls.pop("publicationEvidence")
+                    missing_urls.pop(field)
+                    with self.assertRaisesRegex(book_factory.ManifestError, field):
+                        book_factory.validate_manifest(missing_urls)
+
+        draft_with_language_urls = deepcopy(draft)
+        draft_with_language_urls["languageUrls"] = {"en": "https://example.test/draft/"}
+        with self.assertRaisesRegex(book_factory.ManifestError, "productionUrl"):
+            book_factory.validate_manifest(draft_with_language_urls)
+
     def test_published_book_rejects_unselected_license_but_draft_may_keep_placeholder(self):
         draft = deepcopy(self.book)
         draft.update({"status": "in-progress"})

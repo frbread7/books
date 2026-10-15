@@ -194,7 +194,6 @@ class LearningJourneyTests(unittest.TestCase):
         self.assertEqual(
             semiconductor_sequence,
             [
-                ("thinfilmbook", 1),
                 ("reliabilityengineeringbook", 2),
                 ("rficbook-or-memsbook", 3),
             ],

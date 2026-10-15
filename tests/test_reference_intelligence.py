@@ -22,11 +22,11 @@ PROVENANCE = json.loads((ROOT / "catalog/reference-intelligence/provenance-audit
 class ReferenceInventoryTests(unittest.TestCase):
     def test_checked_in_source_inventory_is_complete_and_bounded(self):
         ri.validate_inventory(INVENTORY)
-        self.assertEqual(INVENTORY["upstream"]["entryCount"], 43)
-        self.assertEqual(INVENTORY["upstream"]["publishedRepositoryCount"], 37)
-        self.assertEqual(sum(len(book["chapters"]) for book in INVENTORY["books"]), 689)
-        self.assertEqual(sum(book["status"] == "planned" for book in INVENTORY["books"]), 6)
-        self.assertEqual(sum(bool(book.get("repository")) for book in INVENTORY["books"]), 37)
+        self.assertEqual(INVENTORY["upstream"]["entryCount"], 49)
+        self.assertEqual(INVENTORY["upstream"]["publishedRepositoryCount"], 39)
+        self.assertEqual(sum(len(book["chapters"]) for book in INVENTORY["books"]), 758)
+        self.assertEqual(sum(book["status"] == "planned" for book in INVENTORY["books"]), 10)
+        self.assertEqual(sum(bool(book.get("repository")) for book in INVENTORY["books"]), 39)
         self.assertFalse(any("description" in book for book in INVENTORY["books"]))
         self.assertTrue(all(book["observedFactsOnly"] is True for book in INVENTORY["books"]))
         self.assertTrue(all(len(book["repository"]["headSha"]) == 40 for book in INVENTORY["books"] if book["repository"]))
@@ -157,6 +157,8 @@ class ReferenceInventoryTests(unittest.TestCase):
 
     def test_project_gate_freshness_is_scoped_and_checks_catalog_url_and_paths(self):
         decisions = copy.deepcopy(DECISIONS)
+        algebra = next(item for item in decisions["decisions"] if item["projectId"] == "algebrabook")
+        algebra["reviewedAgainstCatalogSha"] = INVENTORY["upstream"]["catalogHeadSha"]
         thinfilm = next(item for item in decisions["decisions"] if item["projectId"] == "thinfilmbook")
         stale_sha = "a" * 40
         thinfilm["sourceRevisions"][0]["observedSha"] = stale_sha
