@@ -6,14 +6,15 @@ Published books have authoritative records and release, deployment, chapter, and
 
 ProcessIntegrationBook v1.0.0 is now the third publication. Its cross-module integration scope complements PMICBook's product-centered BCD treatment and WATBook's parametric measurement-to-decision focus. See its [repository](https://github.com/frbread7/processintegrationbook), [release](https://github.com/frbread7/processintegrationbook/releases/tag/v1.0.0), and [production textbook](https://frbread7.github.io/processintegrationbook/).
 
+FabControlBook is now an active in-progress project, not an unstarted proposal. Its independently deployed textbook is undergoing its v1.0.0 release and evidence checks; it is not yet counted as a My Library publication. See the [repository](https://github.com/frbread7/fabcontrolbook) and [production site](https://frbread7.github.io/fabcontrolbook/).
+
 ## Differentiated semiconductor priorities
 
 | Priority | Candidate | Intended boundary | Existing reference coverage to reuse and link |
 | --- | --- | --- | --- |
-| 1 | FabControlBook | Operational SPC/FDC/APC, signal quality, control loops, alarm policy, and response workflows. | Upstream YieldBook and TestBook already cover statistical foundations and selected SPC; link those concepts and focus on control-system decisions. |
-| 2 | ThinFilmBook | Quantitative thin-film growth, epitaxy, interfaces, materials, and film-specific measurement. | Upstream ProcessBook introduces deposition and epitaxy; a future title must provide a meaningful advanced materials and interface treatment. |
-| 3 | ReliabilityEngineeringBook | Failure physics, mechanism-relevant acceleration, lifetime inference, qualification design, and uncertainty. | Upstream FailureBook focuses on failure-analysis methods. PMICBook provides product-level reliability context; link both without repeating their introductions. |
-| 4 | RFICBook or MEMSBook | One future specialization selected only after a distinct audience and content gap are established. | Compare with upstream DesignBook, AnalogBook, SensorBook, and relevant MEMS material before choosing either path. |
+| 1 | ThinFilmBook | Quantitative thin-film growth, epitaxy, interfaces, materials, and film-specific measurement. | Upstream ProcessBook introduces deposition and epitaxy; a future title must provide a meaningful advanced materials and interface treatment. |
+| 2 | ReliabilityEngineeringBook | Failure physics, mechanism-relevant acceleration, lifetime inference, qualification design, and uncertainty. | Upstream FailureBook focuses on failure-analysis methods. PMICBook provides product-level reliability context; link both without repeating their introductions. |
+| 3 | RFICBook or MEMSBook | One future specialization selected only after a distinct audience and content gap are established. | Compare with upstream DesignBook, AnalogBook, SensorBook, and relevant MEMS material before choosing either path. |
 
 The reference collection already provides broad device physics, circuit/design, process-module, yield, test, failure-analysis, and product coverage. My Library must keep these external works clearly attributed as independent references, not as books authored or published by this collection. See [the reference audit](REFERENCE_AUDIT.md) and each upstream repository's current license before any reuse.
 

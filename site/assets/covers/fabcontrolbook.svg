@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" role="img" aria-labelledby="title desc">
+  <title id="title">FabControlBook cover</title><desc id="desc">Original artwork showing control signals moving through a semiconductor manufacturing process system.</desc>
+  <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#183443"/><stop offset="1" stop-color="#254d5b"/></linearGradient><pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#4d7380" stroke-opacity=".3"/></pattern></defs>
+  <rect width="640" height="800" fill="url(#bg)"/><rect width="640" height="800" fill="url(#grid)"/>
+  <path d="M45 520h100l25-80 30 154 32-212 28 135 28-74 30 36h74l22-115 31 170 31-74h78" fill="none" stroke="#f1a078" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#d9ebeb" stroke="#89b4bb" stroke-width="3"><rect x="70" y="285" width="112" height="82" rx="12"/><rect x="245" y="285" width="112" height="82" rx="12"/><rect x="420" y="285" width="145" height="82" rx="12"/></g>
+  <g fill="#183443" font-family="system-ui,sans-serif" font-size="18" font-weight="700" text-anchor="middle"><text x="126" y="333">SENSORS</text><text x="301" y="333">MONITOR</text><text x="492" y="333">CONTROL</text></g>
+  <g stroke="#e6b296" stroke-width="5" fill="none"><path d="M183 326h52"/><path d="M357 326h55"/><path d="M503 370v70"/><path d="M492 429l11 12 11-12"/></g>
+  <text x="54" y="105" fill="#e6b296" font-family="system-ui,sans-serif" font-size="22" font-weight="800" letter-spacing="4">SEMICONDUCTOR ENGINEERING</text>
+  <text x="52" y="180" fill="#fff" font-family="Georgia,serif" font-size="54" font-weight="500">FabControl</text><text x="52" y="238" fill="#fff" font-family="Georgia,serif" font-size="54" font-weight="500">Book</text>
+  <text x="55" y="650" fill="#d9ebeb" font-family="system-ui,sans-serif" font-size="24">SPC · FDC · APC · R2R</text><text x="55" y="692" fill="#bfd4d9" font-family="system-ui,sans-serif" font-size="18">Monitoring, decision, control, and governance</text>
+</svg>

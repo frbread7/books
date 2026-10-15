@@ -159,14 +159,13 @@ class LearningJourneyTests(unittest.TestCase):
             self.assertIs(experiment["verification"]["fragmentFound"], True)
             self.assertEqual(experiment["verification"]["sourceRevision"], integration["publicationEvidence"]["productionRevision"])
         self.assertNotIn("processintegrationbook", {book["id"] for book in self.roadmap["books"]})
-        first = min(self.roadmap["books"], key=lambda book: book["priority"])
-        self.assertEqual(first["id"], "fabcontrolbook")
-        self.assertEqual(first["priority"], 1)
+        fabcontrol = next(book for book in self.books if book["id"] == "fabcontrolbook")
+        self.assertEqual(fabcontrol["status"], "in-progress")
+        self.assertNotIn("fabcontrolbook", {book["id"] for book in self.roadmap["books"]})
         semiconductor_sequence = [
             (book["id"], book["priority"])
             for book in sorted(self.roadmap["books"], key=lambda item: item["priority"])
             if book["id"] in {
-                "fabcontrolbook",
                 "thinfilmbook",
                 "reliabilityengineeringbook",
                 "rficbook-or-memsbook",
@@ -175,10 +174,9 @@ class LearningJourneyTests(unittest.TestCase):
         self.assertEqual(
             semiconductor_sequence,
             [
-                ("fabcontrolbook", 1),
-                ("thinfilmbook", 2),
-                ("reliabilityengineeringbook", 3),
-                ("rficbook-or-memsbook", 4),
+                ("thinfilmbook", 1),
+                ("reliabilityengineeringbook", 2),
+                ("rficbook-or-memsbook", 3),
             ],
         )
 

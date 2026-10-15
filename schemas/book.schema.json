@@ -368,6 +368,14 @@
           },
           "chapters": {
             "minItems": 1
+          },
+          "publicationEvidence": {
+            "properties": {
+              "contentReview": {
+                "minLength": 1,
+                "pattern": "\\S"
+              }
+            }
           }
         }
       }

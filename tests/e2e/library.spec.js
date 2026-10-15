@@ -84,7 +84,7 @@ test("ProcessIntegrationBook is published across its bilingual detail, map, path
   expect(integration.status).toBe("published");
   expect(integration.publicationEvidence.productionRevision).toMatch(/^[0-9a-f]{40}$/);
   expect(catalogRoadmap.books.some(book => book.id === integration.id)).toBe(false);
-  expect(catalogRoadmap.books[0].id).toBe("fabcontrolbook");
+  expect(catalogRoadmap.books[0].id).toBe("thinfilmbook");
 
   await page.goto("book.html?slug=processintegrationbook");
   await expect(page.locator("h1")).toHaveText("ProcessIntegrationBook");

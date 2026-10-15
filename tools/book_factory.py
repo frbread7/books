@@ -243,8 +243,11 @@ def validate_manifest(book):
             fail(f"theme.{key} must be a six-digit hex color")
     if book["status"] == "published":
         evidence = book.get("publicationEvidence")
-        if not isinstance(evidence, dict) or not evidence.get("releaseUrl") or not evidence.get("siteVerification") or not evidence.get("chapterVerification") or not evidence.get("productionRevision"):
-            fail("published status requires releaseUrl, productionRevision, siteVerification, and chapterVerification evidence")
+        if (not isinstance(evidence, dict) or not evidence.get("releaseUrl") or
+                not evidence.get("siteVerification") or not evidence.get("chapterVerification") or
+                not evidence.get("productionRevision") or
+                not isinstance(evidence.get("contentReview"), str) or not evidence["contentReview"].strip()):
+            fail("published status requires releaseUrl, productionRevision, non-empty contentReview, siteVerification, and chapterVerification evidence")
         if not isinstance(evidence["productionRevision"], str) or not re.fullmatch(r"[0-9a-f]{40}", evidence["productionRevision"]):
             fail("publicationEvidence.productionRevision must be a full 40-character lowercase Git commit SHA")
         check_url(evidence["releaseUrl"], "publicationEvidence.releaseUrl")

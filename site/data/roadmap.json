@@ -2,81 +2,6 @@
   "schemaVersion": 1,
   "books": [
     {
-      "id": "fabcontrolbook",
-      "title": {
-        "en": "FabControlBook",
-        "ko": "FabControlBook"
-      },
-      "subtitle": {
-        "en": "SPC, FDC, APC, and semiconductor manufacturing control",
-        "ko": "SPC·FDC·APC와 반도체 제조 제어"
-      },
-      "status": "planned",
-      "priority": 1,
-      "audience": {
-        "en": "Fab process-control, equipment, data, and integration engineers designing monitoring and control responses.",
-        "ko": "모니터링과 제어 대응을 설계하는 팹 공정 제어·장비·데이터·통합 엔지니어."
-      },
-      "questions": {
-        "en": [
-          "How should control limits and sampling plans reflect process dynamics?",
-          "How do FDC signals become trustworthy equipment-state evidence?",
-          "How can APC feedback be designed without amplifying noise or hiding excursions?"
-        ],
-        "ko": [
-          "관리 한계와 샘플링 계획은 공정 동특성을 어떻게 반영해야 할까?",
-          "FDC 신호를 신뢰할 수 있는 장비 상태 증거로 어떻게 바꿀까?",
-          "노이즈를 증폭하거나 이상을 숨기지 않도록 APC 피드백을 어떻게 설계할까?"
-        ]
-      },
-      "chapterGroups": {
-        "en": [
-          "Control objectives, sensors, and data context",
-          "SPC design and rational subgrouping",
-          "FDC feature engineering and equipment signatures",
-          "APC feedback, feed-forward, and run-to-run control",
-          "Alarm management, false calls, and response workflows",
-          "Control-system validation and governance"
-        ],
-        "ko": [
-          "제어 목표·센서·데이터 맥락",
-          "SPC 설계와 합리적 부분군",
-          "FDC 특징 설계와 장비 시그니처",
-          "APC 피드백·피드포워드·런투런 제어",
-          "알람 관리·오경보·대응 흐름",
-          "제어 시스템 검증과 거버넌스"
-        ]
-      },
-      "prerequisites": {
-        "en": [
-          "Basic statistics, process context, and familiarity with time-ordered manufacturing data."
-        ],
-        "ko": [
-          "기초 통계, 공정 맥락, 시간 순서가 있는 제조 데이터에 대한 이해가 필요합니다."
-        ]
-      },
-      "relationships": {
-        "en": "Focuses on operational feedback and equipment/process control. The upstream YieldBook covers yield analysis, while WATBook covers parametric measurement and diagnostic evidence; link rather than repeat general SPC foundations.",
-        "ko": "운영 피드백과 장비·공정 제어에 집중합니다. upstream YieldBook은 수율 분석을, WATBook은 파라미터 측정과 진단 증거를 다루므로 일반 SPC 기초는 연결하고 반복하지 않습니다."
-      },
-      "simulatorIdeas": {
-        "en": [
-          "Shewhart/EWMA/CUSUM detection delay under controlled drift",
-          "FDC multivariate feature and false-alarm tradeoff",
-          "Run-to-run APC stability with measurement noise"
-        ],
-        "ko": [
-          "통제된 드리프트에서 Shewhart/EWMA/CUSUM 탐지 지연",
-          "FDC 다변량 특징과 오경보 절충",
-          "측정 노이즈를 포함한 런투런 APC 안정성"
-        ]
-      },
-      "differentiation": {
-        "en": "Manufacturing control-loop design, data quality, alarms, and operational response, rather than another general SPC/yield textbook.",
-        "ko": "일반 SPC·수율 교재의 반복이 아니라 제조 제어 루프 설계, 데이터 품질, 알람 및 운영 대응을 다룹니다."
-      }
-    },
-    {
       "id": "thinfilmbook",
       "title": {
         "en": "ThinFilmBook",
@@ -87,7 +12,7 @@
         "ko": "첨단 증착·에피택시·계면·박막 엔지니어링"
       },
       "status": "planned",
-      "priority": 2,
+      "priority": 1,
       "audience": {
         "en": "Deposition, materials, device, and integration engineers who need quantitative film and interface understanding.",
         "ko": "정량적인 박막과 계면 이해가 필요한 증착·재료·소자·통합 엔지니어."
@@ -162,7 +87,7 @@
         "ko": "신뢰성 물리·품질 인증·수명 모델링"
       },
       "status": "planned",
-      "priority": 3,
+      "priority": 2,
       "audience": {
         "en": "Reliability, device, product, quality, and failure-analysis engineers planning physics-based evidence and qualification.",
         "ko": "물리 기반 증거와 품질 인증을 설계하는 신뢰성·소자·제품·품질·고장 분석 엔지니어."
@@ -237,7 +162,7 @@
         "ko": "독자 수요에 따라 선정할 미래 전문 기술 분야"
       },
       "status": "planned",
-      "priority": 4,
+      "priority": 3,
       "audience": {
         "en": "To be defined after a distinct audience and technical gap are established for RFIC or MEMS.",
         "ko": "RFIC 또는 MEMS의 독자층과 기술 공백이 확인된 뒤 정의합니다."

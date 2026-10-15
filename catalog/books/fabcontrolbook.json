@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 1,
+  "id": "fabcontrolbook",
+  "slug": "fabcontrolbook",
+  "title": {
+    "en": "FabControlBook",
+    "ko": "FabControlBook"
+  },
+  "subtitle": {
+    "en": "Semiconductor Manufacturing Control Engineering",
+    "ko": "반도체 제조 제어 엔지니어링"
+  },
+  "description": {
+    "en": "A bilingual engineering textbook on semiconductor manufacturing monitoring, fault detection, run-to-run control, alarm response, and governance.",
+    "ko": "반도체 제조 모니터링, 고장 감지, 런투런 제어, 알람 대응 및 거버넌스를 다루는 이중 언어 공학 교재입니다."
+  },
+  "category": "semiconductor",
+  "tags": [
+    "SPC",
+    "FDC",
+    "APC",
+    "run-to-run control",
+    "manufacturing control",
+    "process monitoring",
+    "alarm management"
+  ],
+  "status": "in-progress",
+  "repositoryUrl": "https://github.com/frbread7/fabcontrolbook",
+  "productionUrl": "https://frbread7.github.io/fabcontrolbook/",
+  "languageUrls": {
+    "en": "https://frbread7.github.io/fabcontrolbook/",
+    "ko": "https://frbread7.github.io/fabcontrolbook/ko/"
+  },
+  "languages": [
+    "en",
+    "ko"
+  ],
+  "version": "0.1.0",
+  "lastUpdated": "2026-10-15",
+  "chapterCount": 14,
+  "chapters": [
+    {
+      "id": "c01-control-architecture",
+      "number": 1,
+      "title": {
+        "en": "Semiconductor manufacturing control architecture",
+        "ko": "반도체 제조 제어 아키텍처"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/fabcontrolbook/chapters/01-control-architecture.html",
+        "ko": "https://frbread7.github.io/fabcontrolbook/ko/chapters/01-control-architecture.html"
+      },
+      "topics": [
+        "manufacturing-control",
+        "SPC",
+        "FDC",
+        "APC",
+        "R2R"
+      ]
+    },
+    {
+      "id": "c02-sensor-lineage",
+      "number": 2,
+      "title": {
+        "en": "Sensor signals, traceability, and data lineage",
+        "ko": "센서 신호·추적성·데이터 계보"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/fabcontrolbook/chapters/02-sensor-lineage.html",
+        "ko": "https://frbread7.github.io/fabcontrolbook/ko/chapters/02-sensor-lineage.html"
+      },
+      "topics": [
+        "sensor-data",
+        "traceability",
+        "data-lineage",
+        "FDC"
+      ]
+    },
+    {
+      "id": "c03-measurement-data-integrity",
+      "number": 3,
+      "title": {
+        "en": "Measurement noise, sampling, and data integrity",
+        "ko": "측정 잡음·샘플링·데이터 무결성"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/fabcontrolbook/chapters/03-measurement-data-integrity.html",
+        "ko": "https://frbread7.github.io/fabcontrolbook/ko/chapters/03-measurement-data-integrity.html"
+      },
+      "topics": [
+        "measurement-noise",
+        "sampling",
+        "missing-data",
+        "data-quality"
+      ]
+    },
+    {
+      "id": "c04-spc-rational-subgroups",
+      "number": 4,
+      "title": {
+        "en": "SPC control charts and rational subgrouping",
+        "ko": "SPC 관리도와 합리적 부분군"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/fabcontrolbook/chapters/04-spc-rational-subgroups.html",
+        "ko": "https://frbread7.github.io/fabcontrolbook/ko/chapters/04-spc-rational-subgroups.html"
+      },
+      "topics": [
+        "SPC",
+        "control-charts",
+        "rational-subgrouping"
+      ]
+    },
+    {
+      "id": "c05-shewhart-ewma-cusum",
+      "number": 5,
+      "title": {
+        "en": "Shewhart, EWMA, and CUSUM detection theory",
+        "ko": "Shewhart·EWMA·CUSUM 검출 이론"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/fabcontrolbook/chapters/05-shewhart-ewma-cusum.html",
+        "ko": "https://frbread7.github.io/fabcontrolbook/ko/chapters/05-shewhart-ewma-cusum.html"
+      },
+      "topics": [
+        "SPC",
+        "Shewhart",
+        "EWMA",
+        "CUSUM",
+        "detection-theory"
+      ]
+    },
+    {
+      "id": "c06-fdc-trace-segmentation",
+      "number": 6,
+      "title": {
+        "en": "FDC trace segmentation and feature engineering",
+        "ko": "FDC 트레이스 구간화와 특징 엔지니어링"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/fabcontrolbook/chapters/06-fdc-trace-segmentation.html",
+        "ko": "https://frbread7.github.io/fabcontrolbook/ko/chapters/06-fdc-trace-segmentation.html"
+      },
+      "topics": [
+        "FDC",
+        "trace-segmentation",
+        "feature-engineering"
+      ]
+    },
+    {
+      "id": "c07-fdc-multivariate-false-alarms",
+      "number": 7,
+      "title": {
+        "en": "Multivariate monitoring, fault detection, and false alarms",
+        "ko": "다변량 모니터링·고장 감지·오경보"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/fabcontrolbook/chapters/07-fdc-multivariate-false-alarms.html",
+        "ko": "https://frbread7.github.io/fabcontrolbook/ko/chapters/07-fdc-multivariate-false-alarms.html"
+      },
+      "topics": [
+        "multivariate-monitoring",
+        "fault-detection",
+        "false-alarms",
+        "FDC"
+      ]
+    },
+    {
+      "id": "c08-chamber-matching-tool-health",
+      "number": 8,
+      "title": {
+        "en": "Chamber matching, equipment drift, and tool health",
+        "ko": "챔버 매칭·장비 드리프트·툴 상태"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/fabcontrolbook/chapters/08-chamber-matching-tool-health.html",
+        "ko": "https://frbread7.github.io/fabcontrolbook/ko/chapters/08-chamber-matching-tool-health.html"
+      },
+      "topics": [
+        "chamber-matching",
+        "equipment-drift",
+        "tool-health",
+        "FDC"
+      ]
+    },
+    {
+      "id": "c09-run-to-run-apc",
+      "number": 9,
+      "title": {
+        "en": "Run-to-run APC and EWMA controller mathematics",
+        "ko": "런투런 APC와 EWMA 제어기 수학"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/fabcontrolbook/chapters/09-run-to-run-apc.html",
+        "ko": "https://frbread7.github.io/fabcontrolbook/ko/chapters/09-run-to-run-apc.html"
+      },
+      "topics": [
+        "APC",
+        "R2R",
+        "EWMA",
+        "feedback-control"
+      ]
+    },
+    {
+      "id": "c10-feedforward-feedback-delays",
+      "number": 10,
+      "title": {
+        "en": "Feedforward, feedback, delays, and disturbances",
+        "ko": "피드포워드·피드백·지연·외란"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/fabcontrolbook/chapters/10-feedforward-feedback-delays.html",
+        "ko": "https://frbread7.github.io/fabcontrolbook/ko/chapters/10-feedforward-feedback-delays.html"
+      },
+      "topics": [
+        "feedforward",
+        "feedback-control",
+        "process-delay",
+        "disturbances"
+      ]
+    },
+    {
+      "id": "c11-constraints-excursions-safe-response",
+      "number": 11,
+      "title": {
+        "en": "Control constraints, excursions, and safe response",
+        "ko": "제어 제약·이상 이탈·안전한 대응"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/fabcontrolbook/chapters/11-constraints-excursions-safe-response.html",
+        "ko": "https://frbread7.github.io/fabcontrolbook/ko/chapters/11-constraints-excursions-safe-response.html"
+      },
+      "topics": [
+        "control-constraints",
+        "excursion-response",
+        "safety"
+      ]
+    },
+    {
+      "id": "c12-alarm-management-disposition",
+      "number": 12,
+      "title": {
+        "en": "Alarm management and engineering disposition",
+        "ko": "알람 관리와 엔지니어링 판정"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/fabcontrolbook/chapters/12-alarm-management-disposition.html",
+        "ko": "https://frbread7.github.io/fabcontrolbook/ko/chapters/12-alarm-management-disposition.html"
+      },
+      "topics": [
+        "alarm-management",
+        "operator-response",
+        "escalation"
+      ]
+    },
+    {
+      "id": "c13-synthetic-fab-case-studies",
+      "number": 13,
+      "title": {
+        "en": "Synthetic fab case studies and root-cause reasoning",
+        "ko": "합성 팹 사례와 근본 원인 추론"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/fabcontrolbook/chapters/13-synthetic-fab-case-studies.html",
+        "ko": "https://frbread7.github.io/fabcontrolbook/ko/chapters/13-synthetic-fab-case-studies.html"
+      },
+      "topics": [
+        "root-cause-reasoning",
+        "synthetic-case-study",
+        "SPC",
+        "FDC",
+        "APC"
+      ]
+    },
+    {
+      "id": "c14-verification-change-governance",
+      "number": 14,
+      "title": {
+        "en": "Control-system verification, change management, and governance",
+        "ko": "제어 시스템 검증·변경 관리·거버넌스"
+      },
+      "urls": {
+        "en": "https://frbread7.github.io/fabcontrolbook/chapters/14-verification-change-governance.html",
+        "ko": "https://frbread7.github.io/fabcontrolbook/ko/chapters/14-verification-change-governance.html"
+      },
+      "topics": [
+        "control-verification",
+        "validation",
+        "change-management",
+        "governance"
+      ]
+    }
+  ],
+  "experiments": [
+    {
+      "id": "spc-performance",
+      "chapterId": "c05-shewhart-ewma-cusum",
+      "title": {
+        "en": "SPC detection performance",
+        "ko": "SPC 검출 성능"
+      },
+      "url": "https://frbread7.github.io/fabcontrolbook/lab.html#spc-performance",
+      "kind": {
+        "en": "Detection comparison",
+        "ko": "검출 비교"
+      }
+    },
+    {
+      "id": "fdc-intelligence",
+      "chapterId": "c07-fdc-multivariate-false-alarms",
+      "title": {
+        "en": "FDC signal intelligence",
+        "ko": "FDC 신호 분석"
+      },
+      "url": "https://frbread7.github.io/fabcontrolbook/lab.html#fdc-intelligence",
+      "kind": {
+        "en": "Signal-feature explorer",
+        "ko": "신호 특징 탐색"
+      }
+    },
+    {
+      "id": "r2r-control",
+      "chapterId": "c09-run-to-run-apc",
+      "title": {
+        "en": "Run-to-run APC",
+        "ko": "런투런 APC"
+      },
+      "url": "https://frbread7.github.io/fabcontrolbook/lab.html#r2r-control",
+      "kind": {
+        "en": "Control simulation",
+        "ko": "제어 시뮬레이션"
+      }
+    },
+    {
+      "id": "alarm-strategy",
+      "chapterId": "c12-alarm-management-disposition",
+      "title": {
+        "en": "Manufacturing alarm strategy",
+        "ko": "제조 알람 전략"
+      },
+      "url": "https://frbread7.github.io/fabcontrolbook/lab.html#alarm-strategy",
+      "kind": {
+        "en": "Alarm-policy simulator",
+        "ko": "알람 정책 시뮬레이터"
+      }
+    }
+  ],
+  "prerequisites": [],
+  "relatedBooks": [
+    "watbook",
+    "processintegrationbook",
+    "pmicbook"
+  ],
+  "attribution": {
+    "license": "CC BY 4.0 for original educational prose, diagrams, examples, and synthetic datasets; MIT for original code. See LICENSE.md and LICENSE-AND-ATTRIBUTION.md.",
+    "repositoryUrl": "https://github.com/frbread7/fabcontrolbook",
+    "notes": "Original content and code were authored for FabControlBook. Upstream works are reference-only; no upstream text, art, or code was reused. See docs/PROVENANCE_AND_REVIEW.md."
+  },
+  "cover": "assets/covers/fabcontrolbook.svg",
+  "theme": {
+    "accent": "#bf5836",
+    "accentSoft": "#f5e3d8",
+    "motif": "control hierarchy, signal traces, and feedback loop"
+  }
+}

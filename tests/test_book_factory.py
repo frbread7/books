@@ -105,6 +105,22 @@ class BookFactoryTests(unittest.TestCase):
         with self.assertRaisesRegex(book_factory.ManifestError, "schema validation.*publicationEvidence"):
             book_factory.validate_manifest(self.book)
 
+    def test_published_with_empty_content_review_is_rejected(self):
+        for review in ("", "   "):
+            with self.subTest(review=repr(review)):
+                published = deepcopy(self.book)
+                published["publicationEvidence"]["contentReview"] = review
+                with self.assertRaisesRegex(book_factory.ManifestError, "schema validation.*contentReview"):
+                    book_factory.validate_manifest(published)
+
+    def test_in_progress_with_empty_content_review_evidence_is_allowed(self):
+        for review in ("", "   "):
+            with self.subTest(review=repr(review)):
+                draft = deepcopy(self.book)
+                draft["status"] = "in-progress"
+                draft["publicationEvidence"]["contentReview"] = review
+                self.assertEqual(book_factory.validate_manifest(draft)["status"], "in-progress")
+
     def test_empty_in_progress_book_is_allowed_but_empty_published_book_is_rejected(self):
         draft = deepcopy(self.book)
         draft.update({"status": "in-progress", "chapterCount": 0, "chapters": [], "experiments": []})

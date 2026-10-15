@@ -1,81 +1,6 @@
 {
   "schemaVersion": 1,
   "books": [
-        {
-      "id": "fabcontrolbook",
-      "title": {
-        "en": "FabControlBook",
-        "ko": "FabControlBook"
-      },
-      "subtitle": {
-        "en": "SPC, FDC, APC, and semiconductor manufacturing control",
-        "ko": "SPC·FDC·APC와 반도체 제조 제어"
-      },
-      "status": "planned",
-      "priority": 1,
-      "audience": {
-        "en": "Fab process-control, equipment, data, and integration engineers designing monitoring and control responses.",
-        "ko": "모니터링과 제어 대응을 설계하는 팹 공정 제어·장비·데이터·통합 엔지니어."
-      },
-      "questions": {
-        "en": [
-          "How should control limits and sampling plans reflect process dynamics?",
-          "How do FDC signals become trustworthy equipment-state evidence?",
-          "How can APC feedback be designed without amplifying noise or hiding excursions?"
-        ],
-        "ko": [
-          "관리 한계와 샘플링 계획은 공정 동특성을 어떻게 반영해야 할까?",
-          "FDC 신호를 신뢰할 수 있는 장비 상태 증거로 어떻게 바꿀까?",
-          "노이즈를 증폭하거나 이상을 숨기지 않도록 APC 피드백을 어떻게 설계할까?"
-        ]
-      },
-      "chapterGroups": {
-        "en": [
-          "Control objectives, sensors, and data context",
-          "SPC design and rational subgrouping",
-          "FDC feature engineering and equipment signatures",
-          "APC feedback, feed-forward, and run-to-run control",
-          "Alarm management, false calls, and response workflows",
-          "Control-system validation and governance"
-        ],
-        "ko": [
-          "제어 목표·센서·데이터 맥락",
-          "SPC 설계와 합리적 부분군",
-          "FDC 특징 설계와 장비 시그니처",
-          "APC 피드백·피드포워드·런투런 제어",
-          "알람 관리·오경보·대응 흐름",
-          "제어 시스템 검증과 거버넌스"
-        ]
-      },
-      "prerequisites": {
-        "en": [
-          "Basic statistics, process context, and familiarity with time-ordered manufacturing data."
-        ],
-        "ko": [
-          "기초 통계, 공정 맥락, 시간 순서가 있는 제조 데이터에 대한 이해가 필요합니다."
-        ]
-      },
-      "relationships": {
-        "en": "Focuses on operational feedback and equipment/process control. The upstream YieldBook covers yield analysis, while WATBook covers parametric measurement and diagnostic evidence; link rather than repeat general SPC foundations.",
-        "ko": "운영 피드백과 장비·공정 제어에 집중합니다. upstream YieldBook은 수율 분석을, WATBook은 파라미터 측정과 진단 증거를 다루므로 일반 SPC 기초는 연결하고 반복하지 않습니다."
-      },
-      "simulatorIdeas": {
-        "en": [
-          "Shewhart/EWMA/CUSUM detection delay under controlled drift",
-          "FDC multivariate feature and false-alarm tradeoff",
-          "Run-to-run APC stability with measurement noise"
-        ],
-        "ko": [
-          "통제된 드리프트에서 Shewhart/EWMA/CUSUM 탐지 지연",
-          "FDC 다변량 특징과 오경보 절충",
-          "측정 노이즈를 포함한 런투런 APC 안정성"
-        ]
-      },
-      "differentiation": {
-        "en": "Manufacturing control-loop design, data quality, alarms, and operational response, rather than another general SPC/yield textbook.",
-        "ko": "일반 SPC·수율 교재의 반복이 아니라 제조 제어 루프 설계, 데이터 품질, 알람 및 운영 대응을 다룹니다."
-      }
-    },
     {
       "id": "thinfilmbook",
       "title": {
@@ -87,7 +12,7 @@
         "ko": "첨단 증착·에피택시·계면·박막 엔지니어링"
       },
       "status": "planned",
-      "priority": 2,
+      "priority": 1,
       "audience": {
         "en": "Deposition, materials, device, and integration engineers who need quantitative film and interface understanding.",
         "ko": "정량적인 박막과 계면 이해가 필요한 증착·재료·소자·통합 엔지니어."
@@ -162,7 +87,7 @@
         "ko": "신뢰성 물리·품질 인증·수명 모델링"
       },
       "status": "planned",
-      "priority": 3,
+      "priority": 2,
       "audience": {
         "en": "Reliability, device, product, quality, and failure-analysis engineers planning physics-based evidence and qualification.",
         "ko": "물리 기반 증거와 품질 인증을 설계하는 신뢰성·소자·제품·품질·고장 분석 엔지니어."
@@ -237,7 +162,7 @@
         "ko": "독자 수요에 따라 선정할 미래 전문 기술 분야"
       },
       "status": "planned",
-      "priority": 4,
+      "priority": 3,
       "audience": {
         "en": "To be defined after a distinct audience and technical gap are established for RFIC or MEMS.",
         "ko": "RFIC 또는 MEMS의 독자층과 기술 공백이 확인된 뒤 정의합니다."
@@ -861,77 +786,77 @@
         "en": "CuriosityBook",
         "ko": "CuriosityBook"
       },
-    "subtitle": {
-      "en": "A Korean-first illustrated read-aloud series for ages 3–5",
-      "ko": "만 3~5세를 위한 한국어 우선 그림책 함께 읽기 시리즈"
+      "subtitle": {
+        "en": "A Korean-first illustrated read-aloud series for ages 3–5",
+        "ko": "만 3~5세를 위한 한국어 우선 그림책 함께 읽기 시리즈"
       },
       "status": "planned",
       "priority": 1,
-    "audience": {
-      "en": "Children ages 3–5 sharing beautifully illustrated read-aloud stories with a parent, caregiver, or educator.",
-      "ko": "보호자·양육자·교사와 아름다운 그림책을 함께 소리 내어 읽고 이야기를 나누는 만 3~5세 어린이."
+      "audience": {
+        "en": "Children ages 3–5 sharing beautifully illustrated read-aloud stories with a parent, caregiver, or educator.",
+        "ko": "보호자·양육자·교사와 아름다운 그림책을 함께 소리 내어 읽고 이야기를 나누는 만 3~5세 어린이."
       },
       "questions": {
-      "en": [
-        "How can original stories make early language, mathematics, science, arts, and history enjoyable to explore together?",
-        "How can sparse optional taps enrich a picture without interrupting an uninterrupted parent read-aloud?",
-        "How can a story invite conversation and optional offline discovery without testing or tracking?"
-      ],
-      "ko": [
-        "새로운 이야기는 언어·수학·과학·예술·역사를 함께 즐겁게 탐색하도록 어떻게 도울까?",
-        "간결한 선택형 터치가 부모와 아이의 끊김 없는 낭독을 방해하지 않으면서 그림을 어떻게 풍성하게 할까?",
-        "시험이나 기록 없이 이야기가 대화와 선택형 오프라인 발견으로 이어지게 하려면?"
+        "en": [
+          "How can original stories make early language, mathematics, science, arts, and history enjoyable to explore together?",
+          "How can sparse optional taps enrich a picture without interrupting an uninterrupted parent read-aloud?",
+          "How can a story invite conversation and optional offline discovery without testing or tracking?"
+        ],
+        "ko": [
+          "새로운 이야기는 언어·수학·과학·예술·역사를 함께 즐겁게 탐색하도록 어떻게 도울까?",
+          "간결한 선택형 터치가 부모와 아이의 끊김 없는 낭독을 방해하지 않으면서 그림을 어떻게 풍성하게 할까?",
+          "시험이나 기록 없이 이야기가 대화와 선택형 오프라인 발견으로 이어지게 하려면?"
         ]
       },
       "chapterGroups": {
-      "en": [
-        "Picture book: Where Does Rain Come From? — a raindrop, clouds, and the water cycle",
-        "Picture book: How Many Friends Came to Play? — counting animals, patterns, and shapes",
-        "Picture book: Meeting King Sejong — a historically researched story about a person, place, and writing",
-        "Series reading design: Parent Read-Aloud Mode, optional sparse prompts, and read uninterrupted",
-        "Small optional story-relevant taps that enrich illustrations without gating the narrative",
-        "Original illustration, accessibility, and printable/offline companion specifications"
-      ],
-      "ko": [
-        "그림책: 비는 어디서 올까요? — 빗방울·구름·물의 순환",
-        "그림책: 친구들이 몇 명 왔을까요? — 동물 세기·규칙성·모양",
-        "그림책: 세종대왕을 만나다 — 인물·장소·문자를 다루는 역사 조사 기반 이야기",
-        "시리즈 읽기 방식: 부모 낭독 모드, 드문 선택형 질문, 끊김 없이 읽기",
-        "이야기를 막지 않고 그림을 풍성하게 하는 작고 선택적인 상호작용",
-        "새 그림·접근성·인쇄 및 오프라인 동반 자료 규격"
+        "en": [
+          "Picture book: Where Does Rain Come From? — a raindrop, clouds, and the water cycle",
+          "Picture book: How Many Friends Came to Play? — counting animals, patterns, and shapes",
+          "Picture book: Meeting King Sejong — a historically researched story about a person, place, and writing",
+          "Series reading design: Parent Read-Aloud Mode, optional sparse prompts, and read uninterrupted",
+          "Small optional story-relevant taps that enrich illustrations without gating the narrative",
+          "Original illustration, accessibility, and printable/offline companion specifications"
+        ],
+        "ko": [
+          "그림책: 비는 어디서 올까요? — 빗방울·구름·물의 순환",
+          "그림책: 친구들이 몇 명 왔을까요? — 동물 세기·규칙성·모양",
+          "그림책: 세종대왕을 만나다 — 인물·장소·문자를 다루는 역사 조사 기반 이야기",
+          "시리즈 읽기 방식: 부모 낭독 모드, 드문 선택형 질문, 끊김 없이 읽기",
+          "이야기를 막지 않고 그림을 풍성하게 하는 작고 선택적인 상호작용",
+          "새 그림·접근성·인쇄 및 오프라인 동반 자료 규격"
         ]
       },
       "prerequisites": {
-      "en": [
-        "No academic prerequisite, account, or personal profile. A child may listen, look, tap optionally, ask questions, or leave the story at any time."
-      ],
-      "ko": [
-        "학업 선행 요건·계정·개인 프로필이 없습니다. 아이는 듣거나 보고, 원할 때만 누르고, 질문하거나 언제든 이야기를 멈출 수 있습니다."
+        "en": [
+          "No academic prerequisite, account, or personal profile. A child may listen, look, tap optionally, ask questions, or leave the story at any time."
+        ],
+        "ko": [
+          "학업 선행 요건·계정·개인 프로필이 없습니다. 아이는 듣거나 보고, 원할 때만 누르고, 질문하거나 언제든 이야기를 멈출 수 있습니다."
         ]
       },
-    "relationships": {
-      "en": "Editorial picture-book pilot informed by the five Nuri domains and public early-learning recommendations; the portal's stages are not official requirements, and the stories do not reproduce curriculum material.",
-      "ko": "누리과정 5개 영역과 공개 유아학습 권고를 참고하는 그림책 편집 파일럿입니다. 포털 단계는 공식 요건이 아니며 교육과정 자료를 복제하지 않습니다."
+      "relationships": {
+        "en": "Editorial picture-book pilot informed by the five Nuri domains and public early-learning recommendations; the portal's stages are not official requirements, and the stories do not reproduce curriculum material.",
+        "ko": "누리과정 5개 영역과 공개 유아학습 권고를 참고하는 그림책 편집 파일럿입니다. 포털 단계는 공식 요건이 아니며 교육과정 자료를 복제하지 않습니다."
       },
-    "differentiation": {
-      "en": "Korean-first with optional brief English. The story is complete without tapping; prompts are sparse and skippable, and uninterrupted reading is a first-class option. No child identity, account, progress tracking, quiz, ranking, streak reward, auto-play, or addictive loop. Print/offline reading is complementary, not a screen-use judgment.",
-      "ko": "한국어 중심이며 짧은 영어는 선택 사항입니다. 터치 없이도 이야기를 온전히 읽을 수 있고 질문은 적고 건너뛸 수 있으며 끊김 없는 낭독을 중요하게 지원합니다. 아동 식별정보·계정·진도 추적·퀴즈·순위·연속 보상·자동 재생·중독성 반복을 두지 않습니다. 인쇄·오프라인 읽기는 보완 선택지이지 화면 이용에 대한 평가가 아닙니다."
+      "differentiation": {
+        "en": "Korean-first with optional brief English. The story is complete without tapping; prompts are sparse and skippable, and uninterrupted reading is a first-class option. No child identity, account, progress tracking, quiz, ranking, streak reward, auto-play, or addictive loop. Print/offline reading is complementary, not a screen-use judgment.",
+        "ko": "한국어 중심이며 짧은 영어는 선택 사항입니다. 터치 없이도 이야기를 온전히 읽을 수 있고 질문은 적고 건너뛸 수 있으며 끊김 없는 낭독을 중요하게 지원합니다. 아동 식별정보·계정·진도 추적·퀴즈·순위·연속 보상·자동 재생·중독성 반복을 두지 않습니다. 인쇄·오프라인 읽기는 보완 선택지이지 화면 이용에 대한 평가가 아닙니다."
       },
-    "simulatorIdeas": {
-      "en": [
-        "Tap a cloud to start a short rain animation; allow the story to continue untouched",
-        "Optional touch highlights animal groups, counts, or shapes without correctness feedback",
-        "A read-uninterrupted setting hides all caregiver prompts; provide an equivalent printable story"
-      ],
-      "ko": [
-        "구름을 누르면 짧은 비 내림 애니메이션이 시작되며 누르지 않아도 이야기 진행",
-        "정답 피드백 없이 동물 무리·수·모양을 선택적으로 터치해 강조",
-        "보호자 질문을 숨기는 끊김 없는 읽기 설정과 동등한 인쇄 이야기 제공"
+      "simulatorIdeas": {
+        "en": [
+          "Tap a cloud to start a short rain animation; allow the story to continue untouched",
+          "Optional touch highlights animal groups, counts, or shapes without correctness feedback",
+          "A read-uninterrupted setting hides all caregiver prompts; provide an equivalent printable story"
+        ],
+        "ko": [
+          "구름을 누르면 짧은 비 내림 애니메이션이 시작되며 누르지 않아도 이야기 진행",
+          "정답 피드백 없이 동물 무리·수·모양을 선택적으로 터치해 강조",
+          "보호자 질문을 숨기는 끊김 없는 읽기 설정과 동등한 인쇄 이야기 제공"
         ]
       },
-    "purpose": {
-      "en": "Picture-book series pilot specification only, not a manuscript or published textbook. Create and review a small original story set before deciding whether to open a repository.",
-      "ko": "그림책 시리즈 파일럿 규격이며 원고나 출판 교재가 아닙니다. 저장소 생성 여부를 결정하기 전에 소수의 새 이야기부터 만들고 검토합니다."
+      "purpose": {
+        "en": "Picture-book series pilot specification only, not a manuscript or published textbook. Create and review a small original story set before deciding whether to open a repository.",
+        "ko": "그림책 시리즈 파일럿 규격이며 원고나 출판 교재가 아닙니다. 저장소 생성 여부를 결정하기 전에 소수의 새 이야기부터 만들고 검토합니다."
       }
     }
   ]
