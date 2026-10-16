@@ -342,6 +342,60 @@
       "reviewedAgainstCatalogSha": "f51e57c03c6bd42c6bccc976feb75126483ebdfd"
     },
     {
+      "projectId": "pmicbook",
+      "title": "PMICBook v1.2 engineering candidate",
+      "branch": "semiconductor",
+      "outcome": "adapt-and-extend",
+      "targetAudience": "Power-management IC, analog, device, and BCD process learners who need circuit-to-device-to-process reasoning.",
+      "overlapEvidence": "PMICBook is a declared ProcessBook CC BY 4.0 adaptation and MIT software derivative. ProcessBook covers broad fabrication; inspected portions of DeviceBook, DopingBook, TCADBook, and AnalogBook cover adjacent device, dopant, numerical, and LDO fundamentals. Those bounded readings do not establish a complete public BCD nLDMOS process or calibrated PMIC device model.",
+      "uniqueValue": "Integrate PMIC circuit requirements, BCD architecture alternatives, source-specific nLDMOS module orders, bounded device physics, bilingual process interactions, and explicit model and source limitations in one educational course.",
+      "developmentStrategy": "Extend the credited ProcessBook-derived book with PMIC-specific bilingual analysis and independently checked teaching models. Preserve adaptation notices; use the separately inspected reference books for bounded context and links, without treating a current reference snapshot as a new adaptation baseline.",
+      "reusePlan": [
+        "ProcessBook educational adaptations and Korean translations retain CC BY 4.0 attribution, source baseline 0bc4314d1e13c485a658e0cb1d4fd237b5fc8dff, and modification notices.",
+        "Retained or modified ProcessBook software retains the applicable MIT permission and warranty notice; map code lineage in PMICBook docs/UPSTREAM_ATTRIBUTION.md.",
+        "The five current indexed books below were read only at the listed paths and SHAs for reference context. No blanket reuse or whole-book clearance follows from this bounded inspection."
+      ],
+      "confidence": "medium",
+      "unresolvedQuestions": [
+        "Native-speaker Korean scientific prose review remains open.",
+        "A comparable public passive-platform density table and calibrated LDMOS design data remain outside the candidate evidence."
+      ],
+      "sourceRevisions": [
+        {
+          "bookId": "processbook",
+          "observedSha": "f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed",
+          "sourceUrl": "https://github.com/geniuskey/processbook/tree/f583bc33c5dfdd31292f7ef6826ce24a2c8b7fed",
+          "sourcePaths": ["chapters/implant.html", "chapters/anneal.html", "chapters/integration.html", "chapters/lab.html", "LICENSE.md"]
+        },
+        {
+          "bookId": "devicebook",
+          "observedSha": "32f52a3961c2a3399659cd4279c0538391c34f97",
+          "sourceUrl": "https://github.com/geniuskey/devicebook/tree/32f52a3961c2a3399659cd4279c0538391c34f97",
+          "sourcePaths": ["chapters/mosfet.html", "chapters/transport.html", "chapters/pn.html", "LICENSE.md"]
+        },
+        {
+          "bookId": "dopingbook",
+          "observedSha": "944526d6c2bb790d5d8f1e08d2614e1c5de22c3c",
+          "sourceUrl": "https://github.com/geniuskey/dopingbook/tree/944526d6c2bb790d5d8f1e08d2614e1c5de22c3c",
+          "sourcePaths": ["chapters/doping.html", "chapters/anneal.html", "chapters/diffusion.html", "LICENSE.md"]
+        },
+        {
+          "bookId": "tcadbook",
+          "observedSha": "56d3c14f757a55caed574e720069cfdf2b7a2bf6",
+          "sourceUrl": "https://github.com/geniuskey/tcadbook/tree/56d3c14f757a55caed574e720069cfdf2b7a2bf6",
+          "sourcePaths": ["chapters/equations.html", "chapters/mesh.html", "chapters/numerics.html", "chapters/highfield.html", "chapters/transport.html", "LICENSE.md"]
+        },
+        {
+          "bookId": "analogbook",
+          "observedSha": "0440a0100a809e704be5e2cb67fd1c973551d2ba",
+          "sourceUrl": "https://github.com/geniuskey/analogbook/tree/0440a0100a809e704be5e2cb67fd1c973551d2ba",
+          "sourcePaths": ["chapters/ldo.html", "LICENSE.md"]
+        }
+      ],
+      "reviewedAt": "2026-10-16",
+      "reviewedAgainstCatalogSha": "cf5501d42f68eda71f2c9866a62d4d3de3f225e1"
+    },
+    {
       "projectId": "robotbook",
       "title": "RobotBook — Little Explorers",
       "branch": "kids-family",
