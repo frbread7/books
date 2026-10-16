@@ -40,6 +40,12 @@ jobs:
       url: https://frbread7.github.io/books/
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
       - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
       - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
         with:
@@ -66,6 +72,7 @@ jobs:
               raise SystemExit(f"Unexpected Pages deployment URL: {base}")
           integration_site = "https://frbread7.github.io/processintegrationbook/"
           fabcontrol_site = "https://frbread7.github.io/fabcontrolbook/"
+          thinfilm_site = "https://frbread7.github.io/thinfilmbook/"
           paths = [
               "",
               "data/books.json",
@@ -74,6 +81,7 @@ jobs:
               "book.html?slug=watbook",
               "book.html?slug=processintegrationbook",
               "book.html?slug=fabcontrolbook",
+              "book.html?slug=thinfilmbook",
               "learning-journey.html",
               "kids-family.html",
               "data/learning-journey.json",
@@ -84,6 +92,7 @@ jobs:
               "assets/covers/watbook.svg",
               "assets/covers/processintegrationbook.svg",
               "assets/covers/fabcontrolbook.svg",
+              "assets/covers/thinfilmbook.svg",
               integration_site,
               integration_site + "ko/",
               integration_site + "chapters/c01-integration-as-decision.html",
@@ -93,6 +102,12 @@ jobs:
               fabcontrol_site + "chapters/01-control-architecture.html",
               fabcontrol_site + "ko/chapters/01-control-architecture.html",
               fabcontrol_site + "lab.html",
+              thinfilm_site,
+              thinfilm_site + "ko/",
+              thinfilm_site + "chapters/01-film-objectives.html",
+              thinfilm_site + "ko/chapters/01-film-objectives.html",
+              thinfilm_site + "lab.html",
+              thinfilm_site + "ko/lab.html",
           ]
 
           def fetch(path):
@@ -110,7 +125,7 @@ jobs:
                   results = list(pool.map(fetch, paths))
               last_errors = []
               for url, status, final_url, body, error in results:
-                  allowed_root = base if url.startswith(base) else integration_site if url.startswith(integration_site) else fabcontrol_site if url.startswith(fabcontrol_site) else None
+                  allowed_root = base if url.startswith(base) else integration_site if url.startswith(integration_site) else fabcontrol_site if url.startswith(fabcontrol_site) else thinfilm_site if url.startswith(thinfilm_site) else None
                   if error:
                       last_errors.append(f"{url}: {error}")
                   elif status != 200 or not body:
@@ -124,10 +139,10 @@ jobs:
                           last_errors.append(f"{url}: invalid JSON: {exc}")
                       else:
                           published_ids = {book.get("id") for book in books if book.get("status") == "published"}
-                          if published_ids != {"pmicbook", "watbook", "processintegrationbook", "fabcontrolbook"}:
-                              last_errors.append(f"{url}: expected exactly the four independently published library books")
-                          if sum(len(book.get("experiments", [])) for book in books if book.get("status") == "published") != 17:
-                              last_errors.append(f"{url}: published experiment count should be 17")
+                          if published_ids != {"pmicbook", "watbook", "processintegrationbook", "fabcontrolbook", "thinfilmbook"}:
+                              last_errors.append(f"{url}: expected exactly the five independently published library books")
+                          if sum(len(book.get("experiments", [])) for book in books if book.get("status") == "published") != 20:
+                              last_errors.append(f"{url}: published experiment count should be 20")
                           integration = next((book for book in books if book.get("id") == "processintegrationbook"), None)
                           if integration is None or integration.get("status") != "published":
                               last_errors.append(f"{url}: published ProcessIntegrationBook record missing")
@@ -155,6 +170,54 @@ jobs:
                               experiments = fabcontrol.get("experiments", [])
                               if len(experiments) != 4 or not re.fullmatch(r"[0-9a-f]{40}", revision) or any(experiment.get("verification", {}).get("sourceRevision") != revision or experiment.get("verification", {}).get("httpStatus") != 200 or experiment.get("verification", {}).get("fragmentFound") is not True for experiment in experiments):
                                   last_errors.append(f"{url}: FabControlBook experiment or deployment revision evidence is incomplete")
+                          thinfilm = next((book for book in books if book.get("id") == "thinfilmbook"), None)
+                          if thinfilm is None or thinfilm.get("status") != "published" or not re.fullmatch(r"\d+\.\d+\.\d+", thinfilm.get("version", "")):
+                              last_errors.append(f"{url}: published ThinFilmBook record with a semantic version is missing")
+                          else:
+                              evidence = thinfilm.get("publicationEvidence", {})
+                              revision = evidence.get("productionRevision", "")
+                              if thinfilm.get("productionUrl") != thinfilm_site or evidence.get("releaseUrl") != f"https://github.com/frbread7/thinfilmbook/releases/tag/v{thinfilm['version']}":
+                                  last_errors.append(f"{url}: ThinFilmBook production or release URL is incorrect")
+                              language_urls = thinfilm.get("languageUrls", {})
+                              if language_urls.get("en") != thinfilm_site or language_urls.get("ko") != thinfilm_site + "ko/":
+                                  last_errors.append(f"{url}: ThinFilmBook language entry URLs are missing or incorrect")
+                              chapters = thinfilm.get("chapters", [])
+                              expected_chapters = {
+                                  "c01-film-objectives": "01-film-objectives.html",
+                                  "c02-growth-thermodynamics": "02-growth-thermodynamics.html",
+                                  "c03-surface-kinetics": "03-surface-kinetics.html",
+                                  "c04-nucleation-coalescence": "04-nucleation-coalescence.html",
+                                  "c05-pvd": "05-pvd.html",
+                                  "c06-cvd": "06-cvd.html",
+                                  "c07-ald": "07-ald.html",
+                                  "c08-epitaxy": "08-epitaxy.html",
+                                  "c09": "interfaces.html",
+                                  "c10": "stress-adhesion.html",
+                                  "c11": "metrology.html",
+                                  "c12": "integration.html",
+                              }
+                              chapter_by_id = {chapter.get("id"): chapter for chapter in chapters}
+                              if thinfilm.get("chapterCount") != 12 or set(chapter_by_id) != set(expected_chapters):
+                                  last_errors.append(f"{url}: ThinFilmBook bilingual chapter routes are missing or incorrect")
+                              elif any(chapter_by_id[chapter_id].get("urls", {}).get("en") != thinfilm_site + "chapters/" + route or chapter_by_id[chapter_id].get("urls", {}).get("ko") != thinfilm_site + "ko/chapters/" + route for chapter_id, route in expected_chapters.items()):
+                                  last_errors.append(f"{url}: ThinFilmBook bilingual chapter URLs are missing or incorrect")
+                              experiments = thinfilm.get("experiments", [])
+                              expected_experiments = {
+                                  "ald-conformality": thinfilm_site + "lab.html#ald-conformality",
+                                  "cvd-resistances": thinfilm_site + "lab.html#cvd-resistances",
+                                  "stoney-stress": thinfilm_site + "lab.html#stoney-stress",
+                              }
+                              experiment_by_id = {experiment.get("id"): experiment for experiment in experiments}
+                              if len(experiments) != 3 or set(experiment_by_id) != set(expected_experiments) or not re.fullmatch(r"[0-9a-f]{40}", revision) or any(experiment_by_id[experiment_id].get("url") != expected_url or experiment_by_id[experiment_id].get("verification", {}).get("sourceRevision") != revision or experiment_by_id[experiment_id].get("verification", {}).get("httpStatus") != 200 or experiment_by_id[experiment_id].get("verification", {}).get("fragmentFound") is not True for experiment_id, expected_url in expected_experiments.items()):
+                                  last_errors.append(f"{url}: ThinFilmBook lab or deployment revision evidence is incomplete")
+                  elif url in {thinfilm_site + "lab.html", thinfilm_site + "ko/lab.html"}:
+                      expected_ids = ("ald-conformality", "cvd-resistances", "stoney-stress")
+                      missing_ids = [
+                          anchor for anchor in expected_ids
+                          if re.search(rb'\sid\s*=\s*["\']' + re.escape(anchor.encode()) + rb'["\']', body) is None
+                      ]
+                      if missing_ids:
+                          last_errors.append(f"{url}: missing live ThinFilmBook lab anchors: {', '.join(missing_ids)}")
                   elif url.endswith("data/categories.json"):
                       try:
                           categories = json.loads(body).get("categories", [])
@@ -201,7 +264,7 @@ jobs:
                           math_books = roadmap.get("mathematicsBooks", [])
                           if len(math_books) != 7 or any(item.get("status") != "planned" for item in math_books):
                               last_errors.append(f"{url}: expected seven planned mathematics proposals")
-                  elif url.endswith(("assets/covers/watbook.svg", "assets/covers/processintegrationbook.svg", "assets/covers/fabcontrolbook.svg")) and b"<svg" not in body[:512]:
+                  elif url.endswith(("assets/covers/watbook.svg", "assets/covers/processintegrationbook.svg", "assets/covers/fabcontrolbook.svg", "assets/covers/thinfilmbook.svg")) and b"<svg" not in body[:512]:
                       last_errors.append(f"{url}: book cover is not SVG content")
               if not last_errors:
                   print(f"Pages smoke passed on attempt {attempt}: {len(paths)} routes/assets at {base}")
@@ -211,3 +274,7 @@ jobs:
           else:
               raise SystemExit("Pages smoke failed after retries:\n" + "\n".join(last_errors))
           PY
+      - name: Browser smoke-test deployed ThinFilmBook card and cover
+        env:
+          PLAYWRIGHT_BASE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: npx playwright test tests/e2e/production-smoke.spec.js --project=desktop

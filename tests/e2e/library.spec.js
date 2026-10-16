@@ -476,12 +476,14 @@ test("mathematics roadmap exposes planned textbook preparation links", async ({ 
   await expect(page.locator("#idea-curiositybook").getByRole("heading", { level: 4, name: "파일럿 이야기와 경험 아이디어" })).toBeVisible();
 });
 
-test("catalog expansion updates aggregate counts and registered drafts have an honest status page", async ({ page }) => {
+test("catalog expansion updates aggregate counts and published or draft records have the right page", async ({ page }) => {
   const thinfilm = catalogBooks.find(book => book.id === "thinfilmbook");
-  expect(thinfilm.status).toBe("in-progress");
-  expect(thinfilm.repositoryUrl).toBeUndefined();
-  expect(thinfilm.productionUrl).toBeUndefined();
-  expect(thinfilm.languageUrls).toBeUndefined();
+  expect(thinfilm.status).toBe("published");
+  expect(thinfilm.version).toBe("1.0.0");
+  expect(thinfilm.repositoryUrl).toBe("https://github.com/frbread7/thinfilmbook");
+  expect(thinfilm.productionUrl).toBe("https://frbread7.github.io/thinfilmbook/");
+  expect(thinfilm.languageUrls.ko).toBe("https://frbread7.github.io/thinfilmbook/ko/");
+  expect(thinfilm.publicationEvidence.productionRevision).toMatch(/^[0-9a-f]{40}$/);
   const pmicbook = catalogBooks.find(book => book.id === "pmicbook");
   const secondPublished = structuredClone(pmicbook);
   Object.assign(secondPublished, {
@@ -512,6 +514,14 @@ test("catalog expansion updates aggregate counts and registered drafts have an h
   await expect(page.locator(".hero-stats strong").nth(2)).toHaveText(String(experimentCount).padStart(2, "0"));
   await page.goto("library.html");
   await expect(page.locator(".book-card")).toHaveCount(fixture.length);
+  const thinfilmCard = page.locator(".book-card").filter({ has: page.locator('img[src$="thinfilmbook.svg"]') });
+  await expect(thinfilmCard).toHaveCount(1);
+  await expect(thinfilmCard.locator(".badge-published")).toHaveCount(1);
+  const thinfilmCover = thinfilmCard.locator("img");
+  await expect(thinfilmCover).toHaveAttribute("alt", "ThinFilmBook cover");
+  await thinfilmCover.scrollIntoViewIfNeeded();
+  await expect.poll(() => thinfilmCover.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
+
   await page.getByLabel("Publication status").selectOption("in-progress");
   await expect(page.locator(".book-card")).toHaveCount(fixture.filter(book => book.status === "in-progress").length);
   await page.getByRole("link", { name: "Future Fixture", exact: true }).click();
@@ -526,9 +536,12 @@ test("catalog expansion updates aggregate counts and registered drafts have an h
   await expect(page.locator(".chapter-list, .mini-experiment")).toHaveCount(0);
 
   await page.goto("book.html?slug=thinfilmbook");
-  await expect(page.locator(".book-progress-detail")).toHaveAttribute("data-book-status", "in-progress");
   await expect(page.locator("h1")).toHaveText("ThinFilmBook");
-  await expect(page.locator(".book-progress-detail a[href^=\"https://\"]")).toHaveCount(0);
+  await expect(page.locator(".book-detail-hero .badge-published")).toHaveCount(1);
+  await expect(page.locator(".chapter-list li")).toHaveCount(12);
+  await expect(page.locator(".mini-experiment")).toHaveCount(3);
+  await expect(page.locator(`.detail-actions a[href="${thinfilm.productionUrl}"]`)).toBeVisible();
+  await expect(page.locator(`.detail-actions a[href="${thinfilm.repositoryUrl}"]`)).toBeVisible();
 });
 
 test("language and theme controls change state and persist", async ({ page }) => {

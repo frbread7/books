@@ -34,7 +34,7 @@ Install Python 3.12+, Node.js 20+, and npm. Install the Python `jsonschema` depe
 3. Push/merge the reviewed commit to main.
 4. Wait for the validation and deployment workflow to pass.
 5. Confirm the GitHub Pages deployment environment reports the site URL.
-6. Open the homepage, search, and all four published detail pages (PMICBook, WATBook, ProcessIntegrationBook, and FabControlBook). Follow English and Korean entry links and at least one chapter link for each book; confirm each cover, subject pages, Learning Journey in both languages, legacy reading paths, and experiments on desktop and mobile.
+6. Open the homepage, search, and all five published detail pages (PMICBook, WATBook, ProcessIntegrationBook, FabControlBook, and ThinFilmBook). Follow English and Korean entry links and at least one chapter link for each book; confirm each cover, subject pages, Learning Journey in both languages, legacy reading paths, and experiments on desktop and mobile.
 7. Confirm internal assets and JSON requests use /books/ and the deployed worktree is clean.
 
 Run the full browser suite against the deployed portal with `PLAYWRIGHT_BASE_URL=https://frbread7.github.io/books/ npm run test:e2e`. When `PLAYWRIGHT_BASE_URL` is set, Playwright uses that URL and does not start the local preview server.

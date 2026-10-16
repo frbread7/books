@@ -14,7 +14,7 @@ Subjects show which knowledge areas have a published textbook connection. Select
 
 ## Experiments
 
-Experiments lists seventeen anchors verified against the published book sites: four from PMICBook, six from WATBook, three from ProcessIntegrationBook, and four from FabControlBook. Select Open experiment to jump to the corresponding interactive chapter section.
+Experiments lists twenty anchors verified against the published book sites: four from PMICBook, six from WATBook, three from ProcessIntegrationBook, four from FabControlBook, and three from ThinFilmBook. Select Open experiment to jump to the corresponding interactive chapter section.
 
 ## Language and appearance
 

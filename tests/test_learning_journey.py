@@ -30,7 +30,7 @@ class LearningJourneyTests(unittest.TestCase):
         self.assertTrue(all(stage["guidanceOnly"] for stage in self.journey["stages"]))
         self.assertTrue(all(set(stage["label"]) == {"en", "ko"} and set(stage["description"]) == {"en", "ko"} for stage in self.journey["stages"]))
         self.assertTrue(all(set(strand["label"]) == {"en", "ko"} and set(strand["description"]) == {"en", "ko"} for strand in self.journey["strands"]))
-        self.assertEqual(sum(book["status"] == "published" for book in self.books), 4)
+        self.assertEqual(sum(book["status"] == "published" for book in self.books), 5)
         self.assertEqual(len(self.roadmap["mathematicsBooks"]), 7)
         self.assertEqual([project["id"] for project in self.roadmap["familyProjects"]], ["curiositybook"])
         self.assertTrue(all(book["status"] == "planned" for book in self.roadmap["mathematicsBooks"] + self.roadmap["familyProjects"]))

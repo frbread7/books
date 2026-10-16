@@ -1368,8 +1368,8 @@
       "ko": "첨단 증착·에피택시·계면·박막 엔지니어링"
     },
     "description": {
-      "en": "A quantitative engineering textbook on thin-film growth, surface reactions, interfaces, characterization, and integration. This local candidate is not a released or fab-calibrated process guide.",
-      "ko": "박막 성장, 표면 반응, 계면, 특성 분석과 공정 통합을 정량적으로 다루는 엔지니어링 교재입니다. 이 로컬 후보는 출시되거나 팹 공정으로 보정된 가이드가 아닙니다."
+      "en": "A quantitative engineering textbook on thin-film growth, surface reactions, interfaces, characterization, and integration. Simulator outputs are illustrative and are not fab-calibrated process recipes.",
+      "ko": "박막 성장, 표면 반응, 계면, 특성 분석과 공정 통합을 정량적으로 다루는 엔지니어링 교재입니다. 시뮬레이터 결과는 설명용이며 팹 공정 레시피로 보정된 값이 아닙니다."
     },
     "category": "semiconductor",
     "tags": [
@@ -1383,13 +1383,19 @@
       "thin-film metrology",
       "process integration"
     ],
-    "status": "in-progress",
+    "status": "published",
+    "repositoryUrl": "https://github.com/frbread7/thinfilmbook",
+    "productionUrl": "https://frbread7.github.io/thinfilmbook/",
+    "languageUrls": {
+      "en": "https://frbread7.github.io/thinfilmbook/",
+      "ko": "https://frbread7.github.io/thinfilmbook/ko/"
+    },
     "languages": [
       "en",
       "ko"
     ],
-    "version": "0.1.0",
-    "lastUpdated": "2026-10-15",
+    "version": "1.0.0",
+    "lastUpdated": "2026-10-16",
     "chapterCount": 12,
     "chapters": [
       {
@@ -1597,7 +1603,17 @@
           "en": "Idealized 1-D transport and saturation model",
           "ko": "이상화된 1차원 수송·포화 모델"
         },
-        "url": "https://frbread7.github.io/thinfilmbook/lab.html#ald-conformality"
+        "url": "https://frbread7.github.io/thinfilmbook/lab.html#ald-conformality",
+        "verification": {
+          "checkedAt": "2026-10-16",
+          "checkedUrl": "https://frbread7.github.io/thinfilmbook/lab.html#ald-conformality",
+          "httpStatus": 200,
+          "fragmentFound": true,
+          "contentSha256": "1ca4abc21bdd3e6a2bfb1b95ac29e45d761ad229b3230e6e25c89fcc1e8155bd",
+          "sourceRevision": "8eb8ffebd19563b0b527f46e73262e6db3ecb402",
+          "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+          "evidence": "Live HTTPS response; HTTP 200; fragment #ald-conformality present in HTML; SHA-256 recorded."
+        }
       },
       {
         "id": "cvd-resistances",
@@ -1610,7 +1626,17 @@
           "en": "Series mass-transfer and reaction resistance",
           "ko": "직렬 물질전달·반응 저항"
         },
-        "url": "https://frbread7.github.io/thinfilmbook/lab.html#cvd-resistances"
+        "url": "https://frbread7.github.io/thinfilmbook/lab.html#cvd-resistances",
+        "verification": {
+          "checkedAt": "2026-10-16",
+          "checkedUrl": "https://frbread7.github.io/thinfilmbook/lab.html#cvd-resistances",
+          "httpStatus": 200,
+          "fragmentFound": true,
+          "contentSha256": "1ca4abc21bdd3e6a2bfb1b95ac29e45d761ad229b3230e6e25c89fcc1e8155bd",
+          "sourceRevision": "8eb8ffebd19563b0b527f46e73262e6db3ecb402",
+          "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+          "evidence": "Live HTTPS response; HTTP 200; fragment #cvd-resistances present in HTML; SHA-256 recorded."
+        }
       },
       {
         "id": "stoney-stress",
@@ -1623,7 +1649,17 @@
           "en": "Isotropic Stoney-equation estimate",
           "ko": "등방성 Stoney 방정식 추정"
         },
-        "url": "https://frbread7.github.io/thinfilmbook/lab.html#stoney-stress"
+        "url": "https://frbread7.github.io/thinfilmbook/lab.html#stoney-stress",
+        "verification": {
+          "checkedAt": "2026-10-16",
+          "checkedUrl": "https://frbread7.github.io/thinfilmbook/lab.html#stoney-stress",
+          "httpStatus": 200,
+          "fragmentFound": true,
+          "contentSha256": "1ca4abc21bdd3e6a2bfb1b95ac29e45d761ad229b3230e6e25c89fcc1e8155bd",
+          "sourceRevision": "8eb8ffebd19563b0b527f46e73262e6db3ecb402",
+          "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
+          "evidence": "Live HTTPS response; HTTP 200; fragment #stoney-stress present in HTML; SHA-256 recorded."
+        }
       }
     ],
     "prerequisites": [],
@@ -1631,15 +1667,24 @@
       "processintegrationbook"
     ],
     "attribution": {
-      "license": "CC BY 4.0 for original educational prose, diagrams, illustrative examples, and cover artwork; MIT for original code. See LICENSE-AND-ATTRIBUTION.md.",
+      "license": "CC BY 4.0 for original educational prose, explanations, exercises, and illustrations; MIT for original application code, scripts, simulator implementations, build tools, tests, and configuration. Mixed files are classified component-wise; cited third-party works retain their owners' rights. See LICENSE.md.",
       "repositoryUrl": "https://github.com/frbread7/thinfilmbook",
-      "notes": "Original ThinFilmBook content, cover artwork, and favicon; cited publications are linked as references and are not reproduced. The chapter and lab routes and attribution repository URL are prospective, unverified locations only; no public repository or site exists. This local in-progress candidate has no release or production verification evidence."
+      "notes": "frbread7 is named as project maintainer and authorized licensor only for rights held. AI-assisted provenance is documented; no copyright ownership is asserted beyond rights, if any, under applicable law. Cited publications are references only and are not reproduced. See LICENSE.md and docs/PROVENANCE_AND_REVIEW.md."
     },
     "cover": "assets/covers/thinfilmbook.svg",
     "theme": {
       "accent": "#a74424",
       "accentSoft": "#f5e3d8",
       "motif": "layered interfaces, surface growth, and stress"
+    },
+    "publicationEvidence": {
+      "releaseUrl": "https://github.com/frbread7/thinfilmbook/releases/tag/v1.0.0",
+      "releasePublishedAt": "2026-10-16",
+      "productionRevision": "8eb8ffebd19563b0b527f46e73262e6db3ecb402",
+      "contentReview": "Internal technical, numerical, bilingual, reference, accessibility, QA, licensing/provenance, requirements, security, and documentation reviews completed; actionable P0/P1/P2 findings were fixed and targeted re-reviews cleared. This is not external certification or fab calibration. Simulator outputs are illustrative and are not production recipes.",
+      "siteVerification": "GitHub Actions run 38832253132 succeeded for source revision 8eb8ffebd19563b0b527f46e73262e6db3ecb402; validation job 116753423722 and deploy job 116753488917 passed. GitHub Pages deployment ID: 7108119386; deployed source revision: 8eb8ffebd19563b0b527f46e73262e6db3ecb402; validated artifact ID: 12018135848. https://github.com/frbread7/thinfilmbook/actions/runs/38832253132",
+      "chapterVerification": "A separate manual Chromium production smoke, not part of Actions run 38832253132, was performed on 2026-10-16 against https://frbread7.github.io/thinfilmbook/ at source revision 8eb8ffebd19563b0b527f46e73262e6db3ecb402. It checked 32 routes at 375, 768, and 1280 px (96 route/viewport checks), including both language entry pages, all 24 English/Korean chapter routes, lab routes, references, license, and provenance pages. It exercised all three labs in English and Korean and checked seven public docs/license pages plus cover and favicon; it reported zero page errors or failed requests. All declared chapter URLs resolved under the production site.",
+      "experimentVerification": "tools/verify_experiments.py checked all three declared lab URLs against the live production site on 2026-10-16. Each returned HTTP 200 with its exact fragment present and records a response SHA-256 and the productionRevision 8eb8ffebd19563b0b527f46e73262e6db3ecb402."
     }
   },
   {

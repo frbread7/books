@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-10-15",
+  "asOf": "2026-10-16",
   "works": [
     {
       "workId": "pmicbook",
@@ -743,6 +743,41 @@
       ],
       "findings": [],
       "reviewedAt": "2026-10-15",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "workId": "thinfilmbook",
+      "workName": "ThinFilmBook",
+      "workUrl": "https://github.com/frbread7/thinfilmbook",
+      "auditScope": "Review of source revision 8eb8ffebd19563b0b527f46e73262e6db3ecb402, LICENSE.md and scoped license instruments, bilingual attribution pages, docs/PROVENANCE_AND_REVIEW.md, generated site output, metadata, configuration, references, dependencies, favicon, and cover. This records project declarations and review evidence; it is not a legal opinion, proof of contributor assignments, or a grant on behalf of third parties.",
+      "reuseRecords": [
+        {
+          "classification": "original",
+          "summary": "The repository maps original bilingual educational prose, explanations, exercises, diagrams, and cover/favicon artwork to CC BY 4.0; composite pages retain separate software notices. AI-assisted provenance is disclosed.",
+          "sourcePath": "content/chapters/*.json (educational strings CC BY; JSON structure and identifiers MIT); content/pages.json (overview and learning descriptions CC BY; structure MIT); content/labs.json (lab explanations CC BY; configuration fields MIT); content/ui.json (educational notes and caveats CC BY; functional labels and structure MIT); content/references.json (original explanatory notes CC BY; bibliographic metadata and links reference-only); library-manifest.json (descriptive prose CC BY; catalog and routing structure MIT); assets/covers/thinfilmbook.svg; assets/favicon.svg (original artwork CC BY); README.md; docs/**; LICENSE-AND-ATTRIBUTION.md; LICENSE.md (original explanatory prose CC BY; code snippets MIT)",
+          "destinationPath": "Generated mixed HTML under site/ including English/Korean entry, chapter, lab, references, and license routes; site/assets/covers/thinfilmbook.svg; site/assets/favicon.svg; site/LICENSE.md; site/LICENSE-AND-ATTRIBUTION.md; site/docs/PROVENANCE_AND_REVIEW.md; site/docs/RELEASE.md; site/docs/MODELS_AND_VALIDATION.md; component-specific prose and notices in generated output",
+          "rightsStatus": "Project declares CC BY 4.0 for original educational content and artwork. frbread7 is named as project maintainer and authorized licensor only for rights held. AI-assisted provenance is recorded; no copyright ownership is asserted beyond rights, if any, under applicable law. This record does not infer unknown contributor identity, authority, or consent."
+        },
+        {
+          "classification": "original",
+          "summary": "The repository maps original application code, simulators, styles, build/test tools, and software configuration to MIT. Mixed source and generated files are classified by component and retain separate notices where appropriate.",
+          "sourcePath": "assets/js/site.js; assets/js/models.mjs; assets/css/site.css; tools/build_site.py; tests/; package.json; .github/workflows/pages.yml",
+          "destinationPath": "Source repository and generated site application behavior; component notices are included in composite pages and source files",
+          "rightsStatus": "Project declares MIT for original software within the licensor's authority. Third-party packages retain their own license terms; dependency and asset review found no item requiring an additional grant for this release."
+        },
+        {
+          "classification": "reference-only",
+          "summary": "Cited for historical thin-film X-ray metrology context; no report text, figures, or tables are reproduced. The corrected citation is limited to the XRR/HRXRD scope documented in the ThinFilmBook reference notes.",
+          "sourceTitle": "NISTIR 7426, Semiconductor Microelectronics and Nanoelectronics Programs",
+          "sourceAuthor": "Stephen Knight, Joaquin V. Martinez de Pinillos, and Michele Buckley, editors",
+          "sourceUrl": "https://www.nist.gov/publications/semiconductor-microelectronics-and-nanoelectronics-programs-1",
+          "sourcePath": "content/references.json (r09); content/chapters/c11.json; docs/PROVENANCE_AND_REVIEW.md",
+          "destinationPath": "site/references.html; site/ko/references.html; bilingual Chapter 11 metrology routes",
+          "licenseObservation": "Official NIST catalog and report metadata were checked for title, date, editors, and section scope. This bibliographic link is citation only; it is not treated as a license grant or a determination of ownership for third-party material in the report."
+        }
+      ],
+      "findings": [],
+      "reviewedAt": "2026-10-16",
       "reviewStatus": "reviewed"
     }
   ]
