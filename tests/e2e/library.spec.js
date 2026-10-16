@@ -530,7 +530,14 @@ test("catalog expansion updates aggregate counts and published or draft records 
   await expect(page.locator(".book-progress-detail")).toHaveAttribute("data-book-status", "in-progress");
   await expect(page.locator(".book-progress-detail .detail-description")).toContainText("catalog expansion");
   await expect(page.locator(".progress-repository")).toHaveCount(0);
-  await expect(page.locator(".book-progress-detail a[href^=\"https://\"]")).toHaveCount(0);
+  const detailLinksStayWithinPortal = await page.locator(".book-progress-detail a").evaluateAll(links => {
+    const portalRoot = new URL("./", location.href);
+    return links.every(link => {
+      const destination = new URL(link.href);
+      return destination.origin === portalRoot.origin && destination.pathname.startsWith(portalRoot.pathname);
+    });
+  });
+  expect(detailLinksStayWithinPortal).toBe(true);
   await expect(page.locator(".detail-actions a")).toHaveCount(1);
   await expect(page.locator(".detail-actions a").filter({ hasText: "Open the textbook" })).toHaveCount(0);
   await expect(page.locator(".chapter-list, .mini-experiment")).toHaveCount(0);
