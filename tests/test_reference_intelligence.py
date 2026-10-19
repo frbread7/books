@@ -36,7 +36,11 @@ class ReferenceInventoryTests(unittest.TestCase):
         ri.validate_review_records(DECISIONS, INVENTORY)
         ri.validate_provenance_records(PROVENANCE)
         ids = {item["projectId"] for item in DECISIONS["decisions"]}
-        self.assertEqual(ids, {"fabcontrolbook", "thinfilmbook", "reliabilityengineeringbook", "algebrabook", "calculusbook", "engineeringmathbook", "heavyvehiclebook", "carbook", "dinosaurbook", "robotbook"})
+        self.assertEqual(ids, {
+            "fabcontrolbook", "thinfilmbook", "reliabilityengineeringbook",
+            "algebrabook", "calculusbook", "engineeringmathbook", "heavyvehiclebook",
+            "carbook", "dinosaurbook", "robotbook", "pmicbook",
+        })
         self.assertEqual(next(item["outcome"] for item in DECISIONS["decisions"] if item["projectId"] == "engineeringmathbook"), "defer-or-cancel")
 
     def test_provenance_requires_assessment_and_complete_original_and_third_party_records(self):

@@ -126,8 +126,17 @@ book = json.loads(Path("catalog/books/pmicbook.json").read_text())
 assert book["status"] == "published"
 assert book["repositoryUrl"] == "https://github.com/frbread7/pmicbook"
 assert book["chapterCount"] == len(book["chapters"]) == 25
-assert book["publicationEvidence"]["releaseUrl"].endswith("/v1.1.0")
-print(book["productionUrl"], book["publicationEvidence"]["productionRevision"])
+assert book["version"] == "1.2.0"
+assert book["publicationEvidence"]["releaseUrl"].endswith("/v1.2.0")
+assert book["publicationEvidence"]["productionRevision"] == "45edf20e3b1a0924699bf3ea76a6adb0eb767e67"
+assert len(book["experiments"]) == 4
+assert all(
+    experiment["verification"]["httpStatus"] == 200
+    and experiment["verification"]["fragmentFound"]
+    and experiment["verification"]["sourceRevision"] == book["publicationEvidence"]["productionRevision"]
+    for experiment in book["experiments"]
+)
+print(book["publicationEvidence"]["releaseUrl"], book["publicationEvidence"]["productionRevision"])
 PY
 ```
 

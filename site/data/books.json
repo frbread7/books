@@ -447,8 +447,8 @@
       "en",
       "ko"
     ],
-    "version": "1.1.0",
-    "lastUpdated": "2026-10-09",
+    "version": "1.2.0",
+    "lastUpdated": "2026-10-19",
     "chapterCount": 25,
     "chapters": [
       {
@@ -889,12 +889,12 @@
           "ko": "전력 추정기"
         },
         "verification": {
-          "checkedAt": "2026-10-09",
+          "checkedAt": "2026-10-19",
           "checkedUrl": "https://frbread7.github.io/pmicbook/chapters/fundamentals.html#pm-fund-sim",
           "httpStatus": 200,
           "fragmentFound": true,
-          "contentSha256": "22f0b5c42df0efe7cdc7024397e4c28575cf6a6cd8cf91c484c6e820826e4806",
-          "sourceRevision": "da37b183c559d35fcb7f6471c86c513b104a7020",
+          "contentSha256": "4a9c0829c83d73af6c078c7b27735ef636d0bf9b4292b215372928b630f30809",
+          "sourceRevision": "45edf20e3b1a0924699bf3ea76a6adb0eb767e67",
           "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
           "evidence": "Live HTTPS response; HTTP 200; fragment #pm-fund-sim present in HTML; SHA-256 recorded."
         }
@@ -912,12 +912,12 @@
           "ko": "이온 주입 프로파일 모델"
         },
         "verification": {
-          "checkedAt": "2026-10-09",
+          "checkedAt": "2026-10-19",
           "checkedUrl": "https://frbread7.github.io/pmicbook/chapters/implant.html#sim-prof",
           "httpStatus": 200,
           "fragmentFound": true,
-          "contentSha256": "defe032a740da0ff8325d4da599e6d16f39cb7a5a3ba6af223c8e269e71bcf1a",
-          "sourceRevision": "da37b183c559d35fcb7f6471c86c513b104a7020",
+          "contentSha256": "0c704bf2b57c7e6bc99871565dfc3e3e1c693b54228a26790b7a14235120a931",
+          "sourceRevision": "45edf20e3b1a0924699bf3ea76a6adb0eb767e67",
           "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
           "evidence": "Live HTTPS response; HTTP 200; fragment #sim-prof present in HTML; SHA-256 recorded."
         }
@@ -935,12 +935,12 @@
           "ko": "인터랙티브 공정 모델"
         },
         "verification": {
-          "checkedAt": "2026-10-09",
+          "checkedAt": "2026-10-19",
           "checkedUrl": "https://frbread7.github.io/pmicbook/chapters/wafer.html#sim-seg",
           "httpStatus": 200,
           "fragmentFound": true,
-          "contentSha256": "ef2250c5fd2d4bdf496a0f3fc913607b610f12f1438a9f95f931b7414a7932d5",
-          "sourceRevision": "da37b183c559d35fcb7f6471c86c513b104a7020",
+          "contentSha256": "a89d484700186c3b504c94957b2a049a639e96a7a578f44f53dff679aa85f881",
+          "sourceRevision": "45edf20e3b1a0924699bf3ea76a6adb0eb767e67",
           "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
           "evidence": "Live HTTPS response; HTTP 200; fragment #sim-seg present in HTML; SHA-256 recorded."
         }
@@ -958,12 +958,12 @@
           "ko": "공정 단계 탐색기"
         },
         "verification": {
-          "checkedAt": "2026-10-09",
+          "checkedAt": "2026-10-19",
           "checkedUrl": "https://frbread7.github.io/pmicbook/chapters/integration.html#sim-cmos",
           "httpStatus": 200,
           "fragmentFound": true,
-          "contentSha256": "b97be8cba29245039a90064970267397ae20e910eb8f7c285ba5ca3a149e5d5f",
-          "sourceRevision": "da37b183c559d35fcb7f6471c86c513b104a7020",
+          "contentSha256": "ae3f98ce36b23edb70fc87401da0a6f769795c916bed73d4f88da386dbd42d34",
+          "sourceRevision": "45edf20e3b1a0924699bf3ea76a6adb0eb767e67",
           "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
           "evidence": "Live HTTPS response; HTTP 200; fragment #sim-cmos present in HTML; SHA-256 recorded."
         }
@@ -983,13 +983,13 @@
       "motif": "power-path"
     },
     "publicationEvidence": {
-      "releaseUrl": "https://github.com/frbread7/pmicbook/releases/tag/v1.1.0",
-      "releasePublishedAt": "2026-10-09",
-      "contentReview": "The v1.1.0 release includes the technical-quality review and production QA record in docs/V1_1_REVIEW.md and docs/PRODUCTION_QA.md; these are internal educational reviews, not external certification.",
-      "siteVerification": "GitHub Pages deployment 6962762856 and Actions run 37942176575 completed successfully for commit da37b183c559d35fcb7f6471c86c513b104a7020; representative English and Korean production routes returned HTTP 200 on 2026-10-09.",
-      "chapterVerification": "The v1.1.0 production release has 25 English/Korean chapter pairs; its successful deployed source revision is recorded separately.",
-      "experimentVerification": "All four live experiment links returned HTTP 200 and contained their declared fragments on 2026-10-09; response hashes and the deployed source revision are recorded per experiment.",
-      "productionRevision": "da37b183c559d35fcb7f6471c86c513b104a7020"
+      "releaseUrl": "https://github.com/frbread7/pmicbook/releases/tag/v1.2.0",
+      "releasePublishedAt": "2026-10-19",
+      "contentReview": "The v1.2.0 review covers the bilingual, source-bounded nLDMOS sequence examples, PMIC content improvements, and numerical checks for material-bounded illustrative diffusion. Scoped reviews found no unresolved P0/P1/P2 release finding. See docs/V1_2_TECHNICAL_AUDIT.md and docs/PRODUCTION_QA.md. These educational reviews do not establish foundry calibration, product qualification, or human/native-speaker certification.",
+      "siteVerification": "GitHub Pages run 39207992437 succeeded; deployment 7166907725 is successful for source commit 45edf20e3b1a0924699bf3ea76a6adb0eb767e67; the Pages build status is built. The production site returned HTTP 200 and matched all 56 checked route/runtime files byte-for-byte.",
+      "chapterVerification": "On 2026-10-19, all 53 production HTML routes passed: 25 English/Korean chapter pairs, two localized home routes, and the compatibility redirect. Their bytes and js/xsec.js, js/ldmos-sequence.js, and css/style.css matched the deployed source (56/56).",
+      "experimentVerification": "On 2026-10-19, tools/verify_experiments.py checked all four declared URLs; each returned HTTP 200 with its declared fragment present. Per-experiment response hashes and the deployed source revision are recorded below.",
+      "productionRevision": "45edf20e3b1a0924699bf3ea76a6adb0eb767e67"
     },
     "languageUrls": {
       "en": "https://frbread7.github.io/pmicbook/",
