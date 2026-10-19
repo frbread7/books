@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" role="img" aria-labelledby="title desc">
+  <title id="title">A robot arm sorting shapes</title>
+  <desc id="desc">A simple tabletop robot arm moves a blue block toward a tray with other geometric shapes, showing a useful machine response without a face or expression.</desc>
+  <rect width="360" height="240" rx="24" fill="#f7edda"/>
+  <circle cx="291" cy="48" r="21" fill="#f3c86b"/>
+  <path d="M0 167c59-20 108-16 163 1 63 20 121 13 197-12v84H0z" fill="#d8e4d5"/>
+  <path d="M28 188h304" stroke="#64796f" stroke-width="5" stroke-linecap="round"/>
+  <!-- Static machine geometry emphasizes a tool and visible task, not a character. -->
+  <g stroke="#435b54" stroke-width="4" stroke-linejoin="round">
+    <path d="M64 177h93l-10 20H74z" fill="#6d8277"/>
+    <circle cx="108" cy="168" r="17" fill="#e2b45c"/>
+    <path d="M107 153l-6-40 35-29" fill="none" stroke="#e2b45c" stroke-width="17" stroke-linecap="round"/>
+    <circle cx="101" cy="111" r="10" fill="#f4d792"/>
+    <circle cx="136" cy="83" r="10" fill="#f4d792"/>
+    <path d="M139 81l27-16" fill="none" stroke="#e2b45c" stroke-width="13" stroke-linecap="round"/>
+    <path d="M166 65l8 11m-8-11 13-3" fill="none" stroke="#435b54" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <path d="M171 65l40 32" fill="none" stroke="#4f8b90" stroke-width="11" stroke-linecap="round"/>
+  <rect x="201" y="91" width="19" height="19" rx="3" transform="rotate(39 210 100)" fill="#719aa0" stroke="#435b54" stroke-width="3"/>
+  <path d="M219 164h91l-9 31h-73z" fill="#f9f4e8" stroke="#435b54" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M233 162l13-19 14 19z" fill="#d18a63" stroke="#435b54" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="278" cy="155" r="10" fill="#e4ae4e" stroke="#435b54" stroke-width="3"/>
+  <rect x="239" y="126" width="18" height="18" rx="3" fill="#719aa0" stroke="#435b54" stroke-width="3"/>
+  <path d="M183 125c14 4 22 12 25 23" fill="none" stroke="#71877a" stroke-width="2.5" stroke-dasharray="4 6" stroke-linecap="round"/>
+  <path d="M207 144l1 7-7-2" fill="none" stroke="#71877a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M54 213h262" stroke="#bed0c3" stroke-width="3" stroke-linecap="round"/>
+</svg>

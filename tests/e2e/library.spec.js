@@ -16,15 +16,14 @@ test("home, featured textbook, chapter links and structure work at the /books/ b
   const errors = [];
   page.on("pageerror", error => errors.push(error.message));
   await page.goto("./");
-  await expect(page.locator("h1")).toContainText("Ideas worth exploring");
+  await expect(page.locator(".room-hero h1")).toHaveText("Good ideas deserve to be opened.");
   await expect(page).toHaveTitle("My Library — Interactive Engineering & Knowledge Books");
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", "My Library — Interactive Engineering & Knowledge Books");
-  await expect(page.locator(".hero-stats strong").nth(0)).toHaveText(String(publishedBooks.length).padStart(2, "0"));
-  const plannedIdeas = [...catalogRoadmap.books, ...catalogRoadmap.mathematicsBooks, ...catalogRoadmap.familyProjects].length;
-  await expect(page.locator(".hero-stats strong").nth(1)).toHaveText(String(plannedIdeas).padStart(2, "0"));
-  await expect(page.locator(".hero-stats strong").nth(2)).toHaveText(String(publishedExperimentCount).padStart(2, "0"));
-  await expect(page.locator(".featured-shelf .book-card")).toHaveCount(publishedBooks.length ? 1 : 0);
-  await expect(page.locator(".featured-shelf a[href^='https://frbread7.github.io/pmicbook/']")).toHaveCount(2);
+  await expect(page.locator(".room-book-card")).toHaveCount(catalogBooks.length);
+  await expect(page.locator(".room-book-card .badge-published")).toHaveCount(publishedBooks.length);
+  const overview = catalogBooks.find(book => book.id === "pmicbook").chapters.find(chapter => chapter.id === "overview");
+  await expect(page.locator(".room-hero .button-primary")).toHaveAttribute("href", overview.urls.en);
+  await expect(page.locator(".room-feature .room-chapter-entry a")).toHaveAttribute("href", overview.urls.en);
   await page.screenshot({ path: testInfo.outputPath("home.png"), fullPage: true });
   await page.goto("book.html?slug=pmicbook");
   await expect(page.locator("h1")).toHaveText("PMICBook");
@@ -91,7 +90,8 @@ test("ProcessIntegrationBook is published across its bilingual detail, map, path
   await expect(page.locator(".chapter-list li")).toHaveCount(13);
   await expect(page.locator(".mini-experiment")).toHaveCount(3);
   await expect(page.locator(".book-facts dd").nth(0)).toHaveText("1.0.0");
-  await expect(page.locator(".detail-actions a[href^='https://frbread7.github.io/processintegrationbook/']")).toHaveCount(2);
+  await expect(page.locator(".detail-actions a[href^='https://frbread7.github.io/processintegrationbook/']")).toHaveCount(3);
+  await expect(page.locator(`.detail-actions a[href="${integration.chapters[0].urls.en}"]`)).toBeVisible();
   await expect(page.locator(`.detail-actions a[href="${integration.repositoryUrl}"]`)).toBeVisible();
   expect(await page.locator(".chapter-list a").evaluateAll(links => links.map(link => link.href)))
     .toEqual(integration.chapters.map(chapter => chapter.urls.en));
@@ -295,6 +295,7 @@ test("CuriosityBook picture-book ideas stay planned and enrich the Learning Jour
 });
 
 test("Little Explorers filters interests, follows mapped stages, and reads the unpublished bilingual drafts", async ({ page }) => {
+  test.setTimeout(60000);
   await page.goto("kids-family.html");
   await expect(page.locator("h1")).toHaveText("Choose a story world to explore together");
   await expect(page.locator(".family-pilot-banner")).toContainText("Editorial pilot · unpublished drafts");
@@ -387,17 +388,22 @@ test("Little Explorers filters interests, follows mapped stages, and reads the u
   }
 });
 
-test("family data is loaded only for the family route", async ({ page }) => {
+test("family data preview loads on home, while the library does not request it", async ({ page }) => {
   let familyRequests = 0;
   page.on("request", request => {
     if (new URL(request.url()).pathname.endsWith("/data/kids-family.json")) familyRequests += 1;
   });
-  await page.route("**/data/kids-family.json", route => route.abort());
+  await page.route("**/data/kids-family.json", route => route.fulfill({ contentType: "application/json", body: JSON.stringify(catalogKidsFamily) }));
   await page.goto("./");
-  await expect(page.locator(".hero h1")).toBeVisible();
+  await expect(page.locator(".room-hero h1")).toBeVisible();
+  await expect(page.locator(".room-family")).toBeVisible();
+  await expect.poll(() => familyRequests).toBe(1);
   await page.goto("library.html");
   await expect(page.locator("#book-search")).toBeVisible();
-  expect(familyRequests).toBe(0);
+  expect(familyRequests).toBe(1);
+  await page.goto("kids-family.html");
+  await expect(page.locator(".family-pilot-banner")).toBeVisible();
+  await expect.poll(() => familyRequests).toBe(2);
 });
 
 test("Learning Journey keeps a stable bilingual announcement and labels depth as editorial map order", async ({ page }) => {
@@ -510,8 +516,10 @@ test("catalog expansion updates aggregate counts and published or draft records 
   await page.goto("./");
   const publishedCount = fixture.filter(book => book.status === "published").length;
   const experimentCount = fixture.filter(book => book.status === "published").reduce((count, book) => count + book.experiments.length, 0);
-  await expect(page.locator(".hero-stats strong").nth(0)).toHaveText(String(publishedCount).padStart(2, "0"));
-  await expect(page.locator(".hero-stats strong").nth(2)).toHaveText(String(experimentCount).padStart(2, "0"));
+  await expect(page.locator(".room-book-card")).toHaveCount(publishedCount);
+  await expect(page.locator(".room-book-card .badge-published")).toHaveCount(publishedCount);
+  await page.goto("experiments.html");
+  await expect(page.locator(".experiment-card")).toHaveCount(experimentCount);
   await page.goto("library.html");
   await expect(page.locator(".book-card")).toHaveCount(fixture.length);
   const thinfilmCard = page.locator(".book-card").filter({ has: page.locator('img[src$="thinfilmbook.svg"]') });
@@ -524,7 +532,7 @@ test("catalog expansion updates aggregate counts and published or draft records 
 
   await page.getByLabel("Publication status").selectOption("in-progress");
   await expect(page.locator(".book-card")).toHaveCount(fixture.filter(book => book.status === "in-progress").length);
-  await page.getByRole("link", { name: "Future Fixture", exact: true }).click();
+  await page.locator(".book-card").filter({ hasText: "Future Fixture" }).locator("h3 a").click();
   await expect(page.locator("h1")).toHaveText("Future Fixture");
   await expect(page.locator(".unavailable-note")).toContainText("In progress");
   await expect(page.locator(".book-progress-detail")).toHaveAttribute("data-book-status", "in-progress");

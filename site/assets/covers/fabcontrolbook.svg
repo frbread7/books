@@ -1,12 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" role="img" aria-labelledby="title desc">
-  <title id="title">FabControlBook cover</title><desc id="desc">Original artwork showing control signals moving through a semiconductor manufacturing process system.</desc>
-  <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#183443"/><stop offset="1" stop-color="#254d5b"/></linearGradient><pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#4d7380" stroke-opacity=".3"/></pattern></defs>
-  <rect width="640" height="800" fill="url(#bg)"/><rect width="640" height="800" fill="url(#grid)"/>
-  <path d="M45 520h100l25-80 30 154 32-212 28 135 28-74 30 36h74l22-115 31 170 31-74h78" fill="none" stroke="#f1a078" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-  <g fill="#d9ebeb" stroke="#89b4bb" stroke-width="3"><rect x="70" y="285" width="112" height="82" rx="12"/><rect x="245" y="285" width="112" height="82" rx="12"/><rect x="420" y="285" width="145" height="82" rx="12"/></g>
-  <g fill="#183443" font-family="system-ui,sans-serif" font-size="18" font-weight="700" text-anchor="middle"><text x="126" y="333">SENSORS</text><text x="301" y="333">MONITOR</text><text x="492" y="333">CONTROL</text></g>
-  <g stroke="#e6b296" stroke-width="5" fill="none"><path d="M183 326h52"/><path d="M357 326h55"/><path d="M503 370v70"/><path d="M492 429l11 12 11-12"/></g>
-  <text x="54" y="105" fill="#e6b296" font-family="system-ui,sans-serif" font-size="22" font-weight="800" letter-spacing="4">SEMICONDUCTOR ENGINEERING</text>
-  <text x="52" y="180" fill="#fff" font-family="Georgia,serif" font-size="54" font-weight="500">FabControl</text><text x="52" y="238" fill="#fff" font-family="Georgia,serif" font-size="54" font-weight="500">Book</text>
-  <text x="55" y="650" fill="#d9ebeb" font-family="system-ui,sans-serif" font-size="24">SPC · FDC · APC · R2R</text><text x="55" y="692" fill="#bfd4d9" font-family="system-ui,sans-serif" font-size="18">Monitoring, decision, control, and governance</text>
+  <title id="title">FabControlBook — Semiconductor Manufacturing Control Engineering</title>
+  <desc id="desc">A closed feedback loop linking a fabrication tool, a decision desk, and process action.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#222f47"/><stop offset="1" stop-color="#354c5a"/></linearGradient>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f0e8d9"/><stop offset="1" stop-color="#c8d4c9"/></linearGradient>
+  </defs>
+  <rect width="640" height="800" fill="url(#bg)"/>
+  <path d="M0 0h640v800H0z" fill="none" stroke="#f1b28b" stroke-opacity=".18" stroke-width="22"/>
+  <text x="56" y="64" fill="#f0b18b" font-family="Arial,sans-serif" font-size="13" letter-spacing="2.5">READING ROOM  /  SEMICONDUCTOR SERIES</text>
+  <text x="56" y="105" fill="#e7e5dc" font-family="Georgia,serif" font-size="23" font-style="italic">A factory in conversation.</text>
+  <g fill="none" stroke="#d89570" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M209 269c40-40 103-54 158-33m48 34c37 39 51 93 37 144m-33 51c-39 37-94 50-144 35m-51-32c-36-38-49-90-35-140"/>
+    <path d="m352 227 17 9-13 14m105 107-3 18-16-9m-160 166-18-5 11-15m-99-95 1-18 17 9"/>
+  </g>
+  <g>
+    <rect x="190" y="203" width="134" height="112" rx="5" fill="url(#tile)"/>
+    <path d="M212 227h90v61h-90z" fill="#28424d"/>
+    <path d="M227 273v-26h15v26m8 0v-36h15v36m8 0v-19h15v19" fill="none" stroke="#e5a17a" stroke-width="4"/>
+    <rect x="356" y="203" width="134" height="112" rx="5" fill="url(#tile)"/>
+    <circle cx="423" cy="250" r="25" fill="none" stroke="#547a78" stroke-width="5"/>
+    <path d="M423 250v-16m0 16 14 9" stroke="#a5583e" stroke-width="4" stroke-linecap="round"/>
+    <rect x="356" y="426" width="134" height="112" rx="5" fill="url(#tile)"/>
+    <path d="M385 476h76m-38-27v54m-25-27 25-27 25 27-25 27z" fill="none" stroke="#547a78" stroke-width="4" stroke-linejoin="round"/>
+    <rect x="190" y="426" width="134" height="112" rx="5" fill="url(#tile)"/>
+    <path d="M218 491h78m-65-18h52m-41-18h30" stroke="#a5583e" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g fill="#314650" font-family="Arial,sans-serif" font-size="12" letter-spacing="1.3" text-anchor="middle"><text x="257" y="301">PROCESS</text><text x="423" y="301">SENSE</text><text x="423" y="524">DECIDE</text><text x="257" y="524">ACT</text></g>
+  <circle cx="340" cy="371" r="48" fill="#d9916d"/>
+  <circle cx="340" cy="371" r="32" fill="#243b4b"/>
+  <path d="M322 371h36m-18-18v36" stroke="#efc19b" stroke-width="3"/>
+  <path d="M56 586h528" stroke="#c8d4c9" stroke-opacity=".32"/>
+  <text x="56" y="633" fill="#fff8ed" font-family="Georgia,serif" font-size="40">FabControlBook</text>
+  <text x="58" y="674" fill="#e3e4db" font-family="Arial,sans-serif" font-size="18">Semiconductor Manufacturing</text>
+  <text x="58" y="699" fill="#e3e4db" font-family="Arial,sans-serif" font-size="18">Control Engineering</text>
+  <text x="58" y="752" fill="#f0b18b" font-family="Arial,sans-serif" font-size="11" letter-spacing="2.2">04   /   FIVE BOOKS ON MAKING</text>
 </svg>

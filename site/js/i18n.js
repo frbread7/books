@@ -6,9 +6,9 @@
       primaryNavigation: "Primary navigation", homeLinkAria: "My Library home", siteSubtitle: "Interactive Engineering & Knowledge Books", statsLabel: "Library statistics",
       language: "KO", languageControl: "Switch language", themeLight: "Switch to light mode", themeDark: "Switch to dark mode",
       footerLine: "A personal, independently published bookshelf for engineering and knowledge.", footerTop: "Back to top",
-      eyebrow: "A growing collection, built one useful book at a time", heroTitle: "Ideas worth exploring.\nBooks built to make them tangible.",
-      heroBody: "Interactive engineering textbooks connect the equations, process choices, and real-world decisions behind the technology we use.",
-      browseBooks: "Explore the library", seeRoadmap: "See what’s next", shelfLabel: "On the shelf", shelfHeading: "One book, a whole engineering story.",
+      eyebrow: "An independent engineering library", heroTitle: "Good ideas\ndeserve to be opened.",
+      heroBody: "Explore books that open up the systems, measurements, and materials behind the technology around us.",
+      browseBooks: "Explore the library", homeChapterCta: "Start with this chapter", homeChapterEyebrow: "A place to begin", opensNewTab: "Opens in a new tab", startFirstChapter: "Start with the first chapter", roomCollectionHeading: "Published books, ready to explore", roomCollectionIntro: "Browse every catalog record with its current publication status and chapter count.", subjectPublishedBooks: " published books · explore the collection", subjectRoadmap: "On the roadmap · not published", homeFamilyDraftNote: "Three HeavyVehicleBook stories are editorial drafts. The other illustrated scopes below are proposals.", familyArtHeavyVehicle: "Illustration of a safe public worksite with heavy vehicles and visitors outside the work zone.", familyArtDinosaur: "Illustration of a dinosaur fossil field guide proposal.", familyArtWildlife: "Illustration of a wildlife habitat proposal.", familyArtRobot: "Illustration of a helpful robot and machine proposal.", seeRoadmap: "See what’s next", shelfLabel: "On the shelf", shelfHeading: "One book, a whole engineering story.",
       shelfIntro: "Start with power management—from system rails and circuits through BCD integration, test, and reliability.",
       featured: "Featured book", readBook: "Open the textbook", details: "Book details", repository: "Source repository", koreanEdition: "Korean edition",
       bookCount: "published book", plannedCount: "planned ideas", experimentsCount: "interactive experiments",
@@ -27,7 +27,7 @@
       pathsIntro: "Curated sequences using only verified chapters from published books.", pathAudience: "For", outcome: "Learning outcome",
       step: "Step", why: "Why this step", experimentsHeading: "Interactive experiments",
       experimentsIntro: "Explore models embedded in published textbooks. Each link points to a verified interactive anchor.",
-      openExperiment: "Open experiment", kind: "Experiment type", chapter: "Chapter", experimentEmpty: "No verified interactive experiments are listed yet.",
+      openExperiment: "Open experiment", kind: "Experiment type", chapter: "Chapter", chapterCountLabel: "chapters", experimentEmpty: "No verified interactive experiments are listed yet.",
       bookNotFound: "That book is not in the library catalog.", bookUnavailable: "This record is marked {status}; its production site is not available from the library yet.", returnLibrary: "Return to the library", chapterIndex: "Chapter index",
       topics: "Topics covered", updated: "Release date", version: "Version", languages: "Languages", languageEnglish: "English", languageKorean: "Korean",
       prerequisitesNone: "No formal prerequisite is listed.", subject: "Subject", contents: "In this book", roadmapCta: "Explore the roadmap",
@@ -71,9 +71,9 @@
       primaryNavigation: "주요 탐색", homeLinkAria: "My Library 홈", siteSubtitle: "인터랙티브 공학 및 지식 도서", statsLabel: "도서관 통계",
       language: "EN", languageControl: "언어 전환", themeLight: "라이트 모드로 전환", themeDark: "다크 모드로 전환",
       footerLine: "공학과 지식을 위해 책 한 권씩 만들어 가는 개인 독립 출판 서가입니다.", footerTop: "맨 위로",
-      eyebrow: "유용한 책을 한 권씩 더해 가는 지식 컬렉션", heroTitle: "탐구할 가치가 있는 아이디어.\n직접 이해하도록 돕는 책.",
-      heroBody: "인터랙티브 공학 교재를 통해 우리가 사용하는 기술의 방정식, 공정 선택, 실제 의사결정을 연결합니다.",
-      browseBooks: "도서관 둘러보기", seeRoadmap: "다음 계획 보기", shelfLabel: "서가에 있는 책", shelfHeading: "한 권의 책, 하나의 공학 이야기.",
+      eyebrow: "독립 공학 도서관", heroTitle: "좋은 아이디어는\n책을 펼치며 시작됩니다.",
+      heroBody: "우리 주변 기술을 이루는 시스템과 측정, 재료의 세계를 책으로 살펴보세요.",
+      browseBooks: "도서관 둘러보기", homeChapterCta: "이 장부터 읽기", homeChapterEyebrow: "여기서 시작하기", opensNewTab: "새 탭에서 열림", startFirstChapter: "첫 장부터 읽기", roomCollectionHeading: "바로 살펴볼 수 있는 출판 도서", roomCollectionIntro: "카탈로그의 모든 도서와 현재 출판 상태, 장 수를 둘러보세요.", subjectPublishedBooks: "권의 출판 도서 · 컬렉션 보기", subjectRoadmap: "로드맵에 있음 · 미출판", homeFamilyDraftNote: "HeavyVehicleBook 이야기 세 편은 편집 초안입니다. 아래의 다른 그림책 범위는 제안입니다.", familyArtHeavyVehicle: "작업 구역 밖에 방문객이 있는 안전한 공공 작업 현장과 대형 차량 그림.", familyArtDinosaur: "공룡 화석 현장 안내 제안 그림.", familyArtWildlife: "야생 생물 서식지 제안 그림.", familyArtRobot: "도움을 주는 로봇과 기계 제안 그림.", seeRoadmap: "다음 계획 보기", shelfLabel: "서가에 있는 책", shelfHeading: "한 권의 책, 하나의 공학 이야기.",
       shelfIntro: "전력 관리부터 시작해 시스템 전원 레일과 회로에서 BCD 통합, 시험, 신뢰성까지 살펴봅니다.",
       featured: "추천 도서", readBook: "교재 열기", details: "도서 상세", repository: "소스 저장소", koreanEdition: "한국어판",
       bookCount: "출판된 도서", plannedCount: "계획 아이디어", experimentsCount: "인터랙티브 실험",
@@ -92,7 +92,7 @@
       pathsIntro: "출판된 교재에서 확인된 장만 사용하는 학습 순서입니다.", pathAudience: "대상", outcome: "학습 목표",
       step: "단계", why: "학습 이유", experimentsHeading: "인터랙티브 실험",
       experimentsIntro: "출판된 교재에 포함된 모델을 탐색하세요. 각 링크는 검증된 인터랙티브 위치로 연결됩니다.",
-      openExperiment: "실험 열기", kind: "실험 유형", chapter: "장", experimentEmpty: "아직 등록된 검증 실험이 없습니다.",
+      openExperiment: "실험 열기", kind: "실험 유형", chapter: "장", chapterCountLabel: "장", experimentEmpty: "아직 등록된 검증 실험이 없습니다.",
       bookNotFound: "해당 도서는 도서관 카탈로그에 없습니다.", bookUnavailable: "이 항목의 상태는 {status}이며 도서관에서 아직 출판 사이트로 연결할 수 없습니다.", returnLibrary: "도서관으로 돌아가기", chapterIndex: "목차",
       topics: "주요 주제", updated: "출판일", version: "버전", languages: "언어", languageEnglish: "영어", languageKorean: "한국어",
       prerequisitesNone: "별도로 지정된 선행 지식이 없습니다.", subject: "분야", contents: "이 책의 내용", roadmapCta: "로드맵 보기",
@@ -133,7 +133,8 @@
   };
   let stored = null;
   try { stored = localStorage.getItem("my-library-language"); } catch { /* English remains available without storage access. */ }
-  const language = stored === "ko" ? "ko" : "en";
+  const requested = new URLSearchParams(location.search).get("lang");
+  const language = requested === "ko" || requested === "en" ? requested : stored === "ko" ? "ko" : "en";
   document.documentElement.lang = language;
   window.MyLibraryI18n = Object.freeze({
     language,

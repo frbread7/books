@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" role="img" aria-labelledby="title desc">
+  <title id="title">A distant worksite seen from a public path</title>
+  <desc id="desc">A yellow dump truck and an excavator sit inside a closed, fenced work area. Flowers and a walking path are in the foreground, outside the fence.</desc>
+  <rect width="360" height="240" rx="24" fill="#f7edda"/>
+  <circle cx="294" cy="47" r="22" fill="#f3c86b"/>
+  <path d="M0 147c48-23 92-24 143-7 53 17 119 14 217-14v114H0z" fill="#d7e5d4"/>
+  <path d="M0 190c65-27 137-27 212-8 62 16 101 8 148-12v70H0z" fill="#f1d8ad"/>
+  <!-- Distant machines remain fully behind the closed site boundary. -->
+  <path d="M67 145h235" stroke="#71877a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M78 132v34m42-34v34m42-34v34m42-34v34m42-34v34m42-34v34" stroke="#71877a" stroke-width="3"/>
+  <path d="M70 128h236" stroke="#c87957" stroke-width="5" stroke-linecap="round"/>
+  <path d="M71 117h55v-19h31v19h52v-19h31v19h65" fill="none" stroke="#c87957" stroke-width="3" stroke-linejoin="round"/>
+  <g transform="translate(105 91)">
+    <path d="M5 35h71l-8 27H15z" fill="#e4ae4e" stroke="#425d55" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M76 44h30l14 18H69z" fill="#df9e43" stroke="#425d55" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M82 32h20l9 12H78z" fill="#dce8df" stroke="#425d55" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M14 34l49-16 8 18-48 15z" fill="#e7bd65" stroke="#425d55" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="34" cy="63" r="10" fill="#52675f"/><circle cx="34" cy="63" r="4" fill="#f7edda"/>
+    <circle cx="99" cy="63" r="10" fill="#52675f"/><circle cx="99" cy="63" r="4" fill="#f7edda"/>
+  </g>
+  <g transform="translate(239 80)" fill="none" stroke="#425d55" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 56h42l-7 17H20z" fill="#687f73"/>
+    <path d="M24 54l7-26 22-13 17 9-18 10-9 22" stroke="#e4ae4e"/>
+    <path d="M69 24l19 15 9 16" stroke="#e4ae4e"/>
+    <path d="M92 53l12 5-5 8-12-5z" fill="#c87957"/>
+  </g>
+  <path d="M14 211c45-18 81-18 114-8" fill="none" stroke="#fff8eb" stroke-width="7" stroke-linecap="round"/>
+  <g fill="#c87957"><circle cx="34" cy="183" r="5"/><circle cx="31" cy="183" r="2" fill="#f7edda"/><circle cx="63" cy="197" r="4"/><circle cx="60" cy="197" r="1.5" fill="#f7edda"/></g>
+  <path d="M36 188v12m27 1v8" stroke="#71877a" stroke-width="2" stroke-linecap="round"/>
+</svg>

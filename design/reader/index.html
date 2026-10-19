@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="description" content="A local, illustrative specimen for a bilingual long-form book reader.">
+    <title>Reading a pattern · Reader specimen</title>
+    <link rel="stylesheet" href="reader.css">
+    <script src="reader.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#chapter-title" data-copy="skip">Skip to chapter</a>
+
+    <header class="site-header">
+      <a class="shelf-link" href="#chapter-title" aria-label="Illustrative Library, current chapter">
+        <span class="shelf-mark" aria-hidden="true">i</span>
+        <span data-copy="shelf">Illustrative Library</span>
+      </a>
+      <div class="book-context" role="group" aria-label="Book and chapter">
+        <span data-copy="book">Field Notes on Clear Thinking</span>
+        <span class="context-divider" aria-hidden="true">/</span>
+        <span data-copy="chapter-context">Chapter 01</span>
+      </div>
+      <div class="reader-controls" role="group" aria-label="Reader settings">
+        <div class="language-switch" role="group" aria-label="Reading language">
+          <button type="button" class="language-button" data-language="en" aria-pressed="true">EN</button>
+          <button type="button" class="language-button" data-language="ko" aria-pressed="false">KO</button>
+        </div>
+        <button type="button" class="theme-button" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">◐</span>
+          <span data-copy="dark-mode">Dark theme</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="reader-layout">
+      <aside class="contents-rail" aria-label="Chapter navigation">
+        <details class="contents" id="contents">
+          <summary data-copy="contents-title">In this chapter</summary>
+          <nav aria-label="Chapter contents">
+            <ol>
+              <li><a href="#begin" data-copy="toc-begin">Begin with a question</a></li>
+              <li><a href="#notice" data-copy="toc-notice">Notice before naming</a></li>
+              <li><a href="#compare" data-copy="toc-compare">Compare the accounts</a></li>
+              <li><a href="#model" data-copy="toc-model">A small model</a></li>
+              <li><a href="#practice" data-copy="toc-practice">Try it yourself</a></li>
+              <li><a href="#reflect" data-copy="toc-reflect">Reflection</a></li>
+            </ol>
+          </nav>
+        </details>
+        <div class="rail-note">
+          <span class="rail-note-label" data-copy="reading-note-label">Reading note</span>
+          <p data-copy="reading-note">This chapter is an illustrative interface specimen.</p>
+        </div>
+      </aside>
+
+      <main id="main-content" class="chapter">
+        <div class="chapter-kicker"><span data-copy="book-short">Field Notes</span><span aria-hidden="true">·</span><span data-copy="chapter-kicker">Chapter 01</span></div>
+        <h1 id="chapter-title" data-copy="title">Reading a pattern</h1>
+        <p class="dek" data-copy="dek">A short practice in looking carefully, describing what is there, and keeping our first explanation provisional.</p>
+        <div class="chapter-meta">
+          <span data-copy="reading-time">Illustrative reading · 4 minutes</span>
+          <span class="meta-rule" aria-hidden="true"></span>
+          <span data-copy="edition">Local reader specimen</span>
+        </div>
+
+        <section id="begin" class="chapter-section" aria-labelledby="begin-title">
+          <p class="section-index" data-copy="section-one">01 / Starting point</p>
+          <h2 id="begin-title" data-copy="begin-title">Begin with a question</h2>
+          <p data-copy="begin-p1">A pattern is easy to recognize after someone has pointed it out. The harder work is noticing it before a name has narrowed our attention. This small chapter offers a repeatable pause: look, describe, compare, then decide what to ask next.</p>
+          <p data-copy="begin-p2">Imagine three marks on a page: one close to the margin, one near the center, and one close to the opposite edge. We do not yet know whether they belong together. We only know where each mark appears.</p>
+          <aside class="callout callout-question" role="note" aria-label="Question to consider">
+            <span class="callout-label" data-copy="question-label">Pause &amp; ask</span>
+            <p data-copy="question-text">What did you observe directly, and what did you add as an explanation?</p>
+          </aside>
+        </section>
+
+        <section id="notice" class="chapter-section" aria-labelledby="notice-title">
+          <p class="section-index" data-copy="section-two">02 / First pass</p>
+          <h2 id="notice-title" data-copy="notice-title">Notice before naming</h2>
+          <p data-copy="notice-p1">A useful description stays close to the evidence. “The marks are farther apart from left to right” records a visible relation. “The marks are accelerating” proposes a story about how they came to be there. The story may be right, but it needs more support.</p>
+          <p data-copy="notice-p2">Try writing one sentence for what is visible and a separate sentence for what might explain it. Keeping those sentences apart makes revision feel like learning rather than failure.</p>
+          <aside class="callout callout-guidance" role="note" aria-label="A practical reminder">
+            <span class="callout-label" data-copy="remember-label">Keep in view</span>
+            <p data-copy="remember-text">A careful description can be useful even when the cause is still unknown.</p>
+          </aside>
+        </section>
+
+        <section id="compare" class="chapter-section" aria-labelledby="compare-title">
+          <p class="section-index" data-copy="section-three">03 / Two accounts</p>
+          <h2 id="compare-title" data-copy="compare-title">Compare the accounts</h2>
+          <p data-copy="compare-intro">Two descriptions can fit the same small set of marks. Put them side by side, then ask what each one would lead you to check.</p>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Comparison of two illustrative descriptions" data-region="comparison">
+            <table>
+              <caption data-copy="table-caption">Two ways to describe the same marks</caption>
+              <thead>
+                <tr>
+                  <th scope="col" data-copy="th-view">View</th>
+                  <th scope="col" data-copy="th-description">Description</th>
+                  <th scope="col" data-copy="th-next">Useful next question</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" data-copy="row-observation">Observation</th>
+                  <td data-copy="cell-observation">The gaps grow from one mark to the next.</td>
+                  <td data-copy="cell-observation-next">Would the spacing stay similar in another sample?</td>
+                </tr>
+                <tr>
+                  <th scope="row" data-copy="row-interpretation">Interpretation</th>
+                  <td data-copy="cell-interpretation">The sequence may follow a repeated rule.</td>
+                  <td data-copy="cell-interpretation-next">What other marks would that rule predict?</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-hint" data-copy="table-hint">On a narrow screen, scroll the comparison sideways to read every column.</p>
+        </section>
+
+        <section id="model" class="chapter-section" aria-labelledby="model-title">
+          <p class="section-index" data-copy="section-four">04 / A compact model</p>
+          <h2 id="model-title" data-copy="model-title">A small model</h2>
+          <p data-copy="model-intro">A model is a compact way to keep a few ideas in view at once. Here is a deliberately simple reading aid, not a scientific law:</p>
+          <figure class="equation-figure">
+            <div class="equation" role="math" aria-label="A useful account equals what was observed plus the context">
+              <span data-copy="equation-observed">what we observed</span>
+              <span class="operator" aria-hidden="true">+</span>
+              <span data-copy="equation-context">the context</span>
+              <span class="operator" aria-hidden="true">=</span>
+              <span data-copy="equation-account">a useful account</span>
+            </div>
+            <figcaption data-copy="equation-caption">An illustrative relationship for organizing a description.</figcaption>
+          </figure>
+          <p data-copy="model-outro">The plus sign is a reminder to keep both parts available. If the context changes, the same observation may call for a different question.</p>
+        </section>
+
+        <section id="practice" class="chapter-section" aria-labelledby="practice-title">
+          <p class="section-index" data-copy="section-five">05 / A short exercise</p>
+          <h2 id="practice-title" data-copy="practice-title">Try it yourself</h2>
+          <ol class="practice-list">
+            <li data-copy="practice-one">Choose a small pattern in an everyday scene, such as the spacing of objects on a shelf.</li>
+            <li data-copy="practice-two">Write down two details you can point to without explaining them.</li>
+            <li data-copy="practice-three">Offer one possible account, then write a question that could help distinguish it from another account.</li>
+          </ol>
+          <p data-copy="practice-outro">The exercise is complete when you have a better next question. Certainty is not required.</p>
+        </section>
+
+        <section id="reflect" class="chapter-section reflection" aria-labelledby="reflect-title">
+          <p class="section-index" data-copy="section-six">06 / Closing note</p>
+          <h2 id="reflect-title" data-copy="reflect-title">Reflection</h2>
+          <p data-copy="reflect-p1">Good reading leaves room for a second look. We can make a clear statement about what is visible, stay modest about what it means, and still move forward with purpose.</p>
+          <p data-copy="reflect-p2">Carry this distinction into the next chapter: description gives an account of the evidence; interpretation offers a reason for it. Both matter, and they do different work.</p>
+        </section>
+
+        <footer class="chapter-footer">
+          <span data-copy="footer-series">Field Notes on Clear Thinking</span>
+          <span data-copy="footer-specimen">Illustrative UI specimen · no textbook content</span>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>

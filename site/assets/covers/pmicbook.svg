@@ -1,8 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640" role="img" aria-labelledby="t d">
-  <title id="t">PMICBook cover</title><desc id="d">A copper and navy illustration of a power-management integrated circuit and connected rails.</desc>
-  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#18334a"/><stop offset="1" stop-color="#0d1723"/></linearGradient><linearGradient id="metal"><stop stop-color="#f1b185"/><stop offset="1" stop-color="#b54f2d"/></linearGradient></defs>
-  <rect width="480" height="640" rx="14" fill="url(#bg)"/><path d="M32 0v640M43 0v640" stroke="#fff" stroke-opacity=".08" stroke-width="3"/>
-  <g fill="none" stroke="url(#metal)" stroke-width="5" opacity=".9"><path d="M245 130v77m0 0h87v58m-87-58h-88v58m88-58v102m0 0h113v68m-113-68H130v68m115-68v113m0 0h73v63m-73-63h-76v63"/><circle cx="245" cy="207" r="12" fill="#f1b185"/><circle cx="332" cy="265" r="8" fill="#f1b185"/><circle cx="157" cy="265" r="8" fill="#f1b185"/><circle cx="358" cy="367" r="8" fill="#f1b185"/><circle cx="130" cy="367" r="8" fill="#f1b185"/></g>
-  <rect x="168" y="285" width="154" height="130" rx="9" fill="#f0e8da" stroke="#d87a4f" stroke-width="5"/><path d="M188 303h115M188 318h71" stroke="#18334a" stroke-width="5"/><text x="245" y="369" text-anchor="middle" fill="#18334a" font-family="Arial,sans-serif" font-size="35" font-weight="700">PMIC</text>
-  <text x="70" y="495" fill="#f1b185" font-family="Arial,sans-serif" font-size="15" letter-spacing="4">INTERACTIVE ENGINEERING TEXTBOOK</text><text x="68" y="548" fill="#fff8ef" font-family="Georgia,serif" font-size="38" font-weight="700">PMICBook</text><text x="70" y="579" fill="#d5e1e6" font-family="Arial,sans-serif" font-size="16">Power Management IC Technology</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640" role="img" aria-labelledby="title desc">
+  <title id="title">PMICBook — Power Management IC Technology</title>
+  <desc id="desc">An editorial illustration of a central power-management device routing energy into distinct supply rails.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#18394a"/><stop offset="1" stop-color="#102631"/></linearGradient>
+    <linearGradient id="copper" x1="0" x2="1"><stop stop-color="#edb184"/><stop offset="1" stop-color="#bf6446"/></linearGradient>
+    <pattern id="grain" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 12 12 0" stroke="#fff" stroke-opacity=".025"/></pattern>
+  </defs>
+  <rect width="480" height="640" fill="url(#paper)"/><rect width="480" height="640" fill="url(#grain)"/>
+  <path d="M31 0v640" stroke="#f4eee3" stroke-opacity=".18"/>
+  <text x="55" y="57" fill="#f0b18b" font-family="Arial,sans-serif" font-size="11" letter-spacing="2.4">READING ROOM  /  SEMICONDUCTOR SERIES</text>
+  <text x="55" y="88" fill="#d9e5df" font-family="Georgia,serif" font-size="17" font-style="italic">Power, made legible.</text>
+  <g fill="none" stroke="url(#copper)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M240 160v55m0 0H134v46m106-46h106v46m-106-46v104m0 0H99v54m141-54h141v54M99 419v36m141-36v36m141-36v36"/>
+    <path d="M119 279h30m192 0h30M84 405h30m252 0h30" stroke-opacity=".68"/>
+  </g>
+  <g fill="#f0b18b"><circle cx="240" cy="215" r="7"/><circle cx="134" cy="261" r="5"/><circle cx="346" cy="261" r="5"/><circle cx="99" cy="365" r="5"/><circle cx="381" cy="365" r="5"/><circle cx="99" cy="455" r="4"/><circle cx="240" cy="455" r="4"/><circle cx="381" cy="455" r="4"/></g>
+  <rect x="164" y="292" width="152" height="127" rx="4" fill="#f5eee1"/>
+  <path d="M179 310h122M179 318h62" stroke="#bf6446" stroke-width="2"/>
+  <text x="240" y="370" fill="#18394a" font-family="Georgia,serif" font-size="31" text-anchor="middle">PMIC</text>
+  <path d="M188 390h104" stroke="#b8c8c1" stroke-width="1"/>
+  <text x="55" y="507" fill="#f0b18b" font-family="Arial,sans-serif" font-size="10" letter-spacing="2">POWER ARCHITECTURE</text>
+  <text x="52" y="556" fill="#fff8ed" font-family="Georgia,serif" font-size="36">PMICBook</text>
+  <path d="M55 572h44" stroke="#edb184" stroke-width="2"/>
+  <text x="55" y="602" fill="#e1e7df" font-family="Arial,sans-serif" font-size="15">Power Management IC Technology</text>
+  <text x="55" y="624" fill="#b8ccc9" font-family="Arial,sans-serif" font-size="9" letter-spacing="2">01   /   FIVE BOOKS ON MAKING</text>
 </svg>

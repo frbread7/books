@@ -1,32 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640" role="img" aria-labelledby="cover-title cover-desc">
-  <title id="cover-title">WATBook — Wafer Acceptance Test &amp; Parametric Engineering</title>
-  <desc id="cover-desc">An original dark navy textbook cover showing a wafer monitor map and a precision probe aligned to one measurement point.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640" role="img" aria-labelledby="title desc">
+  <title id="title">WATBook — Wafer Acceptance Test &amp; Parametric Engineering</title>
+  <desc id="desc">A wafer seen as a field of measurement sites, with a single probe point held in focus.</desc>
   <defs>
-    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#122a35"/><stop offset="1" stop-color="#294b55"/></linearGradient>
-    <radialGradient id="wafer" cx="42%" cy="38%"><stop stop-color="#b8d5cf"/><stop offset=".78" stop-color="#769e9a"/><stop offset="1" stop-color="#486b70"/></radialGradient>
-    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#d6e5df" stroke-opacity=".18" stroke-width="1"/></pattern>
-    <clipPath id="disc"><circle cx="241" cy="240" r="137"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e6e5d8"/><stop offset="1" stop-color="#c5d5cb"/></linearGradient>
+    <radialGradient id="wafer" cx="38%" cy="33%"><stop stop-color="#f8f2df"/><stop offset=".78" stop-color="#b7cbc2"/><stop offset="1" stop-color="#77948f"/></radialGradient>
+    <clipPath id="disc"><circle cx="260" cy="259" r="151"/></clipPath>
   </defs>
   <rect width="480" height="640" fill="url(#bg)"/>
-  <path d="M0 0h480v640H0z" fill="url(#grid)" opacity=".55"/>
-  <circle cx="241" cy="240" r="143" fill="#10212a" stroke="#e2a078" stroke-width="2"/>
-  <circle cx="241" cy="240" r="137" fill="url(#wafer)"/>
-  <g clip-path="url(#disc)" fill="none" stroke="#edf4eb" stroke-opacity=".47" stroke-width="1">
-    <path d="M104 103v274M138 103v274M172 103v274M206 103v274M240 103v274M274 103v274M308 103v274M342 103v274M376 103v274"/>
-    <path d="M100 108h282M100 142h282M100 176h282M100 210h282M100 244h282M100 278h282M100 312h282M100 346h282M100 380h282"/>
+  <path d="M0 0h480v640H0z" fill="none" stroke="#284b4b" stroke-opacity=".16" stroke-width="16"/>
+  <text x="43" y="55" fill="#345650" font-family="Arial,sans-serif" font-size="11" letter-spacing="2.2">READING ROOM  /  SEMICONDUCTOR SERIES</text>
+  <text x="43" y="87" fill="#284b4b" font-family="Georgia,serif" font-size="17" font-style="italic">The wafer as evidence.</text>
+  <circle cx="260" cy="259" r="160" fill="#304b4d"/>
+  <circle cx="260" cy="259" r="151" fill="url(#wafer)"/>
+  <g clip-path="url(#disc)" fill="none" stroke="#466a63" stroke-opacity=".36" stroke-width="1">
+    <path d="M124 110v300m34-300v300m34-300v300m34-300v300m34-300v300m34-300v300m34-300v300m34-300v300m34-300v300"/>
+    <path d="M100 123h320m-320 34h320m-320 34h320m-320 34h320m-320 34h320m-320 34h320m-320 34h320m-320 34h320m-320 34h320"/>
   </g>
-  <g fill="#e2a078">
-    <circle cx="206" cy="210" r="5"/><circle cx="240" cy="210" r="5"/><circle cx="274" cy="210" r="5"/>
-    <circle cx="206" cy="244" r="5"/><circle cx="240" cy="244" r="7"/><circle cx="274" cy="244" r="5"/>
-    <circle cx="206" cy="278" r="5"/><circle cx="240" cy="278" r="5"/><circle cx="274" cy="278" r="5"/>
-  </g>
-  <path d="M322 82 272 193l-18 42" fill="none" stroke="#f2eee5" stroke-width="9" stroke-linecap="round"/>
-  <path d="m246 244 16-18" fill="none" stroke="#c55938" stroke-width="6" stroke-linecap="round"/>
-  <circle cx="241" cy="240" r="9" fill="none" stroke="#c55938" stroke-width="3"/>
-  <text x="54" y="447" fill="#f4eee3" font-family="Georgia,serif" font-size="57" font-weight="700">WATBook</text>
-  <path d="M56 468h110" stroke="#e2a078" stroke-width="4"/>
-  <text x="57" y="505" fill="#f4eee3" font-family="Arial,sans-serif" font-size="18" letter-spacing="1.2">WAFER ACCEPTANCE TEST</text>
-  <text x="57" y="532" fill="#f4eee3" font-family="Arial,sans-serif" font-size="17" letter-spacing="1">&amp; PARAMETRIC ENGINEERING</text>
-  <text x="57" y="578" fill="#c7d9d2" font-family="Arial,sans-serif" font-size="14">웨이퍼 전기적 특성 · 측정 · 판단</text>
-  <text x="56" y="614" fill="#e2a078" font-family="Arial,sans-serif" font-size="11" letter-spacing="2">MEASUREMENT TO DECISION</text>
+  <path d="M197 196h126M197 230h126M197 264h126M197 298h126M197 332h126M214 179v170m34-170v170m34-170v170m34-170v170" fill="none" stroke="#bd7655" stroke-opacity=".8" stroke-width="2"/>
+  <circle cx="282" cy="264" r="10" fill="#f4ead5" stroke="#a74f36" stroke-width="4"/>
+  <path d="m367 128-72 112-12 18" fill="none" stroke="#294248" stroke-width="8" stroke-linecap="round"/>
+  <path d="m276 264 17-20" stroke="#bd7655" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="282" cy="264" r="22" fill="none" stroke="#a74f36" stroke-opacity=".7"/>
+  <path d="M43 454h394" stroke="#53716b" stroke-opacity=".55"/>
+  <text x="43" y="484" fill="#a45339" font-family="Arial,sans-serif" font-size="10" letter-spacing="2">MEASUREMENT  /  TEST  /  INTERPRETATION</text>
+  <text x="40" y="534" fill="#203b42" font-family="Georgia,serif" font-size="39">WATBook</text>
+  <text x="43" y="566" fill="#294248" font-family="Arial,sans-serif" font-size="15">Wafer Acceptance Test &amp;</text>
+  <text x="43" y="588" fill="#294248" font-family="Arial,sans-serif" font-size="15">Parametric Engineering</text>
+  <text x="43" y="623" fill="#54736d" font-family="Arial,sans-serif" font-size="9" letter-spacing="2">02   /   FIVE BOOKS ON MAKING</text>
 </svg>
