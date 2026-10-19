@@ -6,7 +6,7 @@
       "workId": "pmicbook",
       "workName": "PMICBook",
       "workUrl": "https://github.com/frbread7/pmicbook",
-      "auditScope": "Read-only attribution docs at main SHA da37b183c559d35fcb7f6471c86c513b104a7020; ProcessBook baseline separately pinned.",
+      "auditScope": "Read-only review of PMICBook LICENSE.md and docs/UPSTREAM_ATTRIBUTION.md at main SHA 45edf20e3b1a0924699bf3ea76a6adb0eb767e67; ProcessBook baseline separately pinned.",
       "reuseRecords": [
         {
           "classification": "cc-by-4.0-adaptation",
@@ -104,11 +104,11 @@
         },
         {
           "classification": "mit-code-reuse",
-          "summary": "Shared framework, layout, styles, scripts, and simulator code remain derived per PMICBook attribution. The root MIT notice is retained; current docs do not exhaustively map each reused code file.",
+          "summary": "Shared framework and simulator code remain ProcessBook-derived per PMICBook attribution. The v1.2 map records key executable-file lineage and separates code from educational strings and diagrams; mixed chapter inline code and code-level ancestry are not mapped exhaustively. The root MIT notice remains.",
           "sourceTitle": "ProcessBook site/software framework",
           "sourceAuthor": "geniuskey and ProcessBook contributors (LICENSE-MIT notice)",
           "sourceRepository": "https://github.com/geniuskey/processbook",
-          "sourcePath": "Shared HTML/CSS/JS/Python and simulator components; exact subset needs file-level mapping.",
+          "sourcePath": "The attribution map identifies the ProcessBook baseline paths css/style.css, js/common.js, js/optics.js, js/xsec.js, and tools/head.py; it records no baseline counterpart for the new js/ldmos-sequence.js or PMICBook-added tools/check_site.py and tools/browser_qa.mjs.",
           "sourceCommitSha": "0bc4314d1e13c485a658e0cb1d4fd237b5fc8dff",
           "licenseName": "MIT License",
           "licenseUrl": "https://github.com/geniuskey/processbook/blob/0bc4314d1e13c485a658e0cb1d4fd237b5fc8dff/LICENSE-MIT",
@@ -130,12 +130,12 @@
       "findings": [
         {
           "severity": "P2",
-          "summary": "MIT code reuse is not exhaustively mapped file-by-file.",
-          "evidence": "docs/UPSTREAM_ATTRIBUTION.md describes derived framework and preserved notices without a complete source/destination code list.",
-          "recommendedAction": "Add a baseline-based code map as maintenance. This is provenance precision, not an infringement claim."
+          "summary": "The v1.2 map lists the principal reusable framework and simulator files, but the HTML shell and inline sandbox code lineage and finer code/content boundaries remain incomplete.",
+          "evidence": "docs/UPSTREAM_ATTRIBUTION.md maps css/style.css, js/common.js, js/optics.js, js/xsec.js, js/ldmos-sequence.js, tools/head.py, tools/check_site.py, and tools/browser_qa.mjs against the pinned baseline or records their absence there. Its mixed chapter discussion preserves a material-level code/content split and explicitly does not make a line-by-line copyright determination.",
+          "recommendedAction": "As maintenance, map any retained HTML shell and inline sandbox code to precise source/destination locations and continue separating executable portions from educational wording and generated artwork. This is provenance precision, not a legal or infringement determination."
         }
       ],
-      "reviewedAt": "2026-10-13",
+      "reviewedAt": "2026-10-19",
       "reviewStatus": "reviewed"
     },
     {

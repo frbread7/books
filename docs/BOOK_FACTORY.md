@@ -70,7 +70,7 @@ Replace `OWNER/REPOSITORY` with the book repository. The verifier checks the ful
 
 ## PMICBook example
 
-PMICBook is registered in catalog/books/pmicbook.json. Its latest formal release is v1.1.0; the latest successful Pages deployment is source commit `da37b183c559d35fcb7f6471c86c513b104a7020` (Pages deployment `6962762856`, run `37942176575`). These fields describe different facts. The record includes 25 bilingual chapters, English/Korean entry points, and four live-checked experiment anchors. To verify the committed indexes without changing them:
+PMICBook is registered in catalog/books/pmicbook.json. Its latest formal release is v1.2.0; the latest successful Pages deployment is source commit `45edf20e3b1a0924699bf3ea76a6adb0eb767e67` (Pages deployment `7166907725`, run `39207992437`). These fields describe different facts. The record includes 25 bilingual chapters, English/Korean entry points, four live-checked experiment anchors, and a production pass covering 53 HTML routes plus three runtime assets. To verify the committed indexes without changing them:
 
 ~~~sh
 python3 tools/book_factory.py validate
