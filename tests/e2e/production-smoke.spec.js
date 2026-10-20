@@ -14,7 +14,7 @@ test("deployed ThinFilmBook card and cover load", async ({ page }) => {
   await cover.scrollIntoViewIfNeeded();
   await expect.poll(() => cover.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
 
-  await card.getByRole("link", { name: "ThinFilmBook", exact: true }).click();
+  await card.locator("h3 a").click();
   await expect(page.getByRole("heading", { level: 1, name: "ThinFilmBook" })).toBeVisible();
   const detailCover = page.locator(".detail-cover-wrap img");
   await expect.poll(() => detailCover.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);

@@ -19,7 +19,7 @@ test("home, featured textbook, chapter links and structure work at the /books/ b
   await expect(page.locator(".room-hero h1")).toHaveText("Good ideas deserve to be opened.");
   await expect(page).toHaveTitle("My Library — Interactive Engineering & Knowledge Books");
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", "My Library — Interactive Engineering & Knowledge Books");
-  await expect(page.locator(".room-book-card")).toHaveCount(catalogBooks.length);
+  await expect(page.locator(".room-book-card")).toHaveCount(publishedBooks.length);
   await expect(page.locator(".room-book-card .badge-published")).toHaveCount(publishedBooks.length);
   const overview = catalogBooks.find(book => book.id === "pmicbook").chapters.find(chapter => chapter.id === "overview");
   await expect(page.locator(".room-hero .button-primary")).toHaveAttribute("href", overview.urls.en);

@@ -262,7 +262,7 @@ tbody th { width: 22%; color: var(--accent-strong); font-weight: 650; }
 tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
 .table-hint { margin: .55rem 0 0 !important; color: var(--ink-faint) !important; font-family: var(--sans) !important; font-size: .73rem !important; line-height: 1.5 !important; }
 
-.equation-figure { margin: 1.6rem 0; padding: 1.5rem; border: 1px solid var(--line); background: var(--paper-raised); text-align: center; }
+.equation-figure, .circuit-figure { margin: 1.6rem 0; padding: 1.5rem; border: 1px solid var(--line); background: var(--paper-raised); text-align: center; }
 .equation {
   display: flex;
   flex-wrap: wrap;
@@ -273,9 +273,11 @@ tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
   font-size: clamp(1rem, 2.6vw, 1.35rem);
   line-height: 1.5;
 }
-.equation > span:not(.operator) { padding: .35rem .55rem; border-bottom: 1px solid var(--accent); }
-.operator { color: var(--accent-strong); font-family: var(--sans); font-weight: 600; }
-.equation-figure figcaption { margin-top: .9rem; color: var(--ink-faint); font-size: .73rem; }
+.equation > span { padding: .25rem .15rem; }
+.equation var { font-style: italic; }
+.equation-figure figcaption, .circuit-figure figcaption { margin-top: .9rem; color: var(--ink-soft); font-size: .8rem; line-height: 1.5; }
+.circuit-figure svg { display: block; width: 100%; height: auto; max-width: 640px; margin-inline: auto; color: var(--ink); }
+.circuit-figure .circuit-labels { color: var(--ink); }
 
 .practice-list { display: grid; gap: .8rem; margin: 0 0 1.25rem; padding-left: 1.35rem; color: var(--ink); font-family: var(--reading); font-size: 1.05rem; line-height: 1.75; }
 .practice-list li { padding-left: .35rem; }
@@ -313,7 +315,7 @@ tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
   .chapter-meta { flex-wrap: wrap; }
   .chapter-section { margin-top: 2.8rem; }
   .callout { padding: 1rem; }
-  .equation-figure { padding: 1rem .7rem; }
+  .equation-figure, .circuit-figure { padding: 1rem .7rem; }
   .chapter-footer { flex-direction: column; }
 }
 

@@ -12,7 +12,7 @@ test("redesigned home connects the featured book, chapter, collection, and subje
   await expect(page.locator(".room-hero-art img")).toHaveAttribute("alt", "PMICBook cover");
   await expect(page.locator(".room-book-card h3").filter({ hasText: new RegExp(`^${featured.title.en}$`) })).toHaveCount(1);
   await expect(page.locator(".room-feature .room-chapter-entry a")).toHaveAttribute("href", overview.urls.en);
-  await expect(page.locator(".room-book-card")).toHaveCount(books.length);
+  await expect(page.locator(".room-book-card")).toHaveCount(books.filter(book => book.status === "published").length);
 
   const subject = page.locator('.room-subject-card[data-subject="semiconductor"]');
   await expect(subject).toBeVisible();

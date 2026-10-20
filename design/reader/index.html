@@ -43,7 +43,7 @@
               <li><a href="#begin" data-copy="toc-begin">Begin with a question</a></li>
               <li><a href="#notice" data-copy="toc-notice">Notice before naming</a></li>
               <li><a href="#compare" data-copy="toc-compare">Compare the accounts</a></li>
-              <li><a href="#model" data-copy="toc-model">A small model</a></li>
+              <li><a href="#model" data-copy="toc-model">A technical specimen</a></li>
               <li><a href="#practice" data-copy="toc-practice">Try it yourself</a></li>
               <li><a href="#reflect" data-copy="toc-reflect">Reflection</a></li>
             </ol>
@@ -119,20 +119,41 @@
         </section>
 
         <section id="model" class="chapter-section" aria-labelledby="model-title">
-          <p class="section-index" data-copy="section-four">04 / A compact model</p>
-          <h2 id="model-title" data-copy="model-title">A small model</h2>
-          <p data-copy="model-intro">A model is a compact way to keep a few ideas in view at once. Here is a deliberately simple reading aid, not a scientific law:</p>
+          <p class="section-index" data-copy="section-four">04 / Technical specimen</p>
+          <h2 id="model-title" data-copy="model-title">Equation and circuit</h2>
+          <p data-copy="model-intro">This separate, original specimen shows how a technical chapter can present a law, its units, and a labeled diagram. It is not content from a hosted textbook.</p>
+          <p data-copy="model-terms">For an ideal resistor at steady direct current, Ohm’s law gives I = V / R. Here I is current in amperes (A), V is voltage across the resistor in volts (V), and R is resistance in ohms (Ω).</p>
           <figure class="equation-figure">
-            <div class="equation" role="math" aria-label="A useful account equals what was observed plus the context">
-              <span data-copy="equation-observed">what we observed</span>
-              <span class="operator" aria-hidden="true">+</span>
-              <span data-copy="equation-context">the context</span>
-              <span class="operator" aria-hidden="true">=</span>
-              <span data-copy="equation-account">a useful account</span>
+            <div class="equation" role="math" aria-label="Current I equals voltage V divided by resistance R; 6 volts divided by 1 kiloohm equals 6 milliamperes">
+              <span><var>I</var> = <var>V</var> / <var>R</var></span>
+              <span aria-hidden="true">=</span>
+              <span>6 V / 1.0 kΩ</span>
+              <span aria-hidden="true">=</span>
+              <span>6 mA</span>
             </div>
-            <figcaption data-copy="equation-caption">An illustrative relationship for organizing a description.</figcaption>
+            <figcaption data-copy="equation-caption">Worked ideal DC example: 1.0 kΩ = 1,000 Ω, so 6 V / 1,000 Ω = 0.006 A = 6 mA.</figcaption>
           </figure>
-          <p data-copy="model-outro">The plus sign is a reminder to keep both parts available. If the context changes, the same observation may call for a different question.</p>
+          <figure class="circuit-figure">
+            <svg viewBox="0 0 640 300" role="img" aria-labelledby="circuit-title circuit-desc" xmlns="http://www.w3.org/2000/svg">
+              <title id="circuit-title" data-copy="circuit-title">Ideal DC source and resistor circuit</title>
+              <desc id="circuit-desc" data-copy="circuit-desc">A closed wire loop. On the left, a 6-volt DC source with positive terminal above and negative terminal below. On the top wire, a 1.0-kiloohm resistor. Conventional current is clockwise through the resistor and equals 6 milliamperes.</desc>
+              <g class="circuit-wire" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M130 123V75H266M406 75h124v160H130v-38"/>
+                <circle cx="130" cy="160" r="37"/>
+                <rect x="266" y="58" width="140" height="34" rx="2"/>
+                <path d="M202 75h30"/>
+                <path d="m223 66 12 9-12 9"/>
+              </g>
+              <g class="circuit-labels" fill="currentColor" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20">
+                <text x="121" y="148">+</text><text x="122" y="183">−</text>
+                <text x="87" y="283" data-copy="circuit-source">6 V DC</text>
+                <text x="257" y="42" data-copy="circuit-resistor">R = 1.0 kΩ</text>
+                <text x="175" y="123" data-copy="circuit-current">I = 6 mA</text>
+              </g>
+            </svg>
+            <figcaption data-copy="circuit-caption">Original schematic of the ideal example; the arrow shows conventional current from the positive terminal through the resistor.</figcaption>
+          </figure>
+          <p data-copy="model-outro">This calculation assumes an ideal, constant 1.0 kΩ resistor, an ideal 6 V source, and steady DC. Real components and measurements can depart from these assumptions; a textbook owner must review any applied example.</p>
         </section>
 
         <section id="practice" class="chapter-section" aria-labelledby="practice-title">
