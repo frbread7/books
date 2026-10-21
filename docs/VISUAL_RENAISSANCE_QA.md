@@ -2,7 +2,7 @@
 
 **Status:** Local candidate implementation, automated regression checks, and screenshot review completed; publication review remains pending.
 **Integration base:** `9786903`, which merges the PMICBook v1.2.0 catalog update into the redesign branch.
-**Review date:** 2026-10-20.
+**Review date:** 2026-10-21.
 
 The integrated catalog contains five published books, 74 chapters, and 20 verified experiment anchors. PMICBook v1.2.0 is included in this catalog snapshot. This report records local candidate evidence; it is not an accessibility certification.
 
@@ -50,14 +50,34 @@ Selected before/after screenshots are checked in for review. The before images s
 | Screenshot matrix | `PLAYWRIGHT_BASE_URL=http://127.0.0.1:18473/books/ node design/capture-matrix.cjs /tmp/books-renaissance-qa-postmerge` | Exit 0; `captures=140`, `anomalies=[]`, `errors=[]` | Five routes × seven widths × EN/KO × light/dark; isolated local candidate server. |
 | Supplemental route capture | `PLAYWRIGHT_BASE_URL=http://127.0.0.1:18473/books/ node design/capture-supplemental.cjs /tmp/books-renaissance-qa-supplemental` | Exit 0; `captures=16`, `anomalies=[]`, `errors=[]` | Four further routes × two widths × EN/light and KO/dark. |
 | Reader specimen check | `node design/reader/check.cjs /tmp/books-renaissance-qa-final` | Exit 0; `captures=8`, `findings=[]` | Local `file://` reader; checks formula, diagram alternatives, state, navigation anchors, names, and overflow. The test script ships with the isolated prototype, not the hosted site. |
+| Local accessibility and resilience check | `PLAYWRIGHT_BASE_URL=http://127.0.0.1:18473/books/ node design/check-local-readiness.cjs /tmp/books-renaissance-readiness.json` | Exit 0; 40 reflow states, 18 sampled contrast pairs, `findings=[]` | Five routes × 320/390/720/1440 px × EN/light and KO/dark, plus the targeted checks below. This supplements the earlier full screenshot matrix. |
 
 The Playwright suite verifies keyboard operation and focus behavior for Learning Journey stage/strand controls and family story navigation; story print media and bilingual spreads; the 404 skip link; placeholder and published-badge contrast in both themes; and fit, primary navigation, named controls, and page errors across primary routes. The contrast assertions cover the search placeholder and published badge, not every text or non-text color combination.
 
-## Manual and assistive technology review
+## Focused accessibility and resilience review
+
+- **Reflow proxy:** home, library, PMIC detail, Little Explorers, and Learning Journey had no document overflow or missing main heading at 320, 390, 720, or 1440 CSS px in EN/light and KO/dark (40 states). A 720 CSS px viewport approximates the layout width of a 1440 px window at 200% browser zoom; the check did not drive native browser zoom. A separate `html` root-font-size 200% probe did not enlarge the fixed-pixel home heading, so this is not a passed text-only scaling audit.
+- **Reduced motion:** Chromium's reduced-motion preference made portal scroll behavior `auto`, button/card transition durations `0s`, and hovered card transform `none`. The isolated reader used `auto` scroll and a computed `0.00001s` transition, matching its `.01ms` reduced-motion rule. This is a dynamic browser check of representative effects.
+- **Keyboard and focus:** the home skip link received visible focus and moved focus to `#main`; 28 sampled library `Tab` steps reached search and category controls, with no invisible outline in the sample or observed focus trap; a family-interest button responded to `Enter`. Existing Playwright tests cover Learning Journey controls and family story navigation/print emulation. This is not a full keyboard traversal.
+- **Contrast and touch:** 18 sampled computed foreground/background text/control pairs across home and family in EN/light and KO/dark were at least **6.41:1**. Sampled primary navigation and family controls were at least 42 px tall, and no target under 24×24 px failed the checker's sampled-target spacing heuristic. This is not a whole-site pixel, image, gradient, or non-text contrast audit or a formal target-size certification; computed translucent backgrounds were treated as opaque in the ratio calculation.
+- **Error states:** intercepting the optional family JSON request with HTTP 503 left home usable; the family route displayed retry and recovered after the request was restored; an unknown book slug displayed a return-to-library link. These are local browser simulations, not production outages.
+
+## Local performance observation
+
+Three fresh Chromium contexts per route on this Ubuntu VM loaded the loopback candidate server without network throttling. The wall-clock metric is navigation start to visible `main h1`; resource transfer bytes are the browser's same-origin Resource Timing values, and layout shift is the browser observer's non-input sum in this local run. Values are indicative only, not Core Web Vitals, Lighthouse, a real-device result, or an image-decoded completion time.
+
+| Route | Median heading ready | Requests | Median resource transfer | Observed layout shift | External requests |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Home | 136 ms | 21 | 509,610 B | 0.053 | 0 |
+| Library | 174 ms | 16 | 448,637 B | 0.048 | 0 |
+| Little Explorers | 137 ms | 16 | 493,664 B | 0.046 | 0 |
+
+The static `site/` artifact is about 514 KB on disk. The current application loads several catalog JSON files for every route, which contributes to the local transfer totals; a route-specific loading change would need separate design and regression review.
+
+## Manual and assistive technology limits
 
 - Visual inspection covered the representative states listed above. The 140-state and 16-state screenshot captures do not mean every image was individually inspected.
-- The CSS reduced-motion rules were inspected; dynamic reduced-motion behavior was not verified in a browser run.
-- Full keyboard, zoom, print-dialog, error-state, and whole-site contrast audits remain pending beyond the automated assertions described above.
+- Native browser zoom, text-only scaling, full keyboard traversal, print-dialog behavior, and whole-site contrast/target audits remain pending beyond the focused checks described above.
 - No screen reader or other assistive technology testing was performed.
 - No physical-device testing was performed.
 
@@ -70,6 +90,7 @@ The Playwright suite verifies keyboard operation and focus behavior for Learning
 | Final review | P2 | PMIC documentation and test assumptions | Stale PMIC release wording and test assumptions | Updated/reviewed against integrated PMICBook v1.2.0 metadata. |
 | Targeted reader review | P2 | Scientific reading specimen and handoff | Needed a real equation/diagram and explicit technical content integration rules | Added original ideal Ohm’s-law example, circuit, bilingual alternatives, and owner reconciliation gates; independent correctness review found the new math, circuit, and handoff sound. |
 | Targeted reader review | P3 | Korean accessible group/note names | Some pre-existing labels remained English after switching to Korean | Fixed across the reader's group, navigation, and note labels; eight-state rerun checked Korean names. |
+| Local readiness review | P2 | QA checker assertions | Independent reviewer found invisible-focus, missing contrast sample, and touch measurements could be reported without failing the new checker | Checker now fails those cases; final 40-state run passed. No application source edit was required. |
 | — | — | Remaining reviewed scope | No other confirmed P0/P1 findings reported | Requirements, correctness, test/QA, docs/release, and security/privacy reviewers completed their scoped read-only passes; targeted re-review found the repairs sound. |
 
 Severity: P0 release blocker; P1 important defect; P2 in-scope improvement; P3 optional or future.
@@ -82,6 +103,7 @@ Severity: P0 release blocker; P1 important defect; P2 in-scope improvement; P3 o
 - **Official screenshot matrix:** `PLAYWRIGHT_BASE_URL=http://127.0.0.1:18473/books/ node design/capture-matrix.cjs /tmp/books-renaissance-qa-postmerge` — exit 0, 140 captures, no anomalies, no errors.
 - **Supplemental screenshots:** `PLAYWRIGHT_BASE_URL=http://127.0.0.1:18473/books/ node design/capture-supplemental.cjs /tmp/books-renaissance-qa-supplemental` — exit 0, 16 captures, no anomalies, no errors.
 - **Isolated reader:** eight-state browser rerun with no findings; targeted independent correctness review of the scientific specimen and handoff passed.
+- **Local accessibility, resilience, and indicative performance:** `PLAYWRIGHT_BASE_URL=http://127.0.0.1:18473/books/ node design/check-local-readiness.cjs /tmp/books-renaissance-readiness.json` — exit 0, 40 reflow states, 18 sampled contrast pairs, dynamic reduced-motion and focus/error checks, three local cold loads per sampled route; no checker findings.
 - **Remote CI:** not checked; no GitHub-hosted Actions were run.
 - **Deployment / production site:** not tested.
-- **Reviewers and date:** renaissance lead with scoped independent requirements, correctness, test/QA, docs/release, and security/privacy reviews; 2026-10-19–20. Publication review remains pending.
+- **Reviewers and date:** renaissance lead with scoped independent requirements, correctness, test/QA, docs/release, and security/privacy reviews; 2026-10-19–21. Publication review remains pending.
