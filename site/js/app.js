@@ -44,6 +44,50 @@
     const excerpt = localized(book.description);
     return `<article class="${esc(className)}${featured ? " book-card-featured" : ""}" style="--accent:${esc(book.theme?.accent || "#315d6d")};--accent-soft:${esc(book.theme?.accentSoft || "#e3ebe7")}"><a class="cover-link" href="${local(`book.html?slug=${encodeURIComponent(book.slug)}`)}" aria-label="${esc(t("details"))}: ${esc(title)}">${cover(book)}</a><div class="book-card-body"><div class="card-topline">${badge(book.status)}<span class="book-edition">${esc(book.version)}</span></div><h3><a href="${local(`book.html?slug=${encodeURIComponent(book.slug)}`)}" aria-label="${esc(`${t("details")}: ${title}`)}">${esc(cardTitle)}</a></h3><p class="book-subtitle">${esc(localized(book.subtitle))}</p><p class="book-description">${esc(excerpt)}</p><div class="tag-row">${book.tags.slice(0, 4).map(tag => `<span class="tag">${esc(tag)}</span>`).join("")}</div><p class="book-chapter-count">${book.chapters.length} ${esc(t("chapterCountLabel"))}</p><a class="text-link" href="${local(`book.html?slug=${encodeURIComponent(book.slug)}`)}">${esc(t("details"))} <span aria-hidden="true">↗</span></a></div></article>`;
   }
+  function shelfBook(book, { className = "" } = {}) {
+    const title = localized(book.title);
+    const detailsHref = local(`book.html?slug=${encodeURIComponent(book.slug)}`);
+    const chapters = book.chapters || [];
+    return `<article class="shelf-book book-card ${esc(className)}" data-book-slug="${esc(book.slug)}" style="--accent:${esc(book.theme?.accent || "#315d6d")};--accent-soft:${esc(book.theme?.accentSoft || "#e3ebe7")}"><div class="shelf-book-object"><a class="cover-link" href="${detailsHref}" aria-label="${esc(t("details"))}: ${esc(title)}">${cover(book)}</a></div><div class="shelf-book-meta"><div class="card-topline">${badge(book.status)}<span class="book-edition">${esc(book.version)}</span></div><h3><a href="${detailsHref}">${esc(title)}</a></h3><p class="book-subtitle">${esc(localized(book.subtitle))}</p><p class="book-chapter-count">${chapters.length} ${esc(t("chapterCountLabel"))}</p><a class="text-link" href="${detailsHref}">${esc(t("details"))} <span aria-hidden="true">↗</span></a></div></article>`;
+  }
+  function bookcase(items, id, label, className = "") {
+    return `<div class="bookcase ${esc(className)}" data-bookcase><div id="${esc(id)}" class="bookcase-viewport" role="region" tabindex="0" aria-label="${esc(label)}" aria-describedby="${esc(`${id}-hint`)}"><div class="bookcase-track">${items.map(book => shelfBook(book, { className: className === "room-bookcase" ? "room-book-card" : "" })).join("")}</div></div><p class="bookcase-hint" id="${esc(`${id}-hint`)}">${esc(t("shelfScrollHint"))}</p><div class="bookcase-controls"><button type="button" data-shelf-prev aria-controls="${esc(id)}" aria-label="${esc(t("shelfPrevious"))}" disabled><span aria-hidden="true">←</span></button><button type="button" data-shelf-next aria-controls="${esc(id)}" aria-label="${esc(t("shelfNext"))}" disabled><span aria-hidden="true">→</span></button></div></div>`;
+  }
+  function attachBookcaseControls(root = main) {
+    const bookcases = root.matches?.("[data-bookcase]") ? [root] : root.querySelectorAll("[data-bookcase]");
+    for (const bookcase of bookcases) {
+      if (bookcase.dataset.controlsReady) continue;
+      const viewport = bookcase.querySelector(".bookcase-viewport");
+      const previous = bookcase.querySelector("[data-shelf-prev]");
+      const next = bookcase.querySelector("[data-shelf-next]");
+      if (!viewport || !previous || !next) continue;
+      const sync = () => {
+        const first = bookcase.querySelector(".shelf-book");
+        if (!first) { previous.disabled = true; next.disabled = true; return; }
+        const max = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+        const start = Math.min(max, first.offsetLeft);
+        previous.disabled = viewport.scrollLeft <= start + 1;
+        next.disabled = viewport.scrollLeft >= max - 1;
+      };
+      const scroll = direction => {
+        const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+        viewport.scrollBy({ left: direction * Math.max(160, viewport.clientWidth * 0.8), behavior: reducedMotion ? "auto" : "smooth" });
+      };
+      previous.addEventListener("click", () => scroll(-1));
+      next.addEventListener("click", () => scroll(1));
+      viewport.addEventListener("scroll", sync, { passive: true });
+      window.addEventListener("resize", sync, { passive: true });
+      if (window.ResizeObserver) {
+        const observer = new ResizeObserver(sync);
+        observer.observe(viewport);
+        const track = bookcase.querySelector(".bookcase-track");
+        if (track) observer.observe(track);
+      }
+      bookcase.refreshShelf = reset => { if (reset) viewport.scrollLeft = 0; sync(); };
+      bookcase.dataset.controlsReady = "true";
+      sync();
+    }
+  }
   const headerTitle = (eyebrow, title, intro) => `<div class="page-heading"><p class="eyebrow">${esc(eyebrow)}</p><h1>${esc(title)}</h1><p class="lead">${esc(intro)}</p></div>`;
   function categoryName(categories, id) { return localized(categories.find(c => c.id === id)?.name) || id; }
   function bookReferenceLinks(ids, books) {
@@ -76,7 +120,7 @@
     return `<div class="room-home">
       <section class="room-hero"><div class="room-hero-copy"><p class="eyebrow">${esc(t("eyebrow"))}</p><h1>${esc(t("heroTitle"))}</h1><p class="lead">${esc(t("heroBody"))}</p><div class="hero-actions">${chapterCta}<a class="button button-quiet" href="${local("library.html")}">${esc(t("browseBooks"))}<span aria-hidden="true">→</span></a><a class="button button-quiet" href="${local("experiments.html")}">${esc(t("navExperiments"))}</a><a class="button button-quiet" href="${local("learning-journey.html")}">${esc(t("navJourney"))}</a><a class="button button-quiet" href="${local("kids-family.html")}">${esc(t("navFamily"))}</a><a class="button button-quiet" href="${local("roadmap.html")}">${esc(t("seeRoadmap"))}</a></div></div>${featuredCover}</section>
       <section class="room-feature"><div><p class="eyebrow">${esc(t("shelfLabel"))}</p><h2>${esc(t("shelfHeading"))}</h2><p>${esc(t("shelfIntro"))}</p>${featuredBookLink}</div>${chapterFeature}</section>
-      <section class="room-book-shelf"><div class="section-heading"><div><p class="eyebrow">${esc(t("shelfLabel"))}</p><h2>${esc(t("roomCollectionHeading"))}</h2><p>${esc(t("roomCollectionIntro"))}</p></div><a class="text-link" href="${local("library.html")}">${esc(t("navLibrary"))} ↗</a></div><div class="room-book-grid">${published.map(book => bookCard(book, { className: "room-book-card" })).join("")}</div></section>
+      <section class="room-book-shelf"><div class="section-heading"><div><p class="eyebrow">${esc(t("shelfLabel"))}</p><h2>${esc(t("roomCollectionHeading"))}</h2><p>${esc(t("roomCollectionIntro"))}</p></div><a class="text-link" href="${local("library.html")}">${esc(t("navLibrary"))} ↗</a></div>${bookcase(published, "home-bookcase-viewport", t("shelfRegionLabel"), "room-bookcase")}</section>
       ${subjects}
       ${familyPreview}
       <section class="next-shelf"><div><p class="eyebrow">${esc(t("planned"))}</p><h2>${esc(localized(roadmap.books[0]?.title))}</h2><p>${esc(localized(roadmap.books[0]?.subtitle))} · ${esc(t("roadmapIntro"))}</p></div><a class="button button-outline" href="${local("roadmap.html")}">${esc(t("roadmapCta"))}<span aria-hidden="true">→</span></a></section>
@@ -88,7 +132,7 @@
     const initialSearch = query.get("q") || "";
     const initialCategory = query.get("category") || "";
     const initialStatus = query.get("status") || "";
-    return `${headerTitle(t("navLibrary"), t("catalogHeading"), t("catalogIntro"))}<section class="catalog-tools" aria-label="${esc(t("navLibrary"))}"><div class="search-wrap"><label for="book-search">${esc(t("searchLabel"))}</label><span aria-hidden="true" class="search-icon">⌕</span><input id="book-search" type="search" placeholder="${esc(t("search"))}" value="${esc(initialSearch)}" autocomplete="off"></div><div class="filter-wrap"><label for="category-filter">${esc(t("category"))}</label><select id="category-filter"><option value="">${esc(t("allSubjects"))}</option>${categories.map(c => `<option value="${esc(c.id)}"${initialCategory === c.id ? " selected" : ""}>${esc(localized(c.name))}</option>`).join("")}</select></div><div class="filter-wrap"><label for="status-filter">${esc(t("status"))}</label><select id="status-filter"><option value="">${esc(t("allStatuses"))}</option>${["published", "planned", "in-progress", "archived"].map(s => `<option value="${s}"${initialStatus === s ? " selected" : ""}>${esc(statusText(s))}</option>`).join("")}</select></div><button class="button button-filter-reset" data-action="clear-filters" type="button">${esc(t("clearFilters"))}</button></section><p class="result-count" id="result-count" aria-live="polite"></p><section id="book-grid" class="book-grid" aria-label="${esc(t("catalogHeading"))}"></section>`;
+    return `${headerTitle(t("navLibrary"), t("catalogHeading"), t("catalogIntro"))}<section class="catalog-tools" aria-label="${esc(t("navLibrary"))}"><div class="search-wrap"><label for="book-search">${esc(t("searchLabel"))}</label><span aria-hidden="true" class="search-icon">⌕</span><input id="book-search" type="search" placeholder="${esc(t("search"))}" value="${esc(initialSearch)}" autocomplete="off"></div><div class="filter-wrap"><label for="category-filter">${esc(t("category"))}</label><select id="category-filter"><option value="">${esc(t("allSubjects"))}</option>${categories.map(c => `<option value="${esc(c.id)}"${initialCategory === c.id ? " selected" : ""}>${esc(localized(c.name))}</option>`).join("")}</select></div><div class="filter-wrap"><label for="status-filter">${esc(t("status"))}</label><select id="status-filter"><option value="">${esc(t("allStatuses"))}</option>${["published", "planned", "in-progress", "archived"].map(s => `<option value="${s}"${initialStatus === s ? " selected" : ""}>${esc(statusText(s))}</option>`).join("")}</select></div><button class="button button-filter-reset" data-action="clear-filters" type="button">${esc(t("clearFilters"))}</button></section><p class="result-count" id="result-count" aria-live="polite"></p>${bookcase([], "library-bookcase-viewport", t("shelfRegionLabel"), "library-bookcase")}`;
   }
   function categoriesPage(books, categories) {
     const selectedId = new URLSearchParams(location.search).get("id");
@@ -385,15 +429,18 @@
   }
   function attachCatalogFilters(books) {
     const search = document.querySelector("#book-search"), category = document.querySelector("#category-filter"), status = document.querySelector("#status-filter");
-    const grid = document.querySelector("#book-grid"), count = document.querySelector("#result-count");
-    if (!search || !category || !status || !grid) return;
+    const bookcaseRoot = document.querySelector(".library-bookcase"), track = bookcaseRoot?.querySelector(".bookcase-track"), viewport = bookcaseRoot?.querySelector(".bookcase-viewport"), count = document.querySelector("#result-count");
+    if (!search || !category || !status || !track || !count) return;
     const paint = () => {
       const q = search.value.trim().toLowerCase(), cat = category.value, state = status.value;
       const found = books.filter(book => {
         const text = [localized(book.title), localized(book.subtitle), localized(book.description), ...book.tags, ...book.chapters.flatMap(c => [localized(c.title), ...c.topics])].join(" ").toLowerCase();
         return (!q || text.includes(q)) && (!cat || book.category === cat) && (!state || book.status === state);
       });
-      grid.innerHTML = found.length ? found.map(book => bookCard(book)).join("") : `<div class="empty-state empty-grid"><span class="empty-mark" aria-hidden="true">⌕</span><h2>${esc(t("emptyTitle"))}</h2><p>${esc(t("emptyBody"))}</p></div>`;
+      track.innerHTML = found.length ? found.map(book => shelfBook(book)).join("") : `<div class="empty-state empty-grid"><span class="empty-mark" aria-hidden="true">⌕</span><h2>${esc(t("emptyTitle"))}</h2><p>${esc(t("emptyBody"))}</p></div>`;
+      bookcaseRoot.classList.toggle("is-empty", found.length === 0);
+      if (viewport) viewport.scrollLeft = 0;
+      bookcaseRoot?.refreshShelf?.(true);
       count.textContent = `${found.length} ${t("resultCount")}`;
       const params = new URLSearchParams();
       const urlLanguage = new URLSearchParams(location.search).get("lang");
@@ -401,6 +448,7 @@
       if (q) params.set("q", q); if (cat) params.set("category", cat); if (state) params.set("status", state);
       history.replaceState({}, "", `${location.pathname}${params.size ? `?${params}` : ""}`);
     };
+    attachBookcaseControls(bookcaseRoot || main);
     [search, category, status].forEach(el => el.addEventListener(el === search ? "input" : "change", paint));
     document.querySelector('[data-action="clear-filters"]').addEventListener("click", () => { search.value = ""; category.value = ""; status.value = ""; paint(); search.focus(); });
     paint();
@@ -456,6 +504,7 @@
       document.querySelector(".primary-nav").setAttribute("aria-label", t("primaryNavigation"));
       document.querySelector(".hero-stats")?.setAttribute("aria-label", t("statsLabel"));
       attachGlobalControls();
+      if (page === "home") attachBookcaseControls();
       if (page === "library") attachCatalogFilters(books);
       if (page === "journey") attachJourneyControls(journey, books, roadmap);
       if (page === "family") attachKidsFamilyControls(kidsFamily, journey);

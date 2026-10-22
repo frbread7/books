@@ -54,7 +54,7 @@ Primary navigation remains shared across the existing flat routes. Common destin
 ## Design principles
 
 1. **Show the book before its metadata.** Covers, chapter titles, and real subject illustrations should lead; operational facts support the decision.
-2. **Make reading the shortest path.** Each book card has one obvious details action; details expose direct chapter and lab entry points.
+2. **Make reading the shortest path.** Each book on the shelf has one obvious details action; details expose direct chapter and lab entry points.
 3. **Distinguish fact from proposal in every visual treatment.** Published status is conveyed with explicit text, not color alone; planned work never borrows a published-cover treatment.
 4. **Use original art to explain, not decorate.** Technical motifs can make the collection memorable but must not imply measured results or calibrated process guidance.
 5. **Keep child-facing interaction calm and caregiver-visible.** No motion-dependent instructions, autoplay, personal data collection, gamification, or hidden safety context.
@@ -70,6 +70,8 @@ Three rendered concepts have been compared in [the visual renaissance rationale]
 - **Field-guide press:** a contemporary illustrated publication system with restrained technical color and distinct edition-like book panels.
 
 Track implementation and release evidence in [the visual renaissance QA report](docs/VISUAL_RENAISSANCE_QA.md). Candidate art inventory and provenance limits are recorded in the rationale. The separate [reader specimen handoff](design/reader/handoff.md) defines bilingual and light/dark interaction guidance for a future textbook reader; it remains a local static specimen, not an implemented or deployed reader route.
+
+The home collection and Library catalog use one physical shelf component. Original covers stand upright on a shared support plane with a visible contact line, front lip, subtle page edges, and grounding shadows; concise status and book metadata sit below the plane without enclosing each cover in a card. The shelf browses horizontally at narrow widths with native swipe/scroll and labelled previous/next buttons. Both surfaces derive inventory and links from the current catalog; home shows published records only, and Library retains its filters and truthful status. The geometry remains legible in light/dark and English/Korean. This contract reflects the live [Books interactive library](https://books.euiyun.com/) homepage inspected on 2026-10-22 for spatial cues, without reusing its artwork, assets, branding, or code. The reference's Library page is a cover grid; My Library's Library follows the user's explicit physical-shelf request.
 
 The selected implementation will define color tokens for page/canvas, text, muted text, rule, focus, accent, publication state, and separate child-safe illustrations; type roles for large display headings, Korean-capable body text, compact metadata, and monospaced technical labels; spacing, radius, shadow, and focus tokens; and a small motion vocabulary. No remote fonts or image services. Motion is decorative only, brief, and disabled under `prefers-reduced-motion`.
 
@@ -87,6 +89,8 @@ These sources establish visual and interaction patterns, not permission to reuse
 
 Existing shared header, navigation, language/theme controls, footer, status badge, buttons, and data-driven book renderer remain the base. The redesign may reshape home/library/detail/subject composition and add small semantic components: an illustrated book display, compact subject/path links, a direct chapter preview, quick chapter/lab links, a mobile navigation disclosure if required, and proposal/pilot callouts.
 
+The shared `bookcase` presentation owns cover objects, the support plane/lip, compact below-shelf labels, a focusable scroll region, and its paired labelled controls. On a Library search/filter update, it returns to the first matching book and recalculates control boundaries. Zero matches show the existing empty state without a fake shelf or book. Additional catalog records extend the same horizontal track instead of requiring hard-coded visual slots.
+
 Base styles remain in `site/css/style.css`; candidate visual tokens and route-specific styles live in `site/css/renaissance.css`. Interactions use the existing vanilla-JavaScript renderer and native links, buttons, inputs, selects, and `details`. No component framework or runtime dependency is introduced.
 
 ## Accessibility
@@ -96,6 +100,8 @@ Target WCAG 2.2 AA heuristically; this is a design target, not a certification. 
 ## Responsive behavior
 
 Verify 320, 360, 390, 768, 1024, 1440, and 1920 CSS-pixel widths. Small screens become a single reading column with large, uncropped cover art; filters stack in a clear order; the header compacts without hiding its destinations; chapter lists remain scannable; and bilingual titles wrap instead of truncating. Medium screens use compact two-column layouts where text remains comfortable. Large layouts use generous margins and readable maximum text widths. Hover styles are enhancements only; every action works on touch and keyboard.
+
+The bookcase keeps full cover art and a physical contact line at every width. Its internal track may overflow horizontally; the page itself must not. A small screen shows roughly two books, a browsing instruction and controls; touch swipe, keyboard focus, and buttons reach later books. Reduced-motion preference removes smooth scrolling and decorative transitions.
 
 ## Interaction states
 
