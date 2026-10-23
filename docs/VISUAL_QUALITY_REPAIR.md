@@ -1,6 +1,6 @@
 # Visual quality repair audit
 
-**Status:** Candidate implementation, local rendered-image review, focused checks, and the full local `npm test` suite are complete. The fresh independent Sol High review remains pending. No publication is planned or reported.
+**Status:** Candidate implementation, local rendered-image review, focused checks, and the full local `npm test` suite are complete. The independent GPT-6 Sol High review (`gpt-6-sol`, High) approved the candidate; GPT-6.1 Sol was unavailable due to model capacity. No publication is planned or reported.
 **Baseline:** repository commit `87e8161`.
 **Scope:** visual quality evidence and follow-up for the reported book-cover and tag legibility concerns. The exact context of the user's screenshot is unknown: route, viewport, language, theme, content/catalog, and deployed build have not been identified.
 
