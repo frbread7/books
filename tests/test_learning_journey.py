@@ -148,13 +148,13 @@ class LearningJourneyTests(unittest.TestCase):
     def test_process_integration_publication_replaces_its_roadmap_proposal(self):
         integration = next(book for book in self.books if book["id"] == "processintegrationbook")
         self.assertEqual(integration["status"], "published")
-        self.assertEqual(integration["version"], "1.0.0")
+        self.assertEqual(integration["version"], "1.1.0")
         self.assertEqual(integration["chapterCount"], 13)
         self.assertEqual(len(integration["chapters"]), 13)
         self.assertEqual(set(integration["languages"]), {"en", "ko"})
         self.assertEqual(set(integration["relatedBooks"]), {"pmicbook", "watbook"})
         self.assertEqual(integration["publicationEvidence"]["productionRevision"], "7c1fbd44e4993b61c6eeb3fe6e11eaec1c213577")
-        self.assertTrue(integration["publicationEvidence"]["releaseUrl"].endswith("/v1.0.0"))
+        self.assertTrue(integration["publicationEvidence"]["releaseUrl"].endswith("/v1.1.0"))
         for experiment in integration["experiments"]:
             self.assertEqual(experiment["verification"]["checkedUrl"], experiment["url"])
             self.assertEqual(experiment["verification"]["httpStatus"], 200)
