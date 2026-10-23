@@ -1,6 +1,6 @@
 # Visual quality repair audit
 
-**Status:** Candidate implementation, local rendered-image review, focused checks, and the full local `npm test` suite are complete. The independent GPT-6 Sol High review (`gpt-6-sol`, High) approved the candidate; GPT-6.1 Sol was unavailable due to model capacity. No publication is planned or reported.
+**Status:** Candidate implementation, local rendered-image review, focused checks, and the full local `npm test` suite are complete. The independent GPT-6 Sol High review (`gpt-6-sol`, High) approved the candidate; GPT-6.1 Sol was unavailable due to model capacity. This repair candidate remains local and unpublished.
 **Baseline:** repository commit `87e8161`.
 **Scope:** visual quality evidence and follow-up for the reported book-cover and tag legibility concerns. The exact context of the user's screenshot is unknown: route, viewport, language, theme, content/catalog, and deployed build have not been identified.
 
@@ -20,7 +20,7 @@ This audit is distinct from the prior representative review in [visual renaissan
 
 ## Defect register
 
-Severity: P0 release blocker; P1 important defect; P2 in-scope improvement; P3 optional or future. Baseline findings and candidate evidence are kept separate. Candidate statements refer to the local uncommitted source hashes listed below.
+Severity: P0 release blocker; P1 important defect; P2 in-scope improvement; P3 optional or future. Baseline findings and candidate evidence are kept separate. Candidate statements refer to the committed local candidate source hashes listed below.
 
 | ID | Severity | Area | Baseline finding | Candidate evidence and status |
 | --- | --- | --- | --- | --- |
@@ -107,4 +107,4 @@ The reviewer did not inspect every one of the 226 PNGs individually. Native brow
 
 ## Publication gate
 
-Local-only until candidate images have been inspected, applicable coverage and DOM checks are recorded, defects are dispositioned, and the independent adverse review is complete. Remote deployment and production behavior are outside this audit. No GitHub Actions run, push, or publication is authorized or reported here. Any later publication decision requires its own explicit authorization and evidence.
+This repair candidate remains local and unpublished. It made no additional remote changes and triggered no GitHub Actions; the prior production deployment and workflow status are documented above. Any future publication requires separate authorization and evidence.
