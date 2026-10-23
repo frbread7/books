@@ -8,7 +8,7 @@ My Library is a static, bilingual bookshelf for independently maintained textboo
 - Source: https://github.com/frbread7/books
 - Published books: [PMICBook](https://frbread7.github.io/pmicbook/), [WATBook](https://frbread7.github.io/watbook/), [ProcessIntegrationBook](https://frbread7.github.io/processintegrationbook/), [FabControlBook](https://frbread7.github.io/fabcontrolbook/), and [ThinFilmBook](https://frbread7.github.io/thinfilmbook/)
 
-At the candidate's recorded catalog snapshot, the catalog contains five published books, 74 chapters, and 20 verified experiment anchors. Confirm these totals against the integrated catalog before publishing this documentation.
+The validated catalog contains five published books, 74 chapters, and 20 verified experiment anchors. ProcessIntegrationBook's current cataloged release is v1.1.0; the other three scientific reconstruction candidates remain local and unpublished.
 
 ## Work locally
 
@@ -56,6 +56,7 @@ Contributions to the portal follow [CONTRIBUTING.md](CONTRIBUTING.md).
 
 See docs/PRODUCT_VISION.md, docs/ARCHITECTURE.md, docs/ROADMAP.md, docs/USER_MANUAL.md, docs/DEPLOYMENT.md, and docs/BOOK_FACTORY.md.
 The visual design decision, local SVG provenance notes, reader specimen boundary, and implementation QA status are documented in [DESIGN.md](DESIGN.md), [docs/VISUAL_RENAISSANCE.md](docs/VISUAL_RENAISSANCE.md), and [docs/VISUAL_RENAISSANCE_QA.md](docs/VISUAL_RENAISSANCE_QA.md).
+The [semiconductor reconstruction status](docs/SEMICONDUCTOR_RECONSTRUCTION_STATUS.md) and [chapter/lab quality matrix](docs/FOUR_BOOK_CHAPTER_QUALITY_MATRIX_2026-10-22.md) distinguish ProcessIntegrationBook's released evidence from the three local candidates.
 For lifelong learning sources and specifications, see docs/LEARNING_JOURNEY.md, docs/CURRICULUM_SOURCES.md, docs/MATHEMATICS_ROADMAP.md, docs/CURIOSITYBOOK_SPEC.md, docs/KIDS_FAMILY_PORTAL_SPEC.md, and docs/HEAVYVEHICLEBOOK_PILOT.md.
 For upstream change monitoring, differentiation, and file-level rights handling, see docs/REFERENCE_INTELLIGENCE.md, docs/REFERENCE_OVERLAP_FRAMEWORK.md, docs/COPYRIGHT_AND_PROVENANCE.md, and docs/PROVENANCE_AUDIT.md.
 

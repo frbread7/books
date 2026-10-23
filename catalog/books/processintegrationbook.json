@@ -34,8 +34,8 @@
     "en",
     "ko"
   ],
-  "version": "1.0.0",
-  "lastUpdated": "2026-10-12",
+  "version": "1.1.0",
+  "lastUpdated": "2026-10-23",
   "chapterCount": 13,
   "chapters": [
     {
@@ -274,12 +274,12 @@
         "ko": "해석식 확인, 모델 한정"
       },
       "verification": {
-        "checkedAt": "2026-10-12",
+        "checkedAt": "2026-10-23",
         "checkedUrl": "https://frbread7.github.io/processintegrationbook/lab.html#thermal-lab",
         "httpStatus": 200,
         "fragmentFound": true,
-        "contentSha256": "7bfe93c16a5da051a3c80b57eb165e65077eb8abb409a98704eb4bbd37f6418e",
-        "sourceRevision": "7c1fbd44e4993b61c6eeb3fe6e11eaec1c213577",
+        "contentSha256": "79308585edd6867c28a60d57bb68d9c8562b4c88e6821a8453ea7f4d86356ffb",
+        "sourceRevision": "452043e782aaccc4a7c75c702dc4240716010f47",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
         "evidence": "Live HTTPS response; HTTP 200; fragment #thermal-lab present in HTML; SHA-256 recorded."
       }
@@ -297,12 +297,12 @@
         "ko": "정성적 제약 맵"
       },
       "verification": {
-        "checkedAt": "2026-10-12",
+        "checkedAt": "2026-10-23",
         "checkedUrl": "https://frbread7.github.io/processintegrationbook/lab.html#dependency-explorer",
         "httpStatus": 200,
         "fragmentFound": true,
-        "contentSha256": "7bfe93c16a5da051a3c80b57eb165e65077eb8abb409a98704eb4bbd37f6418e",
-        "sourceRevision": "7c1fbd44e4993b61c6eeb3fe6e11eaec1c213577",
+        "contentSha256": "79308585edd6867c28a60d57bb68d9c8562b4c88e6821a8453ea7f4d86356ffb",
+        "sourceRevision": "452043e782aaccc4a7c75c702dc4240716010f47",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
         "evidence": "Live HTTPS response; HTTP 200; fragment #dependency-explorer present in HTML; SHA-256 recorded."
       }
@@ -320,12 +320,12 @@
         "ko": "정성적 학습 활동"
       },
       "verification": {
-        "checkedAt": "2026-10-12",
+        "checkedAt": "2026-10-23",
         "checkedUrl": "https://frbread7.github.io/processintegrationbook/lab.html#integration-review",
         "httpStatus": 200,
         "fragmentFound": true,
-        "contentSha256": "7bfe93c16a5da051a3c80b57eb165e65077eb8abb409a98704eb4bbd37f6418e",
-        "sourceRevision": "7c1fbd44e4993b61c6eeb3fe6e11eaec1c213577",
+        "contentSha256": "79308585edd6867c28a60d57bb68d9c8562b4c88e6821a8453ea7f4d86356ffb",
+        "sourceRevision": "452043e782aaccc4a7c75c702dc4240716010f47",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
         "evidence": "Live HTTPS response; HTTP 200; fragment #integration-review present in HTML; SHA-256 recorded."
       }
@@ -348,12 +348,12 @@
     "motif": "layered process interfaces and a decision path"
   },
   "publicationEvidence": {
-    "releaseUrl": "https://github.com/frbread7/processintegrationbook/releases/tag/v1.0.0",
-    "releasePublishedAt": "2026-10-12",
-    "productionRevision": "7c1fbd44e4993b61c6eeb3fe6e11eaec1c213577",
-    "contentReview": "Internal independent reviews covered requirements, device/process integration, numerical-model, QA, accessibility, security/licensing, and documentation; no release-blocking P0/P1 findings remain. The thermal diffusion activity is an illustrative constant-dilute Arrhenius/Gaussian model with analytical checks only, not validation against silicon or foundry data. Accessible secondary sources support the cited Arrhenius pair; the exact original Sze (1983)/Scotten (2000) page or table provenance remains unresolved (P2) and is disclosed. A separate security review identified a pre-existing public commit-metadata author-email exposure (P3); it is left unchanged because mitigation would require rewriting public history.",
-    "siteVerification": "The v1.0.0 content release passed Actions run 38211639092 and deployed successfully as deployment 7007733961 at release revision dac0f2401da47fa8a858ab3e2c7e24ad4e86fa84. A tag-ref dispatch (run 38211771673; deployment record 7007756862) passed validation, but its deploy job failed before any steps: the github-pages environment's custom branch policy permits only main, and the failed record has no environment URL; production was unchanged. README-only main revisions e22df2d06d5ac4d9a8266815f5ca61b8bae63ffb (run 38223134179 / deployment 7009664374) and 7c1fbd44e4993b61c6eeb3fe6e11eaec1c213577 (run 38224499133 / deployment 7009898448) deployed successfully; the latter is the current Pages source and neither changes files under site/. Production Playwright passed 8/8 desktop/tablet/mobile journeys for the v1.0.0 content, and all 41 static files returned HTTP 200.",
-    "chapterVerification": "After current Pages deployment 7009898448 at revision 7c1fbd44e4993b61c6eeb3fe6e11eaec1c213577, both language entry pages and all 26 English and Korean chapter URLs returned HTTP 200 with nonempty bodies.",
-    "experimentVerification": "All three experiment anchors were checked against original v1.0.0 deployment revision dac0f2401da47fa8a858ab3e2c7e24ad4e86fa84 and rechecked against current Pages revision 7c1fbd44e4993b61c6eeb3fe6e11eaec1c213577 on 2026-10-12. Both checks returned HTTP 200 with exact fragments present and the same response SHA-256; structured verification records the current revision."
+    "releaseUrl": "https://github.com/frbread7/processintegrationbook/releases/tag/v1.1.0",
+    "releasePublishedAt": "2026-10-23",
+    "productionRevision": "452043e782aaccc4a7c75c702dc4240716010f47",
+    "contentReview": "The reviewed Stage B candidate c318f7067364850d050ecf17552825447f49aea0 was integrated into release source 452043e782aaccc4a7c75c702dc4240716010f47. Internal independent numerical/scientific, English/Korean semantic, requirements, correctness, QA/accessibility, security/rights, and release reviews covered scoped changes. The c07 WAT handoff and on-site bibliography P2 findings were repaired and targeted re-reviewed; no release-blocking P0/P1 finding remains in those scopes. The reflected half-line thermal model is analytically and independently numerically checked, not silicon calibrated. Original Sze/Scotten page or table provenance remains unresolved (P2); a historical public commit-author-email exposure remains a disclosed P3 because changing it would rewrite public history. No fab, human translation, external scientific, or legal certification is claimed. The v1.1.0 release body records exact tests, review scopes, and limits.",
+    "siteVerification": "ProcessIntegrationBook v1.1.0 tag and release point to 452043e782aaccc4a7c75c702dc4240716010f47. Local exact-source npm test passed 36 current generated routes, Python 10/10, model 12/12, and Chromium Playwright 16/16. GitHub Actions run 39864151127 completed validate and deploy successfully; latest successful github-pages deployment 7265122303 reports this SHA and the expected production URL. All 41 tracked site resources returned HTTP 200 and exactly matched tested source bytes by SHA-256. Production Chromium Playwright passed 16/16. These are static/browser checks, not process calibration.",
+    "chapterVerification": "After successful deployment 7265122303 at source 452043e782aaccc4a7c75c702dc4240716010f47, both English and Korean entry pages and all 26 chapter HTML routes returned HTTP 200 and matched the tested source files by SHA-256. The complete 41-resource production comparison includes both lab pages and runtime assets.",
+    "experimentVerification": "On 2026-10-23, the bounded live verifier checked all three declared English laboratory URLs and exact fragments against the latest successful Pages revision 452043e782aaccc4a7c75c702dc4240716010f47. Each returned HTTP 200 with its fragment present and SHA-256 79308585edd6867c28a60d57bb68d9c8562b4c88e6821a8453ea7f4d86356ffb; structured experiment records carry the same deployed source SHA. Production Playwright passed 16/16 bilingual and lab journeys, including controls and numerical cases."
   }
 }
