@@ -28,6 +28,7 @@ test("redesigned home keeps navigation and discovery usable at a narrow width in
   await page.goto("./");
 
   const assertFits = async () => {
+    await expect(page.locator(".primary-nav")).toBeVisible();
     const widths = await page.evaluate(() => ({
       viewport: document.documentElement.clientWidth,
       document: document.documentElement.scrollWidth,

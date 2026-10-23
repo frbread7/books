@@ -81,7 +81,7 @@ npm test
 
 ## 4. Promote to published only with evidence
 
-First create a versioned release after the content and technical reviews pass. Then wait for a successful GitHub Pages deployment and obtain the full source SHA from that same successful `github-pages` deployment record. Keep the release version/tag and deployment SHA as separate facts. Fail closed when deployment is missing, still running, failed, or has no valid SHA.
+After content and technical reviews and exact-source tests pass, publish the reviewed source and wait for its successful GitHub Pages deployment. Obtain the full source SHA from that same successful `github-pages` deployment record, then verify the live pages and experiment anchors below. Create the immutable version tag and formal release for that verified source revision before promoting the My Library record. Keep the release version/tag and deployment SHA as separate facts. Fail closed when deployment is missing, still running, failed, or has no valid SHA.
 
 For a new book, inspect its latest Pages deployment before using its SHA:
 
