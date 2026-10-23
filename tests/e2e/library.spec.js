@@ -89,7 +89,7 @@ test("ProcessIntegrationBook is published across its bilingual detail, map, path
   await expect(page.locator("h1")).toHaveText("ProcessIntegrationBook");
   await expect(page.locator(".chapter-list li")).toHaveCount(13);
   await expect(page.locator(".mini-experiment")).toHaveCount(3);
-  await expect(page.locator(".book-facts dd").nth(0)).toHaveText("1.0.0");
+  await expect(page.locator(".book-facts dd").nth(0)).toHaveText("1.1.0");
   await expect(page.locator(".detail-actions a[href^='https://frbread7.github.io/processintegrationbook/']")).toHaveCount(3);
   await expect(page.locator(`.detail-actions a[href="${integration.chapters[0].urls.en}"]`)).toBeVisible();
   await expect(page.locator(`.detail-actions a[href="${integration.repositoryUrl}"]`)).toBeVisible();
