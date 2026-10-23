@@ -103,6 +103,10 @@ Verify 320, 360, 390, 768, 1024, 1440, and 1920 CSS-pixel widths. Small screens 
 
 The bookcase keeps full cover art and a physical contact line at every width. Its internal track may overflow horizontally; the page itself must not. A small screen shows roughly two books, a browsing instruction and controls; touch swipe, keyboard focus, and buttons reach later books. Reduced-motion preference removes smooth scrolling and decorative transitions.
 
+### Legibility and cover contract
+
+Preserve each cover's intrinsic aspect ratio and show its complete artwork; never crop a cover to force a uniform card shape. Keep title and supporting text readable at narrow widths and in both languages. The baseline book-detail covers are 72 px at viewport widths up to 360 px and 90 px up to 600 px; the repair contract is to enlarge them while preserving their aspect ratio and full artwork. The five roadmap/detail tag styles use 10–11 px text at baseline; use at least 12 px for these tags, with distinct surfaces and sufficient foreground contrast in both themes. Verify tag wrapping, tap targets, and layout at 200% browser zoom, including long English and Korean text. These values are design requirements for this repair, not an accessibility certification. Recheck cover proportions, tag legibility, wrapping, clipping, contrast, focus, and page overflow for affected routes and states.
+
 ## Interaction states
 
 - **Loading:** retain a clear, announced catalog loading state.
