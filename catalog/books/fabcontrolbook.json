@@ -35,8 +35,8 @@
     "en",
     "ko"
   ],
-  "version": "1.0.1",
-  "lastUpdated": "2026-10-15",
+  "version": "1.1.0",
+  "lastUpdated": "2026-10-24",
   "chapterCount": 14,
   "chapters": [
     {
@@ -305,12 +305,12 @@
         "ko": "검출 비교"
       },
       "verification": {
-        "checkedAt": "2026-10-15",
+        "checkedAt": "2026-10-24",
         "checkedUrl": "https://frbread7.github.io/fabcontrolbook/lab.html#spc-performance",
         "httpStatus": 200,
         "fragmentFound": true,
-        "contentSha256": "bf87ee2225eb2cf2649ff48b95c642e51ff67a334e1e2431719b4bcd5a405620",
-        "sourceRevision": "49828d6970e50a54cc1d2082d33f28dd6539a2c4",
+        "contentSha256": "898be67eec466a26277821727b1648a884fd697413f4847a5bd1168bf2d789f3",
+        "sourceRevision": "06869870d3e82de8f559fba30f7a5821fc4fbde7",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
         "evidence": "Live HTTPS response; HTTP 200; fragment #spc-performance present in HTML; SHA-256 recorded."
       }
@@ -328,12 +328,12 @@
         "ko": "신호 특징 탐색"
       },
       "verification": {
-        "checkedAt": "2026-10-15",
+        "checkedAt": "2026-10-24",
         "checkedUrl": "https://frbread7.github.io/fabcontrolbook/lab.html#fdc-intelligence",
         "httpStatus": 200,
         "fragmentFound": true,
-        "contentSha256": "bf87ee2225eb2cf2649ff48b95c642e51ff67a334e1e2431719b4bcd5a405620",
-        "sourceRevision": "49828d6970e50a54cc1d2082d33f28dd6539a2c4",
+        "contentSha256": "898be67eec466a26277821727b1648a884fd697413f4847a5bd1168bf2d789f3",
+        "sourceRevision": "06869870d3e82de8f559fba30f7a5821fc4fbde7",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
         "evidence": "Live HTTPS response; HTTP 200; fragment #fdc-intelligence present in HTML; SHA-256 recorded."
       }
@@ -351,12 +351,12 @@
         "ko": "제어 시뮬레이션"
       },
       "verification": {
-        "checkedAt": "2026-10-15",
+        "checkedAt": "2026-10-24",
         "checkedUrl": "https://frbread7.github.io/fabcontrolbook/lab.html#r2r-control",
         "httpStatus": 200,
         "fragmentFound": true,
-        "contentSha256": "bf87ee2225eb2cf2649ff48b95c642e51ff67a334e1e2431719b4bcd5a405620",
-        "sourceRevision": "49828d6970e50a54cc1d2082d33f28dd6539a2c4",
+        "contentSha256": "898be67eec466a26277821727b1648a884fd697413f4847a5bd1168bf2d789f3",
+        "sourceRevision": "06869870d3e82de8f559fba30f7a5821fc4fbde7",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
         "evidence": "Live HTTPS response; HTTP 200; fragment #r2r-control present in HTML; SHA-256 recorded."
       }
@@ -374,12 +374,12 @@
         "ko": "알람 정책 시뮬레이터"
       },
       "verification": {
-        "checkedAt": "2026-10-15",
+        "checkedAt": "2026-10-24",
         "checkedUrl": "https://frbread7.github.io/fabcontrolbook/lab.html#alarm-strategy",
         "httpStatus": 200,
         "fragmentFound": true,
-        "contentSha256": "bf87ee2225eb2cf2649ff48b95c642e51ff67a334e1e2431719b4bcd5a405620",
-        "sourceRevision": "49828d6970e50a54cc1d2082d33f28dd6539a2c4",
+        "contentSha256": "898be67eec466a26277821727b1648a884fd697413f4847a5bd1168bf2d789f3",
+        "sourceRevision": "06869870d3e82de8f559fba30f7a5821fc4fbde7",
         "sourceRevisionAttestation": "Caller-attested deployment source revision; this verifier checks SHA format, not repository membership.",
         "evidence": "Live HTTPS response; HTTP 200; fragment #alarm-strategy present in HTML; SHA-256 recorded."
       }
@@ -403,12 +403,12 @@
     "motif": "control hierarchy, signal traces, and feedback loop"
   },
   "publicationEvidence": {
-    "releaseUrl": "https://github.com/frbread7/fabcontrolbook/releases/tag/v1.0.1",
-    "releasePublishedAt": "2026-10-15",
-    "productionRevision": "49828d6970e50a54cc1d2082d33f28dd6539a2c4",
-    "contentReview": "FabControlBook v1.0.1 is a documentation and release-record correction; technical content is unchanged from v1.0.0. The textbook passed independent internal architecture, semiconductor-domain, numerical-correctness, bilingual editorial, accessibility/QA, requirements, security/provenance, and documentation reviews. Actionable P0/P1/P2 findings were resolved and targeted re-reviews passed. The content comprises 14 substantive English/Korean chapter pairs and four synthetic interactive labs. Validation is analytical/deterministic only; no silicon, production-fab, external professional, contributor-rights, or legal certification is claimed. See the release notes and textbook docs/TECHNICAL_REVIEW.md and docs/PROVENANCE_AND_REVIEW.md.",
-    "siteVerification": "GitHub Actions run 38670303500 succeeded and GitHub Pages deployment 7082124894 published this exact productionRevision at https://frbread7.github.io/fabcontrolbook/. All 44 generated production resources returned HTTP 200: 36 HTML routes and eight non-HTML resources (three license/attribution documents, two SVGs, CSS, JavaScript, and the model module). Production Playwright passed 12/12 journeys across desktop, tablet, and mobile against this revision. https://github.com/frbread7/fabcontrolbook/actions/runs/38670303500",
-    "chapterVerification": "The production sweep returned HTTP 200 for all 36 HTML routes, including all 28 English/Korean chapter routes, language entry pages, laboratory, references, and license/provenance pages. Production Playwright passed 12/12 journeys across desktop, tablet, and mobile and exercised bilingual chapter navigation and the four lab anchors.",
-    "experimentVerification": "All four registered experiment URLs and exact fragments were checked on the live production site on 2026-10-15: HTTP 200, fragmentFound=true, response SHA-256 recorded, and sourceRevision equals the successful Pages deployment SHA. Structured results are recorded on each experiment entry and were produced by tools/verify_experiments.py."
+    "releaseUrl": "https://github.com/frbread7/fabcontrolbook/releases/tag/v1.1.0",
+    "releasePublishedAt": "2026-10-24",
+    "productionRevision": "06869870d3e82de8f559fba30f7a5821fc4fbde7",
+    "contentReview": "FabControlBook v1.1.0 reconstructs all 14 English/Korean chapter pairs and four interactive synthetic labs. Independent internal Sol High scientific/numerical and bilingual reviews checked the controller recurrence, distinct metrology/actuation delays, SPC/FDC/alarm populations and denominators, units, worked cases, and source limits; targeted QA, requirements, documentation, security/provenance, and release reviews closed actionable P0/P1/P2 findings. The finite-horizon Monte Carlo results are not ARL estimates; the stated R2R convergence condition applies only to the documented unsaturated, noise-free, memoryless special case. Models are educational, synthetic, and uncalibrated to a production fab or silicon. No external professional, human translation, contributor-rights, or legal certification is claimed. See the v1.1.0 release notes and source docs/RECONSTRUCTION_CANDIDATE.md, docs/MODELS_AND_VALIDATION.md, and docs/PROVENANCE_AND_REVIEW.md.",
+    "siteVerification": "FabControlBook Actions run 40044817582 succeeded at source 06869870d3e82de8f559fba30f7a5821fc4fbde7 with build, 11 model tests, nine Python site tests, and 18 Playwright tests without hosted retry/flaky markers. GitHub Pages deployment 7291581369 has success status at that same SHA. On 2026-10-24 all 44 generated production resources returned HTTP 200 and SHA-256 matched the tested source bytes (36 HTML pages and eight non-HTML resources); production Playwright passed 18/18 across desktop, tablet, and mobile. An earlier local exact-SHA run had a single intermittent mobile keyboard-scroll timeout (17/18), while four focused reruns and the second full run passed; cause unproven. https://github.com/frbread7/fabcontrolbook/actions/runs/40044817582",
+    "chapterVerification": "On 2026-10-24 all 36 generated HTML routes returned HTTP 200 with byte-identical SHA-256 content, including all 28 English/Korean chapter URLs, entry, lab, references, and license pages. Production Playwright passed 18/18 and exercised bilingual chapter navigation, responsive figure/table focus and keyboard scrolling, and four lab controls in both languages.",
+    "experimentVerification": "Four registered production experiment URLs and exact fragments were verified live on 2026-10-24 by tools/verify_experiments.py with HTTP 200, response SHA-256, and sourceRevision 06869870d3e82de8f559fba30f7a5821fc4fbde7 attested from successful Pages deployment 7291581369. Structured results appear on each experiment entry."
   }
 }

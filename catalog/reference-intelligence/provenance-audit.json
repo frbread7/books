@@ -652,20 +652,20 @@
       "workId": "fabcontrolbook",
       "workName": "FabControlBook",
       "workUrl": "https://github.com/frbread7/fabcontrolbook",
-      "auditScope": "Read-only review of FabControlBook v1.0.0 source revision 2dfb22bf86759c0e273ec95e4d394f7e3255a366, LICENSE.md and scoped license files, docs/REFERENCE_REVIEW.md, docs/PROVENANCE_AND_REVIEW.md, and cited reference metadata. The record reflects project declarations and reviewed source paths; it is not a legal opinion or contributor-title certification.",
+      "auditScope": "Read-only review of FabControlBook v1.1.0 source revision 06869870d3e82de8f559fba30f7a5821fc4fbde7, including 14 English/Korean chapter pairs, two bilingual lab pages with four synthetic experiments, the Chapter 01 inline SVG, model/site code, generated site artifact, content/references.json, LICENSE.md and scoped license files, docs/REFERENCE_REVIEW.md, and docs/PROVENANCE_AND_REVIEW.md. Historical YieldBook/TestBook chapter and license links were rechecked at their pinned revisions; newer monorepository changes were observed but not adopted. The record reflects project declarations and reviewed source paths; production deployment must be evidenced separately in the published book manifest. It is not a legal opinion or contributor-title certification.",
       "reuseRecords": [
         {
           "classification": "original",
           "summary": "The project describes its bilingual educational prose, original diagrams, worked examples, questions, and generated synthetic datasets as newly authored for FabControlBook. No upstream expression or dataset was identified as copied or adapted in the reviewed provenance records.",
-          "sourcePath": "content/en/chapters/*.html; content/ko/chapters/*.html; content/*/lab.html; art/control-hierarchy.svg; synthetic models and examples",
-          "destinationPath": "FabControlBook v1.0.0 production site",
+          "sourcePath": "content/en/chapters/*.html; content/ko/chapters/*.html; content/*/{index,lab,references,license}.html; content/{ui,labs,references}.json; Chapter 01 inline SVG; art/control-hierarchy.svg; assets/covers/fabcontrolbook.svg; synthetic models and examples at source revision 06869870d3e82de8f559fba30f7a5821fc4fbde7",
+          "destinationPath": "FabControlBook v1.1.0 generated site artifact for https://frbread7.github.io/fabcontrolbook/",
           "rightsStatus": "The project declares CC BY 4.0 for educational material and attributes it to frbread7 and contributors. No contributor assignment or ownership evidence is included; this audit does not certify every contributor's ownership or authority to license a contribution."
         },
         {
           "classification": "original",
           "summary": "The project describes its site, simulator, model, build, and test code as original software, separately licensed from educational content.",
-          "sourcePath": "assets/js/*.mjs; assets/js/site.js; assets/css/site.css; tools/build_site.py; tests; workflow",
-          "destinationPath": "FabControlBook v1.0.0 production site and source repository",
+          "sourcePath": "assets/js/*.mjs; assets/js/site.js; assets/css/site.css; tools/build_site.py; tests; workflow at source revision 06869870d3e82de8f559fba30f7a5821fc4fbde7",
+          "destinationPath": "FabControlBook v1.1.0 generated site artifact and source repository",
           "rightsStatus": "The project declares MIT for original software with attribution to frbread7 and contributors. No contributor assignment or ownership evidence is included; this audit does not certify every contributor's ownership or authority to license a contribution."
         },
         {
@@ -742,7 +742,7 @@
         }
       ],
       "findings": [],
-      "reviewedAt": "2026-10-15",
+      "reviewedAt": "2026-10-23",
       "reviewStatus": "reviewed"
     },
     {

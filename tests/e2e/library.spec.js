@@ -123,9 +123,9 @@ test("FabControlBook is published across bilingual chapters, manufacturing-contr
   const fabcontrol = catalogBooks.find(book => book.id === "fabcontrolbook");
   expect(fabcontrol).toBeTruthy();
   expect(fabcontrol.status).toBe("published");
-  expect(fabcontrol.version).toMatch(/^\d+\.\d+\.\d+$/);
+  expect(fabcontrol.version).toBe("1.1.0");
   expect(fabcontrol.publicationEvidence.releaseUrl).toBe(`https://github.com/frbread7/fabcontrolbook/releases/tag/v${fabcontrol.version}`);
-  expect(fabcontrol.publicationEvidence.productionRevision).toMatch(/^[0-9a-f]{40}$/);
+  expect(fabcontrol.publicationEvidence.productionRevision).toBe("06869870d3e82de8f559fba30f7a5821fc4fbde7");
   expect(catalogRoadmap.books.some(book => book.id === fabcontrol.id)).toBe(false);
 
   await page.goto("book.html?slug=fabcontrolbook");
